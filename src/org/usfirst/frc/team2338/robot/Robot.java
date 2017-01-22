@@ -4,7 +4,6 @@ package org.usfirst.frc.team2338.robot;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
-import org.usfirst.frc.team2338.robot.subsystems.Climber;
 import org.usfirst.frc.team2338.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2338.robot.commands.TankDrive;
 
@@ -30,7 +29,6 @@ import edu.wpi.first.wpilibj.vision.VisionThread;
 public class Robot extends IterativeRobot {
 
 	public static final Drivetrain drivetrain = new Drivetrain();
-	public static final Climber climber = new Climber();
 	public static OI oi;
 	
 	// Vision - test
@@ -52,21 +50,17 @@ public class Robot extends IterativeRobot {
       chooser = new SendableChooser();
         
       UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-      camera.setFPS(10);
-//      camera.setExposureManual(0);
-//      camera.setBrightness(0);
       camera.setResolution(640, 480);
         
       // Camera processing in a separate thread
       visionThread = new VisionThread(camera, grip, pipeline -> {
-//    	System.out.println("Running thread"); // Debug purpose only
-    	SmartDashboard.putBoolean("Find Contours Output is Empty: ", pipeline.findContoursOutput().isEmpty());
-    	SmartDashboard.putBoolean("Filter Contours Output is Empty: ", pipeline.filterContoursOutput().isEmpty());
+    	System.out.println("Running thread"); // Debug purpose only
+    	System.out.println(pipeline.filterContoursOutput().isEmpty());
     	if(!pipeline.filterContoursOutput().isEmpty()) {
-    		Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(pipeline.getIndexLargestArea()));
+    		Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
     		System.out.println("Start processing"); // Debug purpose only
+    		isProcessing = true;
     		synchronized (imgLock) {
-    			isProcessing = true;
     			centerX = r.x + (r.width / 2);
     			centerY = r.y + (r.height / 2); // This is probably wrong
     			area = r.area();

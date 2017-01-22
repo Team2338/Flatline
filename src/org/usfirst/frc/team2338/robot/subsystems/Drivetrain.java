@@ -13,7 +13,7 @@ public class Drivetrain extends Subsystem {
 
 	private static final CANTalon frontLeft = new CANTalon(0);
 	private static final CANTalon frontRight = new CANTalon(1);
-//	private static final CANTalon rearLeft = new CANTalon(2);
+	private static final CANTalon rearLeft = new CANTalon(2);
 	private static final CANTalon rearRight = new CANTalon(3);
 	
 	public void drive(double leftOutput, double rightOutput){
