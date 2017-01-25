@@ -24,9 +24,9 @@ public class Shooter extends Subsystem {
 		flywheel.setPID(Globals.flywheelP, Globals.flywheelI, Globals.flywheelD);
 		flywheel.setF(Globals.flywheelF);
 		flywheel.setIZone(Globals.flywheelIZone);
-		flywheel.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		flywheel.setFeedbackDevice(FeedbackDevice.QuadEncoder); // TODO: figure out unit conversion (CtreAbsoluteMag_Relative is proper)
 		flywheel.setPosition(0);
-//		flywheel.configEncoderCodesPerRev(12288); // 4096 * 3 (CPR * gear ratio)
+//		flywheel.configEncoderCodesPerRev(4096*3); // 4096 * 3 (CPR * gear ratio)
 		
 		flywheel.reverseOutput(false);
 		flywheel.reverseSensor(true);

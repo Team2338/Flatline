@@ -6,15 +6,15 @@ import team.gif.Robot;
 /**
  *
  */
-public class ShifterUp extends Command {
+public class ShifterLow extends Command {
 
-    public ShifterUp() {
+    public ShifterLow() {
     	requires(Robot.shifter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.shifter.shiftUp();
+    	Robot.shifter.shiftLow();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -29,6 +29,7 @@ public class ShifterUp extends Command {
     
     // Called once after isFinished returns true
     protected void end() {
+
 
     }
 

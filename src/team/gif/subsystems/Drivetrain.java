@@ -5,6 +5,7 @@ import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import team.gif.RobotMap;
 import team.gif.commands.drivetrain.TankDrive;
 
 /**
@@ -12,10 +13,10 @@ import team.gif.commands.drivetrain.TankDrive;
  */
 public class Drivetrain extends Subsystem {
 
-	private static final CANTalon frontLeft = new CANTalon(7);
-	private static final CANTalon frontRight = new CANTalon(9);
-	private static final CANTalon rearLeft = new CANTalon(8);
-	private static final CANTalon rearRight = new CANTalon(4);
+	private static final CANTalon frontLeft = new CANTalon(RobotMap.frontLeftDrive);
+	private static final CANTalon frontRight = new CANTalon(RobotMap.frontRightDrive);
+	private static final CANTalon rearLeft = new CANTalon(RobotMap.rearLeftDrive);
+	private static final CANTalon rearRight = new CANTalon(RobotMap.rearRightDrive);
 	
 	public Drivetrain() {
 		super();
