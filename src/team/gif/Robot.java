@@ -9,6 +9,7 @@ import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -16,10 +17,12 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.VisionThread;
-import team.gif.commands.TankDrive;
+import team.gif.commands.drivetrain.TankDrive;
 import team.gif.subsystems.Climber;
 import team.gif.subsystems.Drivetrain;
+import team.gif.subsystems.Shifter;
 import team.gif.subsystems.Shooter;
+import team.gif.subsystems.Versadrop;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,10 +36,13 @@ public class Robot extends IterativeRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 //	public static final Climber climber = new Climber();
 	public static final Shooter shooter = new Shooter();
+	public static final Shifter shifter = new Shifter();
+	public static final Versadrop versadrop = new Versadrop();
 	public static OI oi;
 	
     Command autonomousCommand;
     SendableChooser chooser;
+    Preferences prefs;
 	
 	// Vision - test
     public static NetworkTable grip;
@@ -53,6 +59,13 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 	  oi = new OI();
       chooser = new SendableChooser();
+      prefs = Preferences.getInstance();
+      prefs.putDouble("FlywheelP", Globals.flywheelP);
+      prefs.putDouble("FlywheelI", Globals.flywheelI);
+      prefs.putDouble("FlywheelD", Globals.flywheelD);
+      prefs.putDouble("FlywheelF", Globals.flywheelF);
+      prefs.putDouble("FlywheenRPM", Globals.flywheelRPM);
+      prefs.putInt("FlywheelIZone", Globals.flywheelIZone);      
       
       // Kangaroo test
      grip = NetworkTable.getTable("GRIP/myContoursReport");
@@ -122,6 +135,13 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         new TankDrive().start();
+        Globals.flywheelP = prefs.getDouble("FlywheelP", Globals.flywheelP);
+        Globals.flywheelI = prefs.getDouble("FlywheelI", Globals.flywheelI);
+        Globals.flywheelD = prefs.getDouble("FlywheelD", Globals.flywheelD);
+        Globals.flywheelF = prefs.getDouble("FlywheelF", Globals.flywheelF);
+        Globals.flywheelRPM = prefs.getDouble("FlywheelRPM", Globals.flywheelRPM);
+        Globals.flywheelIZone = prefs.getInt("FlywheelIZone", Globals.flywheelIZone);
+        
     }
 
     public void teleopPeriodic() {

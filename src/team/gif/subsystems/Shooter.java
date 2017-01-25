@@ -24,11 +24,12 @@ public class Shooter extends Subsystem {
 		flywheel.setPID(Globals.flywheelP, Globals.flywheelI, Globals.flywheelD);
 		flywheel.setF(Globals.flywheelF);
 		flywheel.setIZone(Globals.flywheelIZone);
-		flywheel.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+		flywheel.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		flywheel.setPosition(0);
+//		flywheel.configEncoderCodesPerRev(12288); // 4096 * 3 (CPR * gear ratio)
 		
-//		flywheel.reverseOutput(true);
-//		flywheel.reverseSensor(false);
+		flywheel.reverseOutput(false);
+		flywheel.reverseSensor(true);
 		
 		flywheel2.changeControlMode(TalonControlMode.Follower);
 		flywheel2.set(2);
@@ -45,6 +46,10 @@ public class Shooter extends Subsystem {
 	
 	public double getError() {
 		return flywheel.getError();
+	}
+	
+	public double getPosition() {
+		return flywheel.getPosition();
 	}
 	
 	public void driveFlywheel(double speed) {
@@ -77,6 +82,7 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void update() {
+		SmartDashboard.putNumber("Current Position" , getPosition());
 		SmartDashboard.putNumber("ShooterVelocity", getVelocity());
 		SmartDashboard.putNumber("ShooterError", getError());
 		SmartDashboard.putNumber("P Gain", getPGain());
