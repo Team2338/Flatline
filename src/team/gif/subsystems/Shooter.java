@@ -36,6 +36,11 @@ public class Shooter extends Subsystem {
 		
 	}
 	
+	public void setPID(double p, double i, double d, double f, int izone) {
+		flywheel.setPID(p, i, d);
+		flywheel.setIZone(izone);
+	}
+	
 	public void setMode(TalonControlMode mode) {
 		flywheel.changeControlMode(mode);
 	}

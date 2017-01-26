@@ -41,7 +41,7 @@ public class OI {
 //		leftButton2.whileHeld(new ClimberUp());
 //		leftButton3.whileHeld(new ClimberDown());
 		
-		rightButton2.whileHeld(new RevFlywheel(Globals.flywheelRPM));
+		rightButton2.whileHeld(new RevFlywheel(Robot.prefs.getDouble("FlywheelRPM", Globals.flywheelRPM)));
 		rightButton2.whenReleased(new ShooterStandby());
 		
 //		leftButton5.whileHeld(new ShiftOmni());
