@@ -42,7 +42,7 @@ public class Robot extends IterativeRobot {
 	
     Command autonomousCommand;
     SendableChooser chooser;
-    Preferences prefs;
+    public static Preferences prefs;
 	
 	// Vision - test
     public static NetworkTable grip;
@@ -135,13 +135,9 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         new TankDrive().start();
-        Globals.flywheelP = prefs.getDouble("FlywheelP", Globals.flywheelP);
-        Globals.flywheelI = prefs.getDouble("FlywheelI", Globals.flywheelI);
-        Globals.flywheelD = prefs.getDouble("FlywheelD", Globals.flywheelD);
-        Globals.flywheelF = prefs.getDouble("FlywheelF", Globals.flywheelF);
-        Globals.flywheelRPM = prefs.getDouble("FlywheelRPM", Globals.flywheelRPM);
-        Globals.flywheelIZone = prefs.getInt("FlywheelIZone", Globals.flywheelIZone);
-        
+        shooter.setPID(prefs.getDouble("FlywheelP", Globals.flywheelP), prefs.getDouble("FlywheelI", Globals.flywheelI),
+        		prefs.getDouble("FlywheelD", Globals.flywheelD), prefs.getDouble("FlywheelF", Globals.flywheelF),
+        		prefs.getInt("FlywheelIZone", Globals.flywheelIZone));       
     }
 
     public void teleopPeriodic() {
