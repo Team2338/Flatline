@@ -64,8 +64,7 @@ public class Robot extends IterativeRobot {
       prefs.putDouble("FlywheelI", Globals.flywheelI);
       prefs.putDouble("FlywheelD", Globals.flywheelD);
       prefs.putDouble("FlywheelF", Globals.flywheelF);
-      prefs.putDouble("FlywheenRPM", Globals.flywheelRPM);
-      prefs.putInt("FlywheelIZone", Globals.flywheelIZone);      
+      prefs.putDouble("FlywheenRPM", Globals.flywheelRPM);     
       
       // Kangaroo test
      grip = NetworkTable.getTable("GRIP/myContoursReport");
@@ -140,7 +139,6 @@ public class Robot extends IterativeRobot {
         Globals.flywheelD = prefs.getDouble("FlywheelD", Globals.flywheelD);
         Globals.flywheelF = prefs.getDouble("FlywheelF", Globals.flywheelF);
         Globals.flywheelRPM = prefs.getDouble("FlywheelRPM", Globals.flywheelRPM);
-        Globals.flywheelIZone = prefs.getInt("FlywheelIZone", Globals.flywheelIZone);
         
     }
 
