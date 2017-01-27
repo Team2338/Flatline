@@ -2,10 +2,10 @@ package team.gif;
 
 public class Globals {
 	// Shooter
-	public static double flywheelP = 0.0048; // PVC: 0.14 Turret: ?
-	public static double flywheelI = 0.0001; // PVC:  0.0005 Turret: ?
-	public static double flywheelD = 0.000; // PVC: 0.001 Turret: 0.001
-	public static double flywheelF = 0.0087; // PVC: 0.028 Turret: 0.009
+	public static double flywheelP = 0.0048; // PVC: 0.14 Turret: .0048
+	public static double flywheelI = 0.0001; // PVC:  0.0005 Turret: .0001
+	public static double flywheelD = 0.000; // PVC: 0.001 Turret: 0.000
+	public static double flywheelF = 0.0087; // PVC: 0.028 Turret: 0.0087
 //	public static int flywheelIZone = 1200; // PVC: 1200
 	public static int flywheelIZoneAbove = 500; // Turret: 500
 	public static int flywheelIZoneBelow = 2000; // Turret: 2000
