@@ -64,8 +64,7 @@ public class Robot extends IterativeRobot {
       prefs.putDouble("FlywheelI", Globals.flywheelI);
       prefs.putDouble("FlywheelD", Globals.flywheelD);
       prefs.putDouble("FlywheelF", Globals.flywheelF);
-      prefs.putDouble("FlywheenRPM", Globals.flywheelRPM);
-      prefs.putInt("FlywheelIZone", Globals.flywheelIZone);      
+      prefs.putDouble("FlywheenRPM", Globals.flywheelRPM);     
       
       // Kangaroo test
      grip = NetworkTable.getTable("GRIP/myContoursReport");
@@ -135,9 +134,18 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         new TankDrive().start();
+<<<<<<< HEAD
         shooter.setPID(prefs.getDouble("FlywheelP", Globals.flywheelP), prefs.getDouble("FlywheelI", Globals.flywheelI),
         		prefs.getDouble("FlywheelD", Globals.flywheelD), prefs.getDouble("FlywheelF", Globals.flywheelF),
         		prefs.getInt("FlywheelIZone", Globals.flywheelIZone));       
+=======
+        Globals.flywheelP = prefs.getDouble("FlywheelP", Globals.flywheelP);
+        Globals.flywheelI = prefs.getDouble("FlywheelI", Globals.flywheelI);
+        Globals.flywheelD = prefs.getDouble("FlywheelD", Globals.flywheelD);
+        Globals.flywheelF = prefs.getDouble("FlywheelF", Globals.flywheelF);
+        Globals.flywheelRPM = prefs.getDouble("FlywheelRPM", Globals.flywheelRPM);
+        
+>>>>>>> eec88685d1b42030c853405e651c04395f251f73
     }
 
     public void teleopPeriodic() {

@@ -14,8 +14,8 @@ import team.gif.commands.ShooterStandby;
  */
 public class Shooter extends Subsystem {
 	
-	private static final CANTalon flywheel = new CANTalon(2);
-	private static final CANTalon flywheel2 = new CANTalon(6);
+	public final CANTalon flywheel = new CANTalon(2);
+	public final CANTalon flywheel2 = new CANTalon(6);
 	
 	public Shooter(){
 		flywheel.enableBrakeMode(false);
@@ -23,10 +23,9 @@ public class Shooter extends Subsystem {
 		flywheel.changeControlMode(TalonControlMode.Speed);
 		flywheel.setPID(Globals.flywheelP, Globals.flywheelI, Globals.flywheelD);
 		flywheel.setF(Globals.flywheelF);
-		flywheel.setIZone(Globals.flywheelIZone);
-		flywheel.setFeedbackDevice(FeedbackDevice.QuadEncoder); // TODO: figure out unit conversion (CtreAbsoluteMag_Relative is proper)
+		flywheel.setIZone(Globals.flywheelIZoneBelow);
+		flywheel.setFeedbackDevice(FeedbackDevice.QuadEncoder); // TODO: figure out unit conversion
 		flywheel.setPosition(0);
-//		flywheel.configEncoderCodesPerRev(4096*3); // 4096 * 3 (CPR * gear ratio)
 		
 		flywheel.reverseOutput(false);
 		flywheel.reverseSensor(true);
@@ -44,7 +43,7 @@ public class Shooter extends Subsystem {
 	public void setMode(TalonControlMode mode) {
 		flywheel.changeControlMode(mode);
 	}
-	
+
 	public double getVelocity() {
 		return flywheel.getSpeed();
 	}
@@ -82,6 +81,10 @@ public class Shooter extends Subsystem {
 		return flywheel.getSetpoint();
 	}
 	
+	public double getIZone() {
+		return flywheel.getIZone();
+	}
+	
 	public void resetIAccum() {
 		flywheel.clearIAccum();
 	}
@@ -94,6 +97,7 @@ public class Shooter extends Subsystem {
     	SmartDashboard.putNumber("I Gain", getIGain());
     	SmartDashboard.putNumber("D Gain", getDGain());
     	SmartDashboard.putNumber("F Gain", getFGain());
+    	SmartDashboard.putNumber("IZone", getIZone());
 	}
 
     public void initDefaultCommand() {
