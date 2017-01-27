@@ -25,9 +25,9 @@ public class RevFlywheel extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(Robot.shooter.getIZone() >= 0) {
+    	if(Robot.shooter.getError() >= 0) {
     		Robot.shooter.flywheel.setIZone(Globals.flywheelIZoneBelow);
-    	} else if (Robot.shooter.getIZone() < 0) {
+    	} else if (Robot.shooter.getError() < 0) {
     		Robot.shooter.flywheel.setIZone(Globals.flywheelIZoneAbove);
     	}
     	
