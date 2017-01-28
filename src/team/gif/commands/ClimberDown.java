@@ -9,7 +9,7 @@ import team.gif.Robot;
 public class ClimberDown extends Command {
 
     public ClimberDown() {
-//    	requires(Robot.climber);
+    	requires(Robot.climber);
     }
 
     // Called just before this Command runs the first time
@@ -18,7 +18,7 @@ public class ClimberDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	Robot.climber.drive(-1);
+   	Robot.climber.drive(-1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

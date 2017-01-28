@@ -33,7 +33,7 @@ public class OI {
 	
 	public OI() {
 //		leftButton0 = new JoystickButton(leftJoy, 0);
-		rightButton2 = new JoystickButton(rightJoy, 2);
+//		rightButton2 = new JoystickButton(rightJoy, 2);
 		rightButton3 = new JoystickButton(rightJoy, 3);
 		
 //		leftButton0 = new JoystickButton(xboxController, 0);
@@ -51,6 +51,9 @@ public class OI {
 //		leftButton5.whenReleased(new ShiftTank());
 //		leftButton6.whileHeld(new ShifterUp());
 //		leftButton6.whenReleased(new ShifterDown());
+		
+//		leftButton5.whileHeld(new ClimberUp());
+//		leftButton6.whileHeld(new ClimberDown());
 	}
 }
 

@@ -7,10 +7,10 @@ package team.gif;
  */
 public class RobotMap {
 	// CAN Addresses
-	public static final int frontRightDrive		= 9;
-	public static final int rearRightDrive		= 4;
-	public static final int frontLeftDrive		= 7;
-	public static final int rearLeftDrive		= 8;
+	public static final int frontRightDrive		= 10;
+	public static final int rearRightDrive		= 13;
+	public static final int frontLeftDrive		= 11;
+	public static final int rearLeftDrive		= 12;
 	
 	// DIO Ports
 	

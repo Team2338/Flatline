@@ -14,14 +14,12 @@ import team.gif.commands.shooter.TurretTurn;
  */
 public class ShooterTurret extends Subsystem {
 	
-	public final CANTalon turret = new CANTalon(2);
-	private int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
+	public final CANTalon turret = new CANTalon(5);
 	public ShooterTurret() {
 		turret.changeControlMode(TalonControlMode.Position);
 		turret.setPID(Globals.turretP, Globals.turretI, Globals.turretD);
 		turret.setIZone(Globals.turretIZone);
 		turret.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		
 		
 //		turret.reverseOutput(false);
 		turret.reverseSensor(true);
@@ -79,6 +77,7 @@ public class ShooterTurret extends Subsystem {
 	
 	public void update() {
 		SmartDashboard.putNumber("Current Position", getPosition());
+		SmartDashboard.putNumber("Turret Error", getError());
 	}
 
     public void initDefaultCommand() {

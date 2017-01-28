@@ -20,7 +20,6 @@ public class TurretTurn extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.turret.setMode(TalonControlMode.Position);
     }
 
     // Called repeatedly when this Command is scheduled to run

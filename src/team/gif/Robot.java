@@ -36,7 +36,7 @@ import team.gif.subsystems.Versadrop;
 public class Robot extends IterativeRobot {
 
 	public static final Drivetrain drivetrain = new Drivetrain();
-//	public static final Climber climber = new Climber();
+	public static final Climber climber = new Climber();
 	public static final Shooter shooter = new Shooter();
 	public static final ShooterTurret turret = new ShooterTurret();
 	public static final Geardrop geardrop = new Geardrop();

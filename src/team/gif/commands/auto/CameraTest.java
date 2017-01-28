@@ -4,6 +4,7 @@ import static team.gif.Robot.grip;
 
 import edu.wpi.first.wpilibj.command.Command;
 import lib.gif.Logger;
+import team.gif.Globals;
 import team.gif.Robot;
 
 /**
@@ -11,6 +12,7 @@ import team.gif.Robot;
  */
 public class CameraTest extends Command {
 	
+	private double error;
 	private double centerX;
 
     public CameraTest() {
@@ -42,7 +44,9 @@ public class CameraTest extends Command {
     		} else {
     			centerX = 0;
     		}
+        	error = Globals.cameraCenterX - centerX;
     	}
+
     }
 
     // Called repeatedly when this Command is scheduled to run
