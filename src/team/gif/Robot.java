@@ -46,7 +46,7 @@ public class Robot extends IterativeRobot {
 	
     Command autonomousCommand;
     SendableChooser chooser;
-//    public static Preferences prefs;
+//  public static Preferences prefs;
 	
 	// Vision - test
     public static NetworkTable grip;
@@ -63,26 +63,26 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 	  oi = new OI();
       chooser = new SendableChooser();
-//      prefs = Preferences.getInstance();
-//      prefs.putDouble("FlywheelP", Globals.flywheelP);
-//      prefs.putDouble("FlywheelI", Globals.flywheelI);
-//      prefs.putDouble("FlywheelD", Globals.flywheelD);
-//      prefs.putDouble("FlywheelF", Globals.flywheelF);
-//      prefs.putDouble("FlywheenRPM", Globals.flywheelRPM);     
+//    prefs = Preferences.getInstance();
+//    prefs.putDouble("FlywheelP", Globals.flywheelP);
+//    prefs.putDouble("FlywheelI", Globals.flywheelI);
+//    prefs.putDouble("FlywheelD", Globals.flywheelD);
+//    prefs.putDouble("FlywheelF", Globals.flywheelF);
+//    prefs.putDouble("FlywheenRPM", Globals.flywheelRPM);     
       
       // Kangaroo test
      grip = NetworkTable.getTable("GRIP/myContoursReport");
         
 //      UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-////      camera.setFPS(10);
-////      camera.setExposureManual(0);
-////      camera.setBrightness(0);
+//      camera.setFPS(10);
+//      camera.setExposureManual(0);
+//      camera.setBrightness(0);
 //      camera.setResolution(640, 480);
 //        
-//      // Camera processing in a separate thread
+//      Camera processing in a separate thread
 //      visionThread = new VisionThread(camera, grip, pipeline -> {
-////    	SmartDashboard.putBoolean("Find Contours Output is Empty: ", pipeline.findContoursOutput().isEmpty());
-////    	SmartDashboard.putBoolean("Filter Contours Output is Empty: ", pipeline.filterContoursOutput().isEmpty());
+//    	SmartDashboard.putBoolean("Find Contours Output is Empty: ", pipeline.findContoursOutput().isEmpty());
+//    	SmartDashboard.putBoolean("Filter Contours Output is Empty: ", pipeline.filterContoursOutput().isEmpty());
 //    	if(!pipeline.filterContoursOutput().isEmpty()) {
 //    		Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(pipeline.getIndexLargestArea()));
 //    		synchronized (imgLock) {
@@ -90,7 +90,7 @@ public class Robot extends IterativeRobot {
 //    			centerX = r.x + (r.width / 2);
 //    			centerY = r.y + (r.height / 2);
 //    			area = r.area();
-////    			solidity = r. // TODO: I forgot what this means so figure it out later
+//  			solidity = r. // TODO: I forgot what this means so figure it out later
 //    		}
 //    		update();
 //    	} else {

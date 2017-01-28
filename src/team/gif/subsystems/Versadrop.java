@@ -8,9 +8,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.commands.drivetrain.ShiftTank;
 import team.gif.commands.drivetrain.TankDrive;
 
-/**
- *
- */
 public class Versadrop extends Subsystem {
 
 	private static final Solenoid versadrop = new Solenoid(6);

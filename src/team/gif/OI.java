@@ -20,7 +20,6 @@ import team.gif.commands.drivetrain.ShifterHigh;
 public class OI {
 	public static final Joystick leftJoy = new Joystick(0);
 	public static final Joystick rightJoy = new Joystick(1);
-	
 //	public static final Joystick xboxController = new Joystick(0);
 	
 //	private static Button leftButton0;
@@ -32,23 +31,27 @@ public class OI {
 	private static Button rightButton3;
 	
 	public OI() {
-//		leftButton0 = new JoystickButton(leftJoy, 0);
+
+		//button declarations
 		rightButton2 = new JoystickButton(rightJoy, 2);
 		rightButton3 = new JoystickButton(rightJoy, 3);
-		
 //		leftButton0 = new JoystickButton(xboxController, 0);
 //		leftButton5 = new JoystickButton(xboxController, 5);
 //		leftButton6 = new JoystickButton(xboxController, 6);
+//		leftButton0 = new JoystickButton(leftJoy, 0);
 		
+		//button actions
 //		leftButton2.whileHeld(new ClimberUp());
 //		leftButton3.whileHeld(new ClimberDown());
 		
 //		rightButton2.whileHeld(new RevFlywheel(Robot.prefs.getDouble("FlywheelRPM", Globals.flywheelRPM)));
 //		rightButton2.whenReleased(new ShooterStandby());
+		
 		rightButton3.whenPressed(new TurretTurn(Globals.turretPosition));
 		
 //		leftButton5.whileHeld(new ShiftOmni());
 //		leftButton5.whenReleased(new ShiftTank());
+		
 //		leftButton6.whileHeld(new ShifterUp());
 //		leftButton6.whenReleased(new ShifterDown());
 	}
