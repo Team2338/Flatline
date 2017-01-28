@@ -19,6 +19,8 @@ public class Drivetrain extends Subsystem {
 		super();
 	}
 	
+	
+
 	public void drive(double leftOutput, double rightOutput){
 		frontLeft.set(leftOutput);
 		frontRight.set(rightOutput);
