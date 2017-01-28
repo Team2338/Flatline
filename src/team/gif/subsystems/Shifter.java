@@ -13,14 +13,10 @@ import team.gif.commands.drivetrain.TankDrive;
  */
 public class Shifter extends Subsystem {
 	
-	private static final Solenoid shifter = new Solenoid(0);
+	private static final Solenoid shifter = new Solenoid(7);
 	
-	public void shiftLow() {
-		shifter.set(true);
-	}
-	
-	public void shiftHigh() {
-		shifter.set(false);
+	public void shift(boolean isLow) {
+		shifter.set(isLow);
 	}
 
     public void initDefaultCommand() {

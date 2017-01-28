@@ -13,17 +13,10 @@ import team.gif.commands.drivetrain.TankDrive;
  */
 public class Versadrop extends Subsystem {
 
-	private static final Solenoid versaDown = new Solenoid(0,1);
-	private static final Solenoid versaUp = new Solenoid(0,6);
+	private static final Solenoid versadrop = new Solenoid(6);
 	
-	public void drop(boolean isDrop) {
-		if (isDrop) {
-			versaUp.set(false);
-			versaDown.set(true);
-		} else {
-			versaUp.set(true);
-			versaDown.set(false);
-		}
+	public void drop(boolean isRetract) {
+		versadrop.set(isRetract);
 	}
 
     public void initDefaultCommand() {

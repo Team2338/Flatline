@@ -5,11 +5,12 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import team.gif.commands.ClimberDown;
 import team.gif.commands.ClimberUp;
-import team.gif.commands.RevFlywheel;
-import team.gif.commands.ShooterStandby;
 import team.gif.commands.drivetrain.ShiftOmni;
 import team.gif.commands.drivetrain.ShiftTank;
 import team.gif.commands.drivetrain.ShifterLow;
+import team.gif.commands.shooter.RevFlywheel;
+import team.gif.commands.shooter.ShooterStandby;
+import team.gif.commands.shooter.TurretTurn;
 import team.gif.commands.drivetrain.ShifterHigh;
 
 /**
@@ -17,7 +18,7 @@ import team.gif.commands.drivetrain.ShifterHigh;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	public static final Joystick leftJoy = new Joystick (0);
+	public static final Joystick leftJoy = new Joystick(0);
 	public static final Joystick rightJoy = new Joystick(1);
 	
 //	public static final Joystick xboxController = new Joystick(0);
@@ -33,6 +34,7 @@ public class OI {
 	public OI() {
 //		leftButton0 = new JoystickButton(leftJoy, 0);
 		rightButton2 = new JoystickButton(rightJoy, 2);
+		rightButton3 = new JoystickButton(rightJoy, 3);
 		
 //		leftButton0 = new JoystickButton(xboxController, 0);
 //		leftButton5 = new JoystickButton(xboxController, 5);
@@ -41,8 +43,9 @@ public class OI {
 //		leftButton2.whileHeld(new ClimberUp());
 //		leftButton3.whileHeld(new ClimberDown());
 		
-		rightButton2.whileHeld(new RevFlywheel(Robot.prefs.getDouble("FlywheelRPM", Globals.flywheelRPM)));
-		rightButton2.whenReleased(new ShooterStandby());
+//		rightButton2.whileHeld(new RevFlywheel(Robot.prefs.getDouble("FlywheelRPM", Globals.flywheelRPM)));
+//		rightButton2.whenReleased(new ShooterStandby());
+		rightButton3.whenPressed(new TurretTurn(Globals.turretPosition));
 		
 //		leftButton5.whileHeld(new ShiftOmni());
 //		leftButton5.whenReleased(new ShiftTank());

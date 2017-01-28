@@ -14,7 +14,7 @@ public class ShiftTank extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.versadrop.drop(false);
+    	Robot.versadrop.drop(true);
     }
 
     // Called repeatedly when this Command is scheduled to run

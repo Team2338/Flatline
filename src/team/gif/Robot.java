@@ -20,8 +20,10 @@ import edu.wpi.first.wpilibj.vision.VisionThread;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.subsystems.Climber;
 import team.gif.subsystems.Drivetrain;
+import team.gif.subsystems.Geardrop;
 import team.gif.subsystems.Shifter;
 import team.gif.subsystems.Shooter;
+import team.gif.subsystems.ShooterTurret;
 import team.gif.subsystems.Versadrop;
 
 /**
@@ -36,13 +38,15 @@ public class Robot extends IterativeRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 //	public static final Climber climber = new Climber();
 	public static final Shooter shooter = new Shooter();
+	public static final ShooterTurret turret = new ShooterTurret();
+	public static final Geardrop geardrop = new Geardrop();
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
 	public static OI oi;
 	
     Command autonomousCommand;
     SendableChooser chooser;
-    public static Preferences prefs;
+//    public static Preferences prefs;
 	
 	// Vision - test
     public static NetworkTable grip;
@@ -59,12 +63,12 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 	  oi = new OI();
       chooser = new SendableChooser();
-      prefs = Preferences.getInstance();
-      prefs.putDouble("FlywheelP", Globals.flywheelP);
-      prefs.putDouble("FlywheelI", Globals.flywheelI);
-      prefs.putDouble("FlywheelD", Globals.flywheelD);
-      prefs.putDouble("FlywheelF", Globals.flywheelF);
-      prefs.putDouble("FlywheenRPM", Globals.flywheelRPM);     
+//      prefs = Preferences.getInstance();
+//      prefs.putDouble("FlywheelP", Globals.flywheelP);
+//      prefs.putDouble("FlywheelI", Globals.flywheelI);
+//      prefs.putDouble("FlywheelD", Globals.flywheelD);
+//      prefs.putDouble("FlywheelF", Globals.flywheelF);
+//      prefs.putDouble("FlywheenRPM", Globals.flywheelRPM);     
       
       // Kangaroo test
      grip = NetworkTable.getTable("GRIP/myContoursReport");
@@ -135,14 +139,14 @@ public class Robot extends IterativeRobot {
         if (autonomousCommand != null) autonomousCommand.cancel();
         new TankDrive().start();
         
-        shooter.setPID(prefs.getDouble("FlywheelP", Globals.flywheelP), prefs.getDouble("FlywheelI", Globals.flywheelI),
-        		prefs.getDouble("FlywheelD", Globals.flywheelD), prefs.getDouble("FlywheelF", Globals.flywheelF));       
-
-        Globals.flywheelP = prefs.getDouble("FlywheelP", Globals.flywheelP);
-        Globals.flywheelI = prefs.getDouble("FlywheelI", Globals.flywheelI);
-        Globals.flywheelD = prefs.getDouble("FlywheelD", Globals.flywheelD);
-        Globals.flywheelF = prefs.getDouble("FlywheelF", Globals.flywheelF);
-        Globals.flywheelRPM = prefs.getDouble("FlywheelRPM", Globals.flywheelRPM);
+//        shooter.setPID(prefs.getDouble("FlywheelP", Globals.flywheelP), prefs.getDouble("FlywheelI", Globals.flywheelI),
+//        		prefs.getDouble("FlywheelD", Globals.flywheelD), prefs.getDouble("FlywheelF", Globals.flywheelF));       
+//
+//        Globals.flywheelP = prefs.getDouble("FlywheelP", Globals.flywheelP);
+//        Globals.flywheelI = prefs.getDouble("FlywheelI", Globals.flywheelI);
+//        Globals.flywheelD = prefs.getDouble("FlywheelD", Globals.flywheelD);
+//        Globals.flywheelF = prefs.getDouble("FlywheelF", Globals.flywheelF);
+//        Globals.flywheelRPM = prefs.getDouble("FlywheelRPM", Globals.flywheelRPM);
     }
 
     public void teleopPeriodic() {
@@ -158,6 +162,7 @@ public class Robot extends IterativeRobot {
     public void update() {
 //    	synchronized(imgLock) {
     		Robot.shooter.update();
+    		Robot.turret.update();
         	SmartDashboard.putNumber("Center X: ", centerX);
         	SmartDashboard.putNumber("Center Y: ", centerY);
         	SmartDashboard.putNumber("Area: ", area);
