@@ -11,7 +11,7 @@ import team.gif.commands.shooter.TurretTurn;
 
 public class ShooterTurret extends Subsystem {
 	
-	public final CANTalon turret = new CANTalon(2);
+	public final CANTalon turret = new CANTalon(12);
 	private int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
 	public ShooterTurret() {
 		turret.changeControlMode(TalonControlMode.Position);

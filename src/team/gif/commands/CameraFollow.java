@@ -23,7 +23,7 @@ public class CameraFollow extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double[] centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", defaultCenterX);
+ /*   	double[] centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", defaultCenterX);
     	for (double centerX : centerXs) {
     		sum += centerX;
     	}
@@ -31,7 +31,7 @@ public class CameraFollow extends Command {
     	sum = 0;
     	
     	double angle = averageCenterX / 960 * 60 - 30;
-    	Robot.turret.setPosition(angle * (16/9));
+    	Robot.turret.setPosition(angle * (16/9));*/
     }
 
     // Make this return true when this Command no longer needs to run execute()

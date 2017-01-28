@@ -9,8 +9,7 @@ import team.gif.Robot;
 public class CollectingCollector extends Command {
 
     public CollectingCollector() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.collector);
     }
 
     // Called just before this Command runs the first time

@@ -37,7 +37,6 @@ public class OI {
   	rightButton2 = new JoystickButton(rightJoy, 2);
   	rightButton3 = new JoystickButton(rightJoy, 3);
 		
-		leftXboxButton0 = new JoystickButton(xboxController, 0);
 		leftButton5 = new JoystickButton(xboxController, 5);
 		leftButton6 = new JoystickButton(xboxController, 6);
 		
@@ -47,6 +46,7 @@ public class OI {
 		
 //		rightButton2.whileHeld(new RevFlywheel(Robot.prefs.getDouble("FlywheelRPM", Globals.flywheelRPM)));
 //		rightButton2.whenReleased(new ShooterStandby());
+		
 
 		rightButton3.whenPressed(new TurretTurn(Globals.turretPosition));
 		

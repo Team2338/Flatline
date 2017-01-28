@@ -6,8 +6,7 @@ import team.gif.Robot;
 public class CollectorStandby extends Command {
 
     public CollectorStandby() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.collector);
     }
 
     // Called just before this Command runs the first time
