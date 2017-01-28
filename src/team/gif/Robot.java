@@ -50,7 +50,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		chooser = new SendableChooser();
 
-		grip = NetworkTable.getTable("GRIP/myContoursReport");
+		grip = NetworkTable.getTable("GRIP");
 
 	}
 

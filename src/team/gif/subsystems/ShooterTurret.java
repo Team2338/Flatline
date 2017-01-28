@@ -10,8 +10,9 @@ import team.gif.Globals;
 import team.gif.commands.shooter.TurretTurn;
 
 public class ShooterTurret extends Subsystem {
-	
+	 
 	public final CANTalon turret = new CANTalon(5);
+	
 	public ShooterTurret() {
 //		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
 //		turret.setEncPosition(absolutePosition);
