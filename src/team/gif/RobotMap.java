@@ -11,8 +11,8 @@ public class RobotMap {
 	public static final int rearRightDrive		= 4;
 	public static final int frontLeftDrive		= 7;
 	public static final int rearLeftDrive		= 8;
+	public static final int collector			= 5;
 	
 	// DIO Ports
-	
 	//
 }

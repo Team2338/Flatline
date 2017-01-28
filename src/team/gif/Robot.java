@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.VisionThread;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.subsystems.Climber;
+import team.gif.subsystems.Collector;
 import team.gif.subsystems.Drivetrain;
 import team.gif.subsystems.Geardrop;
 import team.gif.subsystems.Shifter;
@@ -42,6 +43,7 @@ public class Robot extends IterativeRobot {
 	public static final Geardrop geardrop = new Geardrop();
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
+	public static final Collector collector = new Collector();
 	public static OI oi;
 	
     Command autonomousCommand;
