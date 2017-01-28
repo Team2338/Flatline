@@ -161,7 +161,7 @@ public class Robot extends IterativeRobot {
     
     public void update() {
 //    	synchronized(imgLock) {
-    		Robot.shooter.update();
+//    		Robot.shooter.update();
     		Robot.turret.update();
         	SmartDashboard.putNumber("Center X: ", centerX);
         	SmartDashboard.putNumber("Center Y: ", centerY);

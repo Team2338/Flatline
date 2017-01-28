@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import team.gif.commands.ClimberDown;
 import team.gif.commands.ClimberUp;
+import team.gif.commands.GearIn;
 import team.gif.commands.drivetrain.ShiftOmni;
 import team.gif.commands.drivetrain.ShiftTank;
 import team.gif.commands.drivetrain.ShifterLow;
@@ -18,11 +19,12 @@ import team.gif.commands.drivetrain.ShifterHigh;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+
 	public static final Joystick leftJoy = new Joystick(0);
 	public static final Joystick rightJoy = new Joystick(1);
-//	public static final Joystick xboxController = new Joystick(0);
+  public static final Joystick xboxController = new Joystick(2);
 	
-//	private static Button leftButton0;
+	private static Button leftButton0;
 	private static Button leftButton2;
 	private static Button leftButton3;
 	private static Button leftButton5;
@@ -31,14 +33,13 @@ public class OI {
 	private static Button rightButton3;
 	
 	public OI() {
-
-		//button declarations
-		rightButton2 = new JoystickButton(rightJoy, 2);
-		rightButton3 = new JoystickButton(rightJoy, 3);
-//		leftButton0 = new JoystickButton(xboxController, 0);
-//		leftButton5 = new JoystickButton(xboxController, 5);
-//		leftButton6 = new JoystickButton(xboxController, 6);
-//		leftButton0 = new JoystickButton(leftJoy, 0);
+    leftButton0 = new JoystickButton(leftJoy, 0);
+  	rightButton2 = new JoystickButton(rightJoy, 2);
+  	rightButton3 = new JoystickButton(rightJoy, 3);
+		
+		leftXboxButton0 = new JoystickButton(xboxController, 0);
+		leftButton5 = new JoystickButton(xboxController, 5);
+		leftButton6 = new JoystickButton(xboxController, 6);
 		
 		//button actions
 //		leftButton2.whileHeld(new ClimberUp());
@@ -46,14 +47,13 @@ public class OI {
 		
 //		rightButton2.whileHeld(new RevFlywheel(Robot.prefs.getDouble("FlywheelRPM", Globals.flywheelRPM)));
 //		rightButton2.whenReleased(new ShooterStandby());
-		
+
 		rightButton3.whenPressed(new TurretTurn(Globals.turretPosition));
 		
-//		leftButton5.whileHeld(new ShiftOmni());
-//		leftButton5.whenReleased(new ShiftTank());
-		
-//		leftButton6.whileHeld(new ShifterUp());
-//		leftButton6.whenReleased(new ShifterDown());
+		leftButton5.whileHeld(new ShiftOmni());
+		leftButton5.whenReleased(new ShiftTank());
+		leftButton6.whileHeld(new ShifterHigh());
+		leftButton6.whenReleased(new ShifterLow());
 	}
 }
 

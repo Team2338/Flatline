@@ -11,8 +11,8 @@ import team.gif.commands.shooter.ShooterStandby;
 
 public class Shooter extends Subsystem {
 	
-	public final CANTalon flywheel = new CANTalon(8);
-	public final CANTalon flywheel2 = new CANTalon(6);
+	public final CANTalon flywheel = new CANTalon(40);
+	public final CANTalon flywheel2 = new CANTalon(41);
 	
 	public Shooter(){
 		flywheel.enableBrakeMode(false);
