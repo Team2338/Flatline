@@ -110,6 +110,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Center Y: ", centerY);
 		SmartDashboard.putNumber("Area: ", area);
 		SmartDashboard.putBoolean("Is Processing: ", isProcessing);
-		// }
+		
 	}
 }
