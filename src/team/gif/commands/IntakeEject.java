@@ -6,9 +6,9 @@ import team.gif.Robot;
 /**
  *
  */
-public class CollectingCollector extends Command {
+public class IntakeEject extends Command {
 
-    public CollectingCollector() {
+    public IntakeEject() {
         requires(Robot.collector);
     }
 
@@ -18,7 +18,7 @@ public class CollectingCollector extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.drive(1);
+    	Robot.collector.drive(-1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

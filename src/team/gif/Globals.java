@@ -18,5 +18,6 @@ public class Globals {
 	public static double turretI = 0.00;
 	public static double turretD = 0.00;
 	public static int turretIZone = 0;
-	public static double turretPosition = 70;
+	public static double turretPosition = 635; // 635 Encoder Counts per Rev
+	public static double turretAngleToTick = 16/9; // 127/172 possible
 }

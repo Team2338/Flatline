@@ -3,9 +3,9 @@ package team.gif.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
-public class CollectorStandby extends Command {
+public class IntakeStandby extends Command {
 
-    public CollectorStandby() {
+    public IntakeStandby() {
         requires(Robot.collector);
     }
 

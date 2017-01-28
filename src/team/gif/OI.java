@@ -33,9 +33,9 @@ public class OI {
 	private static Button rightButton3;
 	
 	public OI() {
-    leftButton0 = new JoystickButton(leftJoy, 0);
-  	rightButton2 = new JoystickButton(rightJoy, 2);
-  	rightButton3 = new JoystickButton(rightJoy, 3);
+	    leftButton0 = new JoystickButton(leftJoy, 0);
+	  	rightButton2 = new JoystickButton(rightJoy, 2);
+	  	rightButton3 = new JoystickButton(rightJoy, 3);
 		
 		leftButton5 = new JoystickButton(xboxController, 5);
 		leftButton6 = new JoystickButton(xboxController, 6);
