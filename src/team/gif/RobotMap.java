@@ -13,6 +13,4 @@ public class RobotMap {
 	public static final int rearLeftDrive		= 8;
 	
 	// DIO Ports
-	
-	//
 }

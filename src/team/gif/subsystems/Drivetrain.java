@@ -8,9 +8,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
 import team.gif.commands.drivetrain.TankDrive;
 
-/**
- *
- */
 public class Drivetrain extends Subsystem {
 
 	private static final CANTalon frontLeft = new CANTalon(RobotMap.frontLeftDrive);

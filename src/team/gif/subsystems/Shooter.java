@@ -9,9 +9,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
 import team.gif.commands.shooter.ShooterStandby;
 
-/**
- *
- */
 public class Shooter extends Subsystem {
 	
 	public final CANTalon flywheel = new CANTalon(40);
@@ -90,6 +87,7 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void update() {
+		
 //		SmartDashboard.putNumber("Current Position" , getPosition());
 		SmartDashboard.putNumber("ShooterVelocity", getVelocity());
 		SmartDashboard.putNumber("ShooterError", getError());

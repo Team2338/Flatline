@@ -9,9 +9,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
 import team.gif.commands.shooter.TurretTurn;
 
-/**
- *
- */
 public class ShooterTurret extends Subsystem {
 	
 	public final CANTalon turret = new CANTalon(2);
@@ -21,7 +18,6 @@ public class ShooterTurret extends Subsystem {
 		turret.setPID(Globals.turretP, Globals.turretI, Globals.turretD);
 		turret.setIZone(Globals.turretIZone);
 		turret.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		
 		
 //		turret.reverseOutput(false);
 		turret.reverseSensor(true);

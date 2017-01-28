@@ -9,9 +9,6 @@ import team.gif.commands.GearOut;
 import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.drivetrain.TankDrive;
 
-/**
- *
- */
 public class Geardrop extends Subsystem {
 	
 	private static final Solenoid geardrop = new Solenoid(5);
