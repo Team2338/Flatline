@@ -1,6 +1,7 @@
 package team.gif.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import team.gif.OI;
 import team.gif.Robot;
 
 /**
@@ -19,6 +20,11 @@ public class GearOut extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if (OI.xboxController.getRawAxis(3) > 0) {
+    		Robot.geardrop.release(true);
+    	} else {
+    		Robot.geardrop.release(false);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
