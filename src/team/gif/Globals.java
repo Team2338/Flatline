@@ -16,5 +16,5 @@ public class Globals {
 	public static double turretI = 0.00;
 	public static double turretD = 0.00;
 	public static int turretIZone = 0;
-	public static double turretPosition = 360;
+	public static double turretPosition = 70;
 }

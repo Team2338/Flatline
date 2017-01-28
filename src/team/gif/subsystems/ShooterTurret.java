@@ -22,8 +22,10 @@ public class ShooterTurret extends Subsystem {
 		turret.setIZone(Globals.turretIZone);
 		turret.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		
+		
 //		turret.reverseOutput(false);
 		turret.reverseSensor(true);
+		turret.setAllowableClosedLoopErr(0);
 	}
 	
 	public void setPID(double p, double i, double d) {
