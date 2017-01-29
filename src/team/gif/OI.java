@@ -28,6 +28,10 @@ public class OI {
 	private static Button y;
 	private static Button leftBumper;
 	private static Button rightBumper;
+	private static Button select;
+	private static Button start;
+	private static Button leftStick;
+	private static Button rightStick;
 	
 	public OI() {
 		
@@ -37,6 +41,10 @@ public class OI {
 		y = new JoystickButton(xboxController, 4);
 		leftBumper = new JoystickButton(xboxController, 5);
 		rightBumper = new JoystickButton(xboxController, 6);
+		select = new JoystickButton(xboxController, 7);
+		start = new JoystickButton(xboxController, 8);
+		leftStick = new JoystickButton(xboxController, 9);
+		rightStick = new JoystickButton(xboxController, 10);
 		
 //		b.whileHeld(new RevFlywheel(Robot.prefs.getDouble("FlywheelRPM", Globals.flywheelRPM)));
 //		b.whenReleased(new ShooterStandby());

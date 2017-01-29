@@ -41,7 +41,7 @@ public class CameraFollow extends Command {
     	double[] centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", defaultCenterX);
     	largeCenterX = centerXs[areaIndex];
     	
-    	double angle = largeCenterX / 960 * 60 - 30;
+    	double angle = largeCenterX / 480 * 60 - 30;
     	Robot.turret.setPosition((angle + (Robot.turret.getPosition() * (9/16)) * (16/9)));
     }
 

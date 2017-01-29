@@ -3,15 +3,15 @@ package team.gif.commands.drivetrain;
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
-/**
- *
- */
 public class Drive extends Command {
 
-    public Drive(double lorem, double ipsum) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	Robot.drivetrain.drive(leftOutput, rightOutput);
+	private double left;
+	private double right;
+	
+    public Drive(double left, double right) {
+        requires(Robot.drivetrain);
+        this.left = left;
+        this.right = right;
     }
 
     // Called just before this Command runs the first time
@@ -20,6 +20,7 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.drivetrain.drive(left, right);
     }
 
     // Make this return true when this Command no longer needs to run execute()
