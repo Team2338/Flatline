@@ -3,7 +3,6 @@ package team.gif.commands.auto;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import team.gif.commands.GearIn;
 import team.gif.commands.drivetrain.Drive;
-import team.gif.subsystems.Drivetrain;
 
 /**
  *

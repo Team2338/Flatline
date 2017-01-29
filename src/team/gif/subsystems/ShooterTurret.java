@@ -12,12 +12,8 @@ import team.gif.commands.shooter.TurretTurn;
 
 public class ShooterTurret extends Subsystem {
 	 
-<<<<<<< HEAD
 	public final CANTalon turret = new CANTalon(RobotMap.turret);
-=======
-	public final CANTalon turret = new CANTalon(RobotMap.shooterTurret);
->>>>>>> origin/master
-	
+
 	public ShooterTurret() {
 //		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
 //		turret.setEncPosition(absolutePosition);

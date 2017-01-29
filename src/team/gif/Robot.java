@@ -30,11 +30,11 @@ public class Robot extends IterativeRobot {
 
 	public static NetworkTable grip;
 	Command autonomousCommand;
-	SendableChooser chooser;
+	SendableChooser<Object> chooser;
 	
 	public void robotInit() {
 		oi = new OI();
-		chooser = new SendableChooser();
+		chooser = new SendableChooser<Object>();
 
 		grip = NetworkTable.getTable("GRIP");
 	}
