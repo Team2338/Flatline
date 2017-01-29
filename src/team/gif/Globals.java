@@ -1,6 +1,10 @@
 package team.gif;
 
 public class Globals {
+	
+	// Drivetrain
+	public static final double deadzone = 0.1;
+	
 	// Shooter
 	public static double flywheelP = 0.0048;     // PVC: 0.14 Turret: .0048
 	public static double flywheelI = 0.0001;     // PVC:  0.0005 Turret: .0001

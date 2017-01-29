@@ -2,6 +2,7 @@ package team.gif.subsystems;
 
 import com.ctre.CANTalon;
 
+import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -18,14 +19,15 @@ public class Drivetrain extends Subsystem {
 	public Drivetrain() {
 		super();
 	}
-	
-	
 
-	public void drive(double leftOutput, double rightOutput){
-		frontLeft.set(leftOutput);
-		frontRight.set(rightOutput);
-		rearLeft.set(leftOutput);
-		rearRight.set(rightOutput);
+	public void driveLeft(double speed){
+		frontLeft.set(speed);
+		rearLeft.set(speed);
+	}
+	
+	public void driveRight(double speed){
+		frontRight.set(-speed);
+		rearRight.set(-speed);
 	}
 
     public void initDefaultCommand() {

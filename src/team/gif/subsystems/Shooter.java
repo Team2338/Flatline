@@ -7,12 +7,13 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
+import team.gif.RobotMap;
 import team.gif.commands.shooter.ShooterStandby;
 
 public class Shooter extends Subsystem {
 	
-	public final CANTalon flywheel = new CANTalon(40);
-	public final CANTalon flywheel2 = new CANTalon(41);
+	public final CANTalon flywheel = new CANTalon(RobotMap.shooterFlywheel);
+	public final CANTalon flywheel2 = new CANTalon(RobotMap.shooterFlywheel2);
 	
 	public Shooter(){
 		flywheel.enableBrakeMode(false);
