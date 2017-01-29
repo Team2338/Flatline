@@ -9,14 +9,14 @@ import team.gif.Robot;
 public class ClimberUp extends Command {
 
     public ClimberUp() {
-//    	requires(Robot.climber);
+    	requires(Robot.climber);
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-//    	Robot.climber.drive(1);
+       	Robot.climber.drive(1);
     }
 
     protected boolean isFinished() {

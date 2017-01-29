@@ -9,7 +9,7 @@ import team.gif.Robot;
 public class IntakeEject extends Command {
 
     public IntakeEject() {
-        requires(Robot.collector);
+        requires(Robot.intake);
     }
 
     // Called just before this Command runs the first time
@@ -18,7 +18,7 @@ public class IntakeEject extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.drive(-1);
+    	Robot.intake.drive(-1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

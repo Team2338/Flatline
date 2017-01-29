@@ -1,6 +1,7 @@
 package team.gif.commands.drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
+import team.gif.Globals;
 import team.gif.OI;
 import team.gif.Robot;
 import team.gif.subsystems.Drivetrain;
@@ -17,7 +18,17 @@ public class TankDrive extends Command {
     }
 
     protected void execute() {
-    	Robot.drivetrain.drive(OI.xboxController.getRawAxis(1), -OI.xboxController.getRawAxis(5));
+    	if (Math.abs(OI.xboxController.getRawAxis(1)) > Globals.deadzone) {
+    		Robot.drivetrain.driveLeft(OI.xboxController.getRawAxis(1));
+    	} else {
+    		Robot.drivetrain.driveLeft(0);
+    	}
+    	
+    	if(Math.abs(OI.xboxController.getRawAxis(5)) > Globals.deadzone) {
+    		Robot.drivetrain.driveRight(OI.xboxController.getRawAxis(5));
+    	} else {
+    		Robot.drivetrain.driveRight(0);
+    	}
     }
 
     protected boolean isFinished() {
@@ -25,8 +36,11 @@ public class TankDrive extends Command {
     }
 
     protected void end() {
+    	Robot.drivetrain.driveLeft(0);
+    	Robot.drivetrain.driveRight(0);
     }
 
     protected void interrupted() {
+    	
     }
 }
