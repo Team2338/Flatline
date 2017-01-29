@@ -17,7 +17,6 @@ public class TankDrive extends Command {
     }
 
     protected void execute() {
-//    	Robot.drivetrain.drive(-OI.leftJoy.getY(), OI.rightJoy.getY());
     	Robot.drivetrain.drive(OI.xboxController.getRawAxis(1), -OI.xboxController.getRawAxis(5));
     }
 
