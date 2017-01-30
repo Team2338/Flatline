@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.subsystems.*;
 
@@ -37,6 +38,11 @@ public class Robot extends IterativeRobot {
 		chooser = new SendableChooser<Object>();
 
 		grip = NetworkTable.getTable("GRIP");
+		
+		SmartDashboard.putNumber("Turret P", Globals.turretP);
+		SmartDashboard.putNumber("Turret I", Globals.turretI);
+		SmartDashboard.putNumber("Turret D", Globals.turretD);
+		SmartDashboard.putNumber("Turret Position", Globals.turretPosition);
 	}
 
 	public void disabledInit() {}
@@ -59,7 +65,13 @@ public class Robot extends IterativeRobot {
 	public void teleopInit() {
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		new TankDrive().start();
+		new TankDrive().start(); //Does this have to be here?
+		
+		turret.setPID(SmartDashboard.getNumber("Turret P", Globals.turretP), 
+				SmartDashboard.getNumber("Turret I", Globals.turretI), 
+				SmartDashboard.getNumber("Turret D", Globals.turretD));
+		
+		Globals.turretPosition = SmartDashboard.getNumber("Turret Position", Globals.turretPosition);
 	}
 
 	public void teleopPeriodic() {
