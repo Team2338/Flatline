@@ -27,6 +27,7 @@ public class Robot extends IterativeRobot {
 	public static final GearHanger gearHanger = new GearHanger();
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
+	public static final Collector collector = new Collector();
 	public static OI oi;
 
 	public static NetworkTable grip;

@@ -8,11 +8,12 @@ import team.gif.Robot;
  */
 public class CameraFollow extends Command {
 	
-	private double[] defaultCenterX = new double[0];
-	private double[] defaultArea = new double[0];
+	private double[] defaultCenterX = {240.0, 0};
+	private double[] defaultArea = {100.0, 0};
 	private double largestCenterX = 0.0;
 	private int areaIndex = 0;
 	private double currentLargest = 0;
+	private int i = 0;
 
     public CameraFollow() {
         requires(Robot.turret);
@@ -24,7 +25,7 @@ public class CameraFollow extends Command {
 
     protected void execute() {
     	double[] areas = Robot.grip.getNumberArray("myContoursReport/area", defaultArea);
-    	int i = 0;
+    	i = 0;
     	currentLargest = 0;
     	areaIndex = 0;
     	for (double area : areas) {
