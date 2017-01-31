@@ -44,15 +44,15 @@ public class OI {
 		
 //		y.whileHeld(new RevFlywheel(Globals.flywheelRPM));
 //		y.whenReleased(new ShooterStandby());
+
 		
 		a.whileHeld(new CameraFollow());
 		b.whenPressed(new TurretTurn(Globals.turretPosition));
 		x.whenPressed(new TurretTurn(0));
-		
+
 		leftBumper.whileHeld(new ShiftOmni());
 		leftBumper.whenReleased(new ShiftTank());
 		rightBumper.whileHeld(new ShifterHigh());
 		rightBumper.whenReleased(new ShifterLow());
 	}
 }
-

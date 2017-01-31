@@ -7,6 +7,7 @@ package team.gif;
  */
 public class RobotMap {
 	// CAN Addresses
+
 	public static final int frontRightDrive	= 9;
 	public static final int rearRightDrive = 4;
 	public static final int frontLeftDrive = 7;
