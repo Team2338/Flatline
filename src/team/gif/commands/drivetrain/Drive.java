@@ -4,15 +4,18 @@ import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
 /**
- *
+ *enan was here
  */
 public class Drive extends Command {
 
-    public Drive(double lorem, double ipsum) {
+    public Drive(double right, double left) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	Robot.drivetrain.drive(leftOutput, rightOutput);
+    	    	
+		Robot.drivetrain.drive(right, left);
     }
+    
+   
 
     // Called just before this Command runs the first time
     protected void initialize() {
