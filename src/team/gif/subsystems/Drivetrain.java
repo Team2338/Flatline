@@ -2,15 +2,10 @@ package team.gif.subsystems;
 
 import com.ctre.CANTalon;
 
-import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
 import team.gif.commands.drivetrain.TankDrive;
 
-/**
- *
- */
 public class Drivetrain extends Subsystem {
 
 	private static final CANTalon frontLeft = new CANTalon(RobotMap.frontLeftDrive);
@@ -21,14 +16,23 @@ public class Drivetrain extends Subsystem {
 	public Drivetrain() {
 		super();
 	}
+
+	public void driveLeft(double speed){
+		frontLeft.set(speed);
+		rearLeft.set(speed);
+	}
 	
-	public void drive(double leftOutput, double rightOutput){
-		frontLeft.set(leftOutput);
-		frontRight.set(rightOutput);
-		rearLeft.set(leftOutput);
-		rearRight.set(rightOutput);
+	public void driveRight(double speed){
+		frontRight.set(-speed);
+		rearRight.set(-speed);
 	}
 
+	public void drive(double left, double right) {
+		frontLeft.set(left);
+		rearLeft.set(left);
+		frontRight.set(right);
+		rearRight.set(right);
+	}
     public void initDefaultCommand() {
     	setDefaultCommand(new TankDrive());
     }

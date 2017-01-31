@@ -7,24 +7,23 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
+import team.gif.RobotMap;
 import team.gif.commands.shooter.TurretTurn;
 
-/**
- *
- */
 public class ShooterTurret extends Subsystem {
-	
-	public final CANTalon turret = new CANTalon(2);
-	private int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
+	 
+	public final CANTalon turret = new CANTalon(RobotMap.turret);
+
 	public ShooterTurret() {
+//		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
+//		turret.setEncPosition(absolutePosition);
 		turret.changeControlMode(TalonControlMode.Position);
 		turret.setPID(Globals.turretP, Globals.turretI, Globals.turretD);
 		turret.setIZone(Globals.turretIZone);
 		turret.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		
-		
-//		turret.reverseOutput(false);
-		turret.reverseSensor(true);
+		turret.reverseOutput(true);
+		turret.reverseSensor(false);
 		turret.setAllowableClosedLoopErr(0);
 	}
 	
@@ -78,7 +77,7 @@ public class ShooterTurret extends Subsystem {
 	}
 	
 	public void update() {
-		SmartDashboard.putNumber("Current Position", getPosition());
+		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
 	}
 
     public void initDefaultCommand() {

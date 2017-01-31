@@ -1,41 +1,48 @@
 package team.gif.commands.drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
+import team.gif.Globals;
 import team.gif.OI;
 import team.gif.Robot;
-import team.gif.subsystems.Drivetrain;
 
-/**
- *
- */
+
 public class TankDrive extends Command {
+	
+	private double left;
+	private double right;
 	
     public TankDrive() {
     	requires(Robot.drivetrain);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
     	
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	Robot.drivetrain.drive(-OI.leftJoy.getY(), OI.rightJoy.getY());
-    	Robot.drivetrain.drive(OI.xboxController.getRawAxis(1), -OI.xboxController.getRawAxis(5));
+    	if (Math.abs(OI.xboxController.getRawAxis(1)) > Globals.deadzone) {
+    		left = OI .xboxController.getRawAxis(1);
+    	} else {
+    		left = 0;
+    	}
+    	
+    	if(Math.abs(OI.xboxController.getRawAxis(5)) > Globals.deadzone) {
+    		right = OI .xboxController.getRawAxis(5);
+    	} else {
+    		right = 0;
+    	}
+    	Robot.drivetrain.drive(left, right);
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
     }
 
-    // Called once after isFinished returns true
     protected void end() {
+    	Robot.drivetrain.drive(0, 0);
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
+    	
     }
 }

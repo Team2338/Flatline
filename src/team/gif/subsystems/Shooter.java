@@ -7,15 +7,13 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
+import team.gif.RobotMap;
 import team.gif.commands.shooter.ShooterStandby;
 
-/**
- *
- */
 public class Shooter extends Subsystem {
 	
-	public final CANTalon flywheel = new CANTalon(40);
-	public final CANTalon flywheel2 = new CANTalon(41);
+	public final CANTalon flywheel = new CANTalon(RobotMap.flywheel1);
+	public final CANTalon flywheel2 = new CANTalon(RobotMap.flywheel2);
 	
 	public Shooter(){
 		flywheel.enableBrakeMode(false);
@@ -90,7 +88,8 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void update() {
-//		SmartDashboard.putNumber("Current Position" , getPosition());
+		
+		SmartDashboard.putNumber("Shooter CurrPos" , getPosition());
 		SmartDashboard.putNumber("ShooterVelocity", getVelocity());
 		SmartDashboard.putNumber("ShooterError", getError());
 		SmartDashboard.putNumber("P Gain", getPGain());
