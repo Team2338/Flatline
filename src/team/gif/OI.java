@@ -4,12 +4,16 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import team.gif.commands.CameraFollow;
+import team.gif.commands.IntakeCollect;
+import team.gif.commands.IntakeEject;
 import team.gif.commands.drivetrain.ShiftOmni;
 import team.gif.commands.drivetrain.ShiftTank;
 import team.gif.commands.drivetrain.ShifterHigh;
 import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.shooter.RevFlywheel;
 import team.gif.commands.shooter.ShooterStandby;
+import team.gif.commands.shooter.ShooterTurretManualLeft;
+import team.gif.commands.shooter.ShooterTurretManualRight;
 import team.gif.commands.shooter.TurretTurn;
 
 /**
@@ -49,10 +53,16 @@ public class OI {
 		b.whenPressed(new TurretTurn(Globals.turretPosition));
 		x.whenPressed(new TurretTurn(0));
 		
-		leftBumper.whileHeld(new ShiftOmni());
-		leftBumper.whenReleased(new ShiftTank());
-		rightBumper.whileHeld(new ShifterHigh());
-		rightBumper.whenReleased(new ShifterLow());
+		leftBumper.whileHeld(new ShooterTurretManualLeft());
+		rightBumper.whileHeld(new ShooterTurretManualRight());
+		
+//		leftBumper.whileHeld(new IntakeEject());
+//		rightBumper.whileHeld(new IntakeCollect());
+		
+//		leftBumper.whileHeld(new ShiftOmni());
+//		leftBumper.whenReleased(new ShiftTank());
+//		rightBumper.whileHeld(new ShifterHigh());
+//		rightBumper.whenReleased(new ShifterLow());
 	}
 }
 

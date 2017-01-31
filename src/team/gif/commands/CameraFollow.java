@@ -38,7 +38,7 @@ public class CameraFollow extends Command {
     	largestCenterX = centerXs[areaIndex];
     	
     	double angle = largestCenterX / 480 * 60 - 30;
-    	Robot.turret.setPosition((angle + (Robot.turret.getPosition() * (9/16)) * (16/9)));
+    	Robot.turret.setPosition((angle - (Robot.turret.getPosition() * (9/16)) * (16/9)));
     }
 
     protected boolean isFinished() {

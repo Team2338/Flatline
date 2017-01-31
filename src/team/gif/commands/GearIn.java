@@ -7,11 +7,11 @@ import team.gif.Robot;
 public class GearIn extends Command {
 
     public GearIn() {
-    	requires(Robot.geardrop);
+    	requires(Robot.gearHanger);
     }
 
     protected void initialize() {
-    	Robot.geardrop.release(true);
+    	Robot.gearHanger.release(true);
     }
 
     protected void execute() {

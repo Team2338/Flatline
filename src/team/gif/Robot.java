@@ -24,7 +24,7 @@ public class Robot extends IterativeRobot {
 	public static final Intake intake = new Intake();
 	public static final ShooterTurret turret = new ShooterTurret();
 	public static final Climber climber = new Climber();
-	public static final Geardrop geardrop = new Geardrop();
+	public static final GearHanger gearHanger = new GearHanger();
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
 	public static OI oi;
@@ -39,10 +39,10 @@ public class Robot extends IterativeRobot {
 
 		grip = NetworkTable.getTable("GRIP");
 		
-		SmartDashboard.putNumber("Turret P", Globals.turretP);
-		SmartDashboard.putNumber("Turret I", Globals.turretI);
-		SmartDashboard.putNumber("Turret D", Globals.turretD);
-		SmartDashboard.putNumber("Turret Position", Globals.turretPosition);
+//		SmartDashboard.putNumber("Turret P", Globals.turretP);
+//		SmartDashboard.putNumber("Turret I", Globals.turretI);
+//		SmartDashboard.putNumber("Turret D", Globals.turretD);
+//		SmartDashboard.putNumber("Turret Position", Globals.turretPosition);
 	}
 
 	public void disabledInit() {}
@@ -67,11 +67,11 @@ public class Robot extends IterativeRobot {
 			autonomousCommand.cancel();
 		new TankDrive().start(); //Does this have to be here?
 		
-		turret.setPID(SmartDashboard.getNumber("Turret P", Globals.turretP), 
-				SmartDashboard.getNumber("Turret I", Globals.turretI), 
-				SmartDashboard.getNumber("Turret D", Globals.turretD));
-		
-		Globals.turretPosition = SmartDashboard.getNumber("Turret Position", Globals.turretPosition);
+//		turret.setPID(SmartDashboard.getNumber("Turret P", Globals.turretP), 
+//				SmartDashboard.getNumber("Turret I", Globals.turretI), 
+//				SmartDashboard.getNumber("Turret D", Globals.turretD));
+//		
+//		Globals.turretPosition = SmartDashboard.getNumber("Turret Position", Globals.turretPosition);
 	}
 
 	public void teleopPeriodic() {

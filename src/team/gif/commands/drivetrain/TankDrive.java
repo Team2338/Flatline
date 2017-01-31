@@ -21,16 +21,17 @@ public class TankDrive extends Command {
 
     protected void execute() {
     	if (Math.abs(OI.xboxController.getRawAxis(1)) > Globals.deadzone) {
-    		left = OI .xboxController.getRawAxis(1);
+    		left = OI.xboxController.getRawAxis(1);
     	} else {
     		left = 0;
     	}
     	
     	if(Math.abs(OI.xboxController.getRawAxis(5)) > Globals.deadzone) {
-    		right = OI .xboxController.getRawAxis(5);
+    		right = OI.xboxController.getRawAxis(5);
     	} else {
     		right = 0;
     	}
+    	
     	Robot.drivetrain.drive(left, right);
     }
 

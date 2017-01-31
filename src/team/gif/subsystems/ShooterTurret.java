@@ -15,8 +15,8 @@ public class ShooterTurret extends Subsystem {
 	public final CANTalon turret = new CANTalon(RobotMap.turret);
 
 	public ShooterTurret() {
-//		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
-//		turret.setEncPosition(absolutePosition);
+		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
+		turret.setEncPosition(absolutePosition);
 		turret.changeControlMode(TalonControlMode.Position);
 		turret.setPID(Globals.turretP, Globals.turretI, Globals.turretD);
 		turret.setIZone(Globals.turretIZone);

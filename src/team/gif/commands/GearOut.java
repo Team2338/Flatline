@@ -7,18 +7,18 @@ import team.gif.Robot;
 public class GearOut extends Command {
 
     public GearOut() {
-    	requires(Robot.geardrop);
+    	requires(Robot.gearHanger);
     }
 
     protected void initialize() {
-    	Robot.geardrop.release(false);
+    	Robot.gearHanger.release(false);
     }
 
     protected void execute() {
     	if (OI.xboxController.getRawAxis(3) > 0) {
-    		Robot.geardrop.release(true);
+    		Robot.gearHanger.release(true);
     	} else {
-    		Robot.geardrop.release(false);
+    		Robot.gearHanger.release(false);
     	}
     }
 
