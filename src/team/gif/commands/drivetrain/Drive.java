@@ -1,21 +1,31 @@
 package team.gif.commands.drivetrain;
 
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
 /**
  *enan was here
  */
+
+
 public class Drive extends Command {
 
-    public Drive(double right, double left) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	    	
-		Robot.drivetrain.drive(right, left);
+	private double left;
+	private double right;
+//                                                                                               n	public static double distance = Talon.getPosition();
+	
+    public Drive(double left, double right) {
+        requires(Robot.drivetrain);
+        this.left = left;
+        this.right = right;
+      
+
+
     }
     
-   
+
 
     // Called just before this Command runs the first time
     protected void initialize() {
@@ -23,6 +33,11 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
+   
+    	Robot.drivetrain.driveLeft(left);
+    	Robot.drivetrain.driveRight(right);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

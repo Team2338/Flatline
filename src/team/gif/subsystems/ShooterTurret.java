@@ -7,14 +7,16 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
+import team.gif.RobotMap;
 import team.gif.commands.shooter.TurretTurn;
 
 public class ShooterTurret extends Subsystem {
-	
-	public final CANTalon turret = new CANTalon(5);
+	 
+	public final CANTalon turret = new CANTalon(RobotMap.turret);
+
 	public ShooterTurret() {
-//		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
-//		turret.setEncPosition(absolutePosition);
+		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
+		turret.setEncPosition(absolutePosition);
 		turret.changeControlMode(TalonControlMode.Position);
 		turret.setPID(Globals.turretP, Globals.turretI, Globals.turretD);
 		turret.setIZone(Globals.turretIZone);

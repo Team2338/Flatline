@@ -1,21 +1,28 @@
-package team.gif.commands;
+package team.gif.commands.shooter;
+
+import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
-public class IntakeStandby extends Command {
+/**
+ *
+ */
+public class ShooterTurretManualRight extends Command {
 
-    public IntakeStandby() {
-        requires(Robot.intake);
+    public ShooterTurretManualRight() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.turret.setMode(TalonControlMode.PercentVbus);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intake.drive(0);
+    	Robot.turret.setPosition(0.1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
