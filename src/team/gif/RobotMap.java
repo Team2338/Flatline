@@ -7,10 +7,10 @@ package team.gif;
  */
 public class RobotMap {
 	// CAN Addresses
-	public static final int frontRightDrive	= 3; //9
-	public static final int rearRightDrive = 0; //4
-	public static final int frontLeftDrive = 1; //7
-	public static final int rearLeftDrive = 2; //8
+	public static final int frontRightDrive	= 9; //9
+	public static final int rearRightDrive = 4; //4
+	public static final int frontLeftDrive = 7; //7
+	public static final int rearLeftDrive = 8; //8
 	public static final int intake = 5;
 	public static final int flywheel1 = 40;
 	public static final int flywheel2 = 41;

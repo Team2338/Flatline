@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import team.gif.commands.auto.GearGrab;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.subsystems.*;
 
@@ -27,7 +28,8 @@ public class Robot extends IterativeRobot {
 	public static final GearHanger gearHanger = new GearHanger();
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
-	public static final Collector collector = new Collector();
+//	public static final Collector collector = new Collector();
+	public static final GearGrab geargrab = new GearGrab();
 	public static OI oi;
 
 	public static NetworkTable grip;
@@ -45,6 +47,7 @@ public class Robot extends IterativeRobot {
 //		SmartDashboard.putNumber("Turret D", Globals.turretD);
 //		SmartDashboard.putNumber("Turret Position", Globals.turretPosition);
 	}
+	public static int lor = 0;
 
 	public void disabledInit() {}
 
@@ -53,7 +56,8 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void autonomousInit() {
-		autonomousCommand = (Command) chooser.getSelected();
+		autonomousCommand = geargrab;
+				//(Command) chooser.getSelected();
 
 		if (autonomousCommand != null)
 			autonomousCommand.start();
