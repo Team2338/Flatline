@@ -34,8 +34,9 @@ public class CameraFollow extends Command {
     	}
     	double[] centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", defaultCenterX);
     	largestCenterX = centerXs[areaIndex];
+	centeredCenterX = largestCenterX - 240;
     	
-    	angle = largestCenterX / 480 * 60 - 30;
+    	angle = Math.toDegrees(Math.atan(cPixels/(240 * Math.sqrt(3)))); //left of center is negative, right positive
     }
 
     protected void execute() {
