@@ -3,17 +3,17 @@ package team.gif;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import team.gif.commands.CameraFollow;
 import team.gif.commands.IntakeCollect;
 import team.gif.commands.IntakeEject;
 import team.gif.commands.drivetrain.ShiftOmni;
 import team.gif.commands.drivetrain.ShiftTank;
 import team.gif.commands.drivetrain.ShifterHigh;
 import team.gif.commands.drivetrain.ShifterLow;
+import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.RevFlywheel;
 import team.gif.commands.shooter.ShooterStandby;
-import team.gif.commands.shooter.ShooterTurretManualLeft;
-import team.gif.commands.shooter.ShooterTurretManualRight;
+import team.gif.commands.shooter.TurretManual;
+import team.gif.commands.shooter.TurretManual;
 import team.gif.commands.shooter.TurretTurn;
 
 /**
@@ -46,16 +46,15 @@ public class OI {
 		leftStick = new JoystickButton(xboxController, 9);
 		rightStick = new JoystickButton(xboxController, 10);
 		
-//		y.whileHeld(new RevFlywheel(Globals.flywheelRPM));
-//		y.whenReleased(new ShooterStandby());
+		y.whileHeld(new RevFlywheel(Globals.flywheelRPM));
+		y.whenReleased(new ShooterStandby());
 
-		
-		a.whileHeld(new CameraFollow());
-		b.whenPressed(new TurretTurn(Globals.turretPosition));
-		x.whenPressed(new TurretTurn(0));
-		
-		leftBumper.whileHeld(new ShooterTurretManualLeft());
-		rightBumper.whileHeld(new ShooterTurretManualRight());
+//		a.whileHeld(new CameraFollow());
+//		b.whenPressed(new TurretTurn(Globals.turretPosition));
+//		x.whenPressed(new TurretTurn(0));
+//		
+//		leftBumper.whileHeld(new TurretManual(-0.1));
+//		rightBumper.whileHeld(new TurretManual(0.1));
 		
 //		leftBumper.whileHeld(new IntakeEject());
 //		rightBumper.whileHeld(new IntakeCollect());

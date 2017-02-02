@@ -29,7 +29,7 @@ public class Shooter extends Subsystem {
 		flywheel.reverseSensor(true);
 		
 		flywheel2.changeControlMode(TalonControlMode.Follower);
-		flywheel2.set(2);
+		flywheel2.set(RobotMap.flywheel1);
 		
 	}
 	
@@ -88,9 +88,9 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void update() {
-		
 		SmartDashboard.putNumber("Shooter CurrPos" , getPosition());
 		SmartDashboard.putNumber("ShooterVelocity", getVelocity());
+		SmartDashboard.putNumber("Approximate RPM", getVelocity() / Globals.RPMMultiplier);
 		SmartDashboard.putNumber("ShooterError", getError());
 		SmartDashboard.putNumber("P Gain", getPGain());
     	SmartDashboard.putNumber("I Gain", getIGain());

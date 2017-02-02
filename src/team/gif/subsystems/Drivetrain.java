@@ -17,16 +17,6 @@ public class Drivetrain extends Subsystem {
 		super();
 	}
 
-	public void driveLeft(double speed){
-		frontLeft.set(speed);
-		rearLeft.set(speed);
-	}
-	
-	public void driveRight(double speed){
-		frontRight.set(-speed);
-		rearRight.set(-speed);
-	}
-
 	public void drive(double left, double right) {
 		frontLeft.set(left);
 		rearLeft.set(left);

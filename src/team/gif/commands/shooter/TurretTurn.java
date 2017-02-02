@@ -3,6 +3,7 @@ package team.gif.commands.shooter;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.command.Command;
+import team.gif.Globals;
 import team.gif.Robot;
 
 public class TurretTurn extends Command {
@@ -15,6 +16,7 @@ public class TurretTurn extends Command {
     }
 
     protected void initialize() {
+		Robot.turret.setPID(Globals.turretP, Globals.turretI, Globals.turretD);
     	Robot.turret.setMode(TalonControlMode.Position);
     }
 

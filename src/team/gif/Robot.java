@@ -27,7 +27,6 @@ public class Robot extends IterativeRobot {
 	public static final GearHanger gearHanger = new GearHanger();
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
-	public static final Collector collector = new Collector();
 	public static OI oi;
 
 	public static NetworkTable grip;
@@ -39,11 +38,6 @@ public class Robot extends IterativeRobot {
 		chooser = new SendableChooser<Object>();
 
 		grip = NetworkTable.getTable("GRIP");
-		
-//		SmartDashboard.putNumber("Turret P", Globals.turretP);
-//		SmartDashboard.putNumber("Turret I", Globals.turretI);
-//		SmartDashboard.putNumber("Turret D", Globals.turretD);
-//		SmartDashboard.putNumber("Turret Position", Globals.turretPosition);
 	}
 
 	public void disabledInit() {}
