@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import team.gif.commands.auto.GearGrab;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.subsystems.*;
 
@@ -39,6 +40,7 @@ public class Robot extends IterativeRobot {
 
 		grip = NetworkTable.getTable("GRIP");
 	}
+	public static int lor = 0;
 
 	public void disabledInit() {}
 
@@ -47,7 +49,8 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void autonomousInit() {
-		autonomousCommand = (Command) chooser.getSelected();
+		autonomousCommand = geargrab;
+				//(Command) chooser.getSelected();
 
 		if (autonomousCommand != null)
 			autonomousCommand.start();
