@@ -46,12 +46,12 @@ public class OI {
 		leftStick = new JoystickButton(xboxController, 9);
 		rightStick = new JoystickButton(xboxController, 10);
 		
-		y.whileHeld(new RevFlywheel(Globals.flywheelRPM));
-		y.whenReleased(new ShooterStandby());
+//		y.whileHeld(new RevFlywheel(Globals.flywheelRPM));
+//		y.whenReleased(new ShooterStandby());
 
-//		a.whileHeld(new CameraFollow());
-//		b.whenPressed(new TurretTurn(Globals.turretPosition));
-//		x.whenPressed(new TurretTurn(0));
+		a.whileHeld(new CameraFollow());
+		b.whenPressed(new TurretTurn(Globals.turretPosition));
+		x.whenPressed(new TurretTurn(0));
 //		
 //		leftBumper.whileHeld(new TurretManual(-0.1));
 //		rightBumper.whileHeld(new TurretManual(0.1));

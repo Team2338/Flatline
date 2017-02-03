@@ -2,6 +2,8 @@ package team.gif.commands.shooter;
 
 import java.awt.image.AreaAveragingScaleFilter;
 
+import com.ctre.CANTalon.TalonControlMode;
+
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Globals;
 import team.gif.Robot;
@@ -10,46 +12,54 @@ import team.gif.Robot;
  *
  */
 public class CameraFollow extends Command {
-	
-	private double[] defaultCenterX = {240.0};
-	private double[] defaultArea = {100.0};
+
 	private double largestCenterX;
 	private double degreeError;
+	private double tolerance;
 
-    public CameraFollow() {
-        requires(Robot.turret);
-    }
+	public CameraFollow() {
+		requires(Robot.turret);
+	}
 
-    protected void initialize() {
-    	double[] areas = Robot.grip.getNumberArray("myContoursReport/area", defaultArea);
-    	double currentLargest = 0;
-    	int areaIndex = 0;
-    	int i = 0;
-    	for (double area : areas) {
-    		if (area > currentLargest) {
-    			currentLargest = area;
-    			areaIndex = i;
-    		}
-    		i++;
-    	}
-    	double[] centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", defaultCenterX);
-    	largestCenterX = centerXs[areaIndex];
-    	double pixelError = largestCenterX - 240;
-    	
-    	degreeError = Math.toDegrees(Math.atan(pixelError/(240 * Math.sqrt(3))));
-    }
+	protected void initialize() {
+		Robot.turret.setMode(TalonControlMode.Position);
+	}
 
-    protected void execute() {
-        Robot.turret.setPosition(Robot.turret.getPosition() - (16/9 * degreeError));
-    }
+	protected void execute() {
+		Double[] areas = Robot.grip.getNumberArray("myContoursReport/area", new Double[] { 0.0 });
+		Double[] centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] { 0.0 });
+		double currentLargest = 0;
+		int areaIndex = 0;
+		int i = 0;
 
-    protected boolean isFinished() {
-        return false;
-    }
+		if (areas.length > 0 && centerXs.length > 0) {
+			for (double area : areas) {
+				if (area > currentLargest) {
+					currentLargest = area;
+					areaIndex = i;
+				}
+				i++;
+			}
+			largestCenterX = centerXs[areaIndex];
+		} else {
+			largestCenterX = 0; // TODO: Make it not always turn left is it
+								// cannot see target
+		}
 
-    protected void end() {
-    }
+		double pixelError = 240 - largestCenterX;
+		degreeError = Math.toDegrees(Math.atan(pixelError / (240 * Math.sqrt(3))));
 
-    protected void interrupted() {
-    }
+		Robot.turret.setPosition(Robot.turret.getPosition() + (16 / 9 * degreeError));
+	}
+
+	protected boolean isFinished() {
+		return false;
+	}
+
+	protected void end() {
+
+	}
+
+	protected void interrupted() {
+	}
 }

@@ -17,6 +17,7 @@ public class ShooterTurret extends Subsystem {
 	public ShooterTurret() {
 //		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
 //		turret.setEncPosition(absolutePosition);
+		turret.enableBrakeMode(true);
 		turret.changeControlMode(TalonControlMode.Position);
 		turret.setPID(Globals.turretP, Globals.turretI, Globals.turretD);
 		turret.setIZone(Globals.turretIZone);
@@ -82,7 +83,7 @@ public class ShooterTurret extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new TurretTurn(0));
+
     }
 }
 
