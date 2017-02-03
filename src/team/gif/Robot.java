@@ -49,7 +49,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void autonomousInit() {
-		autonomousCommand = geargrab;
+		autonomousCommand = new GearGrab();
 				//(Command) chooser.getSelected();
 
 		if (autonomousCommand != null)

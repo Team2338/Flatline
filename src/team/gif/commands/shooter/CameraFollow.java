@@ -14,7 +14,7 @@ public class CameraFollow extends Command {
 	private double[] defaultCenterX = {240.0};
 	private double[] defaultArea = {100.0};
 	private double largestCenterX;
-	private double angle;
+	private double degreeError;
 
     public CameraFollow() {
         requires(Robot.turret);
@@ -34,13 +34,13 @@ public class CameraFollow extends Command {
     	}
     	double[] centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", defaultCenterX);
     	largestCenterX = centerXs[areaIndex];
-	centeredCenterX = largestCenterX - 240;
+    	double pixelError = largestCenterX - 240;
     	
-    	angle = Math.toDegrees(Math.atan(cPixels/(240 * Math.sqrt(3)))); //left of center is negative, right positive
+    	degreeError = Math.toDegrees(Math.atan(pixelError/(240 * Math.sqrt(3))));
     }
 
     protected void execute() {
-        Robot.turret.setPosition(((Robot.turret.getPosition() * (9/16) - angle)) * (16/9));
+        Robot.turret.setPosition(Robot.turret.getPosition() - (16/9 * degreeError));
     }
 
     protected boolean isFinished() {
