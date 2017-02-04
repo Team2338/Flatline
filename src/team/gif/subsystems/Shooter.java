@@ -90,7 +90,7 @@ public class Shooter extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Shooter CurrPos" , getPosition());
 		SmartDashboard.putNumber("ShooterVelocity", getVelocity());
-		SmartDashboard.putNumber("Approximate RPM", getVelocity() / Globals.RPMMultiplier);
+		SmartDashboard.putNumber("Approximate RPM", getVelocity() / Globals.RPMMultiplier / 3);
 		SmartDashboard.putNumber("ShooterError", getError());
 		SmartDashboard.putNumber("P Gain", getPGain());
     	SmartDashboard.putNumber("I Gain", getIGain());
