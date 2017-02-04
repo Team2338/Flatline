@@ -12,9 +12,9 @@ public class RobotMap {
 	public static final int frontLeftDrive = 1; //7
 	public static final int rearLeftDrive = 2; //8
 	public static final int intake = 50;
-	public static final int flywheel1 = 51;
-	public static final int flywheel2 = 61;
-	public static final int turret = 5;
+	public static final int flywheel1 = 5;
+	public static final int flywheel2 = 6;
+	public static final int turret = 51;
 	public static final int climber = 15;
 	
 	// Relay Ports

@@ -80,6 +80,7 @@ public class ShooterTurret extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
 		SmartDashboard.putNumber("Turret PGain", getPGain());
+		SmartDashboard.putNumber("Turret Error", getError());
 	}
 
     public void initDefaultCommand() {
