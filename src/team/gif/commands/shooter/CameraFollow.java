@@ -57,7 +57,7 @@ public class CameraFollow extends Command {
 			}
 		}
 		
-		pixelError = 240 - largestCenterX;
+		pixelError = Globals.cameraCenterX - largestCenterX;
 		degreeError = Math.toDegrees(Math.atan(pixelError / (Globals.cameraCenterX * Math.sqrt(3))));
 		SmartDashboard.putNumber("Degree Error", degreeError);
 

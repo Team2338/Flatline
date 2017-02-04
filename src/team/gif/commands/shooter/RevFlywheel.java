@@ -18,6 +18,10 @@ public class RevFlywheel extends Command {
 
 	protected void initialize() {
 		Robot.shooter.setMode(TalonControlMode.Speed);
+		Robot.shooter.setPID(SmartDashboard.getNumber("Flywheel P", Globals.flywheelP),
+		SmartDashboard.getNumber("Flywheel I", Globals.flywheelI),
+		SmartDashboard.getNumber("Flywheel D", Globals.flywheelD),
+		SmartDashboard.getNumber("Flywheel F", Globals.flywheelF));
 	}
 
 	protected void execute() {

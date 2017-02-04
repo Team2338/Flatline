@@ -42,6 +42,11 @@ public class Robot extends IterativeRobot {
 		chooser = new SendableChooser<Object>();
 
 		grip = NetworkTable.getTable("GRIP");
+		
+		SmartDashboard.putNumber("Flywheel P", Globals.flywheelP);
+		SmartDashboard.putNumber("Flywheel I", Globals.flywheelI);
+		SmartDashboard.putNumber("Flywheel D", Globals.flywheelD);
+		SmartDashboard.putNumber("Flywheel F", Globals.flywheelF);
 	}
 	public static int lor = 0;
 
