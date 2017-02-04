@@ -2,7 +2,8 @@ package team.gif.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
-import team.gif.commands.CollectorStandby;
+import team.gif.commands.intake.FeederStandby;
+
 import com.ctre.CANTalon;
 
 public class Feeder extends Subsystem {
@@ -19,7 +20,7 @@ public class Feeder extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new CollectorStandby());
+    	setDefaultCommand(new FeederStandby());
     }
 }
 

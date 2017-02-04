@@ -13,10 +13,8 @@ public class TurretAndShoot extends CommandGroup {
 	public TurretAndShoot() {
 		addParallel(new RevFlywheel(Globals.flywheelRPM));
 		addParallel(new CameraFollow());
-		if (Robot.turret.getInTolerance()) {
-			addParallel(new FeederIn());
-		}
-
+		addParallel(new FeederIn(true));
 		// TODO: Use IR sensor to determine when shooting finishes
+		// Andrew says maybe not that
 	}
 }

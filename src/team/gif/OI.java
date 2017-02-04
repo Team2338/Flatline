@@ -3,18 +3,9 @@ package team.gif;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import team.gif.commands.CollectorCollect;
-import team.gif.commands.CollectorEject;
-import team.gif.commands.drivetrain.ShiftOmni;
-import team.gif.commands.drivetrain.ShiftTank;
-import team.gif.commands.drivetrain.ShifterHigh;
-import team.gif.commands.drivetrain.ShifterLow;
-import team.gif.commands.shooter.CameraFollow;
-import team.gif.commands.shooter.RevFlywheel;
-import team.gif.commands.shooter.ShooterStandby;
-import team.gif.commands.shooter.TurretManual;
-import team.gif.commands.shooter.TurretManual;
-import team.gif.commands.shooter.TurretTurn;
+import team.gif.commands.*;
+import team.gif.commands.drivetrain.*;
+import team.gif.commands.shooter.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator

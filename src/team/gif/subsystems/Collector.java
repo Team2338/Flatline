@@ -4,6 +4,8 @@ import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
+import team.gif.commands.intake.CollectorStandby;
+
 
 /**
  *
@@ -17,7 +19,7 @@ public class Collector extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand()
+    	setDefaultCommand(new CollectorStandby());
     }
 }
 

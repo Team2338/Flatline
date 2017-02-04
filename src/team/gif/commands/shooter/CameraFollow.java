@@ -14,6 +14,8 @@ public class CameraFollow extends Command {
 
 	private double degreeError;
 	private double largestCenterX;
+	private double pixelError;
+	private Double[] centerXs;
 
 	public CameraFollow() {
 		requires(Robot.turret);
@@ -25,7 +27,7 @@ public class CameraFollow extends Command {
 
 	protected void execute() {
 //		Double[] areas = Robot.grip.getNumberArray("myContoursReport/area", new Double[] { 0.0 });
-		Double[] centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] { 0.0 });
+		centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] { 0.0 });
 		
 //		double currentLargest = 0;
 //		int areaIndex = 0;
@@ -48,10 +50,14 @@ public class CameraFollow extends Command {
 		if(centerXs.length > 0) {
 			largestCenterX = centerXs[centerXs.length - 1];
 		} else {
-			largestCenterX = 0; // TODO: Make it not always turn left it is cannot see target
+			if (pixelError <= 0) {
+				largestCenterX = 0; // TODO: Make it not always turn left it is cannot see target
+			} else if (pixelError > 0) {
+				largestCenterX = 480;
+			}
 		}
 		
-		double pixelError = 240 - largestCenterX;
+		pixelError = 240 - largestCenterX;
 		degreeError = Math.toDegrees(Math.atan(pixelError / (Globals.cameraCenterX * Math.sqrt(3))));
 		SmartDashboard.putNumber("Degree Error", degreeError);
 
@@ -59,6 +65,7 @@ public class CameraFollow extends Command {
 	}
 
 	protected boolean isFinished() {
+//		return Robot.turret.inTolerance;
 		return false;
 	}
 
@@ -67,9 +74,5 @@ public class CameraFollow extends Command {
 	}
 
 	protected void interrupted() {
-	}
-	
-	public boolean getInTolerance() {
-		return inTolerance;
 	}
 }
