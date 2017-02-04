@@ -7,9 +7,9 @@ import team.gif.commands.drivetrain.Drive;
  
 public class Mobility extends CommandGroup {
 
-    public Mobility() {
+public Mobility(double x, double y) {
     	
-    	addSequential(new Drive(0.25,0.25));
+    	addSequential(new Drive(x,y));
         
     }
 }
