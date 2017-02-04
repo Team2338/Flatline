@@ -11,7 +11,9 @@ public class RobotMap {
 	public static final int rearRightDrive = 0; //4
 	public static final int frontLeftDrive = 1; //7
 	public static final int rearLeftDrive = 2; //8
-	public static final int intake = 50;
+	public static final int collector = 50;
+	public static final int feeder = 52;
+	public static final int polyWhisk = 53;
 	public static final int flywheel1 = 5;
 	public static final int flywheel2 = 6;
 	public static final int turret = 51;

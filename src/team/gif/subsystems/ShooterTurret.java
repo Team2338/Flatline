@@ -7,12 +7,14 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
+import team.gif.Robot;
 import team.gif.RobotMap;
 import team.gif.commands.shooter.TurretTurn;
 
 public class ShooterTurret extends Subsystem {
 	 
 	public final CANTalon turret = new CANTalon(RobotMap.turret);
+	public boolean inTolerance;
 
 	public ShooterTurret() {
 //		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
@@ -38,6 +40,16 @@ public class ShooterTurret extends Subsystem {
 	
 	public void setPosition(double position){
 		turret.set(position);
+	}
+	
+	public boolean getInTolerance() {
+		double error = getSetpoint() - Robot.turret.getPosition();
+		
+		if(Math.abs(error) < Globals.turretTolerance) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public double getPGain() {
@@ -81,6 +93,7 @@ public class ShooterTurret extends Subsystem {
 		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
 		SmartDashboard.putNumber("Turret PGain", getPGain());
 		SmartDashboard.putNumber("Turret Error", getError());
+		SmartDashboard.putBoolean("Turret InTolerance", getInTolerance());
 	}
 
     public void initDefaultCommand() {

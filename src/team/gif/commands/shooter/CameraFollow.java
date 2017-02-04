@@ -1,8 +1,5 @@
 package team.gif.commands.shooter;
 
-import java.awt.image.AreaAveragingScaleFilter;
-import java.util.Arrays;
-
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -17,7 +14,6 @@ public class CameraFollow extends Command {
 
 	private double degreeError;
 	private double largestCenterX;
-	private boolean inTolerance;
 
 	public CameraFollow() {
 		requires(Robot.turret);
@@ -28,39 +24,38 @@ public class CameraFollow extends Command {
 	}
 
 	protected void execute() {
-		Double[] areas = Robot.grip.getNumberArray("myContoursReport/area", new Double[] { 0.0 });
+//		Double[] areas = Robot.grip.getNumberArray("myContoursReport/area", new Double[] { 0.0 });
 		Double[] centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] { 0.0 });
 		
-		double currentLargest = 0;
-		int areaIndex = 0;
-		int i = 0;
+//		double currentLargest = 0;
+//		int areaIndex = 0;
+//		int i = 0;
 
-		if (areas.length > 0 && centerXs.length > 0) {
-			for (double area : areas) {
-				if (area > currentLargest) {
-					currentLargest = area;
-					areaIndex = i;
-				}
-				i++;
-			}
-			largestCenterX = centerXs[areaIndex];
+//		if (areas.length > 0 && centerXs.length > 0) {
+//			for (double area : areas) {
+//				if (area > currentLargest) {
+//					currentLargest = area;
+//					areaIndex = i;
+//				}
+//				i++;
+//			}
+//			largestCenterX = centerXs[Math.max(areaIndex, 0)];
+//		} else {
+//			largestCenterX = 0; // TODO: Make it not always turn left if it
+//								// cannot see target
+//		}
+
+		if(centerXs.length > 0) {
+			largestCenterX = centerXs[centerXs.length - 1];
 		} else {
-			largestCenterX = 0; // TODO: Make it not always turn left if it
-								// cannot see target
+			largestCenterX = 0; // TODO: Make it not always turn left it is cannot see target
 		}
-
+		
 		double pixelError = 240 - largestCenterX;
-		degreeError = Math.toDegrees(Math.atan(pixelError / (240 * Math.sqrt(3))));
+		degreeError = Math.toDegrees(Math.atan(pixelError / (Globals.cameraCenterX * Math.sqrt(3))));
 		SmartDashboard.putNumber("Degree Error", degreeError);
 
-		Robot.turret.setPosition(Robot.turret.getPosition() + (16 / 9 * degreeError));
-
-		if (Math.abs(degreeError) < Globals.pixelTolerance) {
-			inTolerance = true;
-		} else {
-			inTolerance = false;
-		}
-		SmartDashboard.putBoolean("InTolerance", inTolerance);
+		Robot.turret.setPosition(Robot.turret.getPosition() + (Globals.turretAngleToTick * degreeError));
 	}
 
 	protected boolean isFinished() {
