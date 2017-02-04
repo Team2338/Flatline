@@ -38,7 +38,7 @@ public class OI {
 		leftStick = new JoystickButton(xboxController, 9);
 		rightStick = new JoystickButton(xboxController, 10);
 		
-		y.whileHeld(new RevFlywheel(SmartDashboard.getNumber("Flywheel RPM", Globals.flywheelRPM)));
+		y.whileHeld(new RevFlywheel());
 		y.whenReleased(new ShooterStandby());
 
 //		a.whileHeld(new CameraFollow());

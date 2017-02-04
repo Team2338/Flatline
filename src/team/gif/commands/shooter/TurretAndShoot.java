@@ -11,7 +11,7 @@ import team.gif.commands.intake.FeederIn;
 public class TurretAndShoot extends CommandGroup {
 
 	public TurretAndShoot() {
-		addParallel(new RevFlywheel(Globals.flywheelRPM));
+		addParallel(new RevFlywheel());
 		addParallel(new CameraFollow());
 		addParallel(new FeederIn(true));
 		// TODO: Use IR sensor to determine when shooting finishes

@@ -11,9 +11,9 @@ public class RevFlywheel extends Command {
 
 	public final double setpoint;
 
-	public RevFlywheel(double setpoint) {
+	public RevFlywheel() {
 		requires(Robot.shooter);
-		this.setpoint = setpoint;
+		setpoint = SmartDashboard.getNumber("Flywheel RPM", Globals.flywheelRPM);
 	}
 
 	protected void initialize() {
