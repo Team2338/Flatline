@@ -7,9 +7,12 @@ import team.gif.commands.drivetrain.Drive;
  
 public class Mobility extends CommandGroup {
 
+//	private final WAIT_TIME = 0.0;
+
 public Mobility(double x, double y) {
-    	
+//		addSequential(new WaitCommand(WAIT_TIME));
     	addSequential(new Drive(x,y));
+//    	addSequential(new WaitCommand(WAIT_TIME));
         
     }
 }
