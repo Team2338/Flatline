@@ -7,7 +7,7 @@ import team.gif.commands.shooter.TurretAndShoot;
 public class GearShootMobility extends CommandGroup {
 
     public GearShootMobility() {
-    	addSequential(new Mobility());
+    	addSequential(new Mobility(0.25,0.25));
         addSequential(new GearGrab());
         addSequential(new TurretAndShoot());
     }
