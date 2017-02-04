@@ -20,6 +20,7 @@ public class GearGrab extends CommandGroup {
 //    	addSequential(new WaitCommand(WAIT_TIME));
     	addSequential(new GearIn());
     	addSequential(new Drive(-0.1,-0.1));
+    	
    
     	   }
 }
