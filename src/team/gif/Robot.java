@@ -47,6 +47,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Flywheel I", Globals.flywheelI);
 		SmartDashboard.putNumber("Flywheel D", Globals.flywheelD);
 		SmartDashboard.putNumber("Flywheel F", Globals.flywheelF);
+		SmartDashboard.putNumber("Flywheel RPM", Globals.flywheelRPM);
 	}
 	public static int lor = 0;
 

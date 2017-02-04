@@ -3,6 +3,7 @@ package team.gif;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.commands.*;
 import team.gif.commands.drivetrain.*;
 import team.gif.commands.shooter.*;
@@ -37,7 +38,7 @@ public class OI {
 		leftStick = new JoystickButton(xboxController, 9);
 		rightStick = new JoystickButton(xboxController, 10);
 		
-		y.whileHeld(new RevFlywheel(Globals.flywheelRPM));
+		y.whileHeld(new RevFlywheel(SmartDashboard.getNumber("Flywheel RPM", Globals.flywheelRPM)));
 		y.whenReleased(new ShooterStandby());
 
 //		a.whileHeld(new CameraFollow());
