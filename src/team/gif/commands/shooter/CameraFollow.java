@@ -26,27 +26,9 @@ public class CameraFollow extends Command {
 	}
 
 	protected void execute() {
-//		Double[] areas = Robot.grip.getNumberArray("myContoursReport/area", new Double[] { 0.0 });
+
 		centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] { 0.0 });
 		
-//		double currentLargest = 0;
-//		int areaIndex = 0;
-//		int i = 0;
-
-//		if (areas.length > 0 && centerXs.length > 0) {
-//			for (double area : areas) {
-//				if (area > currentLargest) {
-//					currentLargest = area;
-//					areaIndex = i;
-//				}
-//				i++;
-//			}
-//			largestCenterX = centerXs[Math.max(areaIndex, 0)];
-//		} else {
-//			largestCenterX = 0; // TODO: Make it not always turn left if it
-//								// cannot see target
-//		}
-
 		if(centerXs.length > 0) {
 			largestCenterX = centerXs[centerXs.length - 1];
 		} else {

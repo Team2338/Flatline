@@ -3,7 +3,7 @@ package team.gif.subsystems;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
-import team.gif.commands.drivetrain.ShiftTank;
+import team.gif.commands.drivetrain.ShiftOmni;
 
 public class Versadrop extends Subsystem {
 
@@ -14,7 +14,7 @@ public class Versadrop extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new ShiftTank());
+    	setDefaultCommand(new ShiftOmni(false));
     }
 }
 

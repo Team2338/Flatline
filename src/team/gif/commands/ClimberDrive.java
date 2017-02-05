@@ -1,4 +1,4 @@
-package team.gif.commands.intake;
+package team.gif.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
@@ -6,10 +6,13 @@ import team.gif.Robot;
 /**
  *
  */
-public class CollectorCollect extends Command {
+public class ClimberDrive extends Command {
+	
+	private double speed;
 
-    public CollectorCollect() {
-        requires(Robot.collector);
+    public ClimberDrive(double speed) {
+        requires(Robot.climber);
+        this.speed = speed;
     }
 
     // Called just before this Command runs the first time
@@ -18,7 +21,7 @@ public class CollectorCollect extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.drive(1);
+    	Robot.climber.drive(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

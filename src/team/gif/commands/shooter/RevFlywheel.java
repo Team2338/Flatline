@@ -12,26 +12,26 @@ public class RevFlywheel extends Command {
 	public final double setpoint;
 
 	public RevFlywheel() {
-		requires(Robot.shooter);
+		requires(Robot.flywheel);
 		setpoint = SmartDashboard.getNumber("Flywheel RPM", Globals.flywheelRPM);
 	}
 
 	protected void initialize() {
-		Robot.shooter.setMode(TalonControlMode.Speed);
-		Robot.shooter.setPID(SmartDashboard.getNumber("Flywheel P", Globals.flywheelP),
+		Robot.flywheel.setMode(TalonControlMode.Speed);
+		Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P", Globals.flywheelP),
 		SmartDashboard.getNumber("Flywheel I", Globals.flywheelI),
 		SmartDashboard.getNumber("Flywheel D", Globals.flywheelD),
 		SmartDashboard.getNumber("Flywheel F", Globals.flywheelF));
 	}
 
 	protected void execute() {
-		if (Robot.shooter.getError() >= 0) {
-			Robot.shooter.flywheel.setIZone(Globals.flywheelIZoneBelow);
-		} else if (Robot.shooter.getError() < 0) {
-			Robot.shooter.flywheel.setIZone(Globals.flywheelIZoneAbove);
+		if (Robot.flywheel.getError() >= 0) {
+			Robot.flywheel.flywheel.setIZone(Globals.flywheelIZoneBelow);
+		} else if (Robot.flywheel.getError() < 0) {
+			Robot.flywheel.flywheel.setIZone(Globals.flywheelIZoneAbove);
 		}
 
-		Robot.shooter.driveFlywheel(setpoint);
+		Robot.flywheel.driveFlywheel(setpoint);
 	}
 
 	protected boolean isFinished() {

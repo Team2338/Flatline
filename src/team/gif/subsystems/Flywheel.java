@@ -10,12 +10,12 @@ import team.gif.Globals;
 import team.gif.RobotMap;
 import team.gif.commands.shooter.ShooterStandby;
 
-public class Shooter extends Subsystem {
+public class Flywheel extends Subsystem {
 	
 	public final CANTalon flywheel = new CANTalon(RobotMap.flywheel1);
 	public final CANTalon flywheel2 = new CANTalon(RobotMap.flywheel2);
 	
-	public Shooter(){
+	public Flywheel(){
 		flywheel.enableBrakeMode(false);
 		flywheel2.enableBrakeMode(false);
 		flywheel.changeControlMode(TalonControlMode.Speed);
@@ -85,6 +85,14 @@ public class Shooter extends Subsystem {
 	
 	public void resetIAccum() {
 		flywheel.clearIAccum();
+	}
+	
+	public boolean isInTolerance() {
+		if (Math.abs(getError()) < Globals.shooterTolerance) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public void update() {

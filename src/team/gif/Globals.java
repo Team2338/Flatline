@@ -2,10 +2,10 @@ package team.gif;
 
 public class Globals {
 	
-	// Drivetrain
+//	Drivetrain
 	public static final double deadzone = 0.1;
 	
-	// Shooter
+//	Shooter
 	public static double flywheelP = 0.01;     // PVC: 0.14 Turret: .0048 New Turret: 0.01
 	public static double flywheelI = 0.0001;     // PVC:  0.0005 Turret: .0001 New Turret: 0.0001
 	public static double flywheelD = 0.01;	     // PVC: 0.001 Turret: 0.000 New Turret: 0.01
@@ -15,8 +15,10 @@ public class Globals {
 	public static int flywheelIZoneBelow = 4000; // Turret: 2000
 	public static double flywheelRPM = 80500; 	 // PVC: 22000 Turret: 90000 (16000 Mag Encoder Relative) New Turret: 80500
 	public static double RPMMultiplier = 6.84;
-
-	// Turret
+	public static final double revTime = 0;
+	public static final double shooterTolerance = 100;
+	
+//	Turret
 	public static double turretP = 0.011; // 0.011
 	public static double turretI = 0.0000001; // 0.00000001
 	public static double turretD = 0.8; // 0.1

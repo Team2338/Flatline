@@ -1,10 +1,8 @@
 package team.gif;
 
-import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -23,10 +21,10 @@ import team.gif.subsystems.*;
 public class Robot extends IterativeRobot {
 
 	public static final Drivetrain drivetrain = new Drivetrain();
-	public static final Shooter shooter = new Shooter();
+	public static final Flywheel flywheel = new Flywheel();
 	public static final Collector collector = new Collector();
 	public static final Feeder feeder = new Feeder();
-	public static final ShooterTurret turret = new ShooterTurret();
+	public static final Turret turret = new Turret();
 	public static final Climber climber = new Climber();
 	public static final GearHanger gearHanger = new GearHanger();
 	public static final Shifter shifter = new Shifter();
@@ -92,7 +90,7 @@ public class Robot extends IterativeRobot {
 
 	public void update() {
 		Scheduler.getInstance().run();
-		Robot.shooter.update();
+		Robot.flywheel.update();
 		Robot.turret.update();
 	}
 }

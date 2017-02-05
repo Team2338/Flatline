@@ -8,12 +8,12 @@ import team.gif.Robot;
 public class ShooterStandby extends Command {
 
     public ShooterStandby() {
-    	requires(Robot.shooter);
+    	requires(Robot.flywheel);
     }
 
     protected void initialize() {
-    	Robot.shooter.setMode(TalonControlMode.PercentVbus);
-    	Robot.shooter.driveFlywheel(0);
+    	Robot.flywheel.setMode(TalonControlMode.PercentVbus);
+    	Robot.flywheel.driveFlywheel(0);
     }
 
     protected void execute() {

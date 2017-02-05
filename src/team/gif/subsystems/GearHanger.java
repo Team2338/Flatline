@@ -3,7 +3,7 @@ package team.gif.subsystems;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
-import team.gif.commands.GearOut;
+import team.gif.commands.GearRelease;
 
 public class GearHanger extends Subsystem {
 	
@@ -14,7 +14,7 @@ public class GearHanger extends Subsystem {
 	}
 	
     public void initDefaultCommand() {
-    	setDefaultCommand(new GearOut());
+    	setDefaultCommand(new GearRelease(false));
     }
 }
 

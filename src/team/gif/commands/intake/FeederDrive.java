@@ -6,10 +6,13 @@ import team.gif.Robot;
 /**
  *
  */
-public class FeederOut extends Command {
+public class FeederDrive extends Command {
+	
+	private double speed;
 
-    public FeederOut() {
+    public FeederDrive(double speed) {
         requires(Robot.feeder);
+        this.speed = speed;
     }
 
     // Called just before this Command runs the first time
@@ -18,8 +21,8 @@ public class FeederOut extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.feeder.driveFeeder(-1);
-    	Robot.feeder.drivePolyWhisk(-1);
+    	Robot.feeder.driveFeeder(speed);
+    	Robot.feeder.drivePolyWhisk(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

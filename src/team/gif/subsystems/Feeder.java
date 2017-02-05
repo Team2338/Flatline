@@ -2,7 +2,7 @@ package team.gif.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
-import team.gif.commands.intake.FeederStandby;
+import team.gif.commands.intake.FeederDrive;
 
 import com.ctre.CANTalon;
 
@@ -20,7 +20,7 @@ public class Feeder extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new FeederStandby());
+    	setDefaultCommand(new FeederDrive(0));
     }
 }
 

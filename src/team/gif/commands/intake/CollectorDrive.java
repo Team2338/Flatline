@@ -6,13 +6,13 @@ import team.gif.Robot;
 /**
  *
  */
-public class FeederIn extends Command {
+public class CollectorDrive extends Command {
 	
-	private boolean isAssisted;
+	private double speed;
 
-    public FeederIn(boolean isAssisted) {
-        requires(Robot.feeder);
-        this.isAssisted = isAssisted;
+    public CollectorDrive(double speed) {
+        requires(Robot.collector);
+        this.speed = speed;
     }
 
     // Called just before this Command runs the first time
@@ -21,21 +21,12 @@ public class FeederIn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (isAssisted) {
-    		if (Robot.turret.getInTolerance()) {
-    			Robot.feeder.driveFeeder(1);
-            	Robot.feeder.drivePolyWhisk(1);
-    		}
-    	} else {
-        	Robot.feeder.driveFeeder(1);
-        	Robot.feeder.drivePolyWhisk(1);
-    	}
+    	Robot.collector.drive(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
-        //return when no more balls
     }
 
     // Called once after isFinished returns true

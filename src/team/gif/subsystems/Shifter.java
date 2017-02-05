@@ -3,7 +3,7 @@ package team.gif.subsystems;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
-import team.gif.commands.drivetrain.ShifterLow;
+import team.gif.commands.drivetrain.ShifterHigh;
 
 public class Shifter extends Subsystem {
 	
@@ -14,7 +14,7 @@ public class Shifter extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new ShifterLow());
+    	setDefaultCommand(new ShifterHigh(false));
     }
 }
 

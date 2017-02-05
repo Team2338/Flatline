@@ -3,20 +3,21 @@ package team.gif.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
-/**
- *
- */
-public class ClimberStandby extends Command {
 
-    public ClimberStandby() {
-    	requires(Robot.climber);
+public class GearRelease extends Command {
+	
+	private boolean release;
+
+    public GearRelease(boolean release) {
+    	requires(Robot.gearHanger);
+    	this.release = release;
     }
 
     protected void initialize() {
+    	Robot.gearHanger.release(release);
     }
 
     protected void execute() {
-    	Robot.climber.drive(0);
     }
 
     protected boolean isFinished() {
@@ -25,6 +26,7 @@ public class ClimberStandby extends Command {
 
     protected void end() {
     }
+
 
     protected void interrupted() {
     }
