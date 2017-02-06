@@ -12,10 +12,10 @@ import team.gif.Robot;
  */
 public class CameraFollow extends Command {
 
-	private double degreeError;
-	private double largestCenterX;
-	private double pixelError;
-	private Double[] centerXs;
+//	private double degreeError;
+//	private double largestCenterX;
+//	private double pixelError;
+//	private Double[] centerXs;
 
 	public CameraFollow() {
 		requires(Robot.turret);
@@ -26,7 +26,7 @@ public class CameraFollow extends Command {
 	}
 
 	protected void execute() {
-
+/*
 		centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] { 0.0 });
 		
 		if(centerXs.length > 0) {
@@ -42,8 +42,8 @@ public class CameraFollow extends Command {
 		pixelError = Globals.cameraCenterX - largestCenterX;
 		degreeError = Math.toDegrees(Math.atan(pixelError / (Globals.cameraCenterX * Math.sqrt(3))));
 		SmartDashboard.putNumber("Degree Error", degreeError);
-
-		Robot.turret.setPosition(Robot.turret.getPosition() + (Globals.turretAngleToTick * degreeError));
+*/
+		Robot.turret.setPosition(Robot.turret.getPosition() + (Globals.turretAngleToTick * Robot.vision.getDegreeError()));
 	}
 
 	protected boolean isFinished() {

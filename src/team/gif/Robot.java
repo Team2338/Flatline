@@ -29,6 +29,7 @@ public class Robot extends IterativeRobot {
 	public static final GearHanger gearHanger = new GearHanger();
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
+	public static final Vision vision = new Vision();
 	public static OI oi;
 
 	public static NetworkTable grip;
@@ -92,5 +93,6 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		Robot.flywheel.update();
 		Robot.turret.update();
+		Robot.vision.update();
 	}
 }
