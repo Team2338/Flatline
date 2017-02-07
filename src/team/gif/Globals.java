@@ -6,14 +6,14 @@ public class Globals {
 	public static final double deadzone = 0.1;
 	
 //	Shooter
-	public static double flywheelP = 0.01;     // PVC: 0.14 Turret: .0048 New Turret: 0.01
-	public static double flywheelI = 0.0001;     // PVC:  0.0005 Turret: .0001 New Turret: 0.0001
+	public static double flywheelP = 0.011;     // PVC: 0.14 Turret: .0048 New Turret: 0.01
+	public static double flywheelI = 0.00001;     // PVC:  0.0005 Turret: .0001 New Turret: 0.0001
 	public static double flywheelD = 0.01;	     // PVC: 0.001 Turret: 0.000 New Turret: 0.01
-	public static double flywheelF = 0.0084;  	 // PVC: 0.028 Turret: 0.0087 New Turret: 0.0084
+	public static double flywheelF = 0.00835;  	 // PVC: 0.028 Turret: 0.0087 New Turret: 0.0084
 	//	public static int flywheelIZone = 1200;  // PVC: 1200
-	public static int flywheelIZoneAbove = 1200;  // Turret: 500
+	public static int flywheelIZoneAbove = 500;  // Turret: 500
 	public static int flywheelIZoneBelow = 4000; // Turret: 2000
-	public static double flywheelRPM = 80500; 	 // PVC: 22000 Turret: 90000 (16000 Mag Encoder Relative) New Turret: 80500
+	public static double flywheelRPM = 79550; 	 // PVC: 22000 Turret: 90000 (16000 Mag Encoder Relative) New Turret: 80500
 	public static double RPMMultiplier = 6.84;
 	public static final double revTime = 0;
 	public static final double shooterTolerance = 100;

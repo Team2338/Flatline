@@ -16,14 +16,16 @@ public class Vision extends Subsystem {
     public double getPixelError() {
     	centerX = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] {0.0});
     	if(centerX.length > 0) {
-			return Globals.cameraCenterX - centerX[centerX.length - 1];
+    		hPixelError = Globals.cameraCenterX - centerX[centerX.length - 1];
 		} else {
 			if (hPixelError <= 0) {
-				return 240;
+				hPixelError = -240;
 			} else {
-				return -240;
+				hPixelError = 240;
 			}
 		}
+    	
+		return hPixelError;
     }
     
     public double getDegreeError() {
@@ -40,6 +42,7 @@ public class Vision extends Subsystem {
 
 	public void update() {
 		SmartDashboard.putNumber("Degree Error", getDegreeError());
+		SmartDashboard.putNumber("HPixelError", getPixelError());
 	}
 }
 

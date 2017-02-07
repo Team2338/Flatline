@@ -14,9 +14,9 @@ public class RobotMap {
 	public static final int collector = 50;
 	public static final int feeder = 52;
 	public static final int polyWhisk = 53;
-	public static final int flywheel1 = 5;
+	public static final int flywheel1 = 51;
 	public static final int flywheel2 = 6;
-	public static final int turret = 51;
+	public static final int turret = 5;
 	public static final int climber = 15;
 	
 	// Relay Ports

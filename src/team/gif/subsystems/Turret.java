@@ -38,16 +38,6 @@ public class Turret extends Subsystem {
 		turret.set(position);
 	}
 	
-	public boolean isInTolerance() {
-		double error = getSetpoint() - Robot.turret.getPosition();
-		
-		if(Math.abs(error) < Globals.turretTolerance) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 	public double getPGain() {
 		return turret.getP() * turret.getError() / 1023;
 	}
@@ -89,7 +79,6 @@ public class Turret extends Subsystem {
 		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
 		SmartDashboard.putNumber("Turret PGain", getPGain());
 		SmartDashboard.putNumber("Turret Error", getError());
-		SmartDashboard.putBoolean("Turret InTolerance", isInTolerance());
 	}
 
     public void initDefaultCommand() {
