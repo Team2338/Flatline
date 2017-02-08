@@ -1,5 +1,6 @@
 package team.gif.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
@@ -11,6 +12,7 @@ public class GearRelease extends Command {
     public GearRelease(boolean release) {
     	requires(Robot.gearHanger);
     	this.release = release;
+    	setTimeout(0.3);
     }
 
     protected void initialize() {
@@ -21,7 +23,7 @@ public class GearRelease extends Command {
     }
 
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     protected void end() {

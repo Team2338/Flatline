@@ -23,6 +23,8 @@ public class Flywheel extends Subsystem {
 		flywheel.setF(Globals.flywheelF);
 		flywheel.setIZone(Globals.flywheelIZoneBelow);
 		flywheel.setFeedbackDevice(FeedbackDevice.QuadEncoder); // TODO: figure out unit conversion
+		flywheel.configNominalOutputVoltage(0, -0);
+		flywheel.configPeakOutputVoltage(12, -12);
 		flywheel.setPosition(0);
 		
 		flywheel.reverseOutput(false);
@@ -83,6 +85,11 @@ public class Flywheel extends Subsystem {
 		return flywheel.getIZone();
 	}
 	
+	
+	public double getMotorOutput() {
+		return flywheel.getOutputVoltage() / flywheel.getBusVoltage();
+	}
+	
 	public void resetIAccum() {
 		flywheel.clearIAccum();
 	}
@@ -100,6 +107,7 @@ public class Flywheel extends Subsystem {
 		SmartDashboard.putNumber("ShooterVelocity", getVelocity());
 		SmartDashboard.putNumber("Approximate RPM", getVelocity() / Globals.RPMMultiplier / 3);
 		SmartDashboard.putNumber("ShooterError", getError());
+		SmartDashboard.putNumber("Shooter Motor Output", getMotorOutput());
 		SmartDashboard.putNumber("P Gain", getPGain());
     	SmartDashboard.putNumber("I Gain", getIGain());
     	SmartDashboard.putNumber("D Gain", getDGain());

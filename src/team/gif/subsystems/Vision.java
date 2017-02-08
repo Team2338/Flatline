@@ -14,18 +14,21 @@ public class Vision extends Subsystem {
 	private double hPixelError;
 
     public double getPixelError() {
-    	centerX = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] {0.0});
-    	if(centerX.length > 0) {
-    		hPixelError = Globals.cameraCenterX - centerX[centerX.length - 1];
-		} else {
-			if (hPixelError <= 0) {
-				hPixelError = -240;
-			} else {
-				hPixelError = 240;
-			}
-		}
-    	
-		return hPixelError;
+    	try {
+        	centerX = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] {0.0});
+        	if(centerX.length > 0) {
+        		hPixelError = Globals.cameraCenterX - centerX[centerX.length - 1];
+    		} else {
+    			if (hPixelError <= 0) {
+    				hPixelError = -240;
+    			} else {
+    				hPixelError = 240;
+    			}
+    		}
+    		return hPixelError;
+    	} catch (ArrayIndexOutOfBoundsException e) {
+    		return hPixelError;
+    	}
     }
     
     public double getDegreeError() {
@@ -33,7 +36,7 @@ public class Vision extends Subsystem {
     }
     
     public boolean isAligned() {
-    	return Math.abs(getDegreeError()) < Globals.turretTolerance;
+    	return Math.abs(getDegreeError()) < Globals.visionTolerance;
     }
 
     public void initDefaultCommand() {

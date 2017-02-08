@@ -27,7 +27,7 @@ public class RevFlywheel extends Command {
 	protected void execute() {
 		if (Robot.flywheel.getError() >= 0) {
 			Robot.flywheel.flywheel.setIZone(Globals.flywheelIZoneBelow);
-		} else if (Robot.flywheel.getError() < 0) {
+		} else {
 			Robot.flywheel.flywheel.setIZone(Globals.flywheelIZoneAbove);
 		}
 

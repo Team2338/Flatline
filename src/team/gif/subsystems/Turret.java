@@ -75,6 +75,14 @@ public class Turret extends Subsystem {
 		turret.clearIAccum();
 	}
 	
+	public boolean isInTolerance() {
+		if (Math.abs(getError()) < Globals.turretTolerance) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public void update() {
 		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
 		SmartDashboard.putNumber("Turret PGain", getPGain());

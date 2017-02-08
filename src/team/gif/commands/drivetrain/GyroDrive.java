@@ -1,11 +1,9 @@
 package team.gif.commands.drivetrain;
 
-import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
-public class Drive extends Command {
+public class GyroDrive extends Command {
 
 	private double left;
 	private double right;
@@ -13,7 +11,7 @@ public class Drive extends Command {
 	double angle;
 
 	
-    public Drive(double left, double right) {
+    public GyroDrive(double left, double right) {
         requires(Robot.drivetrain);
         this.left = left;
         this.right = right;

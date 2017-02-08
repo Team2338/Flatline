@@ -14,7 +14,7 @@ public class Globals {
 	public static int flywheelIZoneAbove = 500;  // Turret: 500
 	public static int flywheelIZoneBelow = 4000; // Turret: 2000
 	public static double flywheelRPM = 79550; 	 // PVC: 22000 Turret: 90000 (16000 Mag Encoder Relative) New Turret: 80500
-	public static double RPMMultiplier = 6.84;
+	public static double RPMMultiplier = 4096 / 600; // QuadEncoder Ticks Per Rev / Milliseconds
 	public static final double revTime = 0;
 	public static final double shooterTolerance = 100;
 	
@@ -25,6 +25,7 @@ public class Globals {
 	public static int turretIZone = 0;
 	public static double turretPosition = 635; // 635 Encoder Counts per Rev
 	public static double turretAngleToTick = 16/9; // 127/172 possible
-	public static double turretTolerance = 10; // ticks
+	public static double turretTolerance = 2; // ticks
+	public static double visionTolerance = 3; // degrees
 	public static double cameraCenterX = 240; // 480 (length of frame) / 2
 }

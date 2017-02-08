@@ -25,7 +25,7 @@ public class TurretTurn extends Command {
     }
 
     protected boolean isFinished() {
-        return false;
+        return Robot.turret.isInTolerance();
     }
 
     protected void end() {
