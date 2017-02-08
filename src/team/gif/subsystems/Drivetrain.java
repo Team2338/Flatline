@@ -44,6 +44,14 @@ public class Drivetrain extends Subsystem {
 		return gyro.getRate();
 	}
     
+    public double getLeftEncPosition() {
+    	return frontLeft.getEncPosition();
+    }
+    
+    public double getRightEncPosition() {
+    	return frontRight.getEncPosition();
+    }
+ 
     public void resetGyro() {
     	gyro.reset();
     }
