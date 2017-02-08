@@ -12,7 +12,6 @@ import team.gif.commands.intake.FeederDrive;
 public class CameraShoot extends CommandGroup {
 
 	public CameraShoot() {
-		addSequential(new TurretTurn(320));
 		addParallel(new CameraFollow());
 		addParallel(new RevFlywheel());
 //		addSequential(new WaitCommand(Globals.revTime));

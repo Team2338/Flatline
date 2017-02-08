@@ -12,7 +12,7 @@ public class GearRelease extends Command {
     public GearRelease(boolean release) {
     	requires(Robot.gearHanger);
     	this.release = release;
-    	setTimeout(0.3);
+    	setTimeout(1);
     }
 
     protected void initialize() {
