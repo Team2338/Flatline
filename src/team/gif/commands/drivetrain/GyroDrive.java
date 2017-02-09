@@ -7,16 +7,12 @@ public class GyroDrive extends Command {
 
 	private double left;
 	private double right;
+	private double angle;
 
-
-	double angle;
-
-	
-    public GyroDrive(double left, double right, double seconds) {
+    public GyroDrive(double left, double right) {
         requires(Robot.drivetrain);
         this.left = left;
         this.right = right;
-        setTimeout(seconds);
     }
     
     protected void initialize() {
@@ -24,21 +20,19 @@ public class GyroDrive extends Command {
     }
 
     protected void execute() {
-    	if (angle - Robot.drivetrain.getAngle() < -1) {
-    		Robot.drivetrain.drive(left - .1, right + .1);  
-    		
-    	} else if (angle - Robot.drivetrain.getAngle() < 0) {	
-    		Robot.drivetrain.drive(left + .1, right - .1);
-    		
-    	} else {
-    		Robot.drivetrain.drive(left, right); 
-    	}	
-}
+		if (angle - Robot.drivetrain.getAngle() < -1) {
+			Robot.drivetrain.drive(left - .1, right + .1);
+
+		} else if (angle - Robot.drivetrain.getAngle() < 0) {
+			Robot.drivetrain.drive(left + .1, right - .1);
+
+		} else {
+			Robot.drivetrain.drive(left, right);
+		}
+	}
 
     protected boolean isFinished() {
-    	
-    	return isTimedOut();
-        
+		return false;
     }
 
     protected void end() {

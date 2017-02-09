@@ -46,9 +46,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Flywheel I", Globals.flywheelI);
 		SmartDashboard.putNumber("Flywheel D", Globals.flywheelD);
 		SmartDashboard.putNumber("Flywheel F", Globals.flywheelF);
-		SmartDashboard.putNumber("Flywheel RPM", Globals.flywheelRPM);
 	}
-	public static int lor = 0;
 
 	public void disabledInit() {}
 
@@ -57,8 +55,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void autonomousInit() {
-		autonomousCommand = new GearGrab();
-				//(Command) chooser.getSelected();
+		autonomousCommand = (Command) chooser.getSelected();
 
 		if (autonomousCommand != null)
 			autonomousCommand.start();
@@ -71,13 +68,7 @@ public class Robot extends IterativeRobot {
 	public void teleopInit() {
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		new TankDrive().start(); //Does this have to be here?
-		
-//		turret.setPID(SmartDashboard.getNumber("Turret P", Globals.turretP), 
-//				SmartDashboard.getNumber("Turret I", Globals.turretI), 
-//				SmartDashboard.getNumber("Turret D", Globals.turretD));
-//		
-//		Globals.turretPosition = SmartDashboard.getNumber("Turret Position", Globals.turretPosition);
+		new TankDrive().start(); // Does this have to be here?
 	}
 
 	public void teleopPeriodic() {

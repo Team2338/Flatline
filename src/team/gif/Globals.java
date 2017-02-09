@@ -10,6 +10,7 @@ public class Globals {
 	public static double frontRightDriveP = 1;
 	public static double frontRightDriveI = 1;
 	public static double frontRightDriveD = 1;
+	
 //	Shooter
 	public static double flywheelP = 0.011;     // PVC: 0.14 Turret: .0048 New Turret: 0.01
 	public static double flywheelI = 0.00001;     // PVC:  0.0005 Turret: .0001 New Turret: 0.0001
