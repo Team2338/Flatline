@@ -8,13 +8,15 @@ public class GyroDrive extends Command {
 	private double left;
 	private double right;
 
+
 	double angle;
 
 	
-    public GyroDrive(double left, double right) {
+    public GyroDrive(double left, double right, double seconds) {
         requires(Robot.drivetrain);
         this.left = left;
         this.right = right;
+        setTimeout(seconds);
     }
     
     protected void initialize() {
@@ -34,7 +36,9 @@ public class GyroDrive extends Command {
 }
 
     protected boolean isFinished() {
-        return false;
+    	
+    	return isTimedOut();
+        
     }
 
     protected void end() {
