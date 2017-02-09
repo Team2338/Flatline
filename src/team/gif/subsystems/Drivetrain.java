@@ -1,11 +1,14 @@
 package team.gif.subsystems;
 
+
+
 import java.awt.Robot;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
@@ -18,6 +21,8 @@ public class Drivetrain extends Subsystem {
 	private static final CANTalon rearLeft = new CANTalon(RobotMap.rearLeftDrive);
 	private static final CANTalon rearRight = new CANTalon(RobotMap.rearRightDrive);
 	public static final ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+	private static final Encoder leftEncoder = new Encoder(RobotMap.leftDriveEncoderA, RobotMap.leftDriveEncoderB);
+	private static final Encoder rightEncoder = new Encoder(RobotMap.rightDriveEncoderA, RobotMap.rightDriveEncoderB);
 	
 	public Drivetrain() {
 		super();

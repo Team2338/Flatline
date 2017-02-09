@@ -1,4 +1,7 @@
 package team.gif;
+
+import edu.wpi.first.wpilibj.DigitalSource;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -23,5 +26,10 @@ public class RobotMap {
 	public static final int gearHanger = 5;
 	public static final int versadrop = 6;
 	public static final int shifter = 7;
+	public static final int leftDriveEncoderA = 0;
+	public static final int leftDriveEncoderB = 1;
+	public static final int rightDriveEncoderA = 2;
+	public static final int rightDriveEncoderB = 4;
 
+	
 }

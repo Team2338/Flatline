@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import team.gif.commands.GearRelease;
 import team.gif.commands.drivetrain.GyroDrive;
 
-//enan was here
 
 public class GearGrab extends CommandGroup {
 
