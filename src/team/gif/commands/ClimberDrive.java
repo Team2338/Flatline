@@ -13,6 +13,7 @@ public class ClimberDrive extends Command {
     public ClimberDrive(double speed) {
         requires(Robot.climber);
         this.speed = speed;
+        setTimeout(3);
     }
 
     // Called just before this Command runs the first time
@@ -26,7 +27,7 @@ public class ClimberDrive extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return isTimedOut();
     }
 
     // Called once after isFinished returns true

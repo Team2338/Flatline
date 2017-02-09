@@ -11,7 +11,7 @@ public class GearShootMobility extends CommandGroup {
 
     public GearShootMobility() {
 //    	addSequential(new WaitCommand(WAIT_TIME));
-    	addSequential(new GyroDrive(0.25,0.25));
+    	addSequential(new GyroDrive(0.25,0.25,5));
 //    	addSequential(new WaitCommand(WAIT_TIME));
         addSequential(new GearGrab());
 //    	addSequential(new WaitCommand(WAIT_TIME));
