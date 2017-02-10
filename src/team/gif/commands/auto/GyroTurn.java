@@ -1,4 +1,4 @@
-package team.gif.commands.drivetrain;
+package team.gif.commands.auto;
 
 import com.ctre.CANTalon.TalonControlMode;
 
