@@ -13,22 +13,22 @@ public class RevFlywheel extends Command {
 
 	public RevFlywheel() {
 		requires(Robot.flywheel);
-		setpoint = SmartDashboard.getNumber("Flywheel RPM", Globals.flywheelRPM);
+		setpoint = SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM);
 	}
 
 	protected void initialize() {
 		Robot.flywheel.setMode(TalonControlMode.Speed);
-		Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P", Globals.flywheelP),
-		SmartDashboard.getNumber("Flywheel I", Globals.flywheelI),
-		SmartDashboard.getNumber("Flywheel D", Globals.flywheelD),
-		SmartDashboard.getNumber("Flywheel F", Globals.flywheelF));
+		Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P", Globals.FLYWHEEL_P),
+		SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I),
+		SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D),
+		SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F));
 	}
 
 	protected void execute() {
 		if (Robot.flywheel.getError() >= 0) {
-			Robot.flywheel.flywheel.setIZone(Globals.flywheelIZoneBelow);
+			Robot.flywheel.flywheel.setIZone(Globals.FLYWHEEL_I_BELOW);
 		} else {
-			Robot.flywheel.flywheel.setIZone(Globals.flywheelIZoneAbove);
+			Robot.flywheel.flywheel.setIZone(Globals.FLYWHEEL_I_ABOVE);
 		}
 
 		Robot.flywheel.driveFlywheel(setpoint);

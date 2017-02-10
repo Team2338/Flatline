@@ -19,9 +19,9 @@ public class Flywheel extends Subsystem {
 		flywheel.enableBrakeMode(false);
 		flywheel2.enableBrakeMode(false);
 		flywheel.changeControlMode(TalonControlMode.Speed);
-		flywheel.setPID(Globals.flywheelP, Globals.flywheelI, Globals.flywheelD);
-		flywheel.setF(Globals.flywheelF);
-		flywheel.setIZone(Globals.flywheelIZoneBelow);
+		flywheel.setPID(Globals.FLYWHEEL_P, Globals.FLYWHEEL_I, Globals.FLYWHEEL_D);
+		flywheel.setF(Globals.FLYWHEEL_F);
+		flywheel.setIZone(Globals.FLYWHEEL_I_BELOW);
 		flywheel.setFeedbackDevice(FeedbackDevice.QuadEncoder); // TODO: figure out unit conversion
 		flywheel.configNominalOutputVoltage(0, -0);
 		flywheel.configPeakOutputVoltage(12, -12);
@@ -95,7 +95,7 @@ public class Flywheel extends Subsystem {
 	}
 	
 	public boolean isInTolerance() {
-		if (Math.abs(getError()) < Globals.shooterTolerance) {
+		if (Math.abs(getError()) < Globals.SHOOTER_TOLERANCE) {
 			return true;
 		} else {
 			return false;
@@ -105,7 +105,7 @@ public class Flywheel extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Shooter CurrPos" , getPosition());
 		SmartDashboard.putNumber("ShooterVelocity", getVelocity());
-		SmartDashboard.putNumber("Approximate RPM", getVelocity() / Globals.RPMMultiplier / 3);
+		SmartDashboard.putNumber("Approximate RPM", getVelocity() / Globals.RPM_MULTIPLIER / 3);
 		SmartDashboard.putNumber("ShooterError", getError());
 		SmartDashboard.putNumber("Shooter Motor Output", getMotorOutput());
 		SmartDashboard.putNumber("P Gain", getPGain());
