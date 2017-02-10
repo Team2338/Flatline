@@ -19,7 +19,7 @@ public class Globals {
 	public static final double FLYWHEEL_I 				= 0.00001;     // PVC:  0.0005 Turret: .0001 New Turret: 0.0001
 	public static final double FLYWHEEL_D 				= 0.01;	     // PVC: 0.001 Turret: 0.000 New Turret: 0.01
 	public static final double FLYWHEEL_F				= 0.00835;  	 // PVC: 0.028 Turret: 0.0087 New Turret: 0.0084
-	//	public static final int FLYWHEEL_I_ZONE 		= 1200;  // PVC: 1200
+//	public static final int FLYWHEEL_I_ZONE 			= 1200;  // PVC: 1200
 	public static final int FLYWHEEL_I_ABOVE 			= 500; // Turret: 500
 	public static final int FLYWHEEL_I_BELOW 			= 4000; // Turret: 2000
 	public static final double FLYWHEEL_RPM				= 79550; // PVC: 22000 Turret: 90000 (16000 Mag Encoder Relative) New Turret: 80500
