@@ -1,15 +1,10 @@
 package team.gif.subsystems;
 
-
-
-import java.awt.Robot;
-
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
@@ -40,11 +35,14 @@ public class Drivetrain extends Subsystem {
 		frontRight.set(right);
 		rearRight.set(right);
 	}
+<<<<<<< HEAD
 	
    
 	public void initDefaultCommand() {
     	setDefaultCommand(new TankDrive());
     }
+=======
+>>>>>>> origin/master
     
     public double getAngle() {
     	return gyro.getAngle();
@@ -65,6 +63,7 @@ public class Drivetrain extends Subsystem {
     public void resetGyro() {
     	gyro.reset();
     }
+<<<<<<< HEAD
 
     public final CANTalon frontRightDrive= new CANTalon(RobotMap.frontRightDrive);
     public final CANTalon frontLeftDrive= new CANTalon(RobotMap.frontLeftDrive);
@@ -170,3 +169,10 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("frontLeftDrive Error", getErrorLeft());
 		}
 	}
+=======
+    
+	public void initDefaultCommand() {
+    	setDefaultCommand(new TankDrive());
+    }
+}
+>>>>>>> origin/master

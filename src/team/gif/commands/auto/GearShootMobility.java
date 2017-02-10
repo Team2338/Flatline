@@ -4,7 +4,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import team.gif.commands.drivetrain.GyroDrive;
 import team.gif.commands.shooter.CameraShoot;
 
+<<<<<<< HEAD
 //enan is  gay
+=======
+>>>>>>> origin/master
 public class GearShootMobility extends CommandGroup {
 
 //	private final WAIT_TIME = 0.0;

@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import team.gif.commands.GearRelease;
 import team.gif.commands.drivetrain.GyroDrive;
 
-//enan is gay
+
 
 public class GearGrab extends CommandGroup {
 

@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
 import team.gif.commands.intake.CollectorDrive;
 
-
 /**
  *
  */

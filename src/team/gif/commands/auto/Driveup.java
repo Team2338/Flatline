@@ -9,9 +9,6 @@ import team.gif.Globals;
 import team.gif.Robot;
 import team.gif.RobotMap;
 
-/**
- *
- */
 public class Driveup extends Command {
 	
 	
