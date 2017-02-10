@@ -35,8 +35,7 @@ public class Drivetrain extends Subsystem {
 		
 		frontLeft.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		frontRight.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-		frontLeft.setPosition(0);
-		frontRight.setPosition(0);
+		resetEncoders();
 		
 		gyro.calibrate();
 	}
@@ -56,6 +55,12 @@ public class Drivetrain extends Subsystem {
     	return frontRight.getPosition();
     }
     
+	public void resetEncoders() {
+		frontLeft.setEncPosition(0);
+		frontRight.setEncPosition(0);
+		
+	}
+    
     public void resetGyro() {
     	gyro.reset();
     }
@@ -67,6 +72,16 @@ public class Drivetrain extends Subsystem {
     public double getRate() {
 		return gyro.getRate();
     }
+    
+    public void setMode(TalonControlMode mode) {
+		frontLeft.changeControlMode(mode);
+		frontRight.changeControlMode(mode);
+//		midLeft.changeControlMode(mode);
+//		midRight.changeControlMode(mode);
+		rearLeft.changeControlMode(mode);
+		rearRight.changeControlMode(mode);
+		
+	}
     
     public void update() {
     	SmartDashboard.putNumber("Left Encoder", getLeftDist());

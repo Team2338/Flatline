@@ -3,13 +3,16 @@ package team.gif;
 public class Globals {
 	
 //	Drivetrain
-	public static final double deadzone = 0.1;
-	public static double frontLeftDriveP = 1;
-	public static double frontLeftDriveI = 1;
-	public static double frontLeftDriveD = 1;
-	public static double frontRightDriveP = 1;
-	public static double frontRightDriveI = 1;
-	public static double frontRightDriveD = 1;
+	public static final double DEAD_ZONE				= 0.1;
+	public static final double DRIVETRAIN_P				= 0;
+	public static final double DRIVETRAIN_I				= 0;
+	public static final double DRIVETRAIN_D 			= 0;
+	public static final double DRIVE_ANGLE_P			= 0;
+	public static final double DRIVE_ANGLE_I			= 0;
+	public static final double DRIVE_ANGLE_D			= 0;
+	public static final double DRIVE_DIST				= 10000;
+	public static final double DRIVE_DIST_TOLERANCE 	= 250;
+	public static final double DRIVE_ANGLE_TOLERANCE	= 0.5;
 	
 //	Shooter
 	public static double flywheelP = 0.011;     // PVC: 0.14 Turret: .0048 New Turret: 0.01
