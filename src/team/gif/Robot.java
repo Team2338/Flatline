@@ -34,21 +34,22 @@ public class Robot extends IterativeRobot {
 
 	public static NetworkTable grip;
 	Command autonomousCommand;
-	SendableChooser<Object> chooser;
-	
+	SendableChooser chooser;
+
 	public void robotInit() {
 		oi = new OI();
 		chooser = new SendableChooser<Object>();
 
 		grip = NetworkTable.getTable("GRIP");
-		
-		SmartDashboard.putNumber("Flywheel P", Globals.flywheelP);
-		SmartDashboard.putNumber("Flywheel I", Globals.flywheelI);
-		SmartDashboard.putNumber("Flywheel D", Globals.flywheelD);
-		SmartDashboard.putNumber("Flywheel F", Globals.flywheelF);
+
+		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P);
+		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I);
+		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D);
+		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F);
 	}
 
-	public void disabledInit() {}
+	public void disabledInit() {
+	}
 
 	public void disabledPeriodic() {
 		update();
@@ -66,8 +67,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void teleopInit() {
-		if (autonomousCommand != null)
-			autonomousCommand.cancel();
+		if (autonomousCommand != null) autonomousCommand.cancel();
 		new TankDrive().start(); // Does this have to be here?
 	}
 
@@ -82,6 +82,7 @@ public class Robot extends IterativeRobot {
 
 	public void update() {
 		Scheduler.getInstance().run();
+		Robot.drivetrain.update();
 		Robot.flywheel.update();
 		Robot.turret.update();
 		Robot.vision.update();
