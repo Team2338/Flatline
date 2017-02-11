@@ -71,6 +71,14 @@ public class Vision extends Subsystem {
     	return Math.toDegrees(Math.atan(getXPixelError() / (Globals.CAMERA_CENTER_X * Math.sqrt(3))));
     }
     
+    public double getYDegreeError() {
+    	return Math.toDegrees(Math.atan(getYPixelError() / 606.71));
+    }
+    
+    public double getDistance() {
+    	return 67 / Math.tan(getYDegreeError());
+    }
+    
     public boolean isAligned() {
     	return Math.abs(getXDegreeError()) < Globals.VISION_TOLERANCE;
     }
