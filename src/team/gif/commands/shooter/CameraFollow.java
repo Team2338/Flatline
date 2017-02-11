@@ -43,7 +43,7 @@ public class CameraFollow extends Command {
 		degreeError = Math.toDegrees(Math.atan(pixelError / (Globals.cameraCenterX * Math.sqrt(3))));
 		SmartDashboard.putNumber("Degree Error", degreeError);
 */
-		Robot.turret.setPosition(Robot.turret.getPosition() + (Globals.turretAngleToTick * Robot.vision.getDegreeError()));
+		Robot.turret.setPosition(Robot.turret.getPosition() + (Globals.turretAngleToTick * Robot.vision.getHDegreeError()));
 	}
 
 	protected boolean isFinished() {
