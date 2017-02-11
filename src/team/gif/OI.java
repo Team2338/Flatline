@@ -42,7 +42,7 @@ public class OI {
 //		y.whenReleased(new ShooterStandby());
 
 		a.whileHeld(new CameraFollow());
-		b.whenPressed(new TurretTurn(Globals.turretPosition));
+		b.whenPressed(new TurretTurn(Globals.TURRET_POS));
 		x.whenPressed(new TurretTurn(0));
 		
 		leftBumper.whileHeld(new TurretManual(-0.1));

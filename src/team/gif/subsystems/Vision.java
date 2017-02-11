@@ -69,21 +69,21 @@ public class Vision extends Subsystem {
 	public double getHPixelError() {
     	try {
     		if (getCenterX().length > 0) {
-    			hPixelError = Globals.cameraCenterX - centerX[centerX.length - 1];
+    			hPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
     		}
     		return hPixelError;
     	} catch (ArrayIndexOutOfBoundsException e) {
 			return hPixelError;
 		}
     }
-
-	public double getHDegreeError() {
-		return Math.toDegrees(Math.atan(getHPixelError() / (Globals.cameraCenterX * Math.sqrt(3))));
-	}
-
-	public boolean isAligned() {
-		return Math.abs(getHDegreeError()) < Globals.visionTolerance;
-	}
+    
+    public double getHDegreeError() {
+    	return Math.toDegrees(Math.atan(getHPixelError() / (Globals.CAMERA_CENTER_X * Math.sqrt(3))));
+    }
+    
+    public boolean isAligned() {
+    	return Math.abs(getHDegreeError()) < Globals.VISION_TOLERANCE;
+    }
 
 	public void initDefaultCommand() {
 

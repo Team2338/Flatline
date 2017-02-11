@@ -16,8 +16,8 @@ public class Turret extends Subsystem {
 	public Turret() {
 		turret.enableBrakeMode(true);
 		turret.changeControlMode(TalonControlMode.Position);
-		turret.setPID(Globals.turretP, Globals.turretI, Globals.turretD);
-		turret.setIZone(Globals.turretIZone);
+		turret.setPID(Globals.TURRET_P, Globals.TURRET_I, Globals.TURRET_D);
+		turret.setIZone(Globals.TURRET_I_ZONE);
 		turret.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		
 		turret.reverseOutput(true);
@@ -75,7 +75,7 @@ public class Turret extends Subsystem {
 	}
 	
 	public boolean isInTolerance() {
-		if (Math.abs(getError()) < Globals.turretTolerance) {
+		if (Math.abs(getError()) < Globals.TURRET_TOLERANCE) {
 			return true;
 		} else {
 			return false;
