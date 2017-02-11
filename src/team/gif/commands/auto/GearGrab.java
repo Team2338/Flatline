@@ -3,9 +3,6 @@ package team.gif.commands.auto;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import team.gif.Globals;
 import team.gif.commands.GearRelease;
-import team.gif.commands.drivetrain.GyroTurn;
-
-
 
 public class GearGrab extends CommandGroup {
 	
