@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
 import team.gif.RobotMap;
+import team.gif.commands.shooter.RevFlywheel;
 import team.gif.commands.shooter.ShooterStandby;
 
 public class Flywheel extends Subsystem {
@@ -43,7 +44,7 @@ public class Flywheel extends Subsystem {
 	public void setMode(TalonControlMode mode) {
 		flywheel.changeControlMode(mode);
 	}
-
+	
 	public double getVelocity() {
 		return flywheel.getSpeed();
 	}
@@ -84,7 +85,6 @@ public class Flywheel extends Subsystem {
 	public double getIZone() {
 		return flywheel.getIZone();
 	}
-	
 	
 	public double getMotorOutput() {
 		return flywheel.getOutputVoltage() / flywheel.getBusVoltage();

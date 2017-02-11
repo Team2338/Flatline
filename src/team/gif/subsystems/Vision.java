@@ -39,12 +39,12 @@ public class Vision extends Subsystem {
 	}
 
 	public Double[] getHeight() {
-		width = Robot.grip.getNumberArray("myContoursReport/height", height);
+		height = Robot.grip.getNumberArray("myContoursReport/height", height);
 		return height;
 	}
 
 	public Double[] getSolidity() {
-		width = Robot.grip.getNumberArray("myContoursReport/solidity", solidity);
+		solidity = Robot.grip.getNumberArray("myContoursReport/solidity", solidity);
 		return solidity;
 	}
 

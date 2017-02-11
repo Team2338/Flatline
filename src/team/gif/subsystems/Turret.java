@@ -37,6 +37,10 @@ public class Turret extends Subsystem {
 		turret.set(position);
 	}
 	
+	public double getMotorOutput() {
+		return turret.getOutputVoltage() / turret.getBusVoltage();
+	}
+	
 	public double getPGain() {
 		return turret.getP() * turret.getError() / 1023;
 	}
@@ -83,6 +87,7 @@ public class Turret extends Subsystem {
 	}
 	
 	public void update() {
+		SmartDashboard.putNumber("Turret MotorOutput", getMotorOutput());
 		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
 		SmartDashboard.putNumber("Turret PGain", getPGain());
 		SmartDashboard.putNumber("Turret Error", getError());

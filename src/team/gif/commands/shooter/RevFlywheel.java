@@ -5,6 +5,7 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
+import team.gif.OI;
 import team.gif.Robot;
 
 public class RevFlywheel extends Command {
@@ -30,7 +31,7 @@ public class RevFlywheel extends Command {
 		} else {
 			Robot.flywheel.flywheel.setIZone(Globals.FLYWHEEL_I_ABOVE);
 		}
-
+		
 		Robot.flywheel.driveFlywheel(setpoint);
 	}
 

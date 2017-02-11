@@ -44,9 +44,9 @@ public class OI {
 		a.whileHeld(new CameraFollow());
 		b.whenPressed(new TurretTurn(Globals.TURRET_POS));
 		x.whenPressed(new TurretTurn(0));
-		
-		leftBumper.whileHeld(new TurretManual(-0.1));
-		rightBumper.whileHeld(new TurretManual(0.1));
+//		
+//		leftBumper.whileHeld(new TurretManual(-0.1));
+//		rightBumper.whileHeld(new TurretManual(0.1));
 		
 //		leftBumper.whileHeld(new IntakeEject());
 //		rightBumper.whileHeld(new IntakeCollect());
