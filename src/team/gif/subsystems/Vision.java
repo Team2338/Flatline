@@ -17,7 +17,7 @@ public class Vision extends Subsystem {
     	try {
         	centerX = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] {0.0});
         	if(centerX.length > 0) {
-        		hPixelError = Globals.cameraCenterX - centerX[centerX.length - 1];
+        		hPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
     		} else {
     			if (hPixelError <= 0) {
     				hPixelError = -240;
@@ -32,11 +32,11 @@ public class Vision extends Subsystem {
     }
     
     public double getDegreeError() {
-    	return Math.toDegrees(Math.atan(getPixelError() / (Globals.cameraCenterX * Math.sqrt(3))));
+    	return Math.toDegrees(Math.atan(getPixelError() / (Globals.CAMERA_CENTER_X * Math.sqrt(3))));
     }
     
     public boolean isAligned() {
-    	return Math.abs(getDegreeError()) < Globals.visionTolerance;
+    	return Math.abs(getDegreeError()) < Globals.VISION_TOLERANCE;
     }
 
     public void initDefaultCommand() {

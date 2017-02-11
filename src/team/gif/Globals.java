@@ -37,6 +37,6 @@ public class Globals {
 	public static final double TURRET_TOLERANCE			= 2; // ticks
 	
 // 	Vision
-	public static final double VISION_TOLERANCE 				= 3; // degrees
-	public static final double CAMERA_CENTER_X				= 240; // 480 (length of frame) / 2
+	public static final double VISION_TOLERANCE 		= 3; // degrees
+	public static final double CAMERA_CENTER_X			= 240; // 480 (length of frame) / 2
 }
