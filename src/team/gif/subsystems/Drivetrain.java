@@ -30,6 +30,8 @@ public class Drivetrain extends Subsystem {
 		
 		frontLeft.changeControlMode(TalonControlMode.PercentVbus);
 		frontRight.changeControlMode(TalonControlMode.PercentVbus);
+//		midLeft.changeControlMode(TalonControlMode.Follower);
+//		midRight.changeControlMode(TalonControlMode.Follower);
 		rearLeft.changeControlMode(TalonControlMode.Follower);
 		rearRight.changeControlMode(TalonControlMode.Follower);
 		
@@ -42,9 +44,7 @@ public class Drivetrain extends Subsystem {
 
 	public void drive(double left, double right) {
 		frontLeft.set(left);
-		rearLeft.set(left);
 		frontRight.set(right);
-		rearRight.set(right);
 	}
 	
     public double getLeftDist() {
@@ -74,12 +74,9 @@ public class Drivetrain extends Subsystem {
     }
     
     public void setMode(TalonControlMode mode) {
+    	// FIXME
 		frontLeft.changeControlMode(mode);
 		frontRight.changeControlMode(mode);
-//		midLeft.changeControlMode(mode);
-//		midRight.changeControlMode(mode);
-		rearLeft.changeControlMode(mode);
-		rearRight.changeControlMode(mode);
 		
 	}
     

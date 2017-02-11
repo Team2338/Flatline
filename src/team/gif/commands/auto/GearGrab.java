@@ -4,8 +4,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import team.gif.Globals;
 import team.gif.commands.GearRelease;
 
-
-
 public class GearGrab extends CommandGroup {
 	
     public GearGrab() {
