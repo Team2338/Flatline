@@ -12,7 +12,7 @@ import team.gif.RobotMap;
 
 public class Turret extends Subsystem {
 	 
-	public final CANTalon turret = new CANTalon(RobotMap.turret);
+	public final CANTalon turret = new CANTalon(RobotMap.TURRET);
 
 	public Turret() {
 		turret.enableBrakeMode(true);

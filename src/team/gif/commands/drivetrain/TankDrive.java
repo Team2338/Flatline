@@ -20,13 +20,13 @@ public class TankDrive extends Command {
     }
 
     protected void execute() {
-    	if (Math.abs(OI.xboxController.getRawAxis(1)) > Globals.deadzone) {
+    	if (Math.abs(OI.xboxController.getRawAxis(1)) > Globals.DEAD_ZONE) {
     		left = OI.xboxController.getRawAxis(1);
     	} else {
     		left = 0;
     	}
     	
-    	if(Math.abs(OI.xboxController.getRawAxis(5)) > Globals.deadzone) {
+    	if(Math.abs(OI.xboxController.getRawAxis(5)) > Globals.DEAD_ZONE) {
     		right = OI.xboxController.getRawAxis(5);
     	} else {
     		right = 0;

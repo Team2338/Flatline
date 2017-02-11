@@ -12,12 +12,12 @@ import team.gif.commands.drivetrain.TankDrive;
 
 public class Drivetrain extends Subsystem {
 
-	private static final CANTalon frontLeft = new CANTalon(RobotMap.frontLeftDrive);
-	private static final CANTalon frontRight = new CANTalon(RobotMap.frontRightDrive);
-//	private static final CANTalon midLeft = new CANTalon(RobotMap.midLeftDrive);
-//	private static final CANTalon midRight = new CANTalon(RobotMap.midRightDrive);
-	private static final CANTalon rearLeft = new CANTalon(RobotMap.rearLeftDrive);
-	private static final CANTalon rearRight = new CANTalon(RobotMap.rearRightDrive);
+	private static final CANTalon frontLeft = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
+	private static final CANTalon frontRight = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);
+//	private static final CANTalon midLeft = new CANTalon(RobotMap.MID_LEFT_DRIVE);
+//	private static final CANTalon midRight = new CANTalon(RobotMap.MID_RIGHT_DRIVE);
+	private static final CANTalon rearLeft = new CANTalon(RobotMap.REAR_LEFT_DRIVE);
+	private static final CANTalon rearRight = new CANTalon(RobotMap.REAR_RIGHT_DRIVE);
 	private static final ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	
 	public Drivetrain() {

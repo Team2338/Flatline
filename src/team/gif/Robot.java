@@ -42,10 +42,10 @@ public class Robot extends IterativeRobot {
 
 		grip = NetworkTable.getTable("GRIP");
 		
-		SmartDashboard.putNumber("Flywheel P", Globals.flywheelP);
-		SmartDashboard.putNumber("Flywheel I", Globals.flywheelI);
-		SmartDashboard.putNumber("Flywheel D", Globals.flywheelD);
-		SmartDashboard.putNumber("Flywheel F", Globals.flywheelF);
+		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P);
+		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I);
+		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D);
+		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F);
 	}
 
 	public void disabledInit() {}

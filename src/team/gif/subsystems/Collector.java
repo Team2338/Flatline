@@ -11,7 +11,7 @@ import team.gif.commands.intake.CollectorDrive;
  */
 public class Collector extends Subsystem {
 
-	private static final CANTalon collector = new CANTalon(RobotMap.collector);
+	private static final CANTalon collector = new CANTalon(RobotMap.COLLECTOR);
 	
 	public void drive(double speed) {
 		collector.set(speed);

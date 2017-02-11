@@ -10,29 +10,24 @@ import edu.wpi.first.wpilibj.DigitalSource;
  */
 public class RobotMap {
 	// CAN Addresses
-	public static final int frontRightDrive		= 3; //9
-	public static final int midRightDrive		= 60;
-	public static final int rearRightDrive		= 0; //4
-	public static final int frontLeftDrive		= 1; //7
-	public static final int midLeftDrive		= 61;
-	public static final int rearLeftDrive		= 2; //8
-	public static final int collector			= 50;
-	public static final int feeder				= 52;
-	public static final int polyWhisk			= 53;
-	public static final int flywheel1			= 51;
-	public static final int flywheel2			= 6;
-	public static final int turret				= 5;
-	public static final int climber1			= 15;
-	public static final int climber2			= 16;
+	public static final int FRONT_RIGHT_DRIVE	= 3; //9
+	public static final int MID_RIGHT_DRIVE		= 60;
+	public static final int REAR_RIGHT_DRIVE	= 0; //4
+	public static final int FRONT_LEFT_DRIVE	= 1; //7
+	public static final int MID_LEFT_DRIVE		= 61;
+	public static final int REAR_LEFT_DRIVE		= 2; //8
+	public static final int COLLECTOR			= 50;
+	public static final int FEEDER				= 52;
+	public static final int POLY_WHISK			= 53;
+	public static final int FLYWHEEL_1			= 51;
+	public static final int FLYWHEEL_2			= 6;
+	public static final int TURRET				= 5;
+	public static final int CLIMBER_1			= 15;
+	public static final int CLIMBER_2			= 16;
 	
 	// Relay Ports
-	public static final int gearHanger 			= 5;
-	public static final int versadrop 			= 6;
-	public static final int shifter 			= 7;
-	public static final int leftDriveEncoderA 	= 0;
-	public static final int leftDriveEncoderB 	= 1;
-	public static final int rightDriveEncoderA 	= 2;
-	public static final int rightDriveEncoderB 	= 4;
+	public static final int GEAR_HANGER 		= 5;
+	public static final int VERSA__DROP			= 6;
+	public static final int SHIFTER				= 7;
 
-	
 }

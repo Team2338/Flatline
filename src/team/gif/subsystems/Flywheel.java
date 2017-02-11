@@ -12,8 +12,8 @@ import team.gif.commands.shooter.ShooterStandby;
 
 public class Flywheel extends Subsystem {
 	
-	public final CANTalon flywheel = new CANTalon(RobotMap.flywheel1);
-	public final CANTalon flywheel2 = new CANTalon(RobotMap.flywheel2);
+	public final CANTalon flywheel = new CANTalon(RobotMap.FLYWHEEL_1);
+	public final CANTalon flywheel2 = new CANTalon(RobotMap.FLYWHEEL_2);
 	
 	public Flywheel(){
 		flywheel.enableBrakeMode(false);
@@ -31,7 +31,7 @@ public class Flywheel extends Subsystem {
 		flywheel.reverseSensor(true);
 		
 		flywheel2.changeControlMode(TalonControlMode.Follower);
-		flywheel2.set(RobotMap.flywheel1);
+		flywheel2.set(RobotMap.FLYWHEEL_1);
 		
 	}
 	

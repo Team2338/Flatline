@@ -8,8 +8,8 @@ import com.ctre.CANTalon;
 
 public class Feeder extends Subsystem {
 
-	private static final CANTalon feeder = new CANTalon(RobotMap.feeder);
-	private static final CANTalon polyWhisk = new CANTalon(RobotMap.polyWhisk);
+	private static final CANTalon feeder = new CANTalon(RobotMap.FEEDER);
+	private static final CANTalon polyWhisk = new CANTalon(RobotMap.POLY_WHISK);
 	
 	public void driveFeeder(double speed) {
 		feeder.set(speed);

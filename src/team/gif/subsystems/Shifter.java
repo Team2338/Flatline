@@ -7,7 +7,7 @@ import team.gif.commands.drivetrain.ShifterHigh;
 
 public class Shifter extends Subsystem {
 	
-	private static final Solenoid shifter = new Solenoid(RobotMap.shifter);
+	private static final Solenoid shifter = new Solenoid(RobotMap.SHIFTER);
 	
 	public void shift(boolean isLow) {
 		shifter.set(isLow);

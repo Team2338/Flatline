@@ -7,7 +7,7 @@ import team.gif.commands.drivetrain.ShiftOmni;
 
 public class Versadrop extends Subsystem {
 
-	private static final Solenoid versadrop = new Solenoid(RobotMap.versadrop);
+	private static final Solenoid versadrop = new Solenoid(RobotMap.VERSA__DROP);
 	
 	public void drop(boolean isRetract) {
 		versadrop.set(isRetract);

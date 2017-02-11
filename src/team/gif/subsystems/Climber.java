@@ -8,11 +8,11 @@ import team.gif.commands.ClimberDrive;
 
 public class Climber extends Subsystem {
 
-	private static final CANTalon climber1 = new CANTalon(RobotMap.climber1);
-	private static final CANTalon climber2 = new CANTalon(RobotMap.climber2);
+	private static final CANTalon climber1 = new CANTalon(RobotMap.CLIMBER_1);
+	private static final CANTalon climber2 = new CANTalon(RobotMap.CLIMBER_2);
 	
 	public Climber(){
-		climber2.set(RobotMap.climber1);
+		climber2.set(RobotMap.CLIMBER_1);
 	}
 
 	public void drive(double speed){
