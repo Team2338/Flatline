@@ -16,7 +16,7 @@ public class TurretTurn extends Command {
     }
 
     protected void initialize() {
-		Robot.turret.setPID(Globals.turretP, Globals.turretI, Globals.turretD);
+		Robot.turret.setPID(Globals.TURRET_P, Globals.TURRET_I, Globals.TURRET_D);
     	Robot.turret.setMode(TalonControlMode.Position);
     }
 

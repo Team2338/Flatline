@@ -28,15 +28,15 @@ public class Globals {
 	public static final double SHOOTER_TOLERANCE 		= 100; // Ticks
 	
 //	Turret
-	public static double turretP 						= 0.011; // 0.011
-	public static double turretI 						= 0.0000001; // 0.00000001
-	public static double turretD 						= 0.8; // 0.1
-	public static int turretIZone 						= 0;
-	public static double turretPosition 				= 635; // 635 Encoder Counts per Rev
-	public static double turretAngleToTick 				= 16/9; // 127/172 possible
-	public static double turretTolerance 				= 2; // ticks
+	public static final double TURRET_P 				= 0.011; // 0.011
+	public static final double TURRET_I 				= 0.0000001; // 0.00000001
+	public static final double TURRET_D 				= 0.8; // 0.1
+	public static final int TURRET_I_ZONE 				= 0;
+	public static final double TURRET_POS	 			= 635; // 635 Encoder Counts per Rev
+	public static final double TURRET_ANGLE_TO_TICK		= 16/9; // 127/172 possible
+	public static final double TURRET_TOLERANCE			= 2; // ticks
 	
 // 	Vision
-	public static double visionTolerance 				= 3; // degrees
-	public static double cameraCenterX 					= 240; // 480 (length of frame) / 2
+	public static final double VISION_TOLERANCE 				= 3; // degrees
+	public static final double CAMERA_CENTER_X				= 240; // 480 (length of frame) / 2
 }
