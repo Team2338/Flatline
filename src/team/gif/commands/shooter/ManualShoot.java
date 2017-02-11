@@ -15,7 +15,7 @@ public class ManualShoot extends CommandGroup {
 		addParallel(new RevFlywheel());
 		// addSequential(new WaitCommand(Globals.revTime));
 		if (Robot.flywheel.isInTolerance()) {
-			addParallel(new FeederDrive(1));
+			addParallel(new FeederDrive());
 			// TODO: Use IR sensor to determine when shooting finishes
 			// ALTERNATIVE: Use velocity data to count shots
 		}

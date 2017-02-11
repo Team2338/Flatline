@@ -16,7 +16,7 @@ public class CameraShoot extends CommandGroup {
 		addParallel(new RevFlywheel());
 		// addSequential(new WaitCommand(Globals.revTime));
 		if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned())
-			addParallel(new FeederDrive(1));
+			addParallel(new FeederDrive(true));
 		// TODO: Use IR sensor to determine when shooting finishes
 		// ALTERNATIVE: Use velocity data to count shots
 	}

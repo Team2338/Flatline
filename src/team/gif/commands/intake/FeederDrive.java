@@ -9,18 +9,35 @@ import team.gif.Robot;
 public class FeederDrive extends Command {
 	
 	private double speed;
-
-    public FeederDrive(double speed) {
-        requires(Robot.feeder);
-        this.speed = speed;
-    }
+	private boolean isAssisted;
+	
+	public FeederDrive() {
+		this(false, 1);
+	}
+	
+	public FeederDrive(boolean isAssisted) {
+		this(isAssisted, 1);
+	}
+	
+	public FeederDrive(boolean isAssisted, double speed) {
+		requires(Robot.feeder);
+		this.isAssisted = isAssisted;
+		this.speed = speed;
+	}
 
     protected void initialize() {
     }
 
     protected void execute() {
+    	if (isAssisted) {
+    		if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
+            	Robot.feeder.driveFeeder(speed);
+            	Robot.feeder.drivePolyWhisk(speed);
+    		}
+    	} else {
     	Robot.feeder.driveFeeder(speed);
     	Robot.feeder.drivePolyWhisk(speed);
+    	}
     }
 
     protected boolean isFinished() {
