@@ -10,7 +10,7 @@ public class AutoGearPlacement extends CommandGroup {
     public AutoGearPlacement() {
     	addSequential(new DriveStraightEnc(Globals.DRIVE_DIST));
 //    	addSequential(new WaitCommand(WAIT_TIME));
-       	addSequential(new GearRelease(false));
+       	addSequential(new GearRelease(true));
     	// TODO: Turn 180 degrees
     	addSequential(new GyroTurn(180));
     	addSequential(new DriveStraightEnc(Globals.DRIVE_DIST));

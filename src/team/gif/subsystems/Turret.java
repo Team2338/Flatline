@@ -7,7 +7,6 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
-import team.gif.Robot;
 import team.gif.RobotMap;
 
 public class Turret extends Subsystem {
