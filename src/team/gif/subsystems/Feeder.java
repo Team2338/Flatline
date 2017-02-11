@@ -20,7 +20,7 @@ public class Feeder extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new FeederDrive(0));
+    	setDefaultCommand(new FeederDrive(false, 0));
     }
 }
 

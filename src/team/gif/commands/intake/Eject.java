@@ -9,6 +9,6 @@ public class Eject extends CommandGroup {
 
     public Eject() {
     	addParallel(new CollectorDrive(-1));
-    	addParallel(new FeederDrive(-1));
+    	addParallel(new FeederDrive(false, -1));
     }
 }
