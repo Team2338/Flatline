@@ -16,26 +16,14 @@ public class Vision extends Subsystem {
 	private Double[] width;
 	private Double[] height;
 	private Double[] solidity;
-	private double hPixelError;
-
-	public Double[] getArea() {
+	private double xPixelError;
+	private double yPixelError;
+	
+	public Vision() {
 		area = Robot.grip.getNumberArray("myContoursReport/area", area);
-		return area;
-	}
-
-	public Double[] getCenterX() {
 		centerX = Robot.grip.getNumberArray("myContoursReport/centerX", centerX);
-		return centerX;
-	}
-
-	public Double[] getCenterY() {
 		centerY = Robot.grip.getNumberArray("myContoursReport/centerY", centerY);
-		return centerY;
-	}
-
-	public Double[] getWidth() {
 		width = Robot.grip.getNumberArray("myContoursReport/width", width);
-		return width;
 	}
 
 	public Double[] getHeight() {
@@ -65,24 +53,42 @@ public class Vision extends Subsystem {
 //			return hPixelError;
 //		}
 //	}
-
-	public double getHPixelError() {
+	public double getXPixelError() {
     	try {
-    		if (getCenterX().length > 0) {
-    			hPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
+    		if (centerX.length > 0) {
+    			xPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
     		}
-    		return hPixelError;
+    		return xPixelError;
     	} catch (ArrayIndexOutOfBoundsException e) {
-			return hPixelError;
+			return xPixelError;
 		}
     }
+	
+	public double getYPixelError() {
+		try {
+    		if (centerX.length > 0) {
+    			yPixelError = Globals.CAMERA_CENTER_Y - centerY[centerY.length - 1];
+    		}
+    		return yPixelError;
+    	} catch (ArrayIndexOutOfBoundsException e) {
+			return yPixelError;
+		}
+	}
     
-    public double getHDegreeError() {
-    	return Math.toDegrees(Math.atan(getHPixelError() / (Globals.CAMERA_CENTER_X * Math.sqrt(3))));
+    public double getXDegreeError() {
+    	return Math.toDegrees(Math.atan(getXPixelError() / (Globals.CAMERA_CENTER_X * Math.sqrt(3))));
+    }
+    
+    public double getYDegreeError() {
+    	return Math.toDegrees(Math.atan(getYPixelError() / 606.71));
+    }
+    
+    public double getDistance() {
+    	return 67 / Math.tan(getYDegreeError());
     }
     
     public boolean isAligned() {
-    	return Math.abs(getHDegreeError()) < Globals.VISION_TOLERANCE;
+    	return Math.abs(getXDegreeError()) < Globals.VISION_TOLERANCE;
     }
 
 	public void initDefaultCommand() {
@@ -90,7 +96,7 @@ public class Vision extends Subsystem {
 	}
 
 	public void update() {
-		SmartDashboard.putNumber("Degree Error", getHDegreeError());
-		SmartDashboard.putNumber("HPixelError", getHPixelError());
+		SmartDashboard.putNumber("Degree Error", getXDegreeError());
+		SmartDashboard.putNumber("HPixelError", getXPixelError());
 	}
 }
