@@ -40,7 +40,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		chooser = new SendableChooser<Object>();
 
-		grip = NetworkTable.getTable("GRIP");
+		grip = NetworkTable.getTable("GRIP/myContoursReport");
 		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P);
 		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I);
 		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D);

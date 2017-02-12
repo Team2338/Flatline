@@ -20,12 +20,6 @@ public class Vision extends Subsystem {
 	private double yPixelError;
 	
 	public Vision() {
-		area = Robot.grip.getNumberArray("myContoursReport/area", area);
-		centerX = Robot.grip.getNumberArray("myContoursReport/centerX", centerX);
-		centerY = Robot.grip.getNumberArray("myContoursReport/centerY", centerY);
-		width = Robot.grip.getNumberArray("myContoursReport/width", width);
-		height = Robot.grip.getNumberArray("myContoursReport/height", height);
-		solidity = Robot.grip.getNumberArray("myContoursReport/solidity", solidity);
 	}
 
 //	public double getPixelError() {
@@ -45,15 +39,14 @@ public class Vision extends Subsystem {
 //			return hPixelError;
 //		}
 //	}
+	
 	public double getXPixelError() {
     	try {
     		if (centerX.length > 0) {
     			xPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
     		}
-    		return xPixelError;
-    	} catch (ArrayIndexOutOfBoundsException e) {
-			return xPixelError;
-		}
+    	} catch (ArrayIndexOutOfBoundsException e) {}
+    	return xPixelError;
     }
 	
 	public double getYPixelError() {
@@ -61,10 +54,8 @@ public class Vision extends Subsystem {
     		if (centerX.length > 0) {
     			yPixelError = Globals.CAMERA_CENTER_Y - centerY[centerY.length - 1];
     		}
-    		return yPixelError;
-    	} catch (ArrayIndexOutOfBoundsException e) {
-			return yPixelError;
-		}
+    	} catch (ArrayIndexOutOfBoundsException e) {}
+		return yPixelError;
 	}
     
     public double getXDegreeError() {
@@ -72,7 +63,7 @@ public class Vision extends Subsystem {
     }
     
     public double getYDegreeError() {
-    	return Math.toDegrees(Math.atan(getYPixelError() / 606.71));
+    	return Math.toDegrees(Math.atan(getYPixelError() / 606.7130121509));
     }
     
     public double getDistance() {
@@ -88,7 +79,15 @@ public class Vision extends Subsystem {
 	}
 
 	public void update() {
+		area = Robot.grip.getNumberArray("area", area);
+		centerX = Robot.grip.getNumberArray("centerX", centerX);
+		centerY = Robot.grip.getNumberArray("centerY", centerY);
+		width = Robot.grip.getNumberArray("width", width);
+		height = Robot.grip.getNumberArray("height", height);
+		solidity = Robot.grip.getNumberArray("solidity", solidity);
+		
 		SmartDashboard.putNumber("Degree Error", getXDegreeError());
 		SmartDashboard.putNumber("HPixelError", getXPixelError());
+		SmartDashboard.putNumber("Distance", getDistance());
 	}
 }
