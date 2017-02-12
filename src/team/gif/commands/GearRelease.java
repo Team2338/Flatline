@@ -26,6 +26,7 @@ public class GearRelease extends Command {
     }
 
     protected void end() {
+    	Robot.gearHanger.release(false);
     }
 
 
