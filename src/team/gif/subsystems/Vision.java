@@ -43,7 +43,7 @@ public class Vision extends Subsystem {
 	}
 	
 	public double getDistanceToBase() {
-		return Math.sqrt(getBetterDistance()*getBetterDistance() - 67*67);
+		return Math.sqrt(getBetterDistance() * getBetterDistance() - 67 * 67);
 	}
 	
 	public double getXPixelError() {
@@ -74,7 +74,7 @@ public class Vision extends Subsystem {
     }
     
     public double getDistance() {
-    	return 67 / Math.tan(getYDegreeError());
+    	return 67d / Math.tan(getYDegreeError());
     }
     
     public boolean isAligned() {
