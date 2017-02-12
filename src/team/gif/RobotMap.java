@@ -19,9 +19,9 @@ public class RobotMap {
 	public static final int COLLECTOR			= 50;
 	public static final int FEEDER				= 52;
 	public static final int POLY_WHISK			= 53;
-	public static final int FLYWHEEL_1			= 51;
+	public static final int FLYWHEEL_1			= 5;
 	public static final int FLYWHEEL_2			= 6;
-	public static final int TURRET				= 5;
+	public static final int TURRET				= 51;
 	public static final int CLIMBER_1			= 15;
 	public static final int CLIMBER_2			= 16;
 	
@@ -29,5 +29,6 @@ public class RobotMap {
 	public static final int GEAR_HANGER 		= 5;
 	public static final int VERSA__DROP			= 6;
 	public static final int SHIFTER				= 7;
+	public static final int COLLECTORSOL		= 8;
 
 }

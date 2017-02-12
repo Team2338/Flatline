@@ -43,7 +43,7 @@ public class Flywheel extends Subsystem {
 	public void setMode(TalonControlMode mode) {
 		flywheel.changeControlMode(mode);
 	}
-
+	
 	public double getVelocity() {
 		return flywheel.getSpeed();
 	}
@@ -84,7 +84,6 @@ public class Flywheel extends Subsystem {
 	public double getIZone() {
 		return flywheel.getIZone();
 	}
-	
 	
 	public double getMotorOutput() {
 		return flywheel.getOutputVoltage() / flywheel.getBusVoltage();

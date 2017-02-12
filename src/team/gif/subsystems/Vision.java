@@ -20,6 +20,7 @@ public class Vision extends Subsystem {
 	private double yPixelError;
 	
 	public Vision() {
+
 	}
 
 //	public double getPixelError() {
@@ -51,7 +52,7 @@ public class Vision extends Subsystem {
 	
 	public double getYPixelError() {
 		try {
-    		if (centerX.length > 0) {
+    		if (centerY.length > 0) {
     			yPixelError = Globals.CAMERA_CENTER_Y - centerY[centerY.length - 1];
     		}
     	} catch (ArrayIndexOutOfBoundsException e) {}
