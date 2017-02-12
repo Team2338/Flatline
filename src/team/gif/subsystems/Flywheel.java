@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
 import team.gif.RobotMap;
-import team.gif.commands.shooter.RevFlywheel;
 import team.gif.commands.shooter.ShooterStandby;
 
 public class Flywheel extends Subsystem {

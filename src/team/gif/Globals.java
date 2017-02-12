@@ -32,8 +32,8 @@ public class Globals {
 	public static final double TURRET_I 				= 0.00000001; // 0.00000001
 	public static final double TURRET_D 				= 60.0; // 0.1
 	public static final int TURRET_I_ZONE 				= 0;
-	public static final double TURRET_POS	 			= 140d/30d; // 140/30 Encoder Counts per Rev
-	public static final double TURRET_ANGLE_TO_TICK		= 140d/30d/360d; // 127/172 possible
+	public static final double TURRET_POS	 			= 14d/3d; // 140/30 Encoder Counts per Rev
+	public static final double TURRET_ANGLE_TO_TICK		= 7d/540d; // 140/30/360
 	public static final double TURRET_TOLERANCE			= 0.01; // ticks
 	
 // 	Vision

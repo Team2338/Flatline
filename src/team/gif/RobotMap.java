@@ -29,5 +29,6 @@ public class RobotMap {
 	public static final int GEAR_HANGER 		= 5;
 	public static final int VERSA__DROP			= 6;
 	public static final int SHIFTER				= 7;
+	public static final int COLLECTORSOL		= 8;
 
 }
