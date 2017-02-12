@@ -8,6 +8,7 @@ import team.gif.Robot;
 /**
  *
  */
+
 public class Vision extends Subsystem {
 
 	private Double[] area;
@@ -18,10 +19,6 @@ public class Vision extends Subsystem {
 	private Double[] solidity;
 	private double xPixelError;
 	private double yPixelError;
-	
-	public Vision() {
-
-	}
 
 //	public double getPixelError() {
 //		try {

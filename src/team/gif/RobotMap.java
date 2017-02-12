@@ -26,9 +26,11 @@ public class RobotMap {
 	public static final int CLIMBER_2			= 16;
 	
 	// Relay Ports
-	public static final int GEAR_HANGER 		= 5;
+	public static final int GEAR_HANGER1 		= 4;
+	public static final int GEAR_HANGER2		= 5;
 	public static final int VERSA__DROP			= 6;
 	public static final int SHIFTER				= 7;
-	public static final int COLLECTORSOL		= 8;
+	public static final int COLLECTORSOL1		= 1;
+	public static final int COLLECTORSOL2		= 2;
 
 }
