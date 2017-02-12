@@ -38,6 +38,14 @@ public class Vision extends Subsystem {
 //		}
 //	}
 	
+	public double getBetterDistance() {
+		return 4 * 360 / (2 * height[height.length-1] * Math.tan(33.05/2));
+	}
+	
+	public double getDistanceToBase() {
+		return Math.sqrt(getBetterDistance()*getBetterDistance() - 67*67);
+	}
+	
 	public double getXPixelError() {
     	try {
     		if (centerX.length > 0) {
@@ -60,6 +68,7 @@ public class Vision extends Subsystem {
     	return Math.toDegrees(Math.atan(getXPixelError() / (Globals.CAMERA_CENTER_X * Math.sqrt(3))));
     }
     
+//  Works only if camera is directly horizontal
     public double getYDegreeError() {
     	return Math.toDegrees(Math.atan(getYPixelError() / 606.7130121509));
     }
@@ -87,5 +96,7 @@ public class Vision extends Subsystem {
 		SmartDashboard.putNumber("Degree Error", getXDegreeError());
 		SmartDashboard.putNumber("HPixelError", getXPixelError());
 		SmartDashboard.putNumber("Distance", getDistance());
+		SmartDashboard.putNumber("Better Distance", getBetterDistance());
+		SmartDashboard.putNumber("Distance to Base", getDistanceToBase());
 	}
 }
