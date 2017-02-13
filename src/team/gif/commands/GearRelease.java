@@ -18,8 +18,7 @@ public class GearRelease extends Command {
     	Robot.gearHanger.release(release);
     }
 
-    protected void execute() {
-    }
+    protected void execute() {}
 
     protected boolean isFinished() {
         return isTimedOut();
@@ -28,8 +27,7 @@ public class GearRelease extends Command {
     protected void end() {
     	Robot.gearHanger.release(false);
     }
-
-
-    protected void interrupted() {
-    }
+	
+    protected void interrupted() {}
+    
 }

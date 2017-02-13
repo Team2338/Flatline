@@ -16,5 +16,5 @@ public class Versadrop extends Subsystem {
     public void initDefaultCommand() {
     	setDefaultCommand(new ShiftOmni(false));
     }
+    
 }
-

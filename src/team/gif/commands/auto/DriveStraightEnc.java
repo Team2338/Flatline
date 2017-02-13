@@ -7,9 +7,6 @@ import lib.gif.PIDCalculator;
 import team.gif.Globals;
 import team.gif.Robot;
 
-/**
- *
- */
 public class DriveStraightEnc extends Command {
 
 	private double setpoint;
@@ -26,13 +23,11 @@ public class DriveStraightEnc extends Command {
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
 	}
 
-	// Called just before this Command runs the first time
 	protected void initialize() {
 		Robot.drivetrain.resetEncoders();
 		angle = Robot.drivetrain.getAngle();
 	}
 
-	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		distError = setpoint - Robot.drivetrain.getRightDist();
 		double angleError = angle - Robot.drivetrain.getAngle();
@@ -43,20 +38,17 @@ public class DriveStraightEnc extends Command {
 		Robot.drivetrain.drive(distOutput + angleOutput, distOutput - angleOutput);
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
 		return Math.abs(distError) <= Globals.DRIVE_DIST_TOLERANCE;
 	}
 
-	// Called once after isFinished returns true
 	protected void end() {
 		Robot.drivetrain.drive(0, 0);
 		Robot.drivetrain.resetEncoders();
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
 	protected void interrupted() {
 		Robot.drivetrain.drive(0, 0);
 	}
+	
 }

@@ -5,10 +5,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
 import team.gif.Robot;
 
-/**
- *
- */
-
 public class Vision extends Subsystem {
 
 	private Double[] area;
@@ -81,9 +77,7 @@ public class Vision extends Subsystem {
     	return Math.abs(getXDegreeError()) < Globals.VISION_TOLERANCE;
     }
 
-	public void initDefaultCommand() {
-
-	}
+	public void initDefaultCommand() {}
 
 	public void update() {
 		area = Robot.grip.getNumberArray("area", area);
@@ -99,4 +93,5 @@ public class Vision extends Subsystem {
 		SmartDashboard.putNumber("Better Distance", getBetterDistance());
 		SmartDashboard.putNumber("Distance to Base", getDistanceToBase());
 	}
+	
 }

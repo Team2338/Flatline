@@ -3,7 +3,6 @@ package team.gif.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
-
 public class CollectorIn extends Command {
 	
 	private boolean retract;
@@ -18,17 +17,14 @@ public class CollectorIn extends Command {
     	Robot.collector.retract(retract);
     }
 
-    protected void execute() {
-    }
+    protected void execute() {}
 
     protected boolean isFinished() {
         return isTimedOut();
     }
 
-    protected void end() {
-    }
+    protected void end() {}
 
-
-    protected void interrupted() {
-    }
+    protected void interrupted() {}
+    
 }

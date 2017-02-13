@@ -8,7 +8,7 @@ import team.gif.Robot;
 
 public class TurretTurn extends Command {
 	
-	public final double setpoint;
+	private final double setpoint;
 
     public TurretTurn(double setpoint) {
     	requires(Robot.turret);
@@ -28,9 +28,8 @@ public class TurretTurn extends Command {
         return Robot.turret.isInTolerance();
     }
 
-    protected void end() {
-    }
+    protected void end() {}
 
-    protected void interrupted() {
-    }
+    protected void interrupted() {}
+    
 }

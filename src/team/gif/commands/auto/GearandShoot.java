@@ -19,4 +19,5 @@ public class GearandShoot extends CommandGroup {
     	addSequential(new WaitCommand(1));
     	addSequential(new FeederDrive());
     }
+    
 }

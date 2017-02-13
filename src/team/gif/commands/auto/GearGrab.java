@@ -13,4 +13,5 @@ public class GearGrab extends CommandGroup {
     	addSequential(new GyroTurn(180));
     	addSequential(new DriveStraightEnc(Globals.DRIVE_DIST));
     }
+    
 }

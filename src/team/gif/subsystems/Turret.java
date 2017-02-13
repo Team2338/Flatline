@@ -11,7 +11,7 @@ import team.gif.RobotMap;
 
 public class Turret extends Subsystem {
 	 
-	public final CANTalon turret = new CANTalon(RobotMap.TURRET);
+	private final CANTalon turret = new CANTalon(RobotMap.TURRET);
 
 	public Turret() {
 		turret.enableBrakeMode(true);
@@ -79,11 +79,7 @@ public class Turret extends Subsystem {
 	}
 	
 	public boolean isInTolerance() {
-		if (Math.abs(getError()) < Globals.TURRET_TOLERANCE) {
-			return true;
-		} else {
-			return false;
-		}
+		return Math.abs(getError()) < Globals.TURRET_TOLERANCE;
 	}
 	
 	public void update() {
@@ -93,8 +89,5 @@ public class Turret extends Subsystem {
 		SmartDashboard.putNumber("Turret Error", getError());
 	}
 
-    public void initDefaultCommand() {
-
-    }
+    public void initDefaultCommand() {}
 }
-

@@ -7,9 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
 import team.gif.commands.intake.CollectorDrive;
 
-/**
- *
- */
+
 public class Collector extends Subsystem {
 
 	private static final CANTalon collector = new CANTalon(RobotMap.COLLECTOR);
@@ -28,5 +26,5 @@ public class Collector extends Subsystem {
     public void initDefaultCommand() {
     	setDefaultCommand(new CollectorDrive(0));
     }
+    
 }
-

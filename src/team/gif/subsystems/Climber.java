@@ -24,5 +24,5 @@ public class Climber extends Subsystem {
     public void initDefaultCommand() {
     	setDefaultCommand(new ClimberDrive(0));
     }
+    
 }
-

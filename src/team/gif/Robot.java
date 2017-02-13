@@ -33,8 +33,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	public static NetworkTable grip;
-	Command autonomousCommand;
-	SendableChooser chooser;
+	private Command autonomousCommand;
+	private SendableChooser chooser;
 
 	public void robotInit() {
 		oi = new OI();
@@ -47,8 +47,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F);
 	}
 
-	public void disabledInit() {
-	}
+	public void disabledInit() {}
 
 	public void disabledPeriodic() {
 		update();
@@ -57,8 +56,9 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = (Command) chooser.getSelected();
 
-		if (autonomousCommand != null)
+		if (autonomousCommand != null) {
 			autonomousCommand.start();
+		}
 	}
 
 	public void autonomousPeriodic() {
@@ -79,7 +79,7 @@ public class Robot extends IterativeRobot {
 		update();
 	}
 
-	public void update() {
+	private void update() {
 		Scheduler.getInstance().run();
 		Robot.drivetrain.update();
 		Robot.flywheel.update();

@@ -3,9 +3,6 @@ package team.gif.commands.intake;
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
-/**
- *
- */
 public class FeederDrive extends Command {
 
 	private double speed;
@@ -25,8 +22,7 @@ public class FeederDrive extends Command {
 		this.speed = speed;
 	}
 
-	protected void initialize() {
-	}
+	protected void initialize() {}
 
 	protected void execute() {
 		if (isAssisted) {
@@ -46,9 +42,8 @@ public class FeederDrive extends Command {
 		return false;
 	}
 
-	protected void end() {
-	}
+	protected void end() {}
 
-	protected void interrupted() {
-	}
+	protected void interrupted() {}
+	
 }
