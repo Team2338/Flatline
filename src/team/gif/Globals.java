@@ -40,4 +40,6 @@ public class Globals {
 	public static final double VISION_TOLERANCE 		= 3; // degrees
 	public static final double CAMERA_CENTER_X			= 240; // 480 (length of frame) / 2
 	public static final double CAMERA_CENTER_Y 			= 180;
+	public static final double CAMERA_HFOV				= 51.229919; // degrees as seen on GRIP
+	public static final double CAMERA_VFOV				= 39.55520044; // degrees as seen on GRIP
 }

@@ -39,11 +39,15 @@ public class Vision extends Subsystem {
 //	}
 	
 	public double getBetterDistance() {
-		return 4 * 360 / (2 * height[height.length-1] * Math.tan(33.05/2));
+		try {
+		return 4 * 360 / (height[height.length-1] * Math.tan(33.05/2));
+		} catch (ArrayIndexOutOfBoundsException e) {
+		return 0;
+		}
 	}
 	
 	public double getDistanceToBase() {
-		return Math.sqrt(getBetterDistance()*getBetterDistance() - 67*67);
+		return Math.sqrt(getBetterDistance()*getBetterDistance() - 66*66);
 	}
 	
 	public double getXPixelError() {
@@ -65,16 +69,16 @@ public class Vision extends Subsystem {
 	}
     
     public double getXDegreeError() {
-    	return Math.toDegrees(Math.atan(getXPixelError() / (Globals.CAMERA_CENTER_X * Math.sqrt(3))));
+    	return Math.toDegrees(Math.atan(getXPixelError() / (Globals.CAMERA_CENTER_X / Math.tan(Globals.CAMERA_HFOV/2))));
     }
     
 //  Works only if camera is directly horizontal
     public double getYDegreeError() {
-    	return Math.toDegrees(Math.atan(getYPixelError() / 606.7130121509));
+    	return Math.toDegrees(Math.atan(getYPixelError() / (Globals.CAMERA_CENTER_Y / Math.tan(Globals.CAMERA_VFOV/2))));
     }
     
     public double getDistance() {
-    	return 67 / Math.tan(getYDegreeError());
+    	return 66d / Math.tan(getYDegreeError());
     }
     
     public boolean isAligned() {
