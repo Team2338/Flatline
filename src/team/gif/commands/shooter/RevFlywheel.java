@@ -10,7 +10,7 @@ import team.gif.Robot;
 
 public class RevFlywheel extends Command {
 
-	public final double setpoint;
+	private final double setpoint;
 
 	public RevFlywheel() {
 		requires(Robot.flywheel);
@@ -27,9 +27,9 @@ public class RevFlywheel extends Command {
 
 	protected void execute() {
 		if (Robot.flywheel.getError() >= 0) {
-			Robot.flywheel.flywheel.setIZone(Globals.FLYWHEEL_I_BELOW);
+			Robot.flywheel.setIZone(Globals.FLYWHEEL_I_BELOW);
 		} else {
-			Robot.flywheel.flywheel.setIZone(Globals.FLYWHEEL_I_ABOVE);
+			Robot.flywheel.setIZone(Globals.FLYWHEEL_I_ABOVE);
 		}
 		
 		Robot.flywheel.driveFlywheel(setpoint);
@@ -39,9 +39,8 @@ public class RevFlywheel extends Command {
 		return false;
 	}
 
-	protected void end() {
-	}
+	protected void end() {}
 
-	protected void interrupted() {
-	}
+	protected void interrupted() {}
+	
 }

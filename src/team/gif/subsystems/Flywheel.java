@@ -12,8 +12,8 @@ import team.gif.commands.shooter.ShooterStandby;
 
 public class Flywheel extends Subsystem {
 	
-	public final CANTalon flywheel = new CANTalon(RobotMap.FLYWHEEL_1);
-	public final CANTalon flywheel2 = new CANTalon(RobotMap.FLYWHEEL_2);
+	private final CANTalon flywheel = new CANTalon(RobotMap.FLYWHEEL_1);
+	private final CANTalon flywheel2 = new CANTalon(RobotMap.FLYWHEEL_2);
 	
 	public Flywheel(){
 		flywheel.enableBrakeMode(false);
@@ -32,12 +32,15 @@ public class Flywheel extends Subsystem {
 		
 		flywheel2.changeControlMode(TalonControlMode.Follower);
 		flywheel2.set(RobotMap.FLYWHEEL_1);
-		
 	}
 	
 	public void setPID(double p, double i, double d, double f) {
 		flywheel.setPID(p, i, d);
 		flywheel.setF(f);
+	}
+	
+	public void setIZone(int iZone) {
+		flywheel.setIZone(iZone);
 	}
 	
 	public void setMode(TalonControlMode mode) {
@@ -94,11 +97,7 @@ public class Flywheel extends Subsystem {
 	}
 	
 	public boolean isInTolerance() {
-		if (Math.abs(getError()) < Globals.SHOOTER_TOLERANCE) {
-			return true;
-		} else {
-			return false;
-		}
+		return Math.abs(getError()) < Globals.SHOOTER_TOLERANCE;
 	}
 	
 	public void update() {
@@ -117,5 +116,6 @@ public class Flywheel extends Subsystem {
     public void initDefaultCommand() {
     	setDefaultCommand(new ShooterStandby());
     }
+    
 }
 

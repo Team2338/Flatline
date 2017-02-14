@@ -7,25 +7,23 @@ import team.gif.Robot;
 
 public class ShooterStandby extends Command {
 
-    public ShooterStandby() {
-    	requires(Robot.flywheel);
-    }
+	public ShooterStandby() {
+		requires(Robot.flywheel);
+	}
 
-    protected void initialize() {
-    	Robot.flywheel.setMode(TalonControlMode.PercentVbus);
-    	Robot.flywheel.driveFlywheel(0);
-    }
+	protected void initialize() {
+		Robot.flywheel.setMode(TalonControlMode.PercentVbus);
+		Robot.flywheel.driveFlywheel(0);
+	}
 
-    protected void execute() {
-    }
+	protected void execute() {}
 
-    protected boolean isFinished() {
-        return false;
-    }
+	protected boolean isFinished() {
+		return false;
+	}
 
-    protected void end() {
-    }
+	protected void end() {}
 
-    protected void interrupted() {
-    }
+	protected void interrupted() {}
+	
 }

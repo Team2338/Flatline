@@ -22,5 +22,6 @@ public class Feeder extends Subsystem {
     public void initDefaultCommand() {
     	setDefaultCommand(new FeederDrive(false, 0));
     }
+    
 }
 

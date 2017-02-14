@@ -16,5 +16,5 @@ public class Shifter extends Subsystem {
     public void initDefaultCommand() {
     	setDefaultCommand(new ShifterHigh(false));
     }
+    
 }
-

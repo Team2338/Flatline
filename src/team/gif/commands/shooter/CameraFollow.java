@@ -7,9 +7,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
 import team.gif.Robot;
 
-/**
- *
- */
 public class CameraFollow extends Command {
 
 //	private double degreeError;
@@ -51,9 +48,8 @@ public class CameraFollow extends Command {
 		return false;
 	}
 
-	protected void end() {
-	}
+	protected void end() {}
 
-	protected void interrupted() {
-	}
+	protected void interrupted() {}
+
 }

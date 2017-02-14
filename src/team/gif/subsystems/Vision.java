@@ -5,10 +5,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
 import team.gif.Robot;
 
-/**
- *
- */
-
 public class Vision extends Subsystem {
 
 	private Double[] area;
@@ -47,7 +43,7 @@ public class Vision extends Subsystem {
 	}
 	
 	public double getDistanceToBase() {
-		return Math.sqrt(getBetterDistance()*getBetterDistance() - 66*66);
+		return Math.sqrt(getBetterDistance() * getBetterDistance() - 67 * 67);
 	}
 	
 	public double getXPixelError() {
@@ -78,16 +74,14 @@ public class Vision extends Subsystem {
     }
     
     public double getDistance() {
-    	return 66d / Math.tan(getYDegreeError());
+    	return 67d / Math.tan(getYDegreeError());
     }
     
     public boolean isAligned() {
     	return Math.abs(getXDegreeError()) < Globals.VISION_TOLERANCE;
     }
 
-	public void initDefaultCommand() {
-
-	}
+	public void initDefaultCommand() {}
 
 	public void update() {
 		area = Robot.grip.getNumberArray("area", area);
@@ -103,4 +97,5 @@ public class Vision extends Subsystem {
 		SmartDashboard.putNumber("Better Distance", getBetterDistance());
 		SmartDashboard.putNumber("Distance to Base", getDistanceToBase());
 	}
+	
 }

@@ -63,7 +63,6 @@ public class Drivetrain extends Subsystem {
 	public void resetEncoders() {
 		frontLeft.setEncPosition(0);
 		frontRight.setEncPosition(0);
-		
 	}
     
     public void resetGyro() {

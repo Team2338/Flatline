@@ -7,9 +7,6 @@ import lib.gif.PIDCalculator;
 import team.gif.Globals;
 import team.gif.Robot;
 
-/**
- *
- */
 public class GyroTurn extends Command {
 
 	private double angle;
@@ -28,29 +25,21 @@ public class GyroTurn extends Command {
         Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
     }
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    }
+	protected void initialize() {}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	angleError = angle - Robot.drivetrain.getAngle();
-    	double angleOutput = angleCalc.getOutput(angleError);
-    	
-    	Robot.drivetrain.drive(angleOutput, -angleOutput);
-    }
+	protected void execute() {
+		angleError = angle - Robot.drivetrain.getAngle();
+		double angleOutput = angleCalc.getOutput(angleError);
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return Math.abs(angleError) <= Globals.DRIVE_ANGLE_TOLERANCE;
-    }
+		Robot.drivetrain.drive(angleOutput, -angleOutput);
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
+	protected boolean isFinished() {
+		return Math.abs(angleError) <= Globals.DRIVE_ANGLE_TOLERANCE;
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	protected void end() {}
+
+	protected void interrupted() {}
+
 }

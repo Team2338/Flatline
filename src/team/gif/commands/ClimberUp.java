@@ -3,9 +3,6 @@ package team.gif.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import team.gif.commands.shooter.TurretTurn;
 
-/**
- *
- */
 public class ClimberUp extends CommandGroup {
 
     public ClimberUp() {
@@ -13,4 +10,5 @@ public class ClimberUp extends CommandGroup {
     	addSequential(new CollectorIn(true));
     	addSequential(new ClimberDrive(1));
     }
+    
 }

@@ -3,9 +3,6 @@ package team.gif.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
-/**
- *
- */
 public class ClimberDrive extends Command {
 	
 	private double speed;
@@ -14,20 +11,19 @@ public class ClimberDrive extends Command {
         requires(Robot.climber);
         this.speed = speed;
     }
+    
+	protected void initialize() {}
 
-    protected void initialize() {
-    }
-
-    protected void execute() {
+	protected void execute() {
     	Robot.climber.drive(speed);
     }
 
-    protected boolean isFinished() {
+	protected boolean isFinished() {
     	return false;
     }
 
-    protected void end() {
-    }
-    protected void interrupted() {
-    }
+	protected void end() {}
+	
+	protected void interrupted() {}
+    
 }

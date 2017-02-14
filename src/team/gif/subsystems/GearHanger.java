@@ -1,7 +1,5 @@
 package team.gif.subsystems;
 
-import com.ctre.CANTalon.TalonControlMode;
-
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import team.gif.RobotMap;
@@ -20,5 +18,5 @@ public class GearHanger extends Subsystem {
     public void initDefaultCommand() {
     	setDefaultCommand(new GearRelease(false));
     }
+    
 }
-
