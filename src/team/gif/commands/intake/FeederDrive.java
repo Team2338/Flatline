@@ -20,6 +20,7 @@ public class FeederDrive extends Command {
 		requires(Robot.feeder);
 		this.isAssisted = isAssisted;
 		this.speed = speed;
+		setTimeout(0.03);
 	}
 
 	protected void initialize() {}
@@ -39,7 +40,7 @@ public class FeederDrive extends Command {
 	}
 
 	protected boolean isFinished() {
-		return false;
+		return isTimedOut();
 	}
 
 	protected void end() {}

@@ -5,6 +5,7 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Globals;
+import team.gif.OI;
 import team.gif.Robot;
 
 public class CameraFollow extends Command {
@@ -20,6 +21,7 @@ public class CameraFollow extends Command {
 
 	protected void initialize() {
 		Robot.turret.setMode(TalonControlMode.Position);
+		setTimeout(0.03);
 	}
 
 	protected void execute() {
@@ -45,7 +47,7 @@ public class CameraFollow extends Command {
 
 	protected boolean isFinished() {
 //		return Robot.turret.inTolerance;
-		return false;
+		return isTimedOut();
 	}
 
 	protected void end() {}
