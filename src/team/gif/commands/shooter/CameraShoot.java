@@ -7,9 +7,9 @@ import team.gif.commands.intake.FeederDrive;
 /**
  *
  */
-public class CameraFeeder extends CommandGroup {
+public class CameraShoot extends CommandGroup {
 
-    public CameraFeeder() {}
+    public CameraShoot() {}
     
     protected void execute() {
     	if (OI.xboxController.getRawAxis(3) > 0.1 && !OI.xboxController.getRawButton(5))
