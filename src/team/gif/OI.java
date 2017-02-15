@@ -55,6 +55,10 @@ public class OI {
 //		x.whenPressed(new TurretTurn(0));
 		
 		// Real controls below
+		new CameraFollowAndRev();
+		new ManualShoot();
+		new CameraShoot();
+		
 		d_leftBumper.whileHeld(new ShiftOmni(true));
 		d_leftBumper.whenReleased(new ShiftOmni(false));
 		d_rightBumper.whileHeld(new ShifterHigh(true));
@@ -71,6 +75,5 @@ public class OI {
 			a_Y.whileHeld(new ClimberDrive(-1));
 			a_rightBumper.whileHeld(new Eject());
 		}
-		
 	}
 }

@@ -6,8 +6,14 @@ import team.gif.OI;
 public class CameraFollowAndRev extends CommandGroup {
 
     public CameraFollowAndRev() {
-		addParallel(new CameraFollow());
-		addParallel(new RevFlywheel());
+
+    }
+    
+    protected void execute() {
+    	if (OI.xboxController.getRawAxis(2) > 0.1) {
+    		new CameraFollow();
+    		new RevFlywheel();
+    	}	
     }
     
 }
