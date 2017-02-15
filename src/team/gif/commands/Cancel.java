@@ -1,6 +1,7 @@
 package team.gif.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import lib.gif.commands.Scheduler;
 import team.gif.Robot;
 
 /**
@@ -29,6 +30,9 @@ public class Cancel extends Command {
     	Robot.feeder.drivePolyWhisk(0);
     	Robot.flywheel.driveFlywheel(0);
     	Robot.gearHanger.release(false);
+    	
+    	// TODO: Figure out if this works
+    	Scheduler.getInstance().removeAll();
     }
 
     // Make this return true when this Command no longer needs to run execute()
