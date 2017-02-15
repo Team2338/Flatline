@@ -3,6 +3,8 @@ package team.gif.commands.shooter;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.command.Command;
+import team.gif.Globals;
+import team.gif.OI;
 import team.gif.Robot;
 
 public class TurretManual extends Command {
@@ -19,7 +21,11 @@ public class TurretManual extends Command {
     }
 
     protected void execute() {
-    	Robot.turret.setPosition(speed);
+		if (Math.abs(OI.auxController.getRawAxis(1)) > Globals.DEAD_ZONE) {
+			Robot.turret.setPosition(OI.auxController.getRawAxis(1));
+		} else {
+			Robot.turret.setPosition(0);
+		}
     }
 
     protected boolean isFinished() {

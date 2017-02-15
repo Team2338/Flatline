@@ -35,6 +35,8 @@ public class Globals {
 	public static final double TURRET_POS	 			= 14d/3d; // 140/30 Encoder Counts per Rev
 	public static final double TURRET_ANGLE_TO_TICK		= 7d/540d; // 140/30/360
 	public static final double TURRET_TOLERANCE			= 0.01; // ticks
+	public static final double TURRET_REDPOS			= 1; // ticks
+	public static final double TURRET_BLUEPOS			= 2; // ticks
 	
 // 	Vision
 	public static final double VISION_TOLERANCE 		= 3; // degrees

@@ -6,6 +6,10 @@ import team.gif.Robot;
 public class CollectorDrive extends Command {
 	
 	private double speed;
+	
+	public CollectorDrive() {
+		this(1);
+	}
 
 	public CollectorDrive(double speed) {
 		requires(Robot.collector);

@@ -33,14 +33,22 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	public static NetworkTable grip;
+	public static SendableChooser turretPosChooser;
+	private SendableChooser autoChooser;
 	private Command autonomousCommand;
-	private SendableChooser chooser;
 
 	public void robotInit() {
 		oi = new OI();
-		chooser = new SendableChooser<Object>();
+		
+		autoChooser = new SendableChooser();
+		
+		turretPosChooser = new SendableChooser();
+		turretPosChooser.addDefault("Blue", new Double(Globals.TURRET_BLUEPOS));
+		turretPosChooser.addObject("Red", new Double(Globals.TURRET_REDPOS));
+        SmartDashboard.putData("Turret position chooser", turretPosChooser);
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
+		
 		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P);
 		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I);
 		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D);
