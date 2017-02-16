@@ -17,26 +17,28 @@ public class FeederDrive extends Command {
 	}
 
 	public FeederDrive(boolean isAssisted, double speed) {
+		super(0.03);
 		requires(Robot.feeder);
 		this.isAssisted = isAssisted;
 		this.speed = speed;
-		setTimeout(0.03);
 	}
 
 	protected void initialize() {}
 
 	protected void execute() {
-		if (isAssisted) {
-			if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
-				Robot.feeder.driveFeeder(speed);
-				Robot.feeder.drivePolyWhisk(speed);
-			}
-		} else {
-			if (Robot.flywheel.isInTolerance()) {
-				Robot.feeder.driveFeeder(speed);
-				Robot.feeder.drivePolyWhisk(speed);
-			}
-		}
+//		if (isAssisted) {
+//			if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
+//				Robot.feeder.driveFeeder(speed);
+//				Robot.feeder.drivePolyWhisk(speed);
+//			}
+//		} else {
+//			if (Robot.flywheel.isInTolerance()) {
+//				Robot.feeder.driveFeeder(speed);
+//				Robot.feeder.drivePolyWhisk(speed);
+//			}
+//		}
+		Robot.feeder.driveFeeder(speed);
+		Robot.feeder.drivePolyWhisk(speed);
 	}
 
 	protected boolean isFinished() {

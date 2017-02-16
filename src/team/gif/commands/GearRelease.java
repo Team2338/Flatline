@@ -11,7 +11,6 @@ public class GearRelease extends Command {
     public GearRelease(boolean release) {
     	requires(Robot.gearHanger);
     	this.release = release;
-    	setTimeout(1);
     }
 
     protected void initialize() {
@@ -21,11 +20,11 @@ public class GearRelease extends Command {
     protected void execute() {}
 
     protected boolean isFinished() {
-        return isTimedOut();
+        return true;
     }
 
     protected void end() {
-    	Robot.gearHanger.release(false);
+    	
     }
 	
     protected void interrupted() {}

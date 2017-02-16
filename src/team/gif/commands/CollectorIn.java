@@ -6,11 +6,10 @@ import team.gif.Robot;
 public class CollectorIn extends Command {
 	
 	private boolean retract;
-
+	
     public CollectorIn(boolean retract) {
     	requires(Robot.collector);
     	this.retract = retract;
-    	setTimeout(2);
     }
 
     protected void initialize() {
@@ -20,7 +19,7 @@ public class CollectorIn extends Command {
     protected void execute() {}
 
     protected boolean isFinished() {
-        return isTimedOut();
+        return true;
     }
 
     protected void end() {}

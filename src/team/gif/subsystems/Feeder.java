@@ -12,7 +12,7 @@ public class Feeder extends Subsystem {
 	private static final CANTalon polyWhisk = new CANTalon(RobotMap.POLY_WHISK);
 	
 	public void driveFeeder(double speed) {
-		feeder.set(speed);
+		feeder.set(-speed);
 	}
 	
 	public void drivePolyWhisk(double speed) {

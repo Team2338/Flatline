@@ -13,12 +13,13 @@ public class RevFlywheel extends Command {
 	private final double setpoint;
 
 	public RevFlywheel() {
+		super(0.03);
 		requires(Robot.flywheel);
 		setpoint = SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM);
-		setTimeout(0.03);
 	}
 
 	protected void initialize() {
+//		Robot.flywheel.setMode(TalonControlMode.PercentVbus);
 		Robot.flywheel.setMode(TalonControlMode.Speed);
 		Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P", Globals.FLYWHEEL_P),
 				SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I),

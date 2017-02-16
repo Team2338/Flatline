@@ -16,12 +16,13 @@ public class CameraFollow extends Command {
 //	private Double[] centerXs;
 
 	public CameraFollow() {
+		super(0.03);
 		requires(Robot.turret);
 	}
 
 	protected void initialize() {
 		Robot.turret.setMode(TalonControlMode.Position);
-		setTimeout(0.03);
+//		setTimeout(0.03);
 	}
 
 	protected void execute() {
