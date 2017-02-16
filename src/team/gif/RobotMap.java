@@ -30,5 +30,7 @@ public class RobotMap {
 	public static final int SHIFTER				= 4;//4
 	public static final int COLLECTORSOL1		= 7;//7
 //	public static final int COLLECTORSOL2		= 2;
+	
+	public static final int FLAPPY_SERVO		= 0;
 
 }

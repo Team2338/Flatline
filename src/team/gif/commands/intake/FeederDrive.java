@@ -30,15 +30,19 @@ public class FeederDrive extends Command {
 			if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
 				Robot.feeder.driveFeeder(speed);
 				Robot.feeder.drivePolyWhisk(speed);
+				Robot.feeder.servoOscillate();
 			}
 		} else {
 			if (Robot.flywheel.isInTolerance()) {
 				Robot.feeder.driveFeeder(speed);
 				Robot.feeder.drivePolyWhisk(speed);
+				Robot.feeder.servoOscillate();
 			}
 		}
-//		Robot.feeder.driveFeeder(speed);
-//		Robot.feeder.drivePolyWhisk(speed);
+		
+		Robot.feeder.driveFeeder(speed);
+		Robot.feeder.drivePolyWhisk(speed);
+		Robot.feeder.servoOscillate();
 	}
 
 	protected boolean isFinished() {

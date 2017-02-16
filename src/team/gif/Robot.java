@@ -92,6 +92,7 @@ public class Robot extends IterativeRobot {
 		Robot.drivetrain.update();
 		Robot.flywheel.update();
 		Robot.turret.update();
+		Robot.feeder.update();
 		Robot.vision.update();
 	}
 }
