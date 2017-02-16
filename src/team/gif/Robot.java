@@ -62,7 +62,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void autonomousInit() {
-		autonomousCommand = (Command) chooser.getSelected();
+		autonomousCommand = (Command) autoChooser.getSelected();
 
 		if (autonomousCommand != null) {
 			autonomousCommand.start();

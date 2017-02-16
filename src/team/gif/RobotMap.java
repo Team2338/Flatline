@@ -8,28 +8,28 @@ package team.gif;
  */
 public class RobotMap {
 	// CAN Addresses
-	public static final int FRONT_RIGHT_DRIVE	= 3; //9
-	public static final int MID_RIGHT_DRIVE		= 60;
-	public static final int REAR_RIGHT_DRIVE	= 0; //4
-	public static final int FRONT_LEFT_DRIVE	= 1; //7
-	public static final int MID_LEFT_DRIVE		= 61;
-	public static final int REAR_LEFT_DRIVE		= 2; //8
-	public static final int COLLECTOR			= 50;
-	public static final int FEEDER				= 52;
-	public static final int POLY_WHISK			= 53;
+	public static final int FRONT_RIGHT_DRIVE	= 11; //11 
+	public static final int MID_RIGHT_DRIVE		= 14; //14
+	public static final int REAR_RIGHT_DRIVE	= 13; //13 
+	public static final int FRONT_LEFT_DRIVE	= 6; //6
+	public static final int MID_LEFT_DRIVE		= 8; //8
+	public static final int REAR_LEFT_DRIVE		= 1; //1
+	public static final int COLLECTOR			= 12; //12
+	public static final int FEEDER				= 2; //2
+	public static final int POLY_WHISK			= 7; //7
 	public static final int FLYWHEEL_1			= 9;
 	public static final int FLYWHEEL_2			= 4;
-	public static final int TURRET				= 5;
-	public static final int CLIMBER_1			= 15;
-	public static final int CLIMBER_2			= 16;
+	public static final int TURRET				= 5; //5
+	public static final int CLIMBER_1			= 3; //3
+	public static final int CLIMBER_2			= 0; //0
 	
 	// Relay Ports
-	public static final int GEAR_HANGER1 		= 4;
-	public static final int GEAR_HANGER2		= 5;
-	public static final int VERSA__DROP			= 6;
-	public static final int SHIFTER				= 7;
-	public static final int COLLECTORSOL1		= 1;
-	public static final int COLLECTORSOL2		= 2;
+	public static final int GEAR_HANGER1 		= 6;//6
+//	public static final int GEAR_HANGER2		= 5;
+	public static final int VERSA__DROP			= 5;//5
+	public static final int SHIFTER				= 4;//4
+	public static final int COLLECTORSOL1		= 7;//7
+//	public static final int COLLECTORSOL2		= 2;
 	
 	public static final int FLAPPY_SERVO		= 0;
 

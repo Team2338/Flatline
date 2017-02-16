@@ -16,7 +16,7 @@ public class ManualShoot extends CommandGroup {
 	}
 	
 	protected void execute() {
-		if (OI.xboxController.getRawAxis(3) > 0.1 && OI.xboxController.getRawButton(5)) {
+		if (OI.auxController.getRawAxis(3) > 0.1 && OI.auxController.getRawButton(5)) {
 			new RevFlywheel();
 			new FeederDrive();
 		}

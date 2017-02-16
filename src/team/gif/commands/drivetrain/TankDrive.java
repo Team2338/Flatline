@@ -17,14 +17,14 @@ public class TankDrive extends Command {
 	protected void initialize() {}
 
 	protected void execute() {
-		if (Math.abs(OI.xboxController.getRawAxis(1)) > Globals.DEAD_ZONE) {
-			left = OI.xboxController.getRawAxis(1);
+		if (Math.abs(OI.driverController.getRawAxis(1)) > Globals.DEAD_ZONE) {
+			left = OI.driverController.getRawAxis(1);
 		} else {
 			left = 0;
 		}
 
-		if(Math.abs(OI.xboxController.getRawAxis(5)) > Globals.DEAD_ZONE) {
-			right = OI.xboxController.getRawAxis(5);
+		if(Math.abs(OI.driverController.getRawAxis(5)) > Globals.DEAD_ZONE) {
+			right = OI.driverController.getRawAxis(5);
 		} else {
 			right = 0;
 		}

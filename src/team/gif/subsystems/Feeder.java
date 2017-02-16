@@ -15,7 +15,7 @@ public class Feeder extends Subsystem {
 	private boolean servoIsMax = flappy.get() == 1;
 	
 	public void driveFeeder(double speed) {
-		feeder.set(speed);
+		feeder.set(-speed);
 	}
 	
 	public void drivePolyWhisk(double speed) {

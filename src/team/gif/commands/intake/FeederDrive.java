@@ -17,10 +17,10 @@ public class FeederDrive extends Command {
 	}
 
 	public FeederDrive(boolean isAssisted, double speed) {
+		super(0.03);
 		requires(Robot.feeder);
 		this.isAssisted = isAssisted;
 		this.speed = speed;
-		setTimeout(0.03);
 	}
 
 	protected void initialize() {}
@@ -39,6 +39,9 @@ public class FeederDrive extends Command {
 				Robot.feeder.servoOscillate(120);
 			}
 		}
+		Robot.feeder.driveFeeder(speed);
+		Robot.feeder.drivePolyWhisk(speed);
+		Robot.feeder.servoOscillate(120);
 	}
 
 	protected boolean isFinished() {

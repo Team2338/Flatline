@@ -10,7 +10,7 @@ public class CameraFollowAndRev extends CommandGroup {
     }
     
     protected void execute() {
-    	if (OI.xboxController.getRawAxis(2) > 0.1) {
+    	if (OI.auxController.getRawAxis(2) > 0.1) {
     		new CameraFollow();
     		new RevFlywheel();
     	}	

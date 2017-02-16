@@ -1,5 +1,9 @@
 package team.gif;
 
+/**
+ * This file is meant for easily changing values in code.
+ * It should be simple enough that mechanical can do it.
+ */
 public class Globals {
 	
 //	Drivetrain
@@ -25,7 +29,7 @@ public class Globals {
 	public static final double FLYWHEEL_RPM				= 79550; // PVC: 22000 Turret: 90000 (16000 Mag Encoder Relative) New Turret: 80500
 	public static final double RPM_MULTIPLIER 			= 4096d/600d; // QuadEncoder Ticks Per Rev / Milliseconds
 	public static final double revTime 					= 0;
-	public static final double SHOOTER_TOLERANCE 		= 100; // Ticks
+	public static final double SHOOTER_TOLERANCE 		= 100; // ticks
 	
 //	Turret
 	public static final double TURRET_P 				= 0.8; // 0.011 | 0.44
@@ -35,8 +39,8 @@ public class Globals {
 	public static final double TURRET_POS	 			= 14d/3d; // 140/30 Encoder Counts per Rev
 	public static final double TURRET_ANGLE_TO_TICK		= 7d/540d; // 140/30/360
 	public static final double TURRET_TOLERANCE			= 0.01; // ticks
-	public static final double TURRET_REDPOS			= 1; // ticks
-	public static final double TURRET_BLUEPOS			= 2; // ticks
+	public static final double TURRET_REDPOS			= 1; // TODO: figure out ticks
+	public static final double TURRET_BLUEPOS			= 2; // TODO: figure out ticks
 	
 // 	Vision
 	public static final double VISION_TOLERANCE 		= 3; // degrees
