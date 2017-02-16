@@ -26,19 +26,19 @@ public class FeederDrive extends Command {
 	protected void initialize() {}
 
 	protected void execute() {
-//		if (isAssisted) {
-//			if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
-//				Robot.feeder.driveFeeder(speed);
-//				Robot.feeder.drivePolyWhisk(speed);
-//			}
-//		} else {
-//			if (Robot.flywheel.isInTolerance()) {
-//				Robot.feeder.driveFeeder(speed);
-//				Robot.feeder.drivePolyWhisk(speed);
-//			}
-//		}
-		Robot.feeder.driveFeeder(speed);
-		Robot.feeder.drivePolyWhisk(speed);
+		if (isAssisted) {
+			if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
+				Robot.feeder.driveFeeder(speed);
+				Robot.feeder.drivePolyWhisk(speed);
+			}
+		} else {
+			if (Robot.flywheel.isInTolerance()) {
+				Robot.feeder.driveFeeder(speed);
+				Robot.feeder.drivePolyWhisk(speed);
+			}
+		}
+//		Robot.feeder.driveFeeder(speed);
+//		Robot.feeder.drivePolyWhisk(speed);
 	}
 
 	protected boolean isFinished() {

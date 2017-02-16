@@ -16,24 +16,23 @@ public class Vision extends Subsystem {
 	private double xPixelError;
 	private double yPixelError;
 
-	// public double getPixelError() {
-	// try {
-	// centerX = Robot.grip.getNumberArray("myContoursReport/centerX", new
-	// Double[] { 0.0 });
-	// if (centerX.length > 0) {
-	// hPixelError = Globals.cameraCenterX - centerX[centerX.length - 1];
-	// } else {
-	// if (hPixelError <= 0) {
-	// hPixelError = -240;
-	// } else {
-	// hPixelError = 240;
-	// }
-	// }
-	// return hPixelError;
-	// } catch (ArrayIndexOutOfBoundsException e) {
-	// return hPixelError;
-	// }
-	// }
+//	public double getPixelError() {
+//		try {
+//			centerX = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] { 0.0 });
+//			if (centerX.length > 0) {
+//				hPixelError = Globals.cameraCenterX - centerX[centerX.length - 1];
+//			} else {
+//				if (hPixelError <= 0) {
+//					hPixelError = -240;
+//				} else {
+//					hPixelError = 240;
+//				}
+//			}
+//			return hPixelError;
+//		} catch (ArrayIndexOutOfBoundsException e) {
+//			return hPixelError;
+//		}
+//	}
 
 	public double getBetterDistance() {
 		if (Robot.grip.getNumberArray("height", height) != null) {
