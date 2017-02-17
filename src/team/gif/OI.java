@@ -9,6 +9,7 @@ import team.gif.commands.drivetrain.*;
 import team.gif.commands.intake.CollectorDrive;
 import team.gif.commands.intake.Eject;
 import team.gif.commands.intake.FeederDrive;
+import team.gif.commands.intake.Servo;
 import team.gif.commands.shooter.*;
 
 /**
@@ -52,36 +53,40 @@ public class OI {
 		a_select = new JoystickButton(auxController, 7);
 		a_start = new JoystickButton(auxController, 8);
 		
-		a_Y.whileHeld(new RevFlywheel());
-		a_Y.whenReleased(new ShooterStandby());
+//		a_Y.whileHeld(new RevFlywheel());
+//		a_Y.whenReleased(new ShooterStandby());
+		
+//		a_A.whenPressed(new Servo(0.5));
+//		a_Y.whenPressed(new Servo(0.01));
+//		a_X.whileHeld(new FeederDrive(false, 0));
 //
-//		a.whileHeld(new CameraFollow());
-//		b.whenPressed(new TurretTurn(Globals.TURRET_POS));
-//		x.whenPressed(new TurretTurn(0));
+//		a_A.whileHeld(new CameraFollow());
+//		a_B.whenPressed(new TurretTurn(Globals.TURRET_POS));
+//		a_X.whenPressed(new TurretTurn(0));
 		
 		// Driver controls
-//		d_A.whileHeld(new FeederDrive());
-//		d_leftBumper.whileHeld(new ShiftOmni(true));
-//		d_leftBumper.whenReleased(new ShiftOmni(false));
-//		d_rightBumper.whileHeld(new ShifterHigh(true));
-//		d_rightBumper.whenReleased(new ShifterHigh(false));
-//		
-//		// Auxiliary controls
-////		new CameraFollowAndRev();
-////		new ManualShoot();
-////		new CameraShoot();
-//		
-//		a_A.whileHeld(new GearRelease(true));
-//		a_A.whenReleased(new GearRelease(false));
-//		a_B.whenPressed(new Cancel());
-//		a_Y.whileHeld(new ClimberUp());
-//		a_rightBumper.whileHeld(new CollectorDrive());
-//		a_select.whenPressed(new CollectorIn(false));
-//		a_start.whenPressed(new CollectorIn(true));
-//		
-//		if(a_leftBumper.get()) {
-//			a_Y.whileHeld(new ClimberDrive(-1));
-//			a_rightBumper.whileHeld(new Eject());
-//		}
+		d_A.whileHeld(new FeederDrive());
+		d_leftBumper.whileHeld(new ShiftOmni(true));
+		d_leftBumper.whenReleased(new ShiftOmni(false));
+		d_rightBumper.whileHeld(new ShifterHigh(true));
+		d_rightBumper.whenReleased(new ShifterHigh(false));
+		
+		// Auxiliary controls
+//		new CameraFollowAndRev();
+//		new ManualShoot();
+//		new CameraShoot();
+		
+		a_A.whileHeld(new GearRelease(true));
+		a_A.whenReleased(new GearRelease(false));
+		a_B.whenPressed(new Cancel());
+		a_Y.whileHeld(new ClimberUp());
+		a_rightBumper.whileHeld(new CollectorDrive());
+		a_select.whenPressed(new CollectorIn(false));
+		a_start.whenPressed(new CollectorIn(true));
+		
+		if(a_leftBumper.get()) {
+			a_Y.whileHeld(new ClimberDrive(-1));
+			a_rightBumper.whileHeld(new Eject());
+		}
 	}
 }

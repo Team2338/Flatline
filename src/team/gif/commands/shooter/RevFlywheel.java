@@ -19,7 +19,6 @@ public class RevFlywheel extends Command {
 	}
 
 	protected void initialize() {
-//		Robot.flywheel.setMode(TalonControlMode.PercentVbus);
 		Robot.flywheel.setMode(TalonControlMode.Speed);
 		Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P", Globals.FLYWHEEL_P),
 				SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I),

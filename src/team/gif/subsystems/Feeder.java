@@ -1,7 +1,9 @@
 package team.gif.subsystems;
 
 import edu.wpi.first.wpilibj.Servo;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Robot;
 import team.gif.RobotMap;
@@ -23,16 +25,16 @@ public class Feeder extends Subsystem {
 		polyWhisk.set(speed);
 	}
 	
-	public void servoOscillate() {
-		if(getServoPosition() <= 0.05) {
-			flappy.set(0.4);
-		} else if (getServoPosition() >= 0.4) {
-			flappy.set(0);
-		}
+	public void setServoPosition(double position) {
+		flappy.setPosition(position);
 	}
 	
 	public double getServoPosition() {
-		return flappy.get();
+		return flappy.getPosition();
+	}
+	
+	public double getServoAngle() {
+		return flappy.getAngle();
 	}
 	
     public void initDefaultCommand() {
@@ -41,6 +43,7 @@ public class Feeder extends Subsystem {
     
     public void update() {
 		SmartDashboard.putNumber("Servo CurrPos", getServoPosition());
+		SmartDashboard.putNumber("Servo Angle", getServoAngle());
     }
     
 }

@@ -19,14 +19,14 @@ public class Globals {
 	public static final double DRIVE_ANGLE_TOLERANCE	= 0.5;
 	
 //	Shooter
-	public static final double FLYWHEEL_P 				= 0.011;     // PVC: 0.14 Turret: .0048 New Turret: 0.01
-	public static final double FLYWHEEL_I 				= 0.00001;     // PVC:  0.0005 Turret: .0001 New Turret: 0.0001
-	public static final double FLYWHEEL_D 				= 0.01;	     // PVC: 0.001 Turret: 0.000 New Turret: 0.01
-	public static final double FLYWHEEL_F				= 0.00835;  	 // PVC: 0.028 Turret: 0.0087 New Turret: 0.0084
-//	public static final int FLYWHEEL_I_ZONE 			= 1200;  // PVC: 1200
+	public static final double FLYWHEEL_P 				= 0.0415; // 0.415
+	public static final double FLYWHEEL_I 				= 0.00001; // 0.00001
+	public static final double FLYWHEEL_D 				= 0.0; // 0.0
+	public static final double FLYWHEEL_F				= 0.026; // 0.026
+//	public static final int FLYWHEEL_I_ZONE 			= 1200;  //
 	public static final int FLYWHEEL_I_ABOVE 			= 500; // Turret: 500
-	public static final int FLYWHEEL_I_BELOW 			= 4000; // Turret: 2000
-	public static final double FLYWHEEL_RPM				= 79550; // PVC: 22000 Turret: 90000 (16000 Mag Encoder Relative) New Turret: 80500
+	public static final int FLYWHEEL_I_BELOW 			= 1500; // Turret: 1500
+	public static final double FLYWHEEL_RPM				= 27000; // 189 in: 27000 | 
 	public static final double RPM_MULTIPLIER 			= 4096d/600d; // QuadEncoder Ticks Per Rev / Milliseconds
 	public static final double revTime 					= 0;
 	public static final double SHOOTER_TOLERANCE 		= 100; // ticks

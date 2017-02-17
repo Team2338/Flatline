@@ -7,9 +7,9 @@ import team.gif.commands.GearRelease;
 import team.gif.commands.intake.FeederDrive;
 import team.gif.commands.shooter.RevFlywheel;
 
-public class GearAndShoot extends CommandGroup {
+public class GearandShoot extends CommandGroup {
 
-    public GearAndShoot() {
+    public GearandShoot() {
     	addSequential(new DriveStraightEnc(Globals.DRIVE_DIST));
     	addSequential(new GearRelease(true));
     	addSequential(new DriveStraightEnc(-4960));

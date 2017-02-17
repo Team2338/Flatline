@@ -103,7 +103,7 @@ public class Flywheel extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Shooter CurrPos" , getPosition());
 		SmartDashboard.putNumber("ShooterVelocity", getVelocity());
-		SmartDashboard.putNumber("Approximate RPM", getVelocity() / Globals.RPM_MULTIPLIER / 3);
+		SmartDashboard.putNumber("Approximate RPM", getVelocity() / Globals.RPM_MULTIPLIER);
 		SmartDashboard.putNumber("ShooterError", getError());
 		SmartDashboard.putNumber("Shooter Motor Output", getMotorOutput());
 		SmartDashboard.putNumber("P Gain", getPGain());

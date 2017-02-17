@@ -25,6 +25,8 @@ public class Drivetrain extends Subsystem {
 		
 		frontLeft.enableBrakeMode(true);
 		frontRight.enableBrakeMode(true);
+		midLeft.enableBrakeMode(true);
+		midRight.enableBrakeMode(true);
 		rearLeft.enableBrakeMode(true);
 		rearRight.enableBrakeMode(true);
 		
@@ -47,9 +49,9 @@ public class Drivetrain extends Subsystem {
 		gyro.calibrate();
 	}
 
-	public void drive(double left, double right) {
-		frontLeft.set(left);
-		frontRight.set(right);
+	public void drive(double leftSpeed, double rightSpeed) {
+		frontLeft.set(leftSpeed);
+		frontRight.set(rightSpeed);
 	}
 	
     public double getLeftDist() {
