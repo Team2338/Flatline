@@ -32,6 +32,14 @@ public class FeederDrive extends Command {
 
 	protected void execute() {
 		if (speed != 0) {
+			if (Robot.feeder.getServoPosition() <= 0.01 && Timer.getFPGATimestamp() - initTime > 0.3) {
+				Robot.feeder.setServoPosition(0.5);
+				initTime = Timer.getFPGATimestamp();
+			} else if (Robot.feeder.getServoPosition() >= 0.5 && Timer.getFPGATimestamp() - initTime > 0.3) {
+				Robot.feeder.setServoPosition(0.01);
+				initTime = Timer.getFPGATimestamp();
+			}
+			
 			if (isAssisted) {
 				if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
 					Robot.feeder.driveFeeder(speed);
@@ -45,14 +53,9 @@ public class FeederDrive extends Command {
 					// Robot.feeder.servoOscillate();
 				}
 			}
-
-			if (Robot.feeder.getServoPosition() <= 0.01 && Timer.getFPGATimestamp() - initTime > 0.3) {
-				Robot.feeder.setServoPosition(0.5);
-				initTime = Timer.getFPGATimestamp();
-			} else if (Robot.feeder.getServoPosition() >= 0.5 && Timer.getFPGATimestamp() - initTime > 0.3) {
-				Robot.feeder.setServoPosition(0.01);
-				initTime = Timer.getFPGATimestamp();
-			}
+		} else {
+			Robot.feeder.driveFeeder(0);
+			Robot.feeder.drivePolyWhisk(0);
 		}
 
 		// Robot.feeder.driveFeeder(speed);

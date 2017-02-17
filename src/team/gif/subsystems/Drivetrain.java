@@ -36,10 +36,10 @@ public class Drivetrain extends Subsystem {
 		midRight.changeControlMode(TalonControlMode.Follower);
 		rearLeft.changeControlMode(TalonControlMode.Follower);
 		rearRight.changeControlMode(TalonControlMode.Follower);
-		
-		midLeft.set(RobotMap.FRONT_LEFT_DRIVE);
-		midRight.set(RobotMap.FRONT_RIGHT_DRIVE);
-		rearLeft.set(RobotMap.FRONT_LEFT_DRIVE);
+
+		midLeft.set(-RobotMap.FRONT_LEFT_DRIVE);
+		midRight.set(-RobotMap.FRONT_RIGHT_DRIVE);
+		rearLeft.set(-RobotMap.FRONT_LEFT_DRIVE);
 		rearRight.set(RobotMap.FRONT_RIGHT_DRIVE);
 		
 		frontLeft.setFeedbackDevice(FeedbackDevice.QuadEncoder);
@@ -50,8 +50,11 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public void drive(double leftSpeed, double rightSpeed) {
-		frontLeft.set(leftSpeed);
-		frontRight.set(rightSpeed);
+		frontLeft.set(-leftSpeed);
+		frontRight.set(-rightSpeed);
+//		midRight.set(rightSpeed);
+//		rearLeft.set(leftSpeed);
+//		midLeft.set(leftSpeed);
 	}
 	
     public double getLeftDist() {
