@@ -13,7 +13,7 @@ public class GearandShootBlue extends CommandGroup {
     	addSequential(new DriveStraightEnc(19840));
     	addSequential(new GearRelease(true));
     	addSequential(new DriveStraightEnc(-7440));
-    	addSequential(new GyroTurn(260));
+    	addSequential(new GyroTurn(-100));
     	addSequential(new DriveStraightEnc(8000));
     	addParallel(new RevFlywheel());
     	addSequential(new WaitCommand(1));
