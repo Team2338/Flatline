@@ -11,18 +11,19 @@ public class Climber extends Subsystem {
 
 	private static final CANTalon climber1 = new CANTalon(RobotMap.CLIMBER_1);
 	private static final CANTalon climber2 = new CANTalon(RobotMap.CLIMBER_2);
-	
-	public Climber(){
+
+	public Climber() {
+		climber1.changeControlMode(TalonControlMode.PercentVbus);
 		climber2.changeControlMode(TalonControlMode.Follower);
 		climber2.set(RobotMap.CLIMBER_1);
 	}
 
-	public void drive(double speed){
+	public void drive(double speed) {
 		climber1.set(speed);
 	}
-	
-    public void initDefaultCommand() {
-    	setDefaultCommand(new ClimberDrive(0));
-    }
-    
+
+	public void initDefaultCommand() {
+		setDefaultCommand(new ClimberDrive(0));
+	}
+
 }

@@ -38,24 +38,26 @@ public class Robot extends IterativeRobot {
 	private Command autonomousCommand;
 
 	public void robotInit() {
-		oi = new OI();
-		
+		oi = new OI(OI.a_leftBumper.get());
+
 		autoChooser = new SendableChooser();
-		
+
 		turretPosChooser = new SendableChooser();
 		turretPosChooser.addDefault("Blue", new Double(Globals.TURRET_BLUEPOS));
 		turretPosChooser.addObject("Red", new Double(Globals.TURRET_REDPOS));
-        SmartDashboard.putData("Turret position chooser", turretPosChooser);
+		SmartDashboard.putData("Turret position chooser", turretPosChooser);
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
-		
+
 		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P);
 		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I);
 		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D);
 		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F);
 	}
 
-	public void disabledInit() {}
+	public void disabledInit() {
+		//TODO: Bring COLLECTOR SOL down (Collector hood doesn't matter)
+	}
 
 	public void disabledPeriodic() {
 		update();
@@ -74,7 +76,8 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void teleopInit() {
-		if (autonomousCommand != null) autonomousCommand.cancel();
+		if (autonomousCommand != null)
+			autonomousCommand.cancel();
 		new TankDrive().start(); // Does this have to be here?
 	}
 
@@ -94,5 +97,7 @@ public class Robot extends IterativeRobot {
 		Robot.turret.update();
 		Robot.feeder.update();
 		Robot.vision.update();
+
+		oi = new OI(OI.a_leftBumper.get());
 	}
 }

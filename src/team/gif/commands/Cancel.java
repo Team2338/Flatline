@@ -19,9 +19,6 @@ public class Cancel extends Command {
     }
 
     protected void initialize() {
-    }
-
-    protected void execute() {
     	Robot.climber.drive(0);
     	Robot.collector.drive(0);
     	Robot.feeder.driveFeeder(0);
@@ -30,7 +27,10 @@ public class Cancel extends Command {
     	Robot.gearHanger.release(false);
     	
     	// TODO: Figure out if this works
-    	Scheduler.getInstance().removeAll();
+//    	Scheduler.getInstance().removeAll();
+    }
+
+    protected void execute() {
     }
 
     protected boolean isFinished() {
