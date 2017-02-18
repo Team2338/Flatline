@@ -8,6 +8,7 @@ public class CollectorIn extends Command {
 	
 	private boolean retract;
 	private double initTime = Timer.getFPGATimestamp();
+	private boolean isFullyRetracted = false;
 	
     public CollectorIn(boolean retract) {
     	requires(Robot.collector);
@@ -15,21 +16,24 @@ public class CollectorIn extends Command {
     }
 
     protected void initialize() {
-    }
-
-    protected void execute() {
     	if (retract) {
     		Robot.collector.retract(retract);
+    		isFullyRetracted = true;
     	} else if (!retract) {
     		Robot.collector.retractCollector(false);
     		if(Timer.getFPGATimestamp() - initTime > 2) {
     			Robot.collector.retractHood(true);
+    			isFullyRetracted = true;
     		}
     	}
     }
 
+    protected void execute() {
+
+    }
+
     protected boolean isFinished() {
-        return true;
+        return isFullyRetracted;
     }
 
     protected void end() {}

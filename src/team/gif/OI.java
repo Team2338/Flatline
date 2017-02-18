@@ -77,44 +77,27 @@ public class OI {
 		d_rightBumper.whenReleased(new ShifterHigh(false));
 		
 		// Auxiliary controls
-		new CameraFollowAndRev();
+//		new CameraFollowAndRev();
 		new ManualShoot();
-		new CameraShoot();
+//		new CameraShoot();
 		
 		if (isShifted) { // Shift to second set of commands
-			a_Y.whileHeld(new ClimberDrive(-1));
+//			a_Y.whileHeld(new ClimberDrive(-1));
 			a_rightBumper.whileHeld(new Eject());
 			a_select.whenPressed(new CollectorHoodIn(false));
 			a_start.whenPressed(new CollectorHoodIn(true));
 		} else {
 			a_A.whileHeld(new GearRelease(false));
 			a_A.whenReleased(new GearRelease(true));
-//			a_B.whileHeld(new FeederDrive());
-			a_B.whenPressed(new Cancel());
-//			a_Y.whileHeld(new RevFlywheel());
-//			a_Y.whenReleased(new ShooterStandby());
-			a_Y.whileHeld(new ClimberDrive(1));
+			a_B.whileHeld(new FeederDrive());
+//			a_B.whenPressed(new Cancel());
+			a_Y.whileHeld(new RevFlywheel());
+			a_Y.whenReleased(new ShooterStandby());
+			a_X.whileHeld(new ClimberDrive(1));
 //			a_Y.whileHeld(new ClimberUp());
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new CollectorIn(true));
 			a_start.whenPressed(new CollectorIn(false));
-		}
-		
-		// These are just tests, but should work because of Robot.update()
-		if (a_leftBumper.get() && a_Y.get()) {
-			a_Y.whileHeld(new ClimberDrive(-1));
-		}
-		
-		if (a_leftBumper.get() && a_rightBumper.get()) {
-			a_rightBumper.whileHeld(new Eject());
-		}
-		
-		if (a_leftBumper.get() && a_select.get()) {
-			a_select.whenPressed(new CollectorHoodIn(false));
-		}
-		
-		if (a_rightBumper.get() && a_start.get()) {
-			a_start.whenPressed(new CollectorHoodIn(true));
 		}
 	}
 }
