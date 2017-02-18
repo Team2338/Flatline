@@ -10,11 +10,7 @@ import team.gif.commands.intake.FeederDrive;
 public class CameraShoot extends CommandGroup {
 
 	public CameraShoot() {
+		addParallel(new FeederDrive(true));
 	}
 
-	protected void execute() {
-		if (OI.auxController.getRawAxis(3) > 0.1 && !OI.auxController.getRawButton(5)) {
-			new FeederDrive(true);
-		}
-	}
 }

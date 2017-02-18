@@ -19,7 +19,7 @@ public class TurretManual extends Command {
 
     protected void execute() {
 		if (Math.abs(OI.auxController.getRawAxis(0)) > Globals.DEAD_ZONE) {
-			Robot.turret.setPosition(OI.auxController.getRawAxis(0));
+			Robot.turret.setPosition(-OI.auxController.getRawAxis(0));
 		} else {
 			Robot.turret.setPosition(0);
 		}

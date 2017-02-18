@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
 	private Command autonomousCommand;
 
 	public void robotInit() {
-		oi = new OI(OI.a_11.get());
+//		oi = new OI(OI.a_11.get());
 
 		autoChooser = new SendableChooser();
 
@@ -98,6 +98,8 @@ public class Robot extends IterativeRobot {
 		Robot.feeder.update();
 		Robot.vision.update();
 
-		oi = new OI(OI.a_11.get());
+//		oi = new OI(OI.a_11.get());
+		oi = new OI(OI.a_leftBumper.get());
+
 	}
 }
