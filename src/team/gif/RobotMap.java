@@ -17,22 +17,22 @@ public class RobotMap {
 	public static final int COLLECTOR			= 12; //12
 	public static final int FEEDER				= 2; //2
 	public static final int POLY_WHISK			= 7; //7
-	public static final int FLYWHEEL_1			= 3;
-	public static final int FLYWHEEL_2			= 60;
+	public static final int FLYWHEEL_1			= 15;//15
+	public static final int FLYWHEEL_2			= 16;//16
 	public static final int TURRET				= 5; //5
-	public static final int CLIMBER_1			= 30; //3
+	public static final int CLIMBER_1			= 3; //3
 	public static final int CLIMBER_2			= 0; //0
 	
 	// Relay Ports
 	public static final int GEAR_HANGER1 		= 6;//6
 //	public static final int GEAR_HANGER2		= 5;
-	public static final int VERSA__DROP			= 5;//5
-	public static final int SHIFTER				= 4;//4
+	public static final int VERSA__DROP			= 4;//5
+	public static final int SHIFTER				= 5;//4
 	public static final int COLLECTORSOLA		= 0;//0
 	public static final int COLLECTORSOLB		= 1;//1
 	public static final int COLLECTORHOODSOL	= 7;//7
 	
 	// DIO Ports
-	public static final int FLAPPY_SERVO		= 0;
+	public static final int FLAPPY				= 0;//0
 
 }

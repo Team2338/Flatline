@@ -2,9 +2,7 @@ package team.gif.commands.intake;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Robot;
-import team.gif.commands.WaitCommand;
 
 public class FeederDrive extends Command {
 
@@ -39,23 +37,22 @@ public class FeederDrive extends Command {
 				Robot.feeder.setServoPosition(0.01);
 				initTime = Timer.getFPGATimestamp();
 			}
-			
+
 			if (isAssisted) {
 				if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
 					Robot.feeder.driveFeeder(speed);
 					Robot.feeder.drivePolyWhisk(speed);
-					// Robot.feeder.servoOscillate();
 				}
 			} else {
 				if (Robot.flywheel.isInTolerance()) {
 					Robot.feeder.driveFeeder(speed);
 					Robot.feeder.drivePolyWhisk(speed);
-					// Robot.feeder.servoOscillate();
 				}
 			}
 		} else {
 			Robot.feeder.driveFeeder(0);
 			Robot.feeder.drivePolyWhisk(0);
+			Robot.feeder.setServoPosition(0.01);
 		}
 
 		// Robot.feeder.driveFeeder(speed);

@@ -27,7 +27,7 @@ public class Flywheel extends Subsystem {
 		flywheel.configPeakOutputVoltage(12, -12);
 		flywheel.setPosition(0);
 		
-		flywheel.reverseOutput(false);
+		flywheel.reverseOutput(true);
 		flywheel.reverseSensor(true);
 		
 		flywheel2.changeControlMode(TalonControlMode.Follower);

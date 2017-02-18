@@ -15,12 +15,15 @@ public class Feeder extends Subsystem {
 
 	private static final CANTalon feeder = new CANTalon(RobotMap.FEEDER);
 	private static final CANTalon polyWhisk = new CANTalon(RobotMap.POLY_WHISK);
-	private static final Servo flappy = new Servo(RobotMap.FLAPPY_SERVO);
+	private static final Servo flappy = new Servo(RobotMap.FLAPPY);
 
 	public Feeder() {
-		if (getServoPosition() == 0.5) {
-			flappy.setPosition(0.01);
-		}
+		super();
+		
+		// FIXME: Possibly doesn't reset?
+//		if (getServoPosition() != 0.01) {
+//			flappy.setPosition(0.01);
+//		}
 	}
 
 	public void driveFeeder(double speed) {

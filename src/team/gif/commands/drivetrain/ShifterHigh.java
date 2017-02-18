@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import team.gif.Robot;
 
 public class ShifterHigh extends Command {
-	
+
 	private boolean isHigh;
 
 	public ShifterHigh(boolean isHigh) {
@@ -16,14 +16,17 @@ public class ShifterHigh extends Command {
 		Robot.shifter.shift(!isHigh);
 	}
 
-	protected void execute() {}
+	protected void execute() {
+	}
 
 	protected boolean isFinished() {
 		return false;
 	}
 
-    protected void end() {}
+	protected void end() {
+	}
 
-	protected void interrupted() {}
- 
+	protected void interrupted() {
+	}
+
 }

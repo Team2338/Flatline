@@ -22,6 +22,8 @@ public class OI {
 	
 	private static Button d_A;
 	private static Button d_B;
+	private static Button d_X;
+	private static Button d_Y;
 	private static Button d_leftBumper;
 	private static Button d_rightBumper;
 	private static Button d_leftStick;
@@ -31,16 +33,18 @@ public class OI {
 	private static Button a_B;
 	private static Button a_X;
 	private static Button a_Y;
-	private static Button a_leftBumper;
+	public static Button a_leftBumper = new JoystickButton(auxController, 5);;
 	private static Button a_rightBumper;
 	private static Button a_select;
 	private static Button a_start;
 	private static Button a_leftStick;
 	private static Button a_rightStick;
 	
-	public OI() {
+	public OI(boolean isShifted) {
 		d_A = new JoystickButton(driverController, 1);
 		d_B = new JoystickButton(driverController, 2);
+		d_X = new JoystickButton(driverController, 3);
+		d_Y = new JoystickButton(driverController, 4);		
 		d_leftBumper = new JoystickButton(driverController, 5);
 		d_rightBumper = new JoystickButton(driverController, 6);
 		
@@ -48,14 +52,13 @@ public class OI {
 		a_B = new JoystickButton(auxController, 2);
 		a_X = new JoystickButton(auxController, 3);
 		a_Y = new JoystickButton(auxController, 4);
-		a_leftBumper = new JoystickButton(auxController, 5);
 		a_rightBumper = new JoystickButton(auxController, 6);
 		a_select = new JoystickButton(auxController, 7);
 		a_start = new JoystickButton(auxController, 8);
 		
 //		a_Y.whileHeld(new RevFlywheel());
 //		a_Y.whenReleased(new ShooterStandby());
-		
+	
 //		a_A.whenPressed(new Servo(0.5));
 //		a_Y.whenPressed(new Servo(0.01));
 //		a_X.whileHeld(new FeederDrive(false, 0));
@@ -65,28 +68,53 @@ public class OI {
 //		a_X.whenPressed(new TurretTurn(0));
 		
 		// Driver controls
-		d_A.whileHeld(new FeederDrive());
+//		d_A.whileHeld(new FeederDrive());
+//		d_Y.whileHeld(new RevFlywheel());
+//		d_Y.whenReleased(new ShooterStandby());
 		d_leftBumper.whileHeld(new ShiftOmni(true));
 		d_leftBumper.whenReleased(new ShiftOmni(false));
 		d_rightBumper.whileHeld(new ShifterHigh(true));
 		d_rightBumper.whenReleased(new ShifterHigh(false));
 		
 		// Auxiliary controls
-//		new CameraFollowAndRev();
-//		new ManualShoot();
-//		new CameraShoot();
+		new CameraFollowAndRev();
+		new ManualShoot();
+		new CameraShoot();
 		
-		a_A.whileHeld(new GearRelease(true));
-		a_A.whenReleased(new GearRelease(false));
-		a_B.whenPressed(new Cancel());
-		a_Y.whileHeld(new ClimberUp());
-		a_rightBumper.whileHeld(new CollectorDrive());
-		a_select.whenPressed(new CollectorIn(false));
-		a_start.whenPressed(new CollectorIn(true));
-		
-		if(a_leftBumper.get()) {
+		if (isShifted) { // Shift to second set of commands
 			a_Y.whileHeld(new ClimberDrive(-1));
 			a_rightBumper.whileHeld(new Eject());
+			a_select.whenPressed(new CollectorHoodIn(false));
+			a_start.whenPressed(new CollectorHoodIn(true));
+		} else {
+			a_A.whileHeld(new GearRelease(false));
+			a_A.whenReleased(new GearRelease(true));
+//			a_B.whileHeld(new FeederDrive());
+			a_B.whenPressed(new Cancel());
+//			a_Y.whileHeld(new RevFlywheel());
+//			a_Y.whenReleased(new ShooterStandby());
+			a_Y.whileHeld(new ClimberDrive(1));
+//			a_Y.whileHeld(new ClimberUp());
+			a_rightBumper.whileHeld(new CollectorDrive());
+			a_select.whenPressed(new CollectorIn(true));
+			a_start.whenPressed(new CollectorIn(false));
+		}
+		
+		// These are just tests, but should work because of Robot.update()
+		if (a_leftBumper.get() && a_Y.get()) {
+			a_Y.whileHeld(new ClimberDrive(-1));
+		}
+		
+		if (a_leftBumper.get() && a_rightBumper.get()) {
+			a_rightBumper.whileHeld(new Eject());
+		}
+		
+		if (a_leftBumper.get() && a_select.get()) {
+			a_select.whenPressed(new CollectorHoodIn(false));
+		}
+		
+		if (a_rightBumper.get() && a_start.get()) {
+			a_start.whenPressed(new CollectorHoodIn(true));
 		}
 	}
 }

@@ -29,15 +29,15 @@ public class Globals {
 	public static final double FLYWHEEL_RPM				= 27000; // 189 in: 27000 | 
 	public static final double RPM_MULTIPLIER 			= 4096d/600d; // QuadEncoder Ticks Per Rev / Milliseconds
 	public static final double revTime 					= 0;
-	public static final double SHOOTER_TOLERANCE 		= 100; // ticks
+	public static final double SHOOTER_TOLERANCE 		= 500; // ticks
 	
 //	Turret
 	public static final double TURRET_P 				= 0.8; // 0.011 | 0.44
 	public static final double TURRET_I 				= 0.00000001; // 0.00000001
 	public static final double TURRET_D 				= 60.0; // 0.1
 	public static final int TURRET_I_ZONE 				= 0;
-	public static final double TURRET_POS	 			= 14d/3d; // 140/30 Encoder Counts per Rev
-	public static final double TURRET_ANGLE_TO_TICK		= 7d/540d; // 140/30/360
+	public static final double TURRET_POS	 			= 35d/8d; // 140/32 Encoder Counts per Rev
+	public static final double TURRET_ANGLE_TO_TICK		= 7d/576d; // 140/32/360
 	public static final double TURRET_TOLERANCE			= 0.01; // ticks
 	public static final double TURRET_REDPOS			= 1; // TODO: figure out ticks
 	public static final double TURRET_BLUEPOS			= 2; // TODO: figure out ticks

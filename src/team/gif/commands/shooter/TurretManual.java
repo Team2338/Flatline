@@ -8,12 +8,9 @@ import team.gif.OI;
 import team.gif.Robot;
 
 public class TurretManual extends Command {
-
-	private double speed;
 	
-    public TurretManual(double speed) {
+    public TurretManual() {
     	requires(Robot.turret);
-    	this.speed = speed;
     }
 
     protected void initialize() {
@@ -21,8 +18,8 @@ public class TurretManual extends Command {
     }
 
     protected void execute() {
-		if (Math.abs(OI.auxController.getRawAxis(1)) > Globals.DEAD_ZONE) {
-			Robot.turret.setPosition(OI.auxController.getRawAxis(1));
+		if (Math.abs(OI.auxController.getRawAxis(0)) > Globals.DEAD_ZONE) {
+			Robot.turret.setPosition(OI.auxController.getRawAxis(0));
 		} else {
 			Robot.turret.setPosition(0);
 		}

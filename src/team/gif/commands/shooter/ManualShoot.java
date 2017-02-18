@@ -14,12 +14,12 @@ public class ManualShoot extends CommandGroup {
 		// TODO: Use IR sensor to determine when shooting finishes
 		// ALTERNATIVE: Use velocity data to count shots
 	}
-	
+
 	protected void execute() {
 		if (OI.auxController.getRawAxis(3) > 0.1 && OI.auxController.getRawButton(5)) {
 			new RevFlywheel();
 			new FeederDrive();
 		}
 	}
-	
+
 }

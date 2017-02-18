@@ -16,7 +16,7 @@ public class GearHanger extends Subsystem {
 	}
 	
     public void initDefaultCommand() {
-    	setDefaultCommand(new GearRelease(false));
+    	setDefaultCommand(new GearRelease(true));
     }
     
 }

@@ -9,33 +9,35 @@ import team.gif.OI;
 import team.gif.Robot;
 
 public class TurretTurn extends Command {
-	
+
 	private final double setpoint;
 
-    public TurretTurn(double setpoint) {
-    	requires(Robot.turret);
-    	this.setpoint = setpoint;
-    }
+	public TurretTurn(double setpoint) {
+		requires(Robot.turret);
+		this.setpoint = setpoint;
+	}
 
-    protected void initialize() {
+	protected void initialize() {
 		Robot.turret.setPID(Globals.TURRET_P, Globals.TURRET_I, Globals.TURRET_D);
-    	Robot.turret.setMode(TalonControlMode.Position);
-    }
+		Robot.turret.setMode(TalonControlMode.Position);
+	}
 
-    protected void execute() {
-    	Robot.turret.setPosition(setpoint);
-    	
-    	if(OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
-    		Robot.turret.setPosition((Double) Robot.turretPosChooser.getSelected());
-    	}
-    }
+	protected void execute() {
+		Robot.turret.setPosition(setpoint);
 
-    protected boolean isFinished() {
-        return Robot.turret.isInTolerance();
-    }
+		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
+			Robot.turret.setPosition((Double) Robot.turretPosChooser.getSelected());
+		}
+	}
 
-    protected void end() {}
+	protected boolean isFinished() {
+		return Robot.turret.isInTolerance();
+	}
 
-    protected void interrupted() {}
-    
+	protected void end() {
+	}
+
+	protected void interrupted() {
+	}
+
 }
