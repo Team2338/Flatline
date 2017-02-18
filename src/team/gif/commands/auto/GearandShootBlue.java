@@ -10,10 +10,10 @@ import team.gif.commands.shooter.RevFlywheel;
 public class GearandShootBlue extends CommandGroup {
 
     public GearandShootBlue() {
-    	addSequential(new DriveStraightEnc(Globals.DRIVE_DIST));
+    	addSequential(new DriveStraightEnc(19840));
     	addSequential(new GearRelease(true));
-    	addSequential(new DriveStraightEnc(-4960));
-    	addSequential(new GyroTurn(240));
+    	addSequential(new DriveStraightEnc(-7440));
+    	addSequential(new GyroTurn(260));
     	addSequential(new DriveStraightEnc(8000));
     	addParallel(new RevFlywheel());
     	addSequential(new WaitCommand(1));
