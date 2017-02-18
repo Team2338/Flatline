@@ -98,6 +98,6 @@ public class Robot extends IterativeRobot {
 		Robot.feeder.update();
 		Robot.vision.update();
 
-		oi = new OI(OI.a_leftBumper.get());
+//		oi = new OI(OI.a_leftBumper.get());
 	}
 }
