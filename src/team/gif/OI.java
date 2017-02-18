@@ -9,7 +9,6 @@ import team.gif.commands.drivetrain.*;
 import team.gif.commands.intake.CollectorDrive;
 import team.gif.commands.intake.Eject;
 import team.gif.commands.intake.FeederDrive;
-import team.gif.commands.intake.Servo;
 import team.gif.commands.shooter.*;
 
 /**
@@ -18,7 +17,8 @@ import team.gif.commands.shooter.*;
  */
 public class OI {
 	public static final Joystick driverController = new Joystick(0);
-	public static final Joystick auxController  = new Joystick(1);
+//	public static final Joystick auxController  = new Joystick(1);
+	public static final Joystick buttonBoard = new Joystick(1);
 	
 	private static Button d_A;
 	private static Button d_B;
@@ -38,20 +38,36 @@ public class OI {
 	private static Button a_leftStick;
 	private static Button a_rightStick;
 	
+	private static Button a_1;
+	private static Button a_2;
+	private static Button a_3;
+	private static Button a_4;
+	private static Button a_5;
+	private static Button a_6;
+	private static Button a_7;
+	private static Button a_8;
+	private static Button a_9;
+	private static Button a_10;
+	private static Button a_11 = new JoystickButton(buttonBoard, 11);
+	private static Button a_12;
+	private static Button a_13;
+	
+	
+	
 	public OI() {
 		d_A = new JoystickButton(driverController, 1);
 		d_B = new JoystickButton(driverController, 2);
 		d_leftBumper = new JoystickButton(driverController, 5);
 		d_rightBumper = new JoystickButton(driverController, 6);
 		
-		a_A = new JoystickButton(auxController, 1);
-		a_B = new JoystickButton(auxController, 2);
-		a_X = new JoystickButton(auxController, 3);
-		a_Y = new JoystickButton(auxController, 4);
-		a_leftBumper = new JoystickButton(auxController, 5);
-		a_rightBumper = new JoystickButton(auxController, 6);
-		a_select = new JoystickButton(auxController, 7);
-		a_start = new JoystickButton(auxController, 8);
+//		a_A = new JoystickButton(auxController, 1);
+//		a_B = new JoystickButton(auxController, 2);
+//		a_X = new JoystickButton(auxController, 3);
+//		a_Y = new JoystickButton(auxController, 4);
+//		a_leftBumper = new JoystickButton(auxController, 5);
+//		a_rightBumper = new JoystickButton(auxController, 6);
+//		a_select = new JoystickButton(auxController, 7);
+//		a_start = new JoystickButton(auxController, 8);
 		
 //		a_Y.whileHeld(new RevFlywheel());
 //		a_Y.whenReleased(new ShooterStandby());
