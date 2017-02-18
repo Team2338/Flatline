@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.gif.JoystickAnalogButton;
 import team.gif.commands.*;
 import team.gif.commands.drivetrain.*;
 import team.gif.commands.intake.CollectorDrive;
@@ -39,6 +40,8 @@ public class OI {
 	private static Button a_start;
 	private static Button a_leftStick;
 	private static Button a_rightStick;
+	private static Button a_rightTrigger;
+	private static Button a_leftTrigger;
 
 	// private static Button a_1;
 	// private static Button a_2;
@@ -55,6 +58,8 @@ public class OI {
 	// private static Button a_13;
 
 	public OI(boolean isShifted) {
+		a_rightTrigger = new JoystickAnalogButton(auxController, 3, 0.5);
+		a_leftTrigger = new JoystickAnalogButton(auxController, 2, 0.5);
 		d_A = new JoystickButton(driverController, 1);
 		d_B = new JoystickButton(driverController, 2);
 		d_X = new JoystickButton(driverController, 3);
@@ -89,29 +94,31 @@ public class OI {
 		d_leftBumper.whenReleased(new ShiftOmni(false));
 		d_rightBumper.whileHeld(new ShifterHigh(true));
 		d_rightBumper.whenReleased(new ShifterHigh(false));
+		
+		
 
 		// Auxiliary controls
-		// new CameraFollowAndRev();
-		new ManualShoot();
-		// new CameraShoot();
 
 		if (isShifted) { // Shift to second set of commands
 			// a_Y.whileHeld(new ClimberDrive(-1));
 			a_rightBumper.whileHeld(new Eject());
 			a_select.whenPressed(new CollectorHoodIn(false));
 			a_start.whenPressed(new CollectorHoodIn(true));
+			a_rightTrigger.whileHeld(new ManualShoot());
 		} else {
 			a_A.whileHeld(new GearRelease(false));
 			a_A.whenReleased(new GearRelease(true));
-			a_B.whileHeld(new FeederDrive());
-			// a_B.whenPressed(new Cancel());
-			a_Y.whileHeld(new RevFlywheel());
+//			a_B.whileHeld(new FeederDrive());
+			a_B.whenPressed(new Cancel());
+//			a_Y.whileHeld(new RevFlywheel());
 			a_Y.whenReleased(new ShooterStandby());
-			a_X.whileHeld(new ClimberDrive(1));
-			// a_Y.whileHeld(new ClimberUp());
+//			a_X.whileHeld(new ClimberDrive(1));
+			a_Y.whileHeld(new ClimberUp());
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new CollectorIn(true));
 			a_start.whenPressed(new CollectorIn(false));
+			a_rightTrigger.whileHeld(new FeederDrive(true));
+			a_leftTrigger.whileHeld(new CameraFollowAndRev());
 		}
 	}
 }
