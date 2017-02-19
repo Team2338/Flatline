@@ -36,9 +36,11 @@ public class Robot extends IterativeRobot {
 	public static SendableChooser turretPosChooser;
 	private SendableChooser autoChooser;
 	private Command autonomousCommand;
+	private boolean isShifted;
 
 	public void robotInit() {
-		oi = new OI(OI.a_leftBumper.get());
+		isShifted = OI.a_leftBumper.get();
+		oi = new OI(isShifted);
 
 		autoChooser = new SendableChooser();
 
@@ -98,6 +100,11 @@ public class Robot extends IterativeRobot {
 		Robot.feeder.update();
 		Robot.vision.update();
 
-//		oi = new OI(OI.a_leftBumper.get());
+		if (OI.a_leftBumper.get() != isShifted) {
+			isShifted = !isShifted;
+			oi = new OI(isShifted);
+		}
+		
+		SmartDashboard.putBoolean("isShifted", isShifted);
 	}
 }
