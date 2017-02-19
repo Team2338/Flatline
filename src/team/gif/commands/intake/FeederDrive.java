@@ -42,11 +42,17 @@ public class FeederDrive extends Command {
 				if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
 					Robot.feeder.driveFeeder(speed);
 					Robot.feeder.drivePolyWhisk(speed);
+//				} else {
+//					Robot.feeder.driveFeeder(0);
+//					Robot.feeder.drivePolyWhisk(0);
 				}
 			} else {
 				if (Robot.flywheel.isInTolerance()) {
 					Robot.feeder.driveFeeder(speed);
 					Robot.feeder.drivePolyWhisk(speed);
+//				} else {
+//					Robot.feeder.driveFeeder(0);
+//					Robot.feeder.drivePolyWhisk(0);
 				}
 			}
 		} else {

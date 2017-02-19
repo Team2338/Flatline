@@ -16,27 +16,33 @@ public class CollectorIn extends Command {
     }
 
     protected void initialize() {
-    	if (retract) {
-    		Robot.collector.retract(retract);
-    		isFullyRetracted = true;
-    	} else if (!retract) {
-    		Robot.collector.retractCollector(false);
-    		if(Timer.getFPGATimestamp() - initTime > 2) {
-    			Robot.collector.retractHood(true);
-    			isFullyRetracted = true;
-    		}
-    	}
+    	Robot.collector.retractCollector(retract);
+    	
+//    	if (retract) {
+//    		Robot.collector.retract(retract);
+//    		isFullyRetracted = true;
+//    	} else {
+//    		Robot.collector.retractCollector(false);
+//    		if(Timer.getFPGATimestamp() - initTime > 2) {
+//    			Robot.collector.retractHood(true);
+//    			isFullyRetracted = true;
+//    		}
+//    	}
     }
 
     protected void execute() {
-
+    	if(Timer.getFPGATimestamp() - initTime > 2) {
+    		isFullyRetracted = true;
+    	}
     }
 
     protected boolean isFinished() {
         return isFullyRetracted;
     }
 
-    protected void end() {}
+    protected void end() {
+    	Robot.collector.retractHood(!retract);
+    }
 
     protected void interrupted() {}
     

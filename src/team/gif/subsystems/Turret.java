@@ -16,6 +16,8 @@ public class Turret extends Subsystem {
 	private final CANTalon turret = new CANTalon(RobotMap.TURRET);
 
 	public Turret() {
+		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
+		turret.setEncPosition(absolutePosition);
 		turret.enableBrakeMode(true);
 		turret.changeControlMode(TalonControlMode.Position);
 		turret.setPID(Globals.TURRET_P, Globals.TURRET_I, Globals.TURRET_D);
@@ -25,8 +27,8 @@ public class Turret extends Subsystem {
 		turret.reverseOutput(true);
 		turret.reverseSensor(false);
 
-		// turret.setForwardSoftLimit(1); //TODO: 90 degrees
-		// turret.setReverseSoftLimit(0); //TODO: -90 degrees
+		turret.setForwardSoftLimit(2.0); //TODO: 90 degrees
+		turret.setReverseSoftLimit(-0.197); //TODO: -90 degrees
 		turret.enableLimitSwitch(true, true);
 		turret.setAllowableClosedLoopErr(0);
 	}
