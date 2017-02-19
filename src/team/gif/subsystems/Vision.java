@@ -108,6 +108,8 @@ public class Vision extends Subsystem {
 
 		SmartDashboard.putNumber("Degree Error", getXDegreeError());
 		SmartDashboard.putNumber("HPixelError", getXPixelError());
+		SmartDashboard.putNumber("Y Pixel Error", getYPixelError());
+		SmartDashboard.putNumber("Y Degree Error", getYDegreeError());
 		SmartDashboard.putNumber("Distance", getDistance());
 	}
 

@@ -18,8 +18,8 @@ import team.gif.commands.shooter.*;
  */
 public class OI {
 	public static final Joystick driverController = new Joystick(0);
-//	public static final Joystick leftStick = new Joystick(0);
-//	public static final Joystick rightStick = new Joystick(1);
+	public static final Joystick leftStick = new Joystick(0);
+	public static final Joystick rightStick = new Joystick(1);
 	public static final Joystick auxController  = new Joystick(1);
 //	public static final Joystick buttonBoard = new Joystick(2);
 	
