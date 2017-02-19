@@ -42,8 +42,8 @@ public class TankDrive extends Command {
 //		} else {
 //			right = 0;
 //		}
-
-		Robot.drivetrain.drive(left, right);
+//
+//		Robot.drivetrain.drive(left, right);
 	}
 
 	protected boolean isFinished() {
