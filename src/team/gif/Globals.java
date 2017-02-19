@@ -43,7 +43,7 @@ public class Globals {
 	public static final double TURRET_BLUEPOS			= 2; // TODO: figure out ticks
 	
 // 	Vision
-	public static final double VISION_TOLERANCE 		= 3; // degrees
+	public static final double VISION_TOLERANCE 		= 1; // degrees
 	public static final double CAMERA_CENTER_X			= 240; // 480 (length of frame) / 2
 	public static final double CAMERA_CENTER_Y 			= 180;
 	public static final double CAMERA_HFOV				= 51.229919; // degrees as seen on GRIP

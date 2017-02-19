@@ -16,52 +16,15 @@ public class Vision extends Subsystem {
 	private double xPixelError;
 	private double yPixelError;
 
-//	public double getPixelError() {
-//		try {
-//			centerX = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] { 0.0 });
-//			if (centerX.length > 0) {
-//				hPixelError = Globals.cameraCenterX - centerX[centerX.length - 1];
-//			} else {
-//				if (hPixelError <= 0) {
-//					hPixelError = -240;
-//				} else {
-//					hPixelError = 240;
-//				}
-//			}
-//			return hPixelError;
-//		} catch (ArrayIndexOutOfBoundsException e) {
-//			return hPixelError;
-//		}
-//	}
-
-//	public double getBetterDistance() {
-//		if (Robot.grip.getNumberArray("height", height) != null) {
-//			try {
-//				return 4 * 360 / (height[height.length - 1] * Math.tan(33.05 / 2));
-//			} catch (ArrayIndexOutOfBoundsException e) {
-//				return 0;
-//			}
-//		} else {
-//			return 0;
-//		}
-//	}
-//
-//	public double getDistanceToBase() {
-//		return Math.sqrt(getBetterDistance() * getBetterDistance() - 67 * 67);
-//	}
-
 	public double getXPixelError() {
 		if (Robot.grip.getNumberArray("centerX", centerX) != null) {
 			try {
 				if (centerX.length > 0) {
 					xPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
 				}
-			} catch (ArrayIndexOutOfBoundsException e) {
-			}
-			return xPixelError;
-		} else {
-			return 0;
+			} catch (ArrayIndexOutOfBoundsException e) {}
 		}
+		return xPixelError;
 	}
 
 	public double getYPixelError() {
@@ -70,12 +33,9 @@ public class Vision extends Subsystem {
 				if (centerY.length > 0) {
 					yPixelError = Globals.CAMERA_CENTER_Y - centerY[centerY.length - 1];
 				}
-			} catch (ArrayIndexOutOfBoundsException e) {
-			}
-			return yPixelError;
-		} else {
-			return 0;
+			} catch (ArrayIndexOutOfBoundsException e) {}
 		}
+		return yPixelError;
 	}
 
 	public double getXDegreeError() {
