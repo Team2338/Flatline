@@ -20,6 +20,8 @@ import team.gif.commands.shooter.*;
 public class OI {
 	public static final Joystick driverController = new Joystick(0);
 	public static final Joystick auxController = new Joystick(1);
+	// public static final Joystick leftStick = new Joystick(0);
+	// public static final Joystick rightStick = new Joystick(1);
 	// public static final Joystick buttonBoard = new Joystick(1);
 
 	private static Button d_A;
@@ -44,7 +46,6 @@ public class OI {
 	private static Button a_rightTrigger;
 	private static Button a_leftTrigger;
 
-	// private static Button a_1;
 	// private static Button a_2;
 	// private static Button a_3;
 	// private static Button a_4;
@@ -54,9 +55,13 @@ public class OI {
 	// private static Button a_8;
 	// private static Button a_9;
 	// private static Button a_10;
-	// private static Button a_11 = new JoystickButton(buttonBoard, 11);
+	// public static Button a_11 = new JoystickButton(buttonBoard, 11);
 	// private static Button a_12;
-	// private static Button a_13;
+	// private static Button a_14;
+	// private static Button a_15;
+	//
+	// private static Button l_2;
+	// private static Button r_2;
 
 	public OI(boolean isShifted) {
 		a_rightTrigger = new JoystickAnalogButton(auxController, 3, 0.5);
@@ -75,7 +80,47 @@ public class OI {
 		a_rightBumper = new JoystickButton(auxController, 6);
 		a_select = new JoystickButton(auxController, 7);
 		a_start = new JoystickButton(auxController, 8);
-		
+
+		// l_2 = new JoystickButton(leftStick, 2);
+		// r_2 = new JoystickButton(rightStick, 2);
+
+		// a_2 = new JoystickButton(buttonBoard, 2);
+		// a_3 = new JoystickButton(buttonBoard, 3);
+		// a_4 = new JoystickButton(buttonBoard, 4);
+		// a_5 = new JoystickButton(buttonBoard, 5);
+		// a_6 = new JoystickButton(buttonBoard, 6);
+		// a_7 = new JoystickButton(buttonBoard, 7);
+		// a_8 = new JoystickButton(buttonBoard, 8);
+		// a_9 = new JoystickButton(buttonBoard, 9);
+		// a_10 = new JoystickButton(buttonBoard, 10);
+		// a_12 = new JoystickButton(buttonBoard, 12);
+		// a_14 = new JoystickButton(buttonBoard, 14);
+		// a_15 = new JoystickButton(buttonBoard, 15);
+
+		// a_Y.whileHeld(new RevFlywheel());
+		// a_Y.whenReleased(new ShooterStandby());
+
+		// a_A.whenPressed(new Servo(0.5));
+		// a_Y.whenPressed(new Servo(0.01));
+		// a_X.whileHeld(new FeederDrive(false, 0));
+		//
+		// a_A.whileHeld(new CameraFollow());
+		// a_B.whenPressed(new TurretTurn(Globals.TURRET_POS));
+		// a_X.whenPressed(new TurretTurn(0));
+
+		// Driver controls
+		d_A.whileHeld(new FeederDrive());
+		d_Y.whileHeld(new RevFlywheel());
+		d_Y.whenReleased(new ShooterStandby());
+
+		a_A = new JoystickButton(auxController, 1);
+		a_B = new JoystickButton(auxController, 2);
+		a_X = new JoystickButton(auxController, 3);
+		a_Y = new JoystickButton(auxController, 4);
+		a_rightBumper = new JoystickButton(auxController, 6);
+		a_select = new JoystickButton(auxController, 7);
+		a_start = new JoystickButton(auxController, 8);
+
 		Scheduler.getInstance().removeAll();
 		Scheduler.getInstance().removeAllButtons();
 
@@ -95,19 +140,41 @@ public class OI {
 		// d_A.whileHeld(new FeederDrive());
 		// d_Y.whileHeld(new RevFlywheel());
 		// d_Y.whenReleased(new ShooterStandby());
+
 		d_leftBumper.whileHeld(new ShiftOmni(true));
 		d_leftBumper.whenReleased(new ShiftOmni(false));
 		d_rightBumper.whileHeld(new ShifterHigh(true));
 		d_rightBumper.whenReleased(new ShifterHigh(false));
-		
+
+		// l_2.whileHeld(new ShiftOmni(true));
+		// l_2.whenReleased(new ShiftOmni(false));
+		// r_2.whileHeld(new ShifterHigh(true));
+		// r_2.whenReleased(new ShifterHigh(false));
 
 		// Auxiliary controls
+		new CameraFollowAndRev();
+		new ManualShoot();
+		new CameraShoot();
+
+		// a_2.whileHeld(new ClimberDrive(1));
+		// a_4.whileHeld(new FeederDrive());
+		// a_5.whileHeld(new Eject());
+		// a_6.whileHeld(new CollectorDrive());
+		// a_7.whenPressed(new Cancel());
+		// a_10.whileHeld(new GearRelease(false));
+		// a_10.whenReleased(new GearRelease(true));
+		// a_14.whileHeld(new ClimberDrive(-1));
+
 		if (isShifted) { // Shift to second set of commands
 			// a_Y.whileHeld(new ClimberDrive(-1));
 			a_rightBumper.whileHeld(new Eject());
 			a_select.whenPressed(new CollectorHoodIn(false));
 			a_start.whenPressed(new CollectorHoodIn(true));
 			a_rightTrigger.whileHeld(new ManualShoot());
+
+			// a_8.whenPressed(new CollectorHoodIn(false));
+			// a_9.whenPressed(new CollectorHoodIn(true));
+			// a_15.whileHeld(new CameraFollowAndRev());
 		} else {
 			a_A.whileHeld(new GearRelease(false));
 			a_A.whenReleased(new GearRelease(true));
@@ -118,9 +185,13 @@ public class OI {
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new CollectorIn(true));
 			a_start.whenPressed(new CollectorIn(false));
-			// a_rightTrigger.whileHeld(new FeederDrive(true));
-//			a_rightTrigger.whileHeld(new ManualShoot());
+			// a_rightTrigger.whileHeld(new ManualShoot());
+			a_rightTrigger.whileHeld(new FeederDrive(true));
 			a_leftTrigger.whileHeld(new CameraFollowAndRev());
+
+			// a_8.whenPressed(new CollectorIn(true));
+			// a_9.whenPressed(new CollectorIn(false));
+			// a_15.whileHeld(new RevFlywheel());
 		}
 	}
 }

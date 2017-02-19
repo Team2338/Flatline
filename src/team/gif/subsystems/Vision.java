@@ -34,21 +34,21 @@ public class Vision extends Subsystem {
 //		}
 //	}
 
-	public double getBetterDistance() {
-		if (Robot.grip.getNumberArray("height", height) != null) {
-			try {
-				return 4 * 360 / (height[height.length - 1] * Math.tan(33.05 / 2));
-			} catch (ArrayIndexOutOfBoundsException e) {
-				return 0;
-			}
-		} else {
-			return 0;
-		}
-	}
-
-	public double getDistanceToBase() {
-		return Math.sqrt(getBetterDistance() * getBetterDistance() - 67 * 67);
-	}
+//	public double getBetterDistance() {
+//		if (Robot.grip.getNumberArray("height", height) != null) {
+//			try {
+//				return 4 * 360 / (height[height.length - 1] * Math.tan(33.05 / 2));
+//			} catch (ArrayIndexOutOfBoundsException e) {
+//				return 0;
+//			}
+//		} else {
+//			return 0;
+//		}
+//	}
+//
+//	public double getDistanceToBase() {
+//		return Math.sqrt(getBetterDistance() * getBetterDistance() - 67 * 67);
+//	}
 
 	public double getXPixelError() {
 		if (Robot.grip.getNumberArray("centerX", centerX) != null) {
@@ -79,14 +79,12 @@ public class Vision extends Subsystem {
 	}
 
 	public double getXDegreeError() {
-		return Math
-				.toDegrees(Math.atan(getXPixelError() / (Globals.CAMERA_CENTER_X / Math.tan(Globals.CAMERA_HFOV / 2))));
+		return Math.toDegrees(Math.atan(getXPixelError() / (Globals.CAMERA_CENTER_X / Math.tan(Globals.CAMERA_HFOV / 2))));
 	}
 
-	// Works only if camera is directly horizontal
+
 	public double getYDegreeError() {
-		return Math
-				.toDegrees(Math.atan(getYPixelError() / (Globals.CAMERA_CENTER_Y / Math.tan(Globals.CAMERA_VFOV / 2))));
+		return Math.toDegrees(Math.atan(getYPixelError() / (Globals.CAMERA_CENTER_Y / Math.tan(Globals.CAMERA_VFOV / 2)))) + (Globals.CAMERA_VFOV/2);
 	}
 
 	public double getDistance() {
@@ -111,8 +109,6 @@ public class Vision extends Subsystem {
 		SmartDashboard.putNumber("Degree Error", getXDegreeError());
 		SmartDashboard.putNumber("HPixelError", getXPixelError());
 		SmartDashboard.putNumber("Distance", getDistance());
-		SmartDashboard.putNumber("Better Distance", getBetterDistance());
-		SmartDashboard.putNumber("Distance to Base", getDistanceToBase());
 	}
 
 }
