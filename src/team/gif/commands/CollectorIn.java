@@ -2,13 +2,14 @@ package team.gif.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import team.gif.Robot;
 
 public class CollectorIn extends Command {
 	
 	private boolean retract;
-	private double initTime = Timer.getFPGATimestamp();
-	private boolean isFullyRetracted = false;
+	private double initTime;
+	private boolean isFullyRetracted;
 	
     public CollectorIn(boolean retract) {
     	requires(Robot.collector);
@@ -16,6 +17,8 @@ public class CollectorIn extends Command {
     }
 
     protected void initialize() {
+    	initTime = Timer.getFPGATimestamp();
+    	isFullyRetracted = false;
     	Robot.collector.retractCollector(retract);
     	
 //    	if (retract) {
@@ -31,7 +34,9 @@ public class CollectorIn extends Command {
     }
 
     protected void execute() {
-    	if(Timer.getFPGATimestamp() - initTime > 2) {
+    	double finalTime = Timer.getFPGATimestamp();
+    	
+    	if(finalTime - initTime > 2) {
     		isFullyRetracted = true;
     	}
     }
