@@ -82,7 +82,7 @@ public class Vision extends Subsystem {
 		return Math.toDegrees(Math.atan(getXPixelError() / (Globals.CAMERA_CENTER_X / Math.tan(Globals.CAMERA_HFOV / 2))));
 	}
 
-	// Works only if camera is directly horizontal
+
 	public double getYDegreeError() {
 		return Math.toDegrees(Math.atan(getYPixelError() / (Globals.CAMERA_CENTER_Y / Math.tan(Globals.CAMERA_VFOV / 2)))) + (Globals.CAMERA_VFOV/2);
 	}
