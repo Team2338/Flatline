@@ -1,6 +1,6 @@
 package team.gif.commands.shooter;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
+import lib.gif.commands.CommandGroup;
 import team.gif.OI;
 import team.gif.commands.intake.FeederDrive;
 

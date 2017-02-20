@@ -1,7 +1,7 @@
 package team.gif.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.gif.commands.Subsystem;
 import team.gif.Globals;
 import team.gif.Robot;
 
@@ -23,8 +23,9 @@ public class Vision extends Subsystem {
 					xPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
 				}
 			} catch (ArrayIndexOutOfBoundsException e) {}
+			return xPixelError;
 		}
-		return xPixelError;
+		return 0;
 	}
 
 	public double getYPixelError() {
@@ -33,22 +34,24 @@ public class Vision extends Subsystem {
 				if (centerY.length > 0) {
 					yPixelError = Globals.CAMERA_CENTER_Y - centerY[centerY.length - 1];
 				}
+				return yPixelError;
 			} catch (ArrayIndexOutOfBoundsException e) {}
+			return yPixelError;
 		}
-		return yPixelError;
+		return 0;
 	}
 
 	public double getXDegreeError() {
-		return Math.toDegrees(Math.atan(getXPixelError() / (Globals.CAMERA_CENTER_X / Math.tan(Globals.CAMERA_HFOV / 2))));
+		return Math.toDegrees(Math.atan(getXPixelError() / (Globals.CAMERA_CENTER_X / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2)))));
 	}
 
 
 	public double getYDegreeError() {
-		return Math.toDegrees(Math.atan(getYPixelError() / (Globals.CAMERA_CENTER_Y / Math.tan(Globals.CAMERA_VFOV / 2)))) + (Globals.CAMERA_VFOV/2);
+		return Math.toDegrees(Math.atan(getYPixelError() / (Globals.CAMERA_CENTER_Y / Math.tan(Math.toRadians(Globals.CAMERA_VFOV / 2))))) + (Globals.CAMERA_VFOV/2);
 	}
 
 	public double getDistance() {
-		return 67d / Math.tan(getYDegreeError());
+		return (64 / Math.tan(Math.toRadians(getYDegreeError())));
 	}
 
 	public boolean isAligned() {
@@ -66,8 +69,8 @@ public class Vision extends Subsystem {
 		height = Robot.grip.getNumberArray("height", height);
 		solidity = Robot.grip.getNumberArray("solidity", solidity);
 
-		SmartDashboard.putNumber("Degree Error", getXDegreeError());
-		SmartDashboard.putNumber("HPixelError", getXPixelError());
+		SmartDashboard.putNumber("X Degree Error", getXDegreeError());
+		SmartDashboard.putNumber("X Pixel Error", getXPixelError());
 		SmartDashboard.putNumber("Y Pixel Error", getYPixelError());
 		SmartDashboard.putNumber("Y Degree Error", getYDegreeError());
 		SmartDashboard.putNumber("Distance", getDistance());

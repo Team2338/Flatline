@@ -1,7 +1,7 @@
 package team.gif.commands.shooter;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
+import lib.gif.commands.CommandGroup;
 import team.gif.Globals;
 import team.gif.OI;
 import team.gif.Robot;

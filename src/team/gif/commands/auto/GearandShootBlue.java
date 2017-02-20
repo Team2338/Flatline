@@ -1,8 +1,8 @@
 package team.gif.commands.auto;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.command.WaitCommand;
+import lib.gif.commands.CommandGroup;
 import team.gif.commands.GearRelease;
+import team.gif.commands.WaitCommand;
 import team.gif.commands.intake.FeederDrive;
 import team.gif.commands.shooter.RevFlywheel;
 

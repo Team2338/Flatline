@@ -2,7 +2,7 @@ package team.gif.commands.shooter;
 
 import com.ctre.CANTalon.TalonControlMode;
 
-import edu.wpi.first.wpilibj.command.Command;
+import lib.gif.commands.Command;
 import team.gif.Robot;
 
 public class ShooterStandby extends Command {

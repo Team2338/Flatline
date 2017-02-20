@@ -1,7 +1,7 @@
 package team.gif.subsystems;
 
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import lib.gif.commands.Subsystem;
 import team.gif.RobotMap;
 import team.gif.commands.GearRelease;
 

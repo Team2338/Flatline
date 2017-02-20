@@ -1,6 +1,6 @@
 package team.gif.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import lib.gif.commands.Command;
 import team.gif.Robot;
 
 public class CollectorHoodIn extends Command {

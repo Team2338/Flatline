@@ -4,8 +4,8 @@ import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.gif.commands.Subsystem;
 import team.gif.Globals;
 import team.gif.RobotMap;
 import team.gif.commands.shooter.ShooterStandby;

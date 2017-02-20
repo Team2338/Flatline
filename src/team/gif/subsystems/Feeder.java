@@ -1,11 +1,8 @@
 package team.gif.subsystems;
 
 import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import team.gif.Robot;
+import lib.gif.commands.Subsystem;
 import team.gif.RobotMap;
 import team.gif.commands.intake.FeederDrive;
 

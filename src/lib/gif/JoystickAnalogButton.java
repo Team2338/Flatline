@@ -1,7 +1,7 @@
 package lib.gif;
 
 import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.buttons.Button;
+import lib.gif.buttons.Button;
 
 /**
  * This class allows you to trigger commands from an analog input on

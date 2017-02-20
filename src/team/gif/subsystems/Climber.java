@@ -3,7 +3,7 @@ package team.gif.subsystems;
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import lib.gif.commands.Subsystem;
 import team.gif.RobotMap;
 import team.gif.commands.ClimberDrive;
 

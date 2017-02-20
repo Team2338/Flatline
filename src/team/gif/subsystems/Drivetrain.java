@@ -5,8 +5,8 @@ import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.gif.commands.Subsystem;
 import team.gif.RobotMap;
 import team.gif.commands.drivetrain.TankDrive;
 

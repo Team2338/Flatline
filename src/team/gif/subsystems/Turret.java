@@ -4,8 +4,8 @@ import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.gif.commands.Subsystem;
 import team.gif.Globals;
 import team.gif.RobotMap;
 import team.gif.commands.shooter.ShooterStandby;
@@ -14,10 +14,10 @@ import team.gif.commands.shooter.TurretManual;
 public class Turret extends Subsystem {
 
 	private final CANTalon turret = new CANTalon(RobotMap.TURRET);
+//	private int absolutePosition = turret.getPulseWidthPosition();
 
 	public Turret() {
-		int absolutePosition = turret.getPulseWidthPosition() & 0xFFF;
-		turret.setEncPosition(absolutePosition);
+//		turret.setEncPosition(absolutePosition);
 		turret.enableBrakeMode(true);
 		turret.changeControlMode(TalonControlMode.Position);
 		turret.setPID(Globals.TURRET_P, Globals.TURRET_I, Globals.TURRET_D);
@@ -27,8 +27,11 @@ public class Turret extends Subsystem {
 		turret.reverseOutput(true);
 		turret.reverseSensor(false);
 
-		turret.setForwardSoftLimit(2.0); //TODO: 90 degrees
-		turret.setReverseSoftLimit(-0.197); //TODO: -90 degrees
+		turret.enableForwardSoftLimit(true);
+		turret.enableReverseSoftLimit(true);
+
+		turret.setForwardSoftLimit(-0.05);
+		turret.setReverseSoftLimit(-2.00);
 		turret.enableLimitSwitch(true, true);
 		turret.setAllowableClosedLoopErr(0);
 	}
@@ -85,6 +88,14 @@ public class Turret extends Subsystem {
 		turret.clearIAccum();
 	}
 
+	public boolean isForwardLimitClosed() {
+		return turret.isFwdLimitSwitchClosed();
+	}
+
+	public boolean isReverseLimitClosed() {
+		return turret.isRevLimitSwitchClosed();
+	}
+
 	public boolean isInTolerance() {
 		return Math.abs(getError()) < Globals.TURRET_TOLERANCE;
 	}
@@ -92,11 +103,14 @@ public class Turret extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Turret MotorOutput", getMotorOutput());
 		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
+		SmartDashboard.putBoolean("Turret FwdLimitSwitchClosed", isForwardLimitClosed());
+		SmartDashboard.putBoolean("Turret ReverseLimitSwitchClosed", isReverseLimitClosed());
 		SmartDashboard.putNumber("Turret PGain", getPGain());
 		SmartDashboard.putNumber("Turret Error", getError());
+		SmartDashboard.putNumber("absolutePosition", turret.getPulseWidthPosition());
 	}
 
 	public void initDefaultCommand() {
-    	setDefaultCommand(new TurretManual());
+		setDefaultCommand(new TurretManual());
 	}
 }

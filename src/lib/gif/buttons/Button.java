@@ -1,4 +1,3 @@
-
 package lib.gif.buttons;
 
 import lib.gif.commands.Command;

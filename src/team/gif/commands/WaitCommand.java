@@ -7,8 +7,9 @@
 
 package team.gif.commands;
 
+import lib.gif.commands.Command;
 
-public class WaitCommand extends lib.gif.commands.Command {
+public class WaitCommand extends Command {
 
 
   public WaitCommand(double timeout) {

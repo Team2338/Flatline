@@ -1,10 +1,12 @@
 package team.gif.commands.auto;
 
+import lib.gif.commands.Command;
+
 /**
  * @author PatrickUbelhor
  * DOES NOTHING.
  */
-public class AntiAuto extends lib.gif.commands.Command {
+public class AntiAuto extends Command {
 
 	public AntiAuto() {}
 

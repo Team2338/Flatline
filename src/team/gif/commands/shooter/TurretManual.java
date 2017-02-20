@@ -2,35 +2,41 @@ package team.gif.commands.shooter;
 
 import com.ctre.CANTalon.TalonControlMode;
 
-import edu.wpi.first.wpilibj.command.Command;
+import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.OI;
 import team.gif.Robot;
 
 public class TurretManual extends Command {
-	
-    public TurretManual() {
-    	requires(Robot.turret);
-    }
 
-    protected void initialize() {
-    	Robot.turret.setMode(TalonControlMode.PercentVbus);
-    }
+	public TurretManual() {
+		requires(Robot.turret);
+	}
 
-    protected void execute() {
+	protected void initialize() {
+		Robot.turret.setMode(TalonControlMode.PercentVbus);
+	}
+
+	protected void execute() {
 		if (Math.abs(OI.auxController.getRawAxis(0)) > Globals.DEAD_ZONE) {
-			Robot.turret.setPosition(-OI.auxController.getRawAxis(0));
+			Robot.turret.setPosition(0.3 * -OI.auxController.getRawAxis(0));
 		} else {
 			Robot.turret.setPosition(0);
 		}
-    }
+		
+		if (OI.auxController.getRawButton(2)) {
+			new TurretTurn((Double) Robot.turretPosChooser.getSelected());
+		}
+	}
 
-    protected boolean isFinished() {
-        return false;
-    }
+	protected boolean isFinished() {
+		return false;
+	}
 
-    protected void end() {}
+	protected void end() {
+	}
 
-    protected void interrupted() {}
-    
+	protected void interrupted() {
+	}
+
 }

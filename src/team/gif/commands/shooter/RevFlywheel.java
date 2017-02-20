@@ -2,8 +2,8 @@ package team.gif.commands.shooter;
 
 import com.ctre.CANTalon.TalonControlMode;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.OI;
 import team.gif.Robot;
@@ -33,7 +33,7 @@ public class RevFlywheel extends Command {
 			Robot.flywheel.setIZone(Globals.FLYWHEEL_I_ABOVE);
 		}
 
-		Robot.flywheel.driveFlywheel(setpoint);
+		Robot.flywheel.driveFlywheel(SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM));
 	}
 
 	protected boolean isFinished() {

@@ -1,6 +1,6 @@
 package team.gif.commands.drivetrain;
 
-import edu.wpi.first.wpilibj.command.Command;
+import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.OI;
 import team.gif.Robot;

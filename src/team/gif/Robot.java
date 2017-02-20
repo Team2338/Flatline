@@ -1,12 +1,12 @@
 package team.gif;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.gif.commands.Command;
+import lib.gif.commands.Scheduler;
 import team.gif.commands.auto.GearGrab;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.subsystems.*;
@@ -55,10 +55,14 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I);
 		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D);
 		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F);
+		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM);
+		
+		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
+		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
+		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
 	}
 
 	public void disabledInit() {
-		//TODO: Bring COLLECTOR SOL down (Collector hood doesn't matter)
 	}
 
 	public void disabledPeriodic() {
@@ -100,10 +104,18 @@ public class Robot extends IterativeRobot {
 		Robot.feeder.update();
 		Robot.vision.update();
 
-		if (OI.a_leftBumper.get() != isShifted) {
-			isShifted = !isShifted;
-			oi = new OI(isShifted);
-		}
+    	if (OI.a_leftBumper.get() != isShifted) {
+    		isShifted = !isShifted;
+    		oi = new OI(isShifted);
+    	}
+		
+//		if (OI.a_leftBumper.get() == true) {
+//			isShifted = true;
+//			oi = new OI(isShifted);
+//		} else {
+//			isShifted = false;
+//			oi = new OI(isShifted);
+//		}
 		
 		SmartDashboard.putBoolean("isShifted", isShifted);
 	}

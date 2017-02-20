@@ -2,8 +2,8 @@ package team.gif.commands.auto;
 
 import com.ctre.CANTalon.TalonControlMode;
 
-import edu.wpi.first.wpilibj.command.Command;
 import lib.gif.PIDCalculator;
+import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.Robot;
 

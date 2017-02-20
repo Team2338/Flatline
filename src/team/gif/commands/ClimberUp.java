@@ -1,6 +1,6 @@
 package team.gif.commands;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
+import lib.gif.commands.CommandGroup;
 import team.gif.Globals;
 import team.gif.commands.shooter.TurretTurn;
 
