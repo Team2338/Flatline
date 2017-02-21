@@ -23,10 +23,6 @@ public class TurretManual extends Command {
 		} else {
 			Robot.turret.setPosition(0);
 		}
-		
-		if (OI.auxController.getRawButton(2)) {
-			new TurretTurn((Double) Robot.turretPosChooser.getSelected());
-		}
 	}
 
 	protected boolean isFinished() {

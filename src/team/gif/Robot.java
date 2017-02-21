@@ -9,6 +9,9 @@ import lib.gif.commands.Command;
 import lib.gif.commands.Scheduler;
 import team.gif.commands.auto.GearGrab;
 import team.gif.commands.drivetrain.TankDrive;
+import team.gif.commands.intake.CollectorDrive;
+import team.gif.commands.shooter.TurretManual;
+import team.gif.commands.shooter.TurretTurn;
 import team.gif.subsystems.*;
 
 /**
@@ -88,6 +91,16 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void teleopPeriodic() {
+//		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
+//			new TurretTurn((Double) turretPosChooser.getSelected()).start();
+//		} else { }
+		
+		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
+			new TurretTurn((Double) turretPosChooser.getSelected()).start();
+		} else {
+			new TurretManual().start();
+		}
+		
 		update();
 	}
 
@@ -108,15 +121,5 @@ public class Robot extends IterativeRobot {
     		isShifted = !isShifted;
     		oi = new OI(isShifted);
     	}
-		
-//		if (OI.a_leftBumper.get() == true) {
-//			isShifted = true;
-//			oi = new OI(isShifted);
-//		} else {
-//			isShifted = false;
-//			oi = new OI(isShifted);
-//		}
-		
-		SmartDashboard.putBoolean("isShifted", isShifted);
 	}
 }

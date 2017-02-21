@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.OI;
-import team.gif.Robot;
+import team.gif.Robot; 
 
 public class TurretTurn extends Command {
 
@@ -18,8 +18,10 @@ public class TurretTurn extends Command {
 	}
 
 	protected void initialize() {
-		Robot.turret.setPID(Globals.TURRET_P, Globals.TURRET_I, Globals.TURRET_D);
 		Robot.turret.setMode(TalonControlMode.Position);
+		Robot.turret.setPID(SmartDashboard.getNumber("Turret P", Globals.TURRET_P),
+				SmartDashboard.getNumber("Turret I", Globals.TURRET_I),
+				SmartDashboard.getNumber("Turret D", Globals.TURRET_D));
 	}
 
 	protected void execute() {

@@ -18,6 +18,7 @@ import team.gif.commands.intake.FeederDrive;
 import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.CameraFollowAndRev;
 import team.gif.commands.shooter.ManualShoot;
+import team.gif.commands.shooter.TurretTurn;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -76,8 +77,7 @@ public class OI {
 		d_leftBumper.whenReleased(new ShiftOmni(false));
 		d_rightBumper.whileHeld(new ShifterHigh(true));
 		d_rightBumper.whenReleased(new ShifterHigh(false));
-
-		SmartDashboard.putBoolean("Local isShifted", isShifted);
+		
 		if (isShifted) { // Shift to second set of commands
 		// // a_Y.whileHeld(new ClimberDrive(-1));
 		 a_rightBumper.whileHeld(new Eject());
@@ -87,6 +87,7 @@ public class OI {
 		} else {
 			a_A.whileHeld(new GearRelease(false));
 			a_A.whenReleased(new GearRelease(true));
+			a_B.whenPressed(new TurretTurn(Globals.TURRET_BLUEPOS));
 			// a_B.whileHeld(new FeederDrive());
 			// a_B.whenPressed(new Cancel());
 			a_X.whileHeld(new CameraFollow());
