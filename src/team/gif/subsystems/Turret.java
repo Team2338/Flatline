@@ -105,9 +105,7 @@ public class Turret extends Subsystem {
 		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
 		SmartDashboard.putBoolean("Turret FwdLimitSwitchClosed", isForwardLimitClosed());
 		SmartDashboard.putBoolean("Turret ReverseLimitSwitchClosed", isReverseLimitClosed());
-		SmartDashboard.putNumber("Turret PGain", getPGain());
 		SmartDashboard.putNumber("Turret Error", getError());
-		SmartDashboard.putNumber("absolutePosition", turret.getPulseWidthPosition());
 	}
 
 	public void initDefaultCommand() {

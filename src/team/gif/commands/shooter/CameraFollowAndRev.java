@@ -7,7 +7,7 @@ public class CameraFollowAndRev extends CommandGroup {
 
     public CameraFollowAndRev() {
     	addParallel(new CameraFollow());
-    	addParallel(new RevFlywheel());
+    	addParallel(new RevFlywheel(true));
     }
     
 }
