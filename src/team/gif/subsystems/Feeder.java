@@ -24,11 +24,11 @@ public class Feeder extends Subsystem {
 	}
 
 	public void driveFeeder(double speed) {
-		feeder.set(-speed);
+		feeder.set(speed); // P: -speed
 	}
 
 	public void drivePolyWhisk(double speed) {
-		polyWhisk.set(speed);
+		polyWhisk.set(-speed); // P: speed
 	}
 
 	public void setServoPosition(double position) {

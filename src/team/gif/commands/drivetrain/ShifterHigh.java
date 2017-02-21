@@ -13,7 +13,7 @@ public class ShifterHigh extends Command {
 	}
 
 	protected void initialize() {
-		Robot.shifter.shift(isHigh);
+		Robot.shifter.shift(!isHigh); // P: isHigh C: !isHigh
 	}
 
 	protected void execute() {

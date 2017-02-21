@@ -49,7 +49,7 @@ public class FeederDrive extends Command {
 				}
 			}
 		} else if (speed < 0) {
-			Robot.feeder.driveFeeder(-0.25);
+			Robot.feeder.driveFeeder(-0.15);
 			Robot.feeder.drivePolyWhisk(speed);
 		} else {
 			Robot.feeder.driveFeeder(0);

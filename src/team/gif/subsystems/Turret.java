@@ -27,12 +27,12 @@ public class Turret extends Subsystem {
 		turret.reverseOutput(true);
 		turret.reverseSensor(false);
 
+		turret.enableLimitSwitch(true, true);
 		turret.enableForwardSoftLimit(false);
-		turret.enableReverseSoftLimit(true);
-
+		turret.enableReverseSoftLimit(false);
 		turret.setForwardSoftLimit(-0.05);
 		turret.setReverseSoftLimit(-2.00);
-		turret.enableLimitSwitch(true, true);
+		
 		turret.setAllowableClosedLoopErr(0);
 	}
 

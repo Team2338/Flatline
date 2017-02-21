@@ -19,7 +19,12 @@ public class CollectorIn extends Command {
     protected void initialize() {
     	initTime = Timer.getFPGATimestamp();
     	isFullyRetracted = false;
-    	Robot.collector.retractCollector(retract);
+    	if (retract) {
+    		Robot.collector.retractCollector(!retract);
+    		Robot.collector.retractHood(!retract);
+    	} else {
+        	Robot.collector.retractCollector(!retract); // P: retract // C: !retract
+    	}
     	
 //    	if (retract) {
 //    		Robot.collector.retract(retract);
@@ -46,7 +51,9 @@ public class CollectorIn extends Command {
     }
 
     protected void end() {
-    	Robot.collector.retractHood(!retract);
+    	if (!retract) {
+        	Robot.collector.retractHood(!retract);
+    	}
     }
 
     protected void interrupted() {}
