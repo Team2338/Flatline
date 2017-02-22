@@ -24,7 +24,6 @@ public class CameraFollow extends Command {
 		Robot.turret.setPID(SmartDashboard.getNumber("Turret P", Globals.TURRET_P),
 				SmartDashboard.getNumber("Turret I", Globals.TURRET_I),
 				SmartDashboard.getNumber("Turret D", Globals.TURRET_D));
-//		setTimeout(0.03);
 	}
 
 	protected void execute() {

@@ -51,7 +51,7 @@ public class Vision extends Subsystem {
 	}
 
 	public double getDistance() {
-		return (64 / Math.tan(Math.toRadians(getYDegreeError())));
+		return (66.5 / Math.tan(Math.toRadians(getYDegreeError())));
 	}
 
 	public boolean isAligned() {

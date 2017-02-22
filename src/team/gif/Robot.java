@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import lib.gif.commands.Scheduler;
+import team.gif.commands.auto.AntiAuto;
 import team.gif.commands.auto.GearGrab;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.commands.intake.CollectorDrive;
@@ -46,6 +47,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI(isShifted);
 
 		autoChooser = new SendableChooser();
+        autoChooser.addDefault("AntiAuto", new AntiAuto());
 
 		turretPosChooser = new SendableChooser();
 		turretPosChooser.addDefault("Blue", new Double(Globals.TURRET_BLUEPOS));
@@ -101,6 +103,14 @@ public class Robot extends IterativeRobot {
 			new TurretManual().start();
 		}
 		
+//		if (OI.auxController.getPOV() == 225 || OI.auxController.getPOV() == 270 || OI.auxController.getPOV() == 315) {
+//			new TurretTurn(Globals.TURRET_BLUEPOS).start();
+//		} else if (OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 90 || OI.auxController.getPOV() == 135) {
+//			new TurretTurn(Globals.TURRET_REDPOS).start();
+//		} else {
+//			new TurretManual().start();
+//		}
+		
 		update();
 	}
 
@@ -116,6 +126,7 @@ public class Robot extends IterativeRobot {
 		Robot.turret.update();
 		Robot.feeder.update();
 		Robot.vision.update();
+		Robot.climber.update();
 
     	if (OI.a_leftBumper.get() != isShifted) {
     		isShifted = !isShifted;

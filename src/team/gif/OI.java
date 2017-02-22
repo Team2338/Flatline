@@ -34,8 +34,8 @@ public class OI {
 	private static Button d_B;
 	private static Button d_X;
 	private static Button d_Y;
-	private static Button d_leftBumper;
-	private static Button d_rightBumper;
+	private static Button d_leftTrigger;
+	private static Button d_rightTrigger;
 	private static Button d_leftStick;
 	private static Button d_rightStick;
 
@@ -57,8 +57,8 @@ public class OI {
 		d_B = new JoystickButton(driverController, 2);
 		d_X = new JoystickButton(driverController, 3);
 		d_Y = new JoystickButton(driverController, 4);
-		d_leftBumper = new JoystickButton(driverController, 5);
-		d_rightBumper = new JoystickButton(driverController, 6);
+		d_leftTrigger = new JoystickAnalogButton(driverController, 2, 0.5);
+		d_rightTrigger = new JoystickAnalogButton(driverController, 3, 0.5);
 
 		a_A = new JoystickButton(auxController, 1);
 		a_B = new JoystickButton(auxController, 2);
@@ -67,16 +67,16 @@ public class OI {
 		a_rightBumper = new JoystickButton(auxController, 6);
 		a_select = new JoystickButton(auxController, 7);
 		a_start = new JoystickButton(auxController, 8);
-		a_rightTrigger = new JoystickAnalogButton(auxController, 3, 0.5);
 		a_leftTrigger = new JoystickAnalogButton(auxController, 2, 0.5);
+		a_rightTrigger = new JoystickAnalogButton(auxController, 3, 0.5);
 
 		Scheduler.getInstance().removeAll();
 		Scheduler.getInstance().removeAllButtons();
 		
-		d_leftBumper.whileHeld(new ShiftOmni(true));
-		d_leftBumper.whenReleased(new ShiftOmni(false));
-		d_rightBumper.whileHeld(new ShifterHigh(true));
-		d_rightBumper.whenReleased(new ShifterHigh(false));
+		d_leftTrigger.whileHeld(new ShiftOmni(true));
+		d_leftTrigger.whenReleased(new ShiftOmni(false));
+		d_rightTrigger.whileHeld(new ShifterHigh(true));
+		d_rightTrigger.whenReleased(new ShifterHigh(false));
 		
 		if (isShifted) { // Shift to second set of commands
 		// // a_Y.whileHeld(new ClimberDrive(-1));
@@ -87,17 +87,17 @@ public class OI {
 		} else {
 			a_A.whileHeld(new GearRelease(false));
 			a_A.whenReleased(new GearRelease(true));
-			a_B.whenPressed(new TurretTurn(Globals.TURRET_BLUEPOS));
+//			a_B.whenPressed(new TurretTurn(Globals.TURRET_BLUEPOS));
 			// a_B.whileHeld(new FeederDrive());
-			// a_B.whenPressed(new Cancel());
+//			a_B.whenPressed(new Cancel());
 			a_X.whileHeld(new CameraFollow());
 			a_Y.whileHeld(new ClimberDrive(1));
 			// a_Y.whileHeld(new ClimberUp());
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new CollectorIn(true));
 			a_start.whenPressed(new CollectorIn(false));
-			a_rightTrigger.whileHeld(new FeederDrive(true));
 			a_leftTrigger.whileHeld(new CameraFollowAndRev());
+			a_rightTrigger.whileHeld(new FeederDrive(true));
 			// a_8.whenPressed(new CollectorIn(true));
 			// a_9.whenPressed(new CollectorIn(false));
 			// a_15.whileHeld(new RevFlywheel());

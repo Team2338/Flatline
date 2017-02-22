@@ -26,8 +26,8 @@ public class Globals {
 //	public static final int FLYWHEEL_I_ZONE 			= 1200;  //
 	public static final int FLYWHEEL_I_ABOVE 			= 500; // 500
 	public static final int FLYWHEEL_I_BELOW 			= 1500; // 1500
-	public static final double FLYWHEEL_RPM				= 23300; // Straight peg: 27000 | 
-	public static final double RPMPERINCH				= 42; // based on empirical data
+	public static final double FLYWHEEL_RPM				= 25300; // Straight peg: 27000 | 
+	public static final double RPM_PER_INCH				= 42; // based on empirical data
 	public static final double RPM_MULTIPLIER 			= 4096d/600d; // QuadEncoder Ticks Per Rev / Milliseconds
 	public static final double revTime 					= 0;
 	public static final double SHOOTER_TOLERANCE 		= 500; // ticks

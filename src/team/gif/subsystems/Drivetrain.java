@@ -63,7 +63,7 @@ public class Drivetrain extends Subsystem {
     }
     
     public double getRightDist() {
-    	return frontRight.getPosition();
+    	return -frontRight.getPosition();
     }
     
 	public void resetEncoders() {

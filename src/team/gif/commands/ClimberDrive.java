@@ -1,5 +1,7 @@
 package team.gif.commands;
 
+import com.ctre.CANTalon.TalonControlMode;
+
 import lib.gif.commands.Command;
 import team.gif.Robot;
 
@@ -12,7 +14,9 @@ public class ClimberDrive extends Command {
         this.speed = speed;
     }
     
-	protected void initialize() {}
+	protected void initialize() {
+		Robot.climber.setMode(TalonControlMode.PercentVbus);
+	}
 
 	protected void execute() {
     	Robot.climber.drive(speed);
