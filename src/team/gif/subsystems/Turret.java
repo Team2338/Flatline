@@ -17,6 +17,7 @@ public class Turret extends Subsystem {
 //	private int absolutePosition = turret.getPulseWidthPosition();
 
 	public Turret() {
+		super();
 //		turret.setEncPosition(absolutePosition);
 		turret.enableBrakeMode(true);
 		turret.changeControlMode(TalonControlMode.Position);
@@ -46,6 +47,10 @@ public class Turret extends Subsystem {
 
 	public void setPosition(double position) {
 		turret.set(position);
+	}
+	
+	public void resetEncoderPosition() {
+		turret.setEncPosition(0);
 	}
 
 	public double getMotorOutput() {
