@@ -27,23 +27,6 @@ public class CameraFollow extends Command {
 	}
 
 	protected void execute() {
-/*
-		centerXs = Robot.grip.getNumberArray("myContoursReport/centerX", new Double[] { 0.0 });
-		
-		if(centerXs.length > 0) {
-			largestCenterX = centerXs[centerXs.length - 1];
-		} else {
-			if (pixelError <= 0) {
-				largestCenterX = 0; // TODO: Make it not always turn left it is cannot see target
-			} else if (pixelError > 0) {
-				largestCenterX = 480;
-			}
-		}
-		
-		pixelError = Globals.cameraCenterX - largestCenterX;
-		degreeError = Math.toDegrees(Math.atan(pixelError / (Globals.cameraCenterX * Math.sqrt(3))));
-		SmartDashboard.putNumber("Degree Error", degreeError);
-*/
 		Robot.turret.setPosition(Robot.turret.getPosition() - (Globals.TURRET_ANGLE_TO_TICK * Robot.vision.getXDegreeError()));
 	}
 

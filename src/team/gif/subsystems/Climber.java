@@ -16,7 +16,7 @@ public class Climber extends Subsystem {
 
 	public Climber() {
 		climber1.changeControlMode(TalonControlMode.Position);
-		climber1.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+		climber1.setFeedbackDevice(FeedbackDevice.QuadEncoder); //Could be changed to magnetic
 		climber1.setPosition(0);
 		
 		climber1.reverseOutput(false);

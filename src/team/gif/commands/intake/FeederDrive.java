@@ -17,6 +17,10 @@ public class FeederDrive extends Command {
 	public FeederDrive(boolean isAssisted) {
 		this(isAssisted, 1);
 	}
+	
+	public FeederDrive(double speed) {
+		this(false, speed);
+	}
 
 	public FeederDrive(boolean isAssisted, double speed) {
 		requires(Robot.feeder);
@@ -29,10 +33,10 @@ public class FeederDrive extends Command {
 
 	protected void execute() {
 		if (speed > 0) {
-			if (Robot.feeder.getServoPosition() <= 0.01 && Timer.getFPGATimestamp() - initTime > 0.3) {
+			if (Robot.feeder.getServoPosition() <= 0.02 && Timer.getFPGATimestamp() - initTime > 0.3) {
 				Robot.feeder.setServoPosition(0.5);
 				initTime = Timer.getFPGATimestamp();
-			} else if (Robot.feeder.getServoPosition() >= 0.5 && Timer.getFPGATimestamp() - initTime > 0.3) {
+			} else if (Robot.feeder.getServoPosition() >= 0.49 && Timer.getFPGATimestamp() - initTime > 0.3) {
 				Robot.feeder.setServoPosition(0.01);
 				initTime = Timer.getFPGATimestamp();
 			}

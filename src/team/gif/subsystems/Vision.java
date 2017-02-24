@@ -20,6 +20,7 @@ public class Vision extends Subsystem {
 	private double halfVertFOV;
 
 	public Vision() {
+		super();
 		xDegreeConstant = Globals.CAMERA_CENTER_X / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2));
 		yDegreeConstant = Globals.CAMERA_CENTER_Y / Math.tan(Math.toRadians(Globals.CAMERA_VFOV / 2));
 		halfVertFOV = Globals.CAMERA_VFOV / 2;
