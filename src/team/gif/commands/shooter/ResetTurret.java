@@ -32,6 +32,7 @@ public class ResetTurret extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.turret.setPosition(0);
     	Robot.turret.setMode(TalonControlMode.Position);
     	Robot.turret.resetEncoderPosition();
     }
