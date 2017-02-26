@@ -7,26 +7,26 @@ import team.gif.commands.WaitCommand;
 public class GearandGearandMobilityBlue extends CommandGroup {
 
     public GearandGearandMobilityBlue() {
-    	addSequential(new DriveStraightEnc(13815));
+    	addSequential(new DriveStraightEnc(2849));
     	addSequential(new GearRelease(true));
-    	addSequential(new DriveStraightEnc(-7440));
+    	addSequential(new DriveStraightEnc(-1535));
     	addSequential(new GyroTurn(90));
-    	addSequential(new DriveStraightEnc(110000));
+    	addSequential(new DriveStraightEnc(22685));
     	addSequential(new GyroTurn(-90));
-    	addSequential(new DriveStraightEnc(240000));
+    	addSequential(new DriveStraightEnc(46240));
     	addSequential(new GyroTurn(30));
-    	addSequential(new DriveStraightEnc(16578));
+    	addSequential(new DriveStraightEnc(3419));
     	addSequential(new WaitCommand(2.5));
-    	addSequential(new DriveStraightEnc(-16578));
+    	addSequential(new DriveStraightEnc(-3419));
     	addSequential(new GyroTurn(-30));
-    	addSequential(new DriveStraightEnc(-240000));
+    	addSequential(new DriveStraightEnc(-46240));
     	addSequential(new GyroTurn(90));
-    	addSequential(new DriveStraightEnc(110000));
+    	addSequential(new DriveStraightEnc(22685));
     	addSequential(new GyroTurn(-90));
-    	addSequential(new DriveStraightEnc(7440));
+    	addSequential(new DriveStraightEnc(1535));
     	addSequential(new GearRelease(true));
-    	addSequential(new DriveStraightEnc(-7440));
+    	addSequential(new DriveStraightEnc(-1535));
     	addSequential(new GyroTurn(45));
-    	addSequential(new DriveStraightEnc(12400));
+    	addSequential(new DriveStraightEnc(2000));
     }
 }
