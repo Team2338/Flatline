@@ -7,12 +7,12 @@ import team.gif.Robot;
 
 public class Vision extends Subsystem {
 
-	private Double[] area;
-	private Double[] centerX;
-	private Double[] centerY;
-	private Double[] width;
-	private Double[] height;
-	private Double[] solidity;
+	private Double[] area = new Double[0];
+	private Double[] centerX = new Double[0];
+	private Double[] centerY = new Double[0];
+	private Double[] width = new Double[0];
+	private Double[] height = new Double[0];
+	private Double[] solidity = new Double[0];
 	private double xPixelError;
 	private double yPixelError;
 	private double xDegreeConstant;
@@ -28,9 +28,10 @@ public class Vision extends Subsystem {
 
 	public double getXPixelError() {
 		try {
-		if (centerX.length > 0)
+			if (centerX.length > 0)
 				xPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
-		} catch (ArrayIndexOutOfBoundsException e) {}
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
 		return xPixelError;
 	}
 
@@ -38,7 +39,8 @@ public class Vision extends Subsystem {
 		try {
 			if (centerY.length > 0)
 				yPixelError = Globals.CAMERA_CENTER_Y - centerY[centerY.length - 1];
-		} catch (ArrayIndexOutOfBoundsException e) {}
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
 		return yPixelError;
 	}
 
@@ -71,7 +73,8 @@ public class Vision extends Subsystem {
 				height = Robot.grip.getNumberArray("height", height);
 				solidity = Robot.grip.getNumberArray("solidity", solidity);
 			}
-		} catch (NullPointerException e) {}
+		} catch (NullPointerException e) {
+		}
 
 		SmartDashboard.putNumber("X Degree Error", getXDegreeError());
 		SmartDashboard.putNumber("X Pixel Error", getXPixelError());

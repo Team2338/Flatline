@@ -18,6 +18,7 @@ import team.gif.commands.intake.FeederDrive;
 import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.CameraFollowAndRev;
 import team.gif.commands.shooter.ManualShoot;
+import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.TurretTurn;
 
 /**
@@ -73,6 +74,7 @@ public class OI {
 		Scheduler.getInstance().removeAll();
 		Scheduler.getInstance().removeAllButtons();
 		
+		d_A.whenPressed(new ResetTurret());
 		d_leftTrigger.whileHeld(new ShiftOmni(true));
 		d_leftTrigger.whenReleased(new ShiftOmni(false));
 		d_rightTrigger.whileHeld(new ShifterHigh(true));

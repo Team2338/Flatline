@@ -19,7 +19,7 @@ public class Globals {
 	public static final double DRIVE_ANGLE_TOLERANCE	= 0.5;
 	
 //	Shooter
-	public static final double FLYWHEEL_P 				= 0.0415; // 0.415
+	public static final double FLYWHEEL_P 				= 0.028; // 0.415
 	public static final double FLYWHEEL_I 				= 0.00001; // 0.00001
 	public static final double FLYWHEEL_D 				= 0.0; // 0.0
 	public static final double FLYWHEEL_F				= 0.026; // 0.026

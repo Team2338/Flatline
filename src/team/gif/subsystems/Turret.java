@@ -2,6 +2,7 @@ package team.gif.subsystems;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
+import com.ctre.CANTalon.StatusFrameRate;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -27,6 +28,7 @@ public class Turret extends Subsystem {
 
 		turret.reverseOutput(true);
 		turret.reverseSensor(false);
+		turret.setStatusFrameRateMs(StatusFrameRate.QuadEncoder, 10);
 
 		turret.enableLimitSwitch(true, true);
 		turret.enableForwardSoftLimit(false);
@@ -108,8 +110,8 @@ public class Turret extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Turret MotorOutput", getMotorOutput());
 		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
-		SmartDashboard.putBoolean("Turret FwdLimitSwitchClosed", isForwardLimitClosed());
-		SmartDashboard.putBoolean("Turret ReverseLimitSwitchClosed", isReverseLimitClosed());
+		SmartDashboard.putBoolean("Turret FwdClosed", isForwardLimitClosed());
+		SmartDashboard.putBoolean("Turret RevClosed", isReverseLimitClosed());
 		SmartDashboard.putNumber("Turret Error", getError());
 	}
 

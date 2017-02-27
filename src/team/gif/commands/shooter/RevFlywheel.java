@@ -70,6 +70,7 @@ public class RevFlywheel extends Command {
 
 
 	protected void interrupted() {
+//		 Robot.flywheel.driveFlywheel(SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM));
 	}
 
 }

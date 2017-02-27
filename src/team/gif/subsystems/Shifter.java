@@ -9,12 +9,18 @@ public class Shifter extends Subsystem {
 	
 	private static final Solenoid shifter = new Solenoid(RobotMap.SHIFTER);
 	
+	public Shifter() {
+		super();
+		
+		shifter.set(true);
+	}
+	
 	public void shift(boolean isLow) {
 		shifter.set(isLow);
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new ShifterHigh(false));
+//    	setDefaultCommand(new ShifterHigh(false));
     }
     
 }

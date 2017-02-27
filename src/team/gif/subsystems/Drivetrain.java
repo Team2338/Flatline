@@ -5,6 +5,8 @@ import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.BuiltInAccelerometer;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
 import team.gif.RobotMap;
@@ -59,11 +61,11 @@ public class Drivetrain extends Subsystem {
 	}
 	
     public double getLeftDist() {
-    	return frontLeft.getPosition();
+    	return -frontLeft.getPosition(); // P: -frontLeft C: frontLeft
     }
     
     public double getRightDist() {
-    	return -frontRight.getPosition();
+    	return -frontRight.getPosition(); // TODO: Check on comp. bot dir.
     }
     
 	public void resetEncoders() {

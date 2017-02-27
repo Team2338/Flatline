@@ -12,27 +12,25 @@ public class ResetTurret extends Command {
 
     public ResetTurret() {
         requires(Robot.turret);
-        setTimeout(3);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.turret.setMode(TalonControlMode.PercentVbus);
+    	Robot.turret.setPosition(-0.2);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.turret.setPosition(0.2);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.turret.isForwardLimitClosed() || Robot.turret.isReverseLimitClosed();
+        return Robot.turret.isReverseLimitClosed();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.turret.setPosition(0);
     	Robot.turret.setMode(TalonControlMode.Position);
     	Robot.turret.resetEncoderPosition();
     }

@@ -92,6 +92,10 @@ public class Flywheel extends Subsystem {
 		return flywheel.getOutputVoltage() / flywheel.getBusVoltage();
 	}
 	
+	public double getMotorOutput2() {
+		return flywheel2.getOutputVoltage() / flywheel2.getBusVoltage();
+	}
+	
 	public void resetIAccum() {
 		flywheel.clearIAccum();
 	}
@@ -105,6 +109,7 @@ public class Flywheel extends Subsystem {
 		SmartDashboard.putNumber("ShooterVelocity", getVelocity());
 		SmartDashboard.putNumber("ShooterError", getError());
 		SmartDashboard.putNumber("Shooter Motor Output", getMotorOutput());
+		SmartDashboard.putNumber("Shooter Motor Output 2", getMotorOutput2());
 		SmartDashboard.putNumber("P Gain", getPGain());
     	SmartDashboard.putNumber("I Gain", getIGain());
     	SmartDashboard.putNumber("D Gain", getDGain());
