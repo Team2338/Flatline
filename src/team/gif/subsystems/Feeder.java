@@ -3,10 +3,13 @@ package team.gif.subsystems;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
+import team.gif.Globals;
 import team.gif.RobotMap;
 import team.gif.commands.intake.FeederDrive;
 
 import com.ctre.CANTalon;
+import com.ctre.CANTalon.FeedbackDevice;
+import com.ctre.CANTalon.TalonControlMode;
 
 public class Feeder extends Subsystem {
 
@@ -17,10 +20,31 @@ public class Feeder extends Subsystem {
 	public Feeder() {
 		super();
 		
-		// FIXME: Possibly doesn't reset?
-//		if (getServoPosition() != 0.01) {
-//			flappy.setPosition(0.01);
-//		}
+		feeder.enableBrakeMode(false);
+		polyWhisk.enableBrakeMode(false);
+		feeder.changeControlMode(TalonControlMode.Speed);
+		polyWhisk.changeControlMode(TalonControlMode.Speed);
+		feeder.setPID(Globals.FEEDER_P, Globals.FEEDER_I, Globals.FEEDER_D);
+		feeder.setF(Globals.FEEDER_F);
+		polyWhisk.setPID(Globals.POLYWHISK_P, Globals.POLYWHISK_I, Globals.POLYWHISK_D);
+		polyWhisk.setF(Globals.POLYWHISK_F);
+		feeder.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+		polyWhisk.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+		
+		feeder.setPosition(0);
+		polyWhisk.setPosition(0);
+		
+		feeder.reverseOutput(false);
+		feeder.reverseSensor(false);
+		polyWhisk.reverseSensor(false);
+		polyWhisk.reverseSensor(false);
+		
+		// FIXME: Competition bot has different servo angles
+	}
+	
+	public void setMode(TalonControlMode mode) {
+		feeder.changeControlMode(mode);
+		polyWhisk.changeControlMode(mode);
 	}
 
 	public void driveFeeder(double speed) {
@@ -44,7 +68,7 @@ public class Feeder extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
-		setDefaultCommand(new FeederDrive(false, 0));
+		setDefaultCommand(new FeederDrive(false, 0, 0));
 	}
 
 	public void update() {

@@ -125,6 +125,7 @@ public class Robot extends IterativeRobot {
 		Robot.feeder.update();
 		Robot.vision.update();
 		Robot.climber.update();
+		Robot.shifter.update();
 
     	if (OI.a_leftBumper.get() != isShifted) {
     		isShifted = !isShifted;

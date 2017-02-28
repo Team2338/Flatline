@@ -35,7 +35,7 @@ public class Climber extends Subsystem {
 	}
 	
 	public double getPosition() {
-		return climber1.get();
+		return climber1.getPosition();
 	}
 	
 	public void update() {

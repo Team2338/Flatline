@@ -32,6 +32,20 @@ public class Globals {
 	public static final double revTime 					= 0;
 	public static final double SHOOTER_TOLERANCE 		= 500; // ticks
 	
+//	Feeder
+	public static final double FEEDER_P					= 0;
+	public static final double FEEDER_I					= 0;
+	public static final double FEEDER_D					= 0;
+	public static final double FEEDER_F					= 0;
+	public static final double FEEDER_FRPM				= 0; // forward
+	public static final double FEEDER_RRPM				= 0; // reverse
+	public static final double POLYWHISK_P				= 0;
+	public static final double POLYWHISK_I				= 0;
+	public static final double POLYWHISK_D				= 0;
+	public static final double POLYWHISK_F				= 0;
+	public static final double POLYWHISK_FRPM			= 0; // forward
+	public static final double POLYWHISK_RRPM			= 0; // reverse
+	
 //	Turret
 	public static final double TURRET_P 				= 0.43; // 0.8
 	public static final double TURRET_I 				= 0.0001; // 0.00000001

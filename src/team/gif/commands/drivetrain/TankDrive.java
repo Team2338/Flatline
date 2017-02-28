@@ -31,6 +31,11 @@ public class TankDrive extends Command {
 		}
 
 		Robot.drivetrain.drive(left, right);
+		
+//		if (Robot.shifter.isHigh()) {
+//			Robot.drivetrain.compensateVoltage();
+//		}
+
 
 		// if (Math.abs(OI.leftStick.getY()) > Globals.DEAD_ZONE) {
 		// left = OI.leftStick.getY();
