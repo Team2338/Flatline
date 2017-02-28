@@ -116,6 +116,6 @@ public class Turret extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
-		setDefaultCommand(new TurretManual());
+//		setDefaultCommand(new TurretManual());
 	}
 }

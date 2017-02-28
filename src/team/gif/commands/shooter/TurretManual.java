@@ -9,8 +9,6 @@ import team.gif.Robot;
 
 public class TurretManual extends Command {
 	
-	private boolean isFinished = false;
-
 	public TurretManual() {
 		requires(Robot.turret);
 	}
@@ -28,14 +26,14 @@ public class TurretManual extends Command {
 	}
 
 	protected boolean isFinished() {
-		return isFinished;
+		return false;
 	}
 
 	protected void end() {
+		Robot.turret.setPosition(0);
 	}
 
 	protected void interrupted() {
-		isFinished = true;
 	}
 
 }

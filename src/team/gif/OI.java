@@ -19,6 +19,7 @@ import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.CameraFollowAndRev;
 import team.gif.commands.shooter.ManualShoot;
 import team.gif.commands.shooter.ResetTurret;
+import team.gif.commands.shooter.TurretManual;
 import team.gif.commands.shooter.TurretTurn;
 
 /**
@@ -48,8 +49,7 @@ public class OI {
 	private static Button a_rightBumper;
 	private static Button a_select;
 	private static Button a_start;
-	private static Button a_leftStick;
-	private static Button a_rightStick;
+	private static Button a_leftStickX;
 	private static Button a_rightTrigger;
 	private static Button a_leftTrigger;
 
@@ -70,6 +70,7 @@ public class OI {
 		a_start = new JoystickButton(auxController, 8);
 		a_leftTrigger = new JoystickAnalogButton(auxController, 2, 0.5);
 		a_rightTrigger = new JoystickAnalogButton(auxController, 3, 0.5);
+		a_leftStickX = new JoystickAnalogButton(auxController, 0, 0.25);
 
 		Scheduler.getInstance().removeAll();
 		Scheduler.getInstance().removeAllButtons();
@@ -100,6 +101,7 @@ public class OI {
 			a_start.whenPressed(new CollectorIn(false));
 			a_leftTrigger.whileHeld(new CameraFollowAndRev());
 			a_rightTrigger.whileHeld(new FeederDrive(true));
+			a_leftStickX.whileHeld(new TurretManual());
 			// a_8.whenPressed(new CollectorIn(true));
 			// a_9.whenPressed(new CollectorIn(false));
 			// a_15.whileHeld(new RevFlywheel());

@@ -5,15 +5,9 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import team.gif.Globals;
-import team.gif.OI;
 import team.gif.Robot;
 
 public class CameraFollow extends Command {
-
-//	private double degreeError;
-//	private double largestCenterX;
-//	private double pixelError;
-//	private Double[] centerXs;
 
 	public CameraFollow() {
 		requires(Robot.turret);
@@ -31,8 +25,7 @@ public class CameraFollow extends Command {
 	}
 
 	protected boolean isFinished() {
-//		return Robot.turret.inTolerance;
-		return false;
+		return Robot.vision.isAligned();
 	}
 
 	protected void end() {}
