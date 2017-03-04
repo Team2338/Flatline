@@ -26,11 +26,11 @@ public class Globals {
 //	public static final int FLYWHEEL_I_ZONE 			= 1200;  //
 	public static final int FLYWHEEL_I_ABOVE 			= 500; // 500
 	public static final int FLYWHEEL_I_BELOW 			= 1500; // 1500
-	public static final double FLYWHEEL_RPM				= 25300; // Straight peg: 27000 | 
+	public static final double FLYWHEEL_RPM				= 25400; // Straight peg: 27000 | 
 	public static final double RPM_PER_INCH				= 42; // based on empirical data
 	public static final double RPM_MULTIPLIER 			= 4096d/600d; // QuadEncoder Ticks Per Rev / Milliseconds
 	public static final double revTime 					= 0;
-	public static final double SHOOTER_TOLERANCE 		= 500; // ticks
+	public static final double SHOOTER_TOLERANCE 		= 2000; // ticks
 	
 //	Feeder
 	public static final double FEEDER_P					= 0;
@@ -39,7 +39,7 @@ public class Globals {
 	public static final double FEEDER_F					= 0;
 	public static final double FEEDER_FRPM				= 0; // forward
 	public static final double FEEDER_RRPM				= 0; // reverse
-	public static final double POLYWHISK_P				= 0;
+	public static final double POLYWHISK_P				= 0.1;
 	public static final double POLYWHISK_I				= 0;
 	public static final double POLYWHISK_D				= 0;
 	public static final double POLYWHISK_F				= 0;
