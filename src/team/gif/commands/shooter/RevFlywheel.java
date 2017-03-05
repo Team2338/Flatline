@@ -53,7 +53,11 @@ public class RevFlywheel extends Command {
 //		}
 		
 		 Robot.flywheel.driveFlywheel(SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM));
-
+		 
+		 if(Robot.flywheel.getVelocity() != 0) {
+			 Robot.flywheel.enableCompressor(false);
+		 }
+		 
 	}
 
 	protected boolean isFinished() {
@@ -66,10 +70,12 @@ public class RevFlywheel extends Command {
 			// RPM won't change after we detect the target so if robots move in front of us, we can still shoot
 			// TODO: What if we get pushed?
 //			Robot.flywheel.driveFlywheel(assistedRPM);
+		 Robot.flywheel.enableCompressor(true);
 		}
 
 
 	protected void interrupted() {
+		end();
 //		 Robot.flywheel.driveFlywheel(SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM));
 	}
 

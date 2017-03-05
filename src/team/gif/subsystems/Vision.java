@@ -49,7 +49,7 @@ public class Vision extends Subsystem {
 	}
 
 	public double getYDegreeError() {
-		return Math.toDegrees(Math.atan(getYPixelError() / yDegreeConstant)) + halfVertFOV;
+		return Math.toDegrees(Math.atan(getYPixelError() / yDegreeConstant)) + 19.77;
 	}
 
 	public double getDistance() {

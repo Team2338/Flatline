@@ -60,12 +60,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F);
 		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM);
 		
-		SmartDashboard.putNumber("Feeder P", Globals.FEEDER_P);
-		SmartDashboard.putNumber("Feeder I", Globals.FEEDER_I);
-		SmartDashboard.putNumber("Feeder D", Globals.FEEDER_D);
-		SmartDashboard.putNumber("Feeder F", Globals.FEEDER_F);
-		SmartDashboard.putNumber("Feeder RPM", Globals.FEEDER_FRPM);
-		
 		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
 		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
 		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);

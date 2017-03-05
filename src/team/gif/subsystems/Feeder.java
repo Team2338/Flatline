@@ -1,5 +1,6 @@
 package team.gif.subsystems;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
@@ -24,20 +25,14 @@ public class Feeder extends Subsystem {
 		polyWhisk.enableBrakeMode(false);
 		feeder.changeControlMode(TalonControlMode.PercentVbus);
 		polyWhisk.changeControlMode(TalonControlMode.Speed);
-//		feeder.setPID(Globals.FEEDER_P, Globals.FEEDER_I, Globals.FEEDER_D);
-//		feeder.setF(Globals.FEEDER_F);
 		polyWhisk.setPID(Globals.POLYWHISK_P, Globals.POLYWHISK_I, Globals.POLYWHISK_D);
 		polyWhisk.setF(Globals.POLYWHISK_F);
-//		feeder.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		polyWhisk.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		
-		feeder.setPosition(0);
 		polyWhisk.setPosition(0);
 		
-//		feeder.reverseOutput(false);
-//		feeder.reverseSensor(false);
-		polyWhisk.reverseOutput(false); // Switch to see if fix error
-		polyWhisk.reverseSensor(true); // Switch to see if fix error
+		polyWhisk.reverseOutput(false);
+		polyWhisk.reverseSensor(true);
 		
 		// FIXME: Competition bot has different servo angles
 	}
@@ -77,18 +72,6 @@ public class Feeder extends Subsystem {
 		return flappy.getAngle();
 	}
 	
-	public double getFeederVelocity() {
-		return feeder.getSpeed();
-	}
-	
-	public double getFeederError() {
-		return feeder.getError();
-	}
-
-	public double getFeederPosition() {
-		return feeder.getPosition();
-	}
-	
 	public double getFeederMotorOutput() {
 		return feeder.getOutputVoltage() / feeder.getBusVoltage();
 	}
@@ -98,7 +81,7 @@ public class Feeder extends Subsystem {
 	}
 	
 	public double getPolyWhiskError() {
-		return polyWhisk.getSetpoint() - polyWhisk.getSpeed();
+		return -polyWhisk.getSetpoint() - polyWhisk.getSpeed();
 	}
 	
 	public double getPolyWhiskPosition() {
@@ -120,9 +103,6 @@ public class Feeder extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Servo CurrPos", getServoPosition());
 		SmartDashboard.putNumber("Servo Angle", getServoAngle());
-		SmartDashboard.putNumber("Feeder CurrPos" , getFeederPosition());
-		SmartDashboard.putNumber("FeederVelocity", getFeederVelocity());
-		SmartDashboard.putNumber("FeederError", getFeederError());
 		SmartDashboard.putNumber("Feeder Motor Output", getFeederMotorOutput());
 		SmartDashboard.putNumber("PolyWhisk CurrPos" , getPolyWhiskPosition());
 		SmartDashboard.putNumber("PolyWhiskVelocity", getPolyWhiskVelocity());
