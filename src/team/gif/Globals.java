@@ -7,26 +7,26 @@ package team.gif;
 public class Globals {
 	
 //	Drivetrain
-	public static final double DEAD_ZONE				= 0.25;
-	public static final double DRIVETRAIN_P				= 0;
+	public static final double DEAD_ZONE				= 0.1;
+	public static final double DRIVETRAIN_P				= 0.00035;
 	public static final double DRIVETRAIN_I				= 0;
 	public static final double DRIVETRAIN_D 			= 0;
 	public static final double DRIVE_ANGLE_P			= 0;
 	public static final double DRIVE_ANGLE_I			= 0;
 	public static final double DRIVE_ANGLE_D			= 0;
 	public static final double DRIVE_DIST				= 10000;
-	public static final double DRIVE_DIST_TOLERANCE 	= 250;
+	public static final double DRIVE_DIST_TOLERANCE 	= 200;
 	public static final double DRIVE_ANGLE_TOLERANCE	= 0.5;
 	
 //	Shooter
-	public static final double FLYWHEEL_P 				= 0.04; // 0.028
-	public static final double FLYWHEEL_I 				= 0.0001; // 0.00001
-	public static final double FLYWHEEL_D 				= 0.4; // 0.0
-	public static final double FLYWHEEL_F				= 0.025; // 0.026
+	public static final double FLYWHEEL_P 				= 0.04; // 0.04
+	public static final double FLYWHEEL_I 				= 0.0001; // 0.0001
+	public static final double FLYWHEEL_D 				= 0.6; // 0.6
+	public static final double FLYWHEEL_F				= 0.025; // 0.025
 //	public static final int FLYWHEEL_I_ZONE 			= 1200;  //
-	public static final int FLYWHEEL_I_ABOVE 			= 500; // 500
-	public static final int FLYWHEEL_I_BELOW 			= 1500; // 1500
-	public static final double FLYWHEEL_RPM				= 25400; // Straight peg: 24200 | Far hopper: 23700 (needs to be tuned)
+	public static final int FLYWHEEL_I_ABOVE 			= 2000; // 500
+	public static final int FLYWHEEL_I_BELOW 			= 1750; // 1500
+	public static final double FLYWHEEL_RPM				= 25800; // Straight peg: 25800 | Far hopper: 23700 (needs to be tuned)
 	public static final double RPM_PER_INCH				= 42; // based on empirical data
 	public static final double RPM_MULTIPLIER 			= 4096d/600d; // QuadEncoder Ticks Per Rev / Milliseconds
 	public static final double revTime 					= 0;
@@ -37,6 +37,7 @@ public class Globals {
 	public static final double POLYWHISK_I				= 0;
 	public static final double POLYWHISK_D				= 0;
 	public static final double POLYWHISK_F				= 0.073;
+	public static final int POLYWHISK_IZONE				= 100;
 	public static final double POLYWHISK_FRPM			= 1800; // forward
 	public static final double POLYWHISK_RRPM			= -600; // reverse
 	
@@ -47,9 +48,9 @@ public class Globals {
 	public static final int TURRET_I_ZONE 				= 0;
 	public static final double TURRET_POS	 			= 35d/8d; // 140/32 Encoder Counts per Rev
 	public static final double TURRET_ANGLE_TO_TICK		= 7d/576d; // 140/32/360
-	public static final double TURRET_TOLERANCE			= 0.01; // ticks
+	public static final double TURRET_TOLERANCE			= 0.0001; // ticks
 	public static final double TURRET_REDPOS			= 1; // TODO: figure out ticks
-	public static final double TURRET_BLUEPOS			= -1.706; // TODO: figure out ticks
+	public static final double TURRET_BLUEPOS			= 0.257; // TODO: figure out ticks
 	
 // 	Vision
 	public static final double VISION_TOLERANCE 		= 1.5; // degrees

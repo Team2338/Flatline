@@ -46,11 +46,11 @@ public class FeederDrive extends Command {
 
 	protected void execute() {
 		if (feederSpeed > 0) {
-			if (Robot.feeder.getServoPosition() <= 0.02 && Timer.getFPGATimestamp() - initTime > 0.45) {
+			if (Robot.feeder.getServoPosition() <= 0.05 && Timer.getFPGATimestamp() - initTime > 0.45) {
 				Robot.feeder.setServoPosition(0.5);
 				initTime = Timer.getFPGATimestamp();
 			} else if (Robot.feeder.getServoPosition() >= 0.49 && Timer.getFPGATimestamp() - initTime > 0.45) {
-				Robot.feeder.setServoPosition(0.01);
+				Robot.feeder.setServoPosition(0.04);
 				initTime = Timer.getFPGATimestamp();
 			}
 

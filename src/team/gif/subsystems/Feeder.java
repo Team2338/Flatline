@@ -27,6 +27,7 @@ public class Feeder extends Subsystem {
 		polyWhisk.changeControlMode(TalonControlMode.Speed);
 		polyWhisk.setPID(Globals.POLYWHISK_P, Globals.POLYWHISK_I, Globals.POLYWHISK_D);
 		polyWhisk.setF(Globals.POLYWHISK_F);
+		polyWhisk.setIZone(Globals.POLYWHISK_IZONE);
 		polyWhisk.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		
 		polyWhisk.setPosition(0);

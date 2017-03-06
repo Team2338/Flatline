@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import lib.gif.commands.Scheduler;
 import team.gif.commands.auto.AntiAuto;
+import team.gif.commands.auto.AutoTest;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.commands.shooter.TurretManual;
 import team.gif.commands.shooter.TurretTurn;
@@ -46,6 +47,8 @@ public class Robot extends IterativeRobot {
 
 		autoChooser = new SendableChooser();
         autoChooser.addDefault("AntiAuto", new AntiAuto());
+        autoChooser.addObject("AutoTest", new AutoTest());
+		SmartDashboard.putData("AutoChooser", autoChooser);
 
 		turretPosChooser = new SendableChooser();
 		turretPosChooser.addDefault("Blue", new Double(Globals.TURRET_BLUEPOS));

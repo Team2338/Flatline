@@ -1,5 +1,7 @@
 package team.gif.commands.drivetrain;
 
+import com.ctre.CANTalon.TalonControlMode;
+
 import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.OI;
@@ -15,6 +17,8 @@ public class TankDrive extends Command {
 	}
 
 	protected void initialize() {
+		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
+		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
 	}
 
 	protected void execute() {

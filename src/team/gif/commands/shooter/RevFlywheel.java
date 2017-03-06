@@ -54,9 +54,9 @@ public class RevFlywheel extends Command {
 		
 		 Robot.flywheel.driveFlywheel(SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM));
 		 
-		 if(Robot.flywheel.getVelocity() != 0) {
+//		 if(Robot.flywheel.getVelocity() != 0) {
 			 Robot.flywheel.enableCompressor(false);
-		 }
+//		 }
 		 
 	}
 

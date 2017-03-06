@@ -15,9 +15,9 @@ public class CameraFollow extends Command {
 
 	protected void initialize() {
 		Robot.turret.setMode(TalonControlMode.Position);
-		Robot.turret.setPID(SmartDashboard.getNumber("Turret P", Globals.TURRET_P),
-				SmartDashboard.getNumber("Turret I", Globals.TURRET_I),
-				SmartDashboard.getNumber("Turret D", Globals.TURRET_D));
+//		Robot.turret.setPID(SmartDashboard.getNumber("Turret P", Globals.TURRET_P),
+//				SmartDashboard.getNumber("Turret I", Globals.TURRET_I),
+//				SmartDashboard.getNumber("Turret D", Globals.TURRET_D));
 	}
 
 	protected void execute() {
