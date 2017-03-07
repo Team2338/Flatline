@@ -1,5 +1,6 @@
 package team.gif.subsystems;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
@@ -22,29 +23,34 @@ public class Feeder extends Subsystem {
 		
 		feeder.enableBrakeMode(false);
 		polyWhisk.enableBrakeMode(false);
-		feeder.changeControlMode(TalonControlMode.Speed);
+		feeder.changeControlMode(TalonControlMode.PercentVbus);
 		polyWhisk.changeControlMode(TalonControlMode.Speed);
-		feeder.setPID(Globals.FEEDER_P, Globals.FEEDER_I, Globals.FEEDER_D);
-		feeder.setF(Globals.FEEDER_F);
 		polyWhisk.setPID(Globals.POLYWHISK_P, Globals.POLYWHISK_I, Globals.POLYWHISK_D);
 		polyWhisk.setF(Globals.POLYWHISK_F);
-		feeder.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-		polyWhisk.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+		polyWhisk.setIZone(Globals.POLYWHISK_IZONE);
+		polyWhisk.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		
-		feeder.setPosition(0);
 		polyWhisk.setPosition(0);
 		
-		feeder.reverseOutput(false);
-		feeder.reverseSensor(false);
-		polyWhisk.reverseSensor(false);
-		polyWhisk.reverseSensor(false);
+		polyWhisk.reverseOutput(false);
+		polyWhisk.reverseSensor(true);
 		
 		// FIXME: Competition bot has different servo angles
 	}
 	
 	public void setMode(TalonControlMode mode) {
-		feeder.changeControlMode(mode);
+//		feeder.changeControlMode(mode);
 		polyWhisk.changeControlMode(mode);
+	}
+	
+	public void setFeederPID(double p, double i, double d, double f) {
+		feeder.setPID(p, i, d);
+		feeder.setF(f);
+	}
+	
+	public void setPolyWhiskPID(double p, double i, double d, double f) {
+		polyWhisk.setPID(p, i, d);
+		polyWhisk.setF(f);
 	}
 
 	public void driveFeeder(double speed) {
@@ -66,6 +72,30 @@ public class Feeder extends Subsystem {
 	public double getServoAngle() {
 		return flappy.getAngle();
 	}
+	
+	public double getFeederMotorOutput() {
+		return feeder.getOutputVoltage() / feeder.getBusVoltage();
+	}
+	
+	public double getPolyWhiskVelocity() {
+		return polyWhisk.getSpeed();
+	}
+	
+	public double getPolyWhiskError() {
+		return -polyWhisk.getSetpoint() - polyWhisk.getSpeed();
+	}
+	
+	public double getPolyWhiskPosition() {
+		return polyWhisk.getPosition();
+	}
+	
+	public double getPolyWhiskSetpoint() {
+		return polyWhisk.getSetpoint();
+	}
+	
+	public double getPolyWhiskMotorOutput() {
+		return polyWhisk.getOutputVoltage() / polyWhisk.getBusVoltage();
+	}
 
 	public void initDefaultCommand() {
 		setDefaultCommand(new FeederDrive(false, 0, 0));
@@ -74,6 +104,12 @@ public class Feeder extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Servo CurrPos", getServoPosition());
 		SmartDashboard.putNumber("Servo Angle", getServoAngle());
+		SmartDashboard.putNumber("Feeder Motor Output", getFeederMotorOutput());
+		SmartDashboard.putNumber("PolyWhisk CurrPos" , getPolyWhiskPosition());
+		SmartDashboard.putNumber("PolyWhiskVelocity", getPolyWhiskVelocity());
+		SmartDashboard.putNumber("PolyWhiskError", getPolyWhiskError());
+		SmartDashboard.putNumber("PolyWhiskSetpoint", getPolyWhiskSetpoint());
+		SmartDashboard.putNumber("PolyWhisk Motor Output", getPolyWhiskMotorOutput());
 	}
 
 }

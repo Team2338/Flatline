@@ -1,5 +1,7 @@
 package team.gif.commands.drivetrain;
 
+import com.ctre.CANTalon.TalonControlMode;
+
 import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.OI;
@@ -22,6 +24,8 @@ public class TankDrive extends Command {
 	}
 
 	protected void initialize() {
+		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
+		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
 	}
 
 	protected void execute() {
@@ -62,7 +66,6 @@ public class TankDrive extends Command {
 		// if (Robot.shifter.isHigh()) {
 		// Robot.drivetrain.compensateVoltage();
 		// }
-
 		// if (Math.abs(OI.leftStick.getY()) > Globals.DEAD_ZONE) {
 		// left = OI.leftStick.getY();
 		// } else {

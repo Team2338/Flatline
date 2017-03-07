@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import lib.gif.commands.Scheduler;
 import team.gif.commands.auto.AntiAuto;
+import team.gif.commands.auto.AutoTest;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.commands.shooter.TurretManual;
 import team.gif.commands.shooter.TurretTurn;
@@ -46,6 +47,8 @@ public class Robot extends IterativeRobot {
 
 		autoChooser = new SendableChooser();
         autoChooser.addDefault("AntiAuto", new AntiAuto());
+        autoChooser.addObject("AutoTest", new AutoTest());
+		SmartDashboard.putData("AutoChooser", autoChooser);
 
 		turretPosChooser = new SendableChooser();
 		turretPosChooser.addDefault("Blue", new Double(Globals.TURRET_BLUEPOS));
@@ -59,6 +62,12 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D);
 		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F);
 		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM);
+		
+		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
+		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
+		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
+		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
+		SmartDashboard.putNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM);
 		
 		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
 		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);

@@ -19,6 +19,9 @@ public class Turret extends Subsystem {
 
 	public Turret() {
 		super();
+		
+		turret.setStatusFrameRateMs(StatusFrameRate.Feedback, 10);
+		
 //		turret.setEncPosition(absolutePosition);
 		turret.enableBrakeMode(true);
 		turret.changeControlMode(TalonControlMode.Position);
@@ -28,7 +31,7 @@ public class Turret extends Subsystem {
 
 		turret.reverseOutput(true);
 		turret.reverseSensor(false);
-		turret.setStatusFrameRateMs(StatusFrameRate.QuadEncoder, 10);
+
 
 		turret.enableLimitSwitch(true, true);
 		turret.enableForwardSoftLimit(false);
@@ -52,7 +55,7 @@ public class Turret extends Subsystem {
 	}
 	
 	public void resetEncoderPosition() {
-		turret.setEncPosition(0);
+		turret.setPosition(0);
 	}
 
 	public double getMotorOutput() {

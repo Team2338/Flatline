@@ -2,8 +2,10 @@ package team.gif.subsystems;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
+import com.ctre.CANTalon.StatusFrameRate;
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
 import team.gif.Globals;
@@ -14,8 +16,13 @@ public class Flywheel extends Subsystem {
 	
 	private final CANTalon flywheel2 = new CANTalon(RobotMap.FLYWHEEL_1);
 	private final CANTalon flywheel = new CANTalon(RobotMap.FLYWHEEL_2);
+	private static final Compressor compressor = new Compressor();
 	
 	public Flywheel(){
+		super();
+		
+		flywheel.setStatusFrameRateMs(StatusFrameRate.Feedback, 10);
+		
 		flywheel.enableBrakeMode(false);
 		flywheel2.enableBrakeMode(false);
 		flywheel.changeControlMode(TalonControlMode.Speed);
@@ -45,6 +52,14 @@ public class Flywheel extends Subsystem {
 	
 	public void setMode(TalonControlMode mode) {
 		flywheel.changeControlMode(mode);
+	}
+	
+	public void enableCompressor(boolean isOn) {
+		if (isOn) {
+			compressor.start();
+		} else {
+			compressor.stop();
+		}
 	}
 	
 	public double getVelocity() {

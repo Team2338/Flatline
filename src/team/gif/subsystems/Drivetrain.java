@@ -49,7 +49,7 @@ public class Drivetrain extends Subsystem {
 		frontLeft.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		frontRight.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		resetEncoders();
-
+		
 		gyro.calibrate();
 	}
 
@@ -61,6 +61,11 @@ public class Drivetrain extends Subsystem {
 		// midLeft.set(leftSpeed);
 		// rearRight.set(-rightSpeed);
 	}
+	
+	public void setPID(double p, double i, double d) {
+		frontLeft.setPID(p, i, d);
+		frontRight.setPID(p, i, d);
+	}
 
 	public double getLeftDist() {
 		return -frontLeft.getPosition(); // P: -frontLeft C: frontLeft
@@ -69,10 +74,18 @@ public class Drivetrain extends Subsystem {
 	public double getRightDist() {
 		return -frontRight.getPosition(); // TODO: Check on comp. bot dir.
 	}
+	
+	public double getLeftError() {
+		return frontLeft.getSetpoint() - frontLeft.getPosition();
+	}
+	
+	public double getRightError() {
+		return frontRight.getError() - frontRight.getPosition();
+	}
 
 	public void resetEncoders() {
-		frontLeft.setEncPosition(0);
-		frontRight.setEncPosition(0);
+		frontLeft.setPosition(0);
+		frontRight.setPosition(0);
 	}
 
 	public void resetGyro() {
@@ -124,6 +137,8 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("Gyro Angle", getAngle());
 		SmartDashboard.putNumber("FrontLeftVoltage", getLeftVoltage());
 		SmartDashboard.putNumber("FrontRightVoltage", getRightVoltage());
+		SmartDashboard.putNumber("Drivetrain Left Error", getLeftError());
+		SmartDashboard.putNumber("Drivetrain Right Error", getRightError());
 	}
 
 	public void initDefaultCommand() {

@@ -27,7 +27,8 @@ public class ResetTurret extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+//      return isTimedOut();
+        return Robot.turret.isReverseLimitClosed();
     }
 
     // Called once after isFinished returns true
