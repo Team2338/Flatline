@@ -96,7 +96,7 @@ public class Robot extends IterativeRobot {
 	public void teleopInit() {
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		new TankDrive().start(); // Does this have to be here?
+		new TankDrive(0.05).start(); // Does this have to be here?
 	}
 
 	public void teleopPeriodic() {
