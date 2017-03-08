@@ -18,7 +18,6 @@ public class TankDrive extends Command {
 
 	protected void initialize() {
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
-		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
 	}
 
 	protected void execute() {

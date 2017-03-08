@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
 import team.gif.RobotMap;
-import team.gif.commands.drivetrain.ShifterHigh;
+import team.gif.commands.drivetrain.ShifterLow;
 
 public class Shifter extends Subsystem {
 	

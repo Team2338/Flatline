@@ -6,25 +6,25 @@ import team.gif.Globals;
 import team.gif.OI;
 import team.gif.Robot;
 
-public class ShifterHigh extends Command {
+public class ShifterLow extends Command {
 
-	private boolean isHigh;
+	private boolean isLow;
 	private boolean isShifted;
 	private double left;
 	private double right;
 	private double initTime;
 
-	public ShifterHigh(boolean isHigh) {
+	public ShifterLow(boolean isLow) {
 //		requires(Robot.drivetrain);
 		requires(Robot.shifter);
-		this.isHigh = isHigh;
+		this.isLow = isLow;
 	}
 
 	protected void initialize() {
 //		initTime = Timer.getFPGATimestamp();
 //		isShifted = false;
 		
-		Robot.shifter.shift(!isHigh);
+		Robot.shifter.shift(!isLow);
 	}
 
 	protected void execute() {

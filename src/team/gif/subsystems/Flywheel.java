@@ -26,8 +26,8 @@ public class Flywheel extends Subsystem {
 		flywheel.enableBrakeMode(false);
 		flywheel2.enableBrakeMode(false);
 		flywheel.changeControlMode(TalonControlMode.Speed);
-		flywheel.setPID(Globals.FLYWHEEL_P, Globals.FLYWHEEL_I, Globals.FLYWHEEL_D);
-		flywheel.setF(Globals.FLYWHEEL_F);
+		flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP);
+		flywheel.setF(Globals.FLYWHEEL_F_SP);
 		flywheel.setIZone(Globals.FLYWHEEL_I_BELOW);
 		flywheel.setFeedbackDevice(FeedbackDevice.QuadEncoder); // TODO: figure out unit conversion
 		flywheel.configNominalOutputVoltage(0, -0);

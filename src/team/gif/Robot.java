@@ -57,11 +57,11 @@ public class Robot extends IterativeRobot {
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
 
-		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P);
-		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I);
-		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D);
-		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F);
-		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM);
+//		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_SP);
+//		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_SP);
+//		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_SP);
+//		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F_SP);
+//		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM);
 		
 		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
 		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
@@ -102,13 +102,9 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 //		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
 //			new TurretTurn((Double) turretPosChooser.getSelected()).start();
-//		} else { }
-		
-		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
-			new TurretTurn((Double) turretPosChooser.getSelected()).start();
-		} else {
-			new TurretManual().start();
-		}
+//		} else {
+//			new TurretManual().start();
+//		}
 		
 //		if (OI.auxController.getPOV() == 225 || OI.auxController.getPOV() == 270 || OI.auxController.getPOV() == 315) {
 //			new TurretTurn(Globals.TURRET_BLUEPOS).start();

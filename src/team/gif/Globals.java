@@ -14,19 +14,23 @@ public class Globals {
 	public static final double DRIVE_ANGLE_P			= 0;
 	public static final double DRIVE_ANGLE_I			= 0;
 	public static final double DRIVE_ANGLE_D			= 0;
-	public static final double DRIVE_DIST				= 10000;
 	public static final double DRIVE_DIST_TOLERANCE 	= 200;
 	public static final double DRIVE_ANGLE_TOLERANCE	= 0.5;
 	
 //	Shooter
-	public static final double FLYWHEEL_P 				= 0.04; // 0.04
-	public static final double FLYWHEEL_I 				= 0.0001; // 0.0001
-	public static final double FLYWHEEL_D 				= 0.6; // 0.6
-	public static final double FLYWHEEL_F				= 0.025; // 0.025
+	// SP: Straght peg | FH: Far hopper
+	public static final double FLYWHEEL_P_SP			= 0.04;
+	public static final double FLYWHEEL_I_SP 			= 0.0001;
+	public static final double FLYWHEEL_D_SP 			= 0.6;
+	public static final double FLYWHEEL_F_SP			= 0.025;
+	public static final double FLYWHEEL_P_FH			= 0.02;
+	public static final double FLYWHEEL_I_FH 			= 0.00001;
+	public static final double FLYWHEEL_D_FH 			= 0.2;
+	public static final double FLYWHEEL_F_FH			= 0.024;
 //	public static final int FLYWHEEL_I_ZONE 			= 1200;  //
-	public static final int FLYWHEEL_I_ABOVE 			= 2000; // 500
-	public static final int FLYWHEEL_I_BELOW 			= 1750; // 1500
-	public static final double FLYWHEEL_RPM				= 25800; // Straight peg: 25800 | Far hopper: 23700 (needs to be tuned)
+	public static final int FLYWHEEL_I_ABOVE 			= 2000; // 2000
+	public static final int FLYWHEEL_I_BELOW 			= 1750; // 1750
+	public static double FLYWHEEL_RPM					= 25800; // Default value: 25800 |  Straight peg: 25800 | Far hopper: 23500
 	public static final double RPM_PER_INCH				= 42; // based on empirical data
 	public static final double RPM_MULTIPLIER 			= 4096d/600d; // QuadEncoder Ticks Per Rev / Milliseconds
 	public static final double revTime 					= 0;

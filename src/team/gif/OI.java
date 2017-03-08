@@ -11,7 +11,7 @@ import team.gif.commands.CollectorHoodIn;
 import team.gif.commands.CollectorIn;
 import team.gif.commands.GearRelease;
 import team.gif.commands.drivetrain.ShiftOmni;
-import team.gif.commands.drivetrain.ShifterHigh;
+import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.intake.CollectorDrive;
 import team.gif.commands.intake.Eject;
 import team.gif.commands.intake.FeederDrive;
@@ -19,6 +19,7 @@ import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.CameraFollowAndRev;
 import team.gif.commands.shooter.ManualShoot;
 import team.gif.commands.shooter.ResetTurret;
+import team.gif.commands.shooter.RevFlywheel;
 import team.gif.commands.shooter.TurretManual;
 import team.gif.commands.shooter.TurretTurn;
 
@@ -78,8 +79,8 @@ public class OI {
 		d_A.whenPressed(new ResetTurret());
 		d_leftTrigger.whileHeld(new ShiftOmni(true));
 		d_leftTrigger.whenReleased(new ShiftOmni(false));
-		d_rightTrigger.whileHeld(new ShifterHigh(true));
-		d_rightTrigger.whenReleased(new ShifterHigh(false));
+		d_rightTrigger.whileHeld(new ShifterLow(true));
+		d_rightTrigger.whenReleased(new ShifterLow(false));
 		
 		if (isShifted) { // Shift to second set of commands
 		// // a_Y.whileHeld(new ClimberDrive(-1));
@@ -94,17 +95,26 @@ public class OI {
 			// a_B.whileHeld(new FeederDrive());
 //			a_B.whenPressed(new Cancel());
 			a_X.whileHeld(new CameraFollow());
-			a_Y.whileHeld(new ClimberDrive(1));
+			a_Y.whileHeld(new ClimberDrive(0.25));
+//			a_Y.whileHeld(new GearRelease(false));
 			// a_Y.whileHeld(new ClimberUp());
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new CollectorIn(true));
 			a_start.whenPressed(new CollectorIn(false));
-			a_leftTrigger.whileHeld(new CameraFollowAndRev());
+			a_leftTrigger.whileHeld(new CameraFollow());
+			a_leftTrigger.whileHeld(new RevFlywheel());
+//			a_leftTrigger.whileHeld(new CameraFollowAndRev());
 			a_rightTrigger.whileHeld(new FeederDrive(true));
 			a_leftStickX.whileHeld(new TurretManual());
 			// a_8.whenPressed(new CollectorIn(true));
 			// a_9.whenPressed(new CollectorIn(false));
 			// a_15.whileHeld(new RevFlywheel());
+		}
+		
+		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
+			Globals.FLYWHEEL_RPM = 25800;
+		} else if (OI.auxController.getPOV() == 180 || OI.auxController.getPOV() == 225 || OI.auxController.getPOV() == 135) {
+			Globals.FLYWHEEL_RPM = 23500;
 		}
 	}
 }

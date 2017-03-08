@@ -25,7 +25,8 @@ public class CameraFollow extends Command {
 	}
 
 	protected boolean isFinished() {
-		return Robot.vision.isAligned();
+//		return Robot.vision.isAligned();
+		return false;
 	}
 
 	protected void end() {}

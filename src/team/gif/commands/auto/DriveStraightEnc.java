@@ -65,7 +65,6 @@ public class DriveStraightEnc extends Command {
 	}
 
 	protected void end() {
-		System.out.println("Done");
 		Robot.drivetrain.drive(0, 0);
 //		Robot.drivetrain.resetEncoders();
 	}
