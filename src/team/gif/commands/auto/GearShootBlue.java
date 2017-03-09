@@ -23,6 +23,7 @@ public class GearShootBlue extends CommandGroup {
     	addSequential(new DriveStraightEnc(2157));
     	addParallel(new CameraFollow());
     	addParallel(new FeederDrive(true));
+    	// TODO: Add mobility
     }
     
 }

@@ -15,7 +15,7 @@ public class AutoGearPlacement extends CommandGroup {
     	addParallel(new WaitCommand(0.3));
 		addSequential(new GearRelease(true));
 		addSequential(new DriveStraightEnc(2157));
-		addSequential(new GyroTurn(180));
+		// TODO: Add mobility
 	}
 	
 }

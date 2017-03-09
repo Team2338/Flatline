@@ -20,6 +20,7 @@ public class GearShootRed extends CommandGroup {
     	addParallel(new CameraFollow());
     	addParallel(new FeederDrive(true));
     	addSequential(new GearRelease(true));
+    	// TODO: Add mobility
 
     }
 }

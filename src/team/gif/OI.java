@@ -17,7 +17,6 @@ import team.gif.commands.intake.CollectorDrive;
 import team.gif.commands.intake.Eject;
 import team.gif.commands.intake.FeederDrive;
 import team.gif.commands.shooter.CameraFollow;
-import team.gif.commands.shooter.CameraFollowAndRev;
 import team.gif.commands.shooter.ChangeRevSetpoint;
 import team.gif.commands.shooter.ManualShoot;
 import team.gif.commands.shooter.ResetTurret;
@@ -97,7 +96,6 @@ public class OI {
 //			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP));
 //			a_B.whenPressed(new TurretTurn(Globals.TURRET_BLUEPOS));
 			// a_B.whileHeld(new FeederDrive());
-//			a_B.whenPressed(new Cancel());
 			a_X.whileHeld(new CameraFollow());
 			a_Y.whileHeld(new ClimberDrive(0.40));
 //			a_Y.whileHeld(new GearRelease(false));
