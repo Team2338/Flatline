@@ -1,18 +1,15 @@
 package team.gif.commands.drivetrain;
 
-import edu.wpi.first.wpilibj.Timer;
 import lib.gif.commands.Command;
-import team.gif.Globals;
-import team.gif.OI;
 import team.gif.Robot;
 
 public class ShifterLow extends Command {
 
 	private boolean isLow;
-	private boolean isShifted;
-	private double left;
-	private double right;
-	private double initTime;
+//	private boolean isShifted;
+//	private double left;
+//	private double right;
+//	private double initTime;
 
 	public ShifterLow(boolean isLow) {
 //		requires(Robot.drivetrain);

@@ -1,7 +1,6 @@
 package team.gif.commands.auto;
 
 import lib.gif.commands.CommandGroup;
-import team.gif.Globals;
 import team.gif.commands.GearRelease;
 import team.gif.commands.WaitCommand;
 import team.gif.commands.drivetrain.ShifterLow;
