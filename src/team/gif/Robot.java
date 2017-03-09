@@ -33,6 +33,7 @@ public class Robot extends IterativeRobot {
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
 	public static final Vision vision = new Vision();
+	public static final RobotTracker robotTracker = new RobotTracker();
 	public static OI oi;
 
 	public static NetworkTable grip;
@@ -133,6 +134,7 @@ public class Robot extends IterativeRobot {
 		Robot.vision.update();
 		Robot.climber.update();
 		Robot.shifter.update();
+		Robot.robotTracker.update();
 
     	if (OI.a_leftBumper.get() != isShifted) {
     		isShifted = !isShifted;
