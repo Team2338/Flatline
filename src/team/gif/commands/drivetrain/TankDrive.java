@@ -35,32 +35,34 @@ public class TankDrive extends Command {
 
 		right = (Math.abs(rightStick) > Globals.DEAD_ZONE ? rightStick : 0);
 
-		if (leftStick > 0) {
-			if (left - leftLast > maxAccel) {
-				left = leftLast + maxAccel;
-			}
-		} else if (leftStick < 0) {
-			if (left - leftLast < -maxAccel) {
-				left = leftLast - maxAccel;
-			}
-		}
-
-		if (rightStick > 0) {
-			if (right - rightLast > maxAccel) {
-				right = rightLast + maxAccel;
-			}
-		} else if (rightStick < 0) {
-			if (right - rightLast < -maxAccel) {
-				right = rightLast - maxAccel;
-			}
-		}
+//		if (Robot.shifter.isHigh()) {
+//			if (leftStick > 0) {
+//				if (left - leftLast > maxAccel) {
+//					left = leftLast + maxAccel;
+//				}
+//			} else if (leftStick < 0) {
+//				if (left - leftLast < -maxAccel) {
+//					left = leftLast - maxAccel;
+//				}
+//			}
+//	
+//			if (rightStick > 0) {
+//				if (right - rightLast > maxAccel) {
+//					right = rightLast + maxAccel;
+//				}
+//			} else if (rightStick < 0) {
+//				if (right - rightLast < -maxAccel) {
+//					right = rightLast - maxAccel;
+//				}
+//			}
+//		}
 
 		// TODO: Use velocity in place of left - leftLast
 
 		Robot.drivetrain.drive(left, right);
 
-		leftLast = left;
-		rightLast = right;
+//		leftLast = left;
+//		rightLast = right;
 
 		// if (Robot.shifter.isHigh()) {
 		// Robot.drivetrain.compensateVoltage();

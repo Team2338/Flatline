@@ -16,13 +16,13 @@ public class AutoTest extends CommandGroup {
     	addParallel(new ShifterLow(true));
     	addSequential(new ResetTurret());
     	addParallel(new RevFlywheel());
-    	addSequential(new DriveStraightEnc(-14200));
+    	addSequential(new DriveStraightEnc(14200));
     	addParallel(new CollectorIn(false));
-    	addParallel(new GearRelease(false));
-    	addSequential(new WaitCommand(1.2));
-    	addSequential(new DriveStraightEnc(2157));
-    	addParallel(new CameraFollow());
-    	addParallel(new FeederDrive(true));
+//    	addParallel(new GearRelease(false));
+//    	addSequential(new WaitCommand(1.2));
+//    	addSequential(new DriveStraightEnc(2157));
+//    	addParallel(new CameraFollow());
+//    	addParallel(new FeederDrive(true));
     }
     
 }

@@ -17,6 +17,7 @@ import team.gif.commands.intake.Eject;
 import team.gif.commands.intake.FeederDrive;
 import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.CameraFollowAndRev;
+import team.gif.commands.shooter.ChangeRevSetpoint;
 import team.gif.commands.shooter.ManualShoot;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
@@ -91,11 +92,13 @@ public class OI {
 		} else {
 			a_A.whileHeld(new GearRelease(false));
 			a_A.whenReleased(new GearRelease(true));
+//			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH));
+//			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP));
 //			a_B.whenPressed(new TurretTurn(Globals.TURRET_BLUEPOS));
 			// a_B.whileHeld(new FeederDrive());
 //			a_B.whenPressed(new Cancel());
 			a_X.whileHeld(new CameraFollow());
-			a_Y.whileHeld(new ClimberDrive(0.25));
+			a_Y.whileHeld(new ClimberDrive(0.40));
 //			a_Y.whileHeld(new GearRelease(false));
 			// a_Y.whileHeld(new ClimberUp());
 			a_rightBumper.whileHeld(new CollectorDrive());
@@ -106,15 +109,12 @@ public class OI {
 //			a_leftTrigger.whileHeld(new CameraFollowAndRev());
 			a_rightTrigger.whileHeld(new FeederDrive(true));
 			a_leftStickX.whileHeld(new TurretManual());
-			// a_8.whenPressed(new CollectorIn(true));
-			// a_9.whenPressed(new CollectorIn(false));
-			// a_15.whileHeld(new RevFlywheel());
 		}
-		
+				
 		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
-			Globals.FLYWHEEL_RPM = 25800;
+			new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP);
 		} else if (OI.auxController.getPOV() == 180 || OI.auxController.getPOV() == 225 || OI.auxController.getPOV() == 135) {
-			Globals.FLYWHEEL_RPM = 23500;
+			new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH);
 		}
 	}
 }

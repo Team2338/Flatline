@@ -17,6 +17,7 @@ public class Flywheel extends Subsystem {
 	private final CANTalon flywheel2 = new CANTalon(RobotMap.FLYWHEEL_1);
 	private final CANTalon flywheel = new CANTalon(RobotMap.FLYWHEEL_2);
 	private static final Compressor compressor = new Compressor();
+	private static double setpoint;
 	
 	public Flywheel(){
 		super();
@@ -39,6 +40,7 @@ public class Flywheel extends Subsystem {
 		
 		flywheel2.changeControlMode(TalonControlMode.Follower);
 		flywheel2.set(RobotMap.FLYWHEEL_2);
+		setpoint = Globals.FLYWHEEL_RPM_SP;
 	}
 	
 	public void setPID(double p, double i, double d, double f) {
@@ -62,6 +64,18 @@ public class Flywheel extends Subsystem {
 		}
 	}
 	
+	public void driveFlywheel(double speed) {
+		flywheel.set(speed);
+	}
+	
+	public void setStandbySetpoint(double setpoint) {
+		this.setpoint = setpoint;
+	}
+	
+	public double getStandbySetpoint() {
+		return setpoint;
+	}
+	
 	public double getVelocity() {
 		return flywheel.getSpeed();
 	}
@@ -72,10 +86,6 @@ public class Flywheel extends Subsystem {
 	
 	public double getPosition() {
 		return flywheel.getPosition();
-	}
-	
-	public void driveFlywheel(double speed) {
-		flywheel.set(speed);
 	}
 	
 	public double getPGain() {
@@ -130,6 +140,7 @@ public class Flywheel extends Subsystem {
     	SmartDashboard.putNumber("D Gain", getDGain());
     	SmartDashboard.putNumber("F Gain", getFGain());
     	SmartDashboard.putNumber("IZone", getIZone());
+    	SmartDashboard.putNumber("Rev Standby Setpoint", getStandbySetpoint());
 	}
 
     public void initDefaultCommand() {
