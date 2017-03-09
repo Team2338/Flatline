@@ -2,6 +2,7 @@ package team.gif.commands.drivetrain;
 
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.OI;
@@ -16,7 +17,7 @@ public class TankDrive extends Command {
 	private double leftStick;
 	private double rightStick;
 	private double maxAccel;
-	private double secondsHigh;
+	private boolean squaredInputs;
 
 	public TankDrive(double maxAccel) {
 		requires(Robot.drivetrain);
@@ -26,6 +27,7 @@ public class TankDrive extends Command {
 	protected void initialize() {
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
+		this.squaredInputs = SmartDashboard.getBoolean("Squared Inputs", false);
 	}
 
 	protected void execute() {
@@ -35,6 +37,11 @@ public class TankDrive extends Command {
 		left = (Math.abs(leftStick) > Globals.DEAD_ZONE ? leftStick : 0);
 
 		right = (Math.abs(rightStick) > Globals.DEAD_ZONE ? rightStick : 0);
+		
+		if (squaredInputs) {
+			left = left * Math.abs(left);
+			right = right * Math.abs(right);
+		}
 
 		if (leftStick > 0) {
 			if (left - leftLast > maxAccel) {

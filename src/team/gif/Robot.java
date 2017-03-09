@@ -72,6 +72,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
 		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
 		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
+		
+		SmartDashboard.putBoolean("Squared Inputs", false);
 	}
 
 	public void disabledInit() {
