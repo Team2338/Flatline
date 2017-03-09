@@ -10,6 +10,7 @@ import team.gif.commands.ClimberDrive;
 import team.gif.commands.CollectorHoodIn;
 import team.gif.commands.CollectorIn;
 import team.gif.commands.GearRelease;
+import team.gif.commands.RetractCollector;
 import team.gif.commands.drivetrain.ShiftOmni;
 import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.intake.CollectorDrive;
@@ -102,7 +103,7 @@ public class OI {
 //			a_Y.whileHeld(new GearRelease(false));
 			// a_Y.whileHeld(new ClimberUp());
 			a_rightBumper.whileHeld(new CollectorDrive());
-			a_select.whenPressed(new CollectorIn(true));
+			a_select.whenPressed(new RetractCollector());
 			a_start.whenPressed(new CollectorIn(false));
 			a_leftTrigger.whileHeld(new CameraFollow());
 			a_leftTrigger.whileHeld(new RevFlywheel());
