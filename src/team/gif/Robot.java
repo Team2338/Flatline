@@ -36,8 +36,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	public static NetworkTable grip;
-	public static SendableChooser turretPosChooser;
-	private SendableChooser autoChooser;
+	public static SendableChooser<Double> turretPosChooser;
+	private SendableChooser<Command> autoChooser;
 	private Command autonomousCommand;
 	private boolean isShifted;
 
@@ -45,12 +45,12 @@ public class Robot extends IterativeRobot {
 		isShifted = OI.a_leftBumper.get();
 		oi = new OI(isShifted);
 
-		autoChooser = new SendableChooser();
+		autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("AntiAuto", new AntiAuto());
         autoChooser.addObject("AutoTest", new AutoTest());
 		SmartDashboard.putData("AutoChooser", autoChooser);
 
-		turretPosChooser = new SendableChooser();
+		turretPosChooser = new SendableChooser<Double>();
 		turretPosChooser.addDefault("Blue", new Double(Globals.TURRET_BLUEPOS));
 		turretPosChooser.addObject("Red", new Double(Globals.TURRET_REDPOS));
 		SmartDashboard.putData("Turret position chooser", turretPosChooser);
