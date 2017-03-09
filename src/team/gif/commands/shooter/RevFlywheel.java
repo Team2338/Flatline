@@ -1,19 +1,16 @@
 package team.gif.commands.shooter;
 
 import com.ctre.CANTalon.TalonControlMode;
-
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import team.gif.Globals;
-import team.gif.OI;
 import team.gif.Robot;
 
 public class RevFlywheel extends Command {
 
 	private final double setpoint;
-	private double assistedRPM;
+//	private double assistedRPM;
 	// private boolean isAssisted;
-	private boolean isStable = false;
+//	private boolean isStable = false;
 
 	// public RevFlywheel() {
 	// this(false);

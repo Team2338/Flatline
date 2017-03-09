@@ -2,7 +2,6 @@ package team.gif.commands.intake;
 
 import com.ctre.CANTalon.TalonControlMode;
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;

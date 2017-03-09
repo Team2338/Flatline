@@ -2,7 +2,6 @@ package team.gif.commands.shooter;
 
 import com.ctre.CANTalon.TalonControlMode;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.Robot;

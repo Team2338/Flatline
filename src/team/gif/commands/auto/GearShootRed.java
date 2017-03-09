@@ -2,7 +2,6 @@ package team.gif.commands.auto;
 
 import lib.gif.commands.CommandGroup;
 import team.gif.commands.GearRelease;
-import team.gif.commands.WaitCommand;
 import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.intake.FeederDrive;
 import team.gif.commands.shooter.CameraFollow;

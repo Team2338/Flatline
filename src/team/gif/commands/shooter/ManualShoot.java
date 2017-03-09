@@ -1,11 +1,8 @@
 package team.gif.commands.shooter;
 
-import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.CommandGroup;
 import team.gif.Globals;
-import team.gif.OI;
-import team.gif.Robot;
 import team.gif.commands.intake.FeederDrive;
 
 public class ManualShoot extends CommandGroup {
