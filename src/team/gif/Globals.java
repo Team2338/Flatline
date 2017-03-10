@@ -2,7 +2,7 @@ package team.gif;
 
 /**
  * This file is meant for easily changing values in code.
- * It should be simple enough that mechanical can do it.
+ * It should be simple enough that Enan can do it.
  */
 public class Globals {
 	
@@ -18,7 +18,7 @@ public class Globals {
 	public static final double DRIVE_ANGLE_TOLERANCE	= 0.5;
 	
 //	Shooter
-	// SP: Straght peg | FH: Far hopper
+	// SP: Straight Peg | FH: Far Hopper
 	public static final double FLYWHEEL_P_SP			= 0.04;
 	public static final double FLYWHEEL_I_SP 			= 0.0001;
 	public static final double FLYWHEEL_D_SP 			= 0.6;

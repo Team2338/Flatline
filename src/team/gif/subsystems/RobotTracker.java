@@ -10,7 +10,7 @@ import team.gif.Robot;
 public class RobotTracker extends Subsystem {
 	
 //	private double DISTANCE_BETWEEN_WHEELS = 26.596;
-	private double TICKS_PER_INCH = (512.0*3.0*(50.0/34.0))/(4.0*Math.PI);
+	private final double TICKS_PER_INCH = (512.0*3.0*(50.0/34.0))/(4.0*Math.PI);
 	private double centerX;
 	private double centerY;
 	private double rightX;

@@ -38,6 +38,10 @@ public class Climber extends Subsystem {
 		return climber1.getPosition();
 	}
 	
+	public static CANTalon getTalon() {
+		return climber2;
+	}
+	
 	public void update() {
 		SmartDashboard.putNumber("Climber Position", getPosition());
 	}

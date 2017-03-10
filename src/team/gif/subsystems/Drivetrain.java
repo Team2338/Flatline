@@ -3,14 +3,10 @@ package team.gif.subsystems;
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
-
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.BuiltInAccelerometer;
-import edu.wpi.first.wpilibj.Solenoid;
+import com.ctre.PigeonImu;
+import com.ctre.PigeonImu.CalibrationMode;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
-import team.gif.Globals;
-import team.gif.OI;
 import team.gif.RobotMap;
 import team.gif.commands.drivetrain.TankDrive;
 
@@ -22,7 +18,10 @@ public class Drivetrain extends Subsystem {
 	private static final CANTalon midRight = new CANTalon(RobotMap.MID_RIGHT_DRIVE);
 	private static final CANTalon rearLeft = new CANTalon(RobotMap.REAR_LEFT_DRIVE);
 	private static final CANTalon rearRight = new CANTalon(RobotMap.REAR_RIGHT_DRIVE);
-	private static final ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+	
+	private static final PigeonImu pidgey = new PigeonImu(Climber.getTalon());
+	private static final PigeonImu.FusionStatus fusionStatus = new PigeonImu.FusionStatus();
+//	private static final ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 
 	public Drivetrain() {
 		super();
@@ -50,7 +49,8 @@ public class Drivetrain extends Subsystem {
 		frontRight.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		resetEncoders();
 		
-		gyro.calibrate();
+		pidgey.EnterCalibrationMode(CalibrationMode.BootTareGyroAccel);
+		
 	}
 
 	public void drive(double leftSpeed, double rightSpeed) {
@@ -88,17 +88,17 @@ public class Drivetrain extends Subsystem {
 		frontRight.setPosition(0);
 	}
 
-	public void resetGyro() {
-		gyro.reset();
-	}
+//	public void resetGyro() {
+//		gyro.reset();
+//	}
 
 	public double getAngle() {
-		return gyro.getAngle();
+		return pidgey.GetFusedHeading(fusionStatus);
 	}
 
-	public double getRate() {
-		return gyro.getRate();
-	}
+//	public double getRate() {
+//		return gyro.getRate();
+//	}
 
 	public void setMode(TalonControlMode mode) {
 		frontLeft.changeControlMode(mode);
