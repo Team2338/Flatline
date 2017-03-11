@@ -33,19 +33,30 @@ public class RobotTracker extends Subsystem {
     	super();
     }
     
-    public double getReferenceYAxis() {
-    	angdeg = angdeg; //TODO: Get gyro heading here
-    	if (angdeg > 180) {
-    		angdeg = (360 - angdeg) * -1;
-    	} else if (angdeg < -180) {
-    		angdeg = 360 - angdeg * -1;
+    public double degreesHalfCircle() {
+		if (angdeg > 180) {
+			return angdeg - 360;
+		} else if (angdeg < -180) {
+			return angdeg + 360;
+		} else {
+			return angdeg;
+		}
+	}
+
+	public double getReferenceXAxis() {
+		return degreesHalfCircle() >= 0 ? 90 - degreesHalfCircle() : 90 + degreesHalfCircle();
+	}
+    
+	public double getReferenceYAxis() {
+    	if (Math.abs(degreesHalfCircle()) < 90) {
+    		return degreesHalfCircle();
+    	 } else {
+    		if (degreesHalfCircle() > 0) {
+    			return 180 - degreesHalfCircle();
+    		} else {
+    			return -180 - degreesHalfCircle();
+    		}
     	}
-    	
-    	if (Math.abs(angdeg) > 90) {
-    		angdeg = angdeg > 0 ? 180 - angdeg : -1 * (180 + angdeg);
-    	}
-    	
-    	return angdeg;
     }
     
     public void translate() {
@@ -56,10 +67,10 @@ public class RobotTracker extends Subsystem {
     	deltaLeft = left - leftLast;
     	
     	rightX = rightXLast + (deltaRight * Math.sin(Math.toRadians(getReferenceYAxis())));
-    	rightY = rightYLast + (deltaRight * Math.cos(Math.toRadians(getReferenceYAxis())));
+    	rightY = rightYLast + (deltaRight * Math.sin(Math.toRadians(getReferenceXAxis())));
     	
     	leftX = leftXLast + (deltaLeft * Math.sin(Math.toRadians(getReferenceYAxis())));
-    	leftY = leftYLast + (deltaLeft * Math.cos(Math.toRadians(getReferenceYAxis())));
+    	leftY = leftYLast + (deltaLeft * Math.sin(Math.toRadians(getReferenceXAxis())));
     	
     	centerX = (rightX + leftX) / 2;
     	centerY = (rightY + leftY) / 2;
