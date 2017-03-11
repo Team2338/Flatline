@@ -33,9 +33,9 @@ public class TankDrive extends Command {
 		leftStick = OI.driverController.getRawAxis(1);
 		rightStick = OI.driverController.getRawAxis(5);
 
-		left = (Math.abs(leftStick) > Globals.DEAD_ZONE ? leftStick : 0);
+		left = -(Math.abs(leftStick) > Globals.DEAD_ZONE ? leftStick : 0);
 
-		right = (Math.abs(rightStick) > Globals.DEAD_ZONE ? rightStick : 0);
+		right = -(Math.abs(rightStick) > Globals.DEAD_ZONE ? rightStick : 0);
 		
 		if (squaredInputs) {
 			left = left * Math.abs(left);
@@ -43,33 +43,36 @@ public class TankDrive extends Command {
 		}
 
 		if (Robot.shifter.isHigh()) {
-			if (leftStick > 0) {
-				if (left - leftLast > maxAccel) {
+			if (left > 0 && leftLast < 0 || left < 0 && leftLast > 0) {
+				left = 0;
+			} else if (left > 0) { //Forward Left
+				if (left - leftLast > maxAccel)
 					left = leftLast + maxAccel;
-				}
-			} else if (leftStick < 0) {
-				if (left - leftLast < -maxAccel) {
+			} else if (left < 0){ //Reverse Left
+				if (left - leftLast < -maxAccel)
 					left = leftLast - maxAccel;
-				}
 			}
-	
-			if (rightStick > 0) {
-				if (right - rightLast > maxAccel) {
+			
+			if (right > 0 && rightLast < 0 || right < 0 && rightLast > 0) {
+				right = 0;
+			} else if (right > 0) { //Forward Right
+				if (right - rightLast > maxAccel)
 					right = rightLast + maxAccel;
-				}
-			} else if (rightStick < 0) {
-				if (right - rightLast < -maxAccel) {
+			} else if (right < 0 ){ //Reverse Right
+				if (right - rightLast < -maxAccel)
 					right = rightLast - maxAccel;
-				}
 			}
 		}
 
 		// TODO: Use velocity in place of left - leftLast
-
-		Robot.drivetrain.drive(left, right);
+		
+		Robot.drivetrain.drive(-left, -right);
 
 		leftLast = left;
 		rightLast = right;
+		
+		SmartDashboard.putNumber("LeftStick", leftStick);
+		SmartDashboard.putNumber("Left", left);
 
 		// if (Robot.shifter.isHigh()) {
 		// Robot.drivetrain.compensateVoltage();
