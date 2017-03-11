@@ -35,6 +35,8 @@ public class RobotTracker extends Subsystem {
     
     public double degreesHalfCircle() {
     	angdeg = Robot.drivetrain.getAngle();
+    	angdeg = angdeg >= 0 ? angdeg - 360 * Math.floor(angdeg/360) : angdeg - 360 * Math.ceil(angdeg/360);
+    	
 		if (angdeg > 180) {
 			return angdeg - 360;
 		} else if (angdeg < -180) {
