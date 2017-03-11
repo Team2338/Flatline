@@ -100,6 +100,8 @@ public class RobotTracker extends Subsystem {
     	SmartDashboard.putNumber("Y Coordinate", getY());
     }
     public void initDefaultCommand() {
+    	rightXLast = 26.596/2;
+    	leftXLast = -26.596/2;
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
