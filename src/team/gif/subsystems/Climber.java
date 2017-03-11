@@ -39,7 +39,7 @@ public class Climber extends Subsystem {
 	}
 	
 	public static CANTalon getTalon() {
-		return climber2;
+		return climber1;
 	}
 	
 	public void update() {
@@ -47,7 +47,7 @@ public class Climber extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
-		setDefaultCommand(new ClimberDrive(0));
+		setDefaultCommand(new ClimberDrive());
 	}
 
 }

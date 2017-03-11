@@ -8,7 +8,7 @@ public class ChangeRevSetpoint extends Command {
 	private double setpoint;
 
 	public ChangeRevSetpoint(double setpoint) {
-//		requires(Robot.flywheel);
+		requires(Robot.flywheel);
 		this.setpoint = setpoint;
 	}
 

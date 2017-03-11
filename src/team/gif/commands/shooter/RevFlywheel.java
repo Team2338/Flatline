@@ -7,7 +7,7 @@ import team.gif.Robot;
 
 public class RevFlywheel extends Command {
 
-	private final double setpoint;
+	private double setpoint = 0;
 //	private double assistedRPM;
 	// private boolean isAssisted;
 //	private boolean isStable = false;
@@ -19,17 +19,17 @@ public class RevFlywheel extends Command {
 	public RevFlywheel() {
 		requires(Robot.flywheel);
 //		setpoint = SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM);
-		setpoint = Robot.flywheel.getStandbySetpoint();
 		// this.isAssisted = isAssisted;
 	}
 
 	protected void initialize() {
 		Robot.flywheel.setMode(TalonControlMode.Speed);
+		setpoint = Robot.flywheel.getStandbySetpoint();
 		
-		if (Robot.flywheel.getStandbySetpoint() == Globals.FLYWHEEL_RPM_SP) {
+		if (setpoint == Globals.FLYWHEEL_RPM_SP) {
 			Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
 					Globals.FLYWHEEL_F_SP);
-		} else if (Robot.flywheel.getStandbySetpoint() == Globals.FLYWHEEL_RPM_FH) {
+		} else if (setpoint == Globals.FLYWHEEL_RPM_FH) {
 			Robot.flywheel.setPID(Globals.FLYWHEEL_P_FH, Globals.FLYWHEEL_I_FH, Globals.FLYWHEEL_D_FH,
 					Globals.FLYWHEEL_F_FH);
 		}

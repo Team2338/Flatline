@@ -4,6 +4,7 @@ import lib.gif.commands.CommandGroup;
 import team.gif.commands.CollectorIn;
 import team.gif.commands.GearRelease;
 import team.gif.commands.WaitCommand;
+import team.gif.commands.drivetrain.ResetGyro;
 import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.intake.FeederDrive;
 import team.gif.commands.shooter.CameraFollow;
@@ -14,9 +15,11 @@ public class GearShootBlue extends CommandGroup {
 
     public GearShootBlue() {
     	addParallel(new ShifterLow(true));
+    	addSequential(new ResetGyro());
+    	addSequential(new WaitCommand(0.4));
     	addSequential(new ResetTurret());
     	addParallel(new RevFlywheel());
-    	addSequential(new DriveStraightEnc(-14200));
+    	addSequential(new DriveStraightEnc(-13900));
     	addParallel(new CollectorIn(false));
     	addParallel(new GearRelease(false));
     	addSequential(new WaitCommand(1.2));

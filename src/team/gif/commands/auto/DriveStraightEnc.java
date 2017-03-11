@@ -2,6 +2,7 @@ package team.gif.commands.auto;
 
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.PIDCalculator;
 import lib.gif.commands.Command;
 import team.gif.Globals;
@@ -13,6 +14,7 @@ public class DriveStraightEnc extends Command {
 	private double angle;
 	private double distLeftError;
 	private double distRightError;
+	private double distError;
 	private final double speedCap;
 	private PIDCalculator distCalc;
 	private PIDCalculator angleCalc;
@@ -34,34 +36,35 @@ public class DriveStraightEnc extends Command {
 	protected void initialize() {
 		Robot.drivetrain.resetEncoders();
 		angle = Robot.drivetrain.getAngle();
-		
-//		Robot.drivetrain.setMode(TalonControlMode.Position);
-//		Robot.drivetrain.setPID(Globals.DRIVETRAIN_P, Globals.DRIVETRAIN_I, Globals.DRIVETRAIN_D);
-//		Robot.drivetrain.drive(-setpoint, -setpoint);
 	}
 
 	protected void execute() {
 		distLeftError = setpoint - Robot.drivetrain.getLeftDist();
 		distRightError = setpoint - Robot.drivetrain.getRightDist();
-//		double angleError = angle - Robot.drivetrain.getAngle();
+//		distError = setpoint - Robot.drivetrain.getRightDist();
+		double angleError = angle - Robot.drivetrain.getAngle();
 
 		double distLeftOutput = distCalc.getOutput(distLeftError);
 		double distRightOutput = distCalc.getOutput(distRightError);
-//		double angleOutput = angleCalc.getOutput(angleError);
+//		double distOutput = distCalc.getOutput(distError);
+		double angleOutput = angleCalc.getOutput(angleError);
 
 //    	if (distOutput > speedCap) {
 //    		Robot.drivetrain.drive(-(speedCap + angleOutput), -(speedCap - angleOutput));
 //    	} else if (distOutput < -speedCap) {
 //    		Robot.drivetrain.drive(-(-speedCap + distOutput), -(-speedCap - distOutput));
 //    	} else {
-//    		Robot.drivetrain.drive(-(distOutput + angleOutput), -(distOutput - angleOutput));
+//    		Robot.drivetrain.drive(-distOutput + angleOutput), (-distOutput - angleOutput));
 //    	}
-    	
-		Robot.drivetrain.drive(-distLeftOutput, -distRightOutput);
+		
+		SmartDashboard.putNumber("Angle Error", angleError);
+
+		Robot.drivetrain.drive(-distLeftOutput + angleOutput, -distRightOutput - angleOutput);
 	}
 
 	protected boolean isFinished() {
 		return (Math.abs(distLeftError) <= Globals.DRIVE_DIST_TOLERANCE) && Math.abs(distRightError) <= Globals.DRIVE_DIST_TOLERANCE;
+//		return (Math.abs(distError) <= Globals.DRIVE_DIST_TOLERANCE);
 	}
 
 	protected void end() {

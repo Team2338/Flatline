@@ -3,31 +3,39 @@ package team.gif.commands;
 import com.ctre.CANTalon.TalonControlMode;
 
 import lib.gif.commands.Command;
+import team.gif.Globals;
+import team.gif.OI;
 import team.gif.Robot;
 
 public class ClimberDrive extends Command {
-	
-	private double speed;
 
-    public ClimberDrive(double speed) {
-        requires(Robot.climber);
-        this.speed = speed;
-    }
-    
+	public ClimberDrive() {
+		requires(Robot.climber);
+	}
+
 	protected void initialize() {
 		Robot.climber.setMode(TalonControlMode.PercentVbus);
 	}
 
 	protected void execute() {
-    	Robot.climber.drive(speed);
-    }
+		if (Math.abs(OI.auxController.getRawAxis(5)) > Globals.DEAD_ZONE) {
+			Robot.climber.drive(-OI.auxController.getRawAxis(5));
+		} else {
+			Robot.climber.drive(0);
+		}
+
+		// Robot.climber.drive(speed);
+	}
 
 	protected boolean isFinished() {
-    	return false;
-    }
+		return false;
+	}
 
-	protected void end() {}
-	
-	protected void interrupted() {}
-    
+	protected void end() {
+		Robot.climber.drive(0);
+	}
+
+	protected void interrupted() {
+	}
+
 }

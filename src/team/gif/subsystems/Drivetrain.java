@@ -20,7 +20,7 @@ public class Drivetrain extends Subsystem {
 	private static final CANTalon rearRight = new CANTalon(RobotMap.REAR_RIGHT_DRIVE);
 	
 	private static final PigeonImu pidgey = new PigeonImu(Climber.getTalon());
-	private static final PigeonImu.FusionStatus fusionStatus = new PigeonImu.FusionStatus();
+	
 //	private static final ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 
 	public Drivetrain() {
@@ -49,6 +49,7 @@ public class Drivetrain extends Subsystem {
 		frontRight.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		resetEncoders();
 		
+		pidgey.SetFusedHeading(0);
 		pidgey.EnterCalibrationMode(CalibrationMode.BootTareGyroAccel);
 		
 	}
@@ -88,11 +89,14 @@ public class Drivetrain extends Subsystem {
 		frontRight.setPosition(0);
 	}
 
-//	public void resetGyro() {
-//		gyro.reset();
-//	}
+	public void resetGyro() {
+		pidgey.SetFusedHeading(0);
+	}
 
 	public double getAngle() {
+		double [] xyz_dps = new double [3];
+		pidgey.GetRawGyro(xyz_dps);
+		PigeonImu.FusionStatus fusionStatus = new PigeonImu.FusionStatus();
 		return pidgey.GetFusedHeading(fusionStatus);
 	}
 

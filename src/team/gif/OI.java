@@ -92,12 +92,12 @@ public class OI {
 		} else {
 			a_A.whileHeld(new GearRelease(false));
 			a_A.whenReleased(new GearRelease(true));
-//			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH));
-//			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP));
+			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH));
+			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP));
 //			a_B.whenPressed(new TurretTurn(Globals.TURRET_BLUEPOS));
 			// a_B.whileHeld(new FeederDrive());
-			a_X.whileHeld(new CameraFollow());
-			a_Y.whileHeld(new ClimberDrive(0.40));
+			a_Y.whileHeld(new CameraFollow());
+//			a_Y.whileHeld(new ClimberDrive(0.70));
 //			a_Y.whileHeld(new GearRelease(false));
 			// a_Y.whileHeld(new ClimberUp());
 			a_rightBumper.whileHeld(new CollectorDrive());
@@ -110,10 +110,10 @@ public class OI {
 			a_leftStickX.whileHeld(new TurretManual());
 		}
 				
-		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
-			new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP);
-		} else if (OI.auxController.getPOV() == 180 || OI.auxController.getPOV() == 225 || OI.auxController.getPOV() == 135) {
-			new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH);
-		}
+//		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
+//			new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP);
+//		} else if (OI.auxController.getPOV() == 180 || OI.auxController.getPOV() == 225 || OI.auxController.getPOV() == 135) {
+//			new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH);
+//		}
 	}
 }
