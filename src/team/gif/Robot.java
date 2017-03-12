@@ -10,7 +10,7 @@ import lib.gif.commands.Scheduler;
 import team.gif.commands.auto.AntiAuto;
 import team.gif.commands.auto.AutoGearPlacement;
 import team.gif.commands.auto.AutoTest;
-import team.gif.commands.auto.FarHopperBlue;
+import team.gif.commands.auto.FarHopperShoot;
 import team.gif.commands.auto.FarHopperRed;
 import team.gif.commands.auto.GearShootBlue;
 import team.gif.commands.auto.GearShootRed;
@@ -57,7 +57,7 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("GearPlacement", new AutoGearPlacement());
         autoChooser.addObject("GearShootBlue", new GearShootBlue());
         autoChooser.addObject("GearShootRed", new GearShootRed());
-        autoChooser.addObject("FarHopperBlue", new FarHopperBlue());
+        autoChooser.addObject("FarHopperBlue", new FarHopperShoot());
         autoChooser.addObject("FarHopperRed", new FarHopperRed());
 		SmartDashboard.putData("AutoChooser", autoChooser);
 
