@@ -19,13 +19,13 @@ public class DriveStraightEnc extends Command {
 	private PIDCalculator distCalc;
 	private PIDCalculator angleCalc;
 
-	public DriveStraightEnc(double dist) {
-		this(dist, 0.7);
+	public DriveStraightEnc(double inches) {
+		this(inches, 0.7);
 	}
 	
-	public DriveStraightEnc(double dist, double speedCap) {
+	public DriveStraightEnc(double inches, double speedCap) {
 		requires(Robot.drivetrain);
-		setpoint = dist;
+		setpoint = inches * Globals.TICKS_PER_INCH;
 		this.speedCap = Math.abs(speedCap);
 		
 		distCalc = new PIDCalculator(Globals.DRIVETRAIN_P, Globals.DRIVETRAIN_I, Globals.DRIVETRAIN_D);

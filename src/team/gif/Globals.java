@@ -16,6 +16,7 @@ public class Globals {
 	public static final double DRIVE_ANGLE_D			= 0;
 	public static final double DRIVE_DIST_TOLERANCE 	= 200;
 	public static final double DRIVE_ANGLE_TOLERANCE	= 0.5;
+	public static final double TICKS_PER_INCH 			= (512.0*3.0*(50.0/34.0))/(4.0*Math.PI);
 	
 //	Shooter
 	// SP: Straight Peg | FH: Far Hopper

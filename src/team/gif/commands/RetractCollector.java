@@ -8,7 +8,7 @@ import team.gif.commands.shooter.TurretTurn;
 public class RetractCollector extends CommandGroup {
 
     public RetractCollector() {
-    	addSequential(new ResetTurret());
+    	addSequential(new ResetTurret(true));
     	addSequential(new CollectorIn(true));
     }    
 }
