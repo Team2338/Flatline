@@ -14,6 +14,8 @@ import team.gif.commands.auto.FarHopperBlue;
 import team.gif.commands.auto.FarHopperRed;
 import team.gif.commands.auto.GearShootBlue;
 import team.gif.commands.auto.GearShootRed;
+import team.gif.commands.auto.SideGearShootBlue;
+import team.gif.commands.auto.SideGearShootRed;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.commands.shooter.TurretManual;
 import team.gif.commands.shooter.TurretTurn;
@@ -56,8 +58,10 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("AutoTest", new AutoTest());
         autoChooser.addObject("GearPlacement", new AutoGearPlacement());
         autoChooser.addObject("GearShootBlue", new GearShootBlue());
-        autoChooser.addObject("GearShootRed", new GearShootRed());
+        autoChooser.addObject("SideGearShootBlue", new SideGearShootBlue());
         autoChooser.addObject("FarHopperBlue", new FarHopperBlue());
+        autoChooser.addObject("GearShootRed", new GearShootRed());
+        autoChooser.addObject("SideGearShootRed", new SideGearShootRed());
         autoChooser.addObject("FarHopperRed", new FarHopperRed());
 		SmartDashboard.putData("AutoChooser", autoChooser);
 
