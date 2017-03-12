@@ -85,6 +85,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
 		
 		SmartDashboard.putBoolean("Squared Inputs", false);
+		SmartDashboard.putBoolean("On Blue Alliance", true);
 	}
 
 	public void disabledInit() {

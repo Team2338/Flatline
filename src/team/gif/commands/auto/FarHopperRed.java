@@ -15,6 +15,8 @@ public class FarHopperRed extends CommandGroup {
 
     public FarHopperRed() {
     	// TODO
+    	addParallel(new ShifterLow(true));
+    	addSequential(new ResetGyro());
     }
     
 }
