@@ -11,21 +11,14 @@ import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
 
-public class GearShootRed extends CommandGroup {
+public class SideGearShootBlue extends CommandGroup {
 
-    public GearShootRed() {
-    	// TODO: Never tested!
+    public SideGearShootBlue() {
+    	//TODO
     	addParallel(new ShifterLow(true));
     	addSequential(new ResetGyro());
     	addSequential(new WaitCommand(0.4));
-    	addSequential(new ResetTurret(false));
-    	addParallel(new RevFlywheel());
-    	addSequential(new DriveStraightEnc(-13900));
-    	addParallel(new CollectorIn(false));
-    	addParallel(new GearRelease(true));
-    	addSequential(new WaitCommand(1.5));
-    	addSequential(new DriveStraightEnc(2157));
-    	addParallel(new CameraFollow());
-    	addParallel(new FeederDrive(true));
+    	addSequential(new ResetTurret(true));
     }
+    
 }

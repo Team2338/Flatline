@@ -19,9 +19,9 @@ public class AutoTest extends CommandGroup {
     	addParallel(new ShifterLow(true));
     	addSequential(new ResetGyro());
     	addSequential(new ResetTurret(true));
-    	addParallel(new RevFlywheel());
-    	addSequential(new DriveStraightEnc(14200));
-    	addParallel(new CollectorIn(false));
+//    	addParallel(new RevFlywheel());
+    	addSequential(new DriveStraightEnc(4000));
+//    	addParallel(new CollectorIn(false));
 //    	addParallel(new GearRelease(false));
 //    	addSequential(new WaitCommand(1.2));
 //    	addSequential(new DriveStraightEnc(2157));
