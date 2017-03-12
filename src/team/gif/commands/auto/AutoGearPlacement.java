@@ -9,13 +9,11 @@ import team.gif.commands.shooter.ResetTurret;
 public class AutoGearPlacement extends CommandGroup {
 
 	public AutoGearPlacement() {
-		addSequential(new ResetTurret());
+		addSequential(new ResetTurret(true));
 		addParallel(new ShifterLow(false));
 		addSequential(new DriveStraightEnc(-13900));
     	addParallel(new WaitCommand(0.3));
 		addSequential(new GearRelease(true));
 		addSequential(new DriveStraightEnc(2157));
-		// TODO: Add mobility
 	}
-	
 }

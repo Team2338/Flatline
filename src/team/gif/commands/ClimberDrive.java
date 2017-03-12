@@ -26,8 +26,6 @@ public class ClimberDrive extends Command {
 		} else {
 			Robot.climber.drive(0);
 		}
-
-		// Robot.climber.drive(speed);
 	}
 
 	protected boolean isFinished() {

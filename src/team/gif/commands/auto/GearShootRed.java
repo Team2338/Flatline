@@ -12,7 +12,7 @@ public class GearShootRed extends CommandGroup {
 
     public GearShootRed() {
     	// TODO: Never tested!
-    	addSequential(new ResetTurret());
+    	addSequential(new ResetTurret(false));
     	addParallel(new ShifterLow(false));
     	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(-14100));

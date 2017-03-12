@@ -13,7 +13,6 @@ public class FeederDrive extends Command {
 	private double feederSpeed;
 	private double polyWhiskSpeed;
 	private boolean isAssisted;
-//	private boolean hitTolerance;
 	private double initTime = Timer.getFPGATimestamp();
 
 	public FeederDrive() {
@@ -56,13 +55,11 @@ public class FeederDrive extends Command {
 
 			if (isAssisted) {
 				if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
-//					hitTolerance = true;
 					Robot.feeder.driveFeeder(feederSpeed); // 0.5
 					Robot.feeder.drivePolyWhisk(polyWhiskSpeed); // speed
 				}
 			} else {
 				if (Robot.flywheel.isInTolerance()) {
-//					hitTolerance = true;
 					Robot.feeder.driveFeeder(feederSpeed); // 0.5
 					Robot.feeder.drivePolyWhisk(polyWhiskSpeed); // speed
 				}
@@ -86,7 +83,6 @@ public class FeederDrive extends Command {
 		Robot.feeder.setMode(TalonControlMode.PercentVbus);
 		Robot.feeder.driveFeeder(0);
 		Robot.feeder.drivePolyWhisk(0);
-//		hitTolerance = false;
 	}
 
 	protected void interrupted() {

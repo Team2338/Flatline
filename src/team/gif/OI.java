@@ -77,7 +77,6 @@ public class OI {
 		Scheduler.getInstance().removeAll();
 		Scheduler.getInstance().removeAllButtons();
 		
-		d_A.whenPressed(new ResetTurret());
 		d_leftTrigger.whileHeld(new ShiftOmni(true));
 		d_leftTrigger.whenReleased(new ShiftOmni(false));
 		d_rightTrigger.whileHeld(new ShifterLow(true));
@@ -104,7 +103,7 @@ public class OI {
 			a_leftStickX.whileHeld(new TurretManual());
 		}
 				
-		// TODO: Change rev setpoint map to d-pad, needs fixing
+		// TODO: Change rev setpoint map to d-pad, needs fixing (maybe put in teleopperiodic)
 //		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
 //			new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP);
 //		} else if (OI.auxController.getPOV() == 180 || OI.auxController.getPOV() == 225 || OI.auxController.getPOV() == 135) {

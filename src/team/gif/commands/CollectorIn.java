@@ -24,17 +24,6 @@ public class CollectorIn extends Command {
     	} else {
         	Robot.collector.retractCollector(!retract); // P: retract // C: !retract
     	}
-    	
-//    	if (retract) {
-//    		Robot.collector.retract(retract);
-//    		isFullyRetracted = true;
-//    	} else {
-//    		Robot.collector.retractCollector(false);
-//    		if(Timer.getFPGATimestamp() - initTime > 2) {
-//    			Robot.collector.retractHood(true);
-//    			isFullyRetracted = true;
-//    		}
-//    	}
     }
 
     protected void execute() {

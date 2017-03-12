@@ -10,35 +10,44 @@ import team.gif.Robot;
  */
 public class ResetTurret extends Command {
 
-    public ResetTurret() {
-        requires(Robot.turret);
-        setTimeout(2);
-    }
+	private boolean blue;
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    	Robot.turret.setMode(TalonControlMode.PercentVbus);
-    }
+	public ResetTurret(boolean blue) {
+		requires(Robot.turret);
+		this.blue = blue;
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	Robot.turret.setPosition(-0.3);
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+		Robot.turret.setMode(TalonControlMode.PercentVbus);
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-//      return isTimedOut();
-        return Robot.turret.isReverseLimitClosed();
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		if (blue) {
+			Robot.turret.setPosition(-0.3);
+		} else {
+			Robot.turret.setPosition(0.3);
+		}
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    	Robot.turret.setMode(TalonControlMode.Position);
-    	Robot.turret.resetEncoderPosition();
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		if (blue) {
+			return Robot.turret.isReverseLimitClosed();
+		} else {
+			return Robot.turret.isForwardLimitClosed();
+		}
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	// Called once after isFinished returns true
+	protected void end() {
+		Robot.turret.setMode(TalonControlMode.Position);
+		Robot.turret.resetEncoderPosition();
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+	}
 }
