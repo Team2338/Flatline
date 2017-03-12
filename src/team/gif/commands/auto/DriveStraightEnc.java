@@ -43,23 +43,38 @@ public class DriveStraightEnc extends Command {
 		distRightError = setpoint - Robot.drivetrain.getRightDist();
 //		distError = setpoint - Robot.drivetrain.getRightDist();
 		double angleError = angle - Robot.drivetrain.getAngle();
+		double left;
+		double right;
 
 		double distLeftOutput = distCalc.getOutput(distLeftError);
 		double distRightOutput = distCalc.getOutput(distRightError);
 //		double distOutput = distCalc.getOutput(distError);
 		double angleOutput = angleCalc.getOutput(angleError);
+		
+		SmartDashboard.putNumber("distLeftOutput", distLeftOutput);
+		SmartDashboard.putNumber("distRightOutput", distRightOutput);
 
-//    	if (distOutput > speedCap) {
-//    		Robot.drivetrain.drive(-(speedCap + angleOutput), -(speedCap - angleOutput));
-//    	} else if (distOutput < -speedCap) {
-//    		Robot.drivetrain.drive(-(-speedCap + distOutput), -(-speedCap - distOutput));
-//    	} else {
-//    		Robot.drivetrain.drive(-distOutput + angleOutput), (-distOutput - angleOutput));
-//    	}
+    	if (distLeftOutput > speedCap) {
+    		left = speedCap + angleOutput;
+    	} else if (distLeftOutput < -speedCap) {
+    		left = -(speedCap + distLeftOutput);
+    	} else {
+    		left = -distLeftOutput + angleOutput;
+    	}
+    	
+    	if (distRightOutput > speedCap) {
+    		right = speedCap - angleOutput;
+    	} else if (distLeftOutput < -speedCap) {
+    		right = -(speedCap + distRightOutput);
+    	} else {
+    		right = -distRightOutput - angleOutput;
+    	}
+    	
+    	Robot.drivetrain.drive(left, right);
 		
 		SmartDashboard.putNumber("Angle Error", angleError);
 
-		Robot.drivetrain.drive(-distLeftOutput + angleOutput, -distRightOutput - angleOutput);
+//		Robot.drivetrain.drive(-distLeftOutput + angleOutput, -distRightOutput - angleOutput);
 	}
 
 	protected boolean isFinished() {

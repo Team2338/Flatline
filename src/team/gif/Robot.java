@@ -11,9 +11,10 @@ import team.gif.commands.auto.AntiAuto;
 import team.gif.commands.auto.AutoGearPlacement;
 import team.gif.commands.auto.AutoTest;
 import team.gif.commands.auto.FarHopperShoot;
-import team.gif.commands.auto.FarHopperRed;
 import team.gif.commands.auto.GearShootBlue;
 import team.gif.commands.auto.GearShootRed;
+import team.gif.commands.auto.SideGearShootBlue;
+import team.gif.commands.auto.SideGearShootRed;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.commands.shooter.TurretManual;
 import team.gif.commands.shooter.TurretTurn;
@@ -48,17 +49,18 @@ public class Robot extends IterativeRobot {
 	private boolean isShifted;
 
 	public void robotInit() {
+		SmartDashboard.putBoolean("BlueAlliance", true);
 		isShifted = OI.a_leftBumper.get();
 		oi = new OI(isShifted);
+		
+//		TODO: Sort this section and add all autos
 
 		autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("AntiAuto", new AntiAuto());
         autoChooser.addObject("AutoTest", new AutoTest());
         autoChooser.addObject("GearPlacement", new AutoGearPlacement());
         autoChooser.addObject("GearShootBlue", new GearShootBlue());
-        autoChooser.addObject("GearShootRed", new GearShootRed());
-        autoChooser.addObject("FarHopperBlue", new FarHopperShoot());
-        autoChooser.addObject("FarHopperRed", new FarHopperRed());
+        autoChooser.addObject("FarHopper", new FarHopperShoot());
 		SmartDashboard.putData("AutoChooser", autoChooser);
 
 		turretPosChooser = new SendableChooser<Double>();
@@ -85,7 +87,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
 		
 		SmartDashboard.putBoolean("Squared Inputs", false);
-		SmartDashboard.putBoolean("BlueAlliance", true);
+
 	}
 
 	public void disabledInit() {
