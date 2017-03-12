@@ -100,31 +100,9 @@ public class Drivetrain extends Subsystem {
 		return pidgey.GetFusedHeading(fusionStatus);
 	}
 
-//	public double getRate() {
-//		return gyro.getRate();
-//	}
-
 	public void setMode(TalonControlMode mode) {
 		frontLeft.changeControlMode(mode);
 		frontRight.changeControlMode(mode);
-	}
-
-	public void compensateVoltage() {
-		//Ramp Rate
-		// FIXME: Down ramp rate still exists
-		// TODO: Optimize ramp rate
-//		if (Math.abs(OI.driverController.getRawAxis(1)) > 0.5) {
-//			frontLeft.setVoltageRampRate(12);
-//		} else if (Math.abs(OI.driverController.getRawAxis(1)) <= 0.5) {
-//			frontLeft.setVoltageRampRate(0);
-//		}
-//
-//		if (Math.abs(OI.driverController.getRawAxis(5)) > 0.5) {
-//			frontRight.setVoltageRampRate(12);
-//		} else if (Math.abs(OI.driverController.getRawAxis(5)) <= 0.5) {
-//			frontRight.setVoltageRampRate(0);
-//		}
-		
 	}
 
 	public double getLeftVoltage() {

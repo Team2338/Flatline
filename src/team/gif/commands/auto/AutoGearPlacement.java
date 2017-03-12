@@ -11,7 +11,7 @@ public class AutoGearPlacement extends CommandGroup {
 	public AutoGearPlacement() {
 		addSequential(new ResetTurret());
 		addParallel(new ShifterLow(false));
-		addSequential(new DriveStraightEnc(-14100));
+		addSequential(new DriveStraightEnc(-13900));
     	addParallel(new WaitCommand(0.3));
 		addSequential(new GearRelease(true));
 		addSequential(new DriveStraightEnc(2157));

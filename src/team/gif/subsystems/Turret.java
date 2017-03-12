@@ -15,14 +15,12 @@ import team.gif.commands.shooter.TurretManual;
 public class Turret extends Subsystem {
 
 	private final CANTalon turret = new CANTalon(RobotMap.TURRET);
-//	private int absolutePosition = turret.getPulseWidthPosition();
 
 	public Turret() {
 		super();
 		
 		turret.setStatusFrameRateMs(StatusFrameRate.Feedback, 10);
 		
-//		turret.setEncPosition(absolutePosition);
 		turret.enableBrakeMode(true);
 		turret.changeControlMode(TalonControlMode.Position);
 		turret.setPID(Globals.TURRET_P, Globals.TURRET_I, Globals.TURRET_D);

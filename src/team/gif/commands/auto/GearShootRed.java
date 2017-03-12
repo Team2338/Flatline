@@ -11,6 +11,7 @@ import team.gif.commands.shooter.RevFlywheel;
 public class GearShootRed extends CommandGroup {
 
     public GearShootRed() {
+    	// TODO: Never tested!
     	addSequential(new ResetTurret());
     	addParallel(new ShifterLow(false));
     	addParallel(new RevFlywheel());

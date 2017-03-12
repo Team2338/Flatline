@@ -2,6 +2,7 @@ package team.gif.commands;
 
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.OI;
@@ -18,6 +19,8 @@ public class ClimberDrive extends Command {
 	}
 
 	protected void execute() {
+		// TODO: ClimberJoy only works when going UP on joystick (is up pos/neg?)
+		SmartDashboard.putNumber("ClimberJoy", OI.auxController.getRawAxis(5)); // for debugging purposes
 		if (Math.abs(OI.auxController.getRawAxis(5)) > Globals.DEAD_ZONE) {
 			Robot.climber.drive(-OI.auxController.getRawAxis(5));
 		} else {

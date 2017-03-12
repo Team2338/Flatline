@@ -14,7 +14,7 @@ import team.gif.commands.shooter.ShooterStandby;
 
 public class Flywheel extends Subsystem {
 	
-	private final CANTalon flywheel2 = new CANTalon(RobotMap.FLYWHEEL_1);
+	private final CANTalon flywheel2 = new CANTalon(RobotMap.FLYWHEEL_1); // TODO: Switch flywheels back to original config
 	private final CANTalon flywheel = new CANTalon(RobotMap.FLYWHEEL_2);
 	private static final Compressor compressor = new Compressor();
 	private static double setpoint;
@@ -30,7 +30,7 @@ public class Flywheel extends Subsystem {
 		flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP);
 		flywheel.setF(Globals.FLYWHEEL_F_SP);
 		flywheel.setIZone(Globals.FLYWHEEL_I_BELOW);
-		flywheel.setFeedbackDevice(FeedbackDevice.QuadEncoder); // TODO: figure out unit conversion
+		flywheel.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		flywheel.configNominalOutputVoltage(0, -0);
 		flywheel.configPeakOutputVoltage(12, -12);
 		flywheel.setPosition(0);

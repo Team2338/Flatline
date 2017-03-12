@@ -14,6 +14,8 @@ import team.gif.commands.shooter.RevFlywheel;
 public class AutoTest extends CommandGroup {
 
     public AutoTest() {
+    	// TODO: Currently working on BLUE HOPPER SHOOT
+    	// TODO: Other autos: RED HOPPER SHOOT, BLUE SIDE GEAR SHOOT, RED SIDE GEAR SHOOT
     	addParallel(new ShifterLow(true));
     	addSequential(new ResetGyro());
     	addSequential(new ResetTurret());

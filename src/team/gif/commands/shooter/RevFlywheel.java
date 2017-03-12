@@ -1,13 +1,15 @@
 package team.gif.commands.shooter;
 
 import com.ctre.CANTalon.TalonControlMode;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.Robot;
 
 public class RevFlywheel extends Command {
 
-	private double setpoint = 0;
+	private double setpoint;
 //	private double assistedRPM;
 	// private boolean isAssisted;
 //	private boolean isStable = false;
@@ -25,6 +27,7 @@ public class RevFlywheel extends Command {
 	protected void initialize() {
 		Robot.flywheel.setMode(TalonControlMode.Speed);
 		setpoint = Robot.flywheel.getStandbySetpoint();
+		SmartDashboard.putNumber("Local Setpoint", setpoint); // for debugging purposes
 		
 		if (setpoint == Globals.FLYWHEEL_RPM_SP) {
 			Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
