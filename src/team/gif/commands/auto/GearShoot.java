@@ -1,5 +1,6 @@
 package team.gif.commands.auto;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.CommandGroup;
 import team.gif.commands.CollectorIn;
 import team.gif.commands.GearRelease;
@@ -11,13 +12,14 @@ import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
 
-public class GearShootBlue extends CommandGroup {
+public class GearShoot extends CommandGroup {
 
-    public GearShootBlue() {
+    public GearShoot() {
+    	boolean blue = SmartDashboard.getBoolean("BlueAlliance", true);
     	addParallel(new ShifterLow(true));
     	addSequential(new ResetGyro());
     	addSequential(new WaitCommand(0.4));
-    	addSequential(new ResetTurret(true));
+    	addSequential(new ResetTurret(blue));
     	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(-77.33));
     	addParallel(new CollectorIn(false));

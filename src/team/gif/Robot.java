@@ -8,16 +8,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import lib.gif.commands.Scheduler;
 import team.gif.commands.auto.AntiAuto;
-import team.gif.commands.auto.AutoGearPlacement;
-import team.gif.commands.auto.AutoTest;
 import team.gif.commands.auto.FarHopperShoot;
-import team.gif.commands.auto.GearShootBlue;
-import team.gif.commands.auto.GearShootRed;
-import team.gif.commands.auto.SideGearShootBlue;
-import team.gif.commands.auto.SideGearShootRed;
+import team.gif.commands.auto.GearShoot;
+import team.gif.commands.auto.SidePegShoot;
 import team.gif.commands.drivetrain.TankDrive;
-import team.gif.commands.shooter.TurretManual;
-import team.gif.commands.shooter.TurretTurn;
 import team.gif.subsystems.*;
 
 /**
@@ -49,7 +43,17 @@ public class Robot extends IterativeRobot {
 	private boolean isShifted;
 
 	public void robotInit() {
+		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
+		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
+		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
+		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
+		SmartDashboard.putNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM);
+		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
+		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
+		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
+		SmartDashboard.putBoolean("Squared Inputs", false);
 		SmartDashboard.putBoolean("BlueAlliance", true);
+		
 		isShifted = OI.a_leftBumper.get();
 		oi = new OI(isShifted);
 		
@@ -57,10 +61,9 @@ public class Robot extends IterativeRobot {
 
 		autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("AntiAuto", new AntiAuto());
-        autoChooser.addObject("AutoTest", new AutoTest());
-        autoChooser.addObject("GearPlacement", new AutoGearPlacement());
-        autoChooser.addObject("GearShootBlue", new GearShootBlue());
-        autoChooser.addObject("FarHopper", new FarHopperShoot());
+        autoChooser.addObject("GearShoot", new GearShoot());
+        autoChooser.addObject("FarHopperShoot", new FarHopperShoot());
+        autoChooser.addObject("SidePegShoot", new SidePegShoot());
 		SmartDashboard.putData("AutoChooser", autoChooser);
 
 		turretPosChooser = new SendableChooser<Double>();
@@ -75,19 +78,6 @@ public class Robot extends IterativeRobot {
 //		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_SP);
 //		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F_SP);
 //		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM_SP);
-		
-		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
-		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
-		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
-		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
-		SmartDashboard.putNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM);
-		
-		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
-		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
-		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
-		
-		SmartDashboard.putBoolean("Squared Inputs", false);
-
 	}
 
 	public void disabledInit() {

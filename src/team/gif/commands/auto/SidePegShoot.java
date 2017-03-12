@@ -12,9 +12,6 @@ import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
 
-/**
- *
- */
 public class SidePegShoot extends CommandGroup {
 
     public SidePegShoot() {
