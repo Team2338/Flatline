@@ -11,7 +11,7 @@ public class ManualShoot extends CommandGroup {
 		// TODO: Use IR sensor to determine when shooting finishes
 		// ALTERNATIVE: Use velocity data to count shots
 		addParallel(new RevFlywheel());
-		addParallel(new FeederDrive(false, 0.5, SmartDashboard.getNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM)));
+		addParallel(new FeederDrive(false, 1.0, SmartDashboard.getNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM)));
 	}
 
 }

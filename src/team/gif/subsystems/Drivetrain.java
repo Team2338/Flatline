@@ -99,7 +99,7 @@ public class Drivetrain extends Subsystem {
 		PigeonImu.FusionStatus fusionStatus = new PigeonImu.FusionStatus();
 		return pidgey.GetFusedHeading(fusionStatus);
 	}
-
+	
 	public void setMode(TalonControlMode mode) {
 		frontLeft.changeControlMode(mode);
 		frontRight.changeControlMode(mode);

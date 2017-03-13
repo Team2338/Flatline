@@ -43,36 +43,37 @@ public class DriveStraightEnc extends Command {
 		distRightError = setpoint - Robot.drivetrain.getRightDist();
 //		distError = setpoint - Robot.drivetrain.getRightDist();
 		double angleError = angle - Robot.drivetrain.getAngle();
-		double left;
-		double right;
 
 		double distLeftOutput = distCalc.getOutput(distLeftError);
 		double distRightOutput = distCalc.getOutput(distRightError);
 //		double distOutput = distCalc.getOutput(distError);
 		double angleOutput = angleCalc.getOutput(angleError);
 		
-		SmartDashboard.putNumber("distLeftOutput", distLeftOutput);
-		SmartDashboard.putNumber("distRightOutput", distRightOutput);
+		double left;
+		double right;
 
     	if (distLeftOutput > speedCap) {
-    		left = speedCap + angleOutput;
+    		left = -speedCap + angleOutput;
     	} else if (distLeftOutput < -speedCap) {
-    		left = -(speedCap + distLeftOutput);
+    		left = speedCap + angleOutput;
     	} else {
     		left = -distLeftOutput + angleOutput;
     	}
     	
     	if (distRightOutput > speedCap) {
-    		right = speedCap - angleOutput;
+    		right = -speedCap - angleOutput;
     	} else if (distLeftOutput < -speedCap) {
-    		right = -(speedCap + distRightOutput);
+    		right = speedCap - angleOutput;
     	} else {
     		right = -distRightOutput - angleOutput;
     	}
     	
     	Robot.drivetrain.drive(left, right);
 		
+    	//FIXME: Tune angle PID
 		SmartDashboard.putNumber("Angle Error", angleError);
+		SmartDashboard.putNumber("Left", left);
+		SmartDashboard.putNumber("Right", right);
 
 //		Robot.drivetrain.drive(-distLeftOutput + angleOutput, -distRightOutput - angleOutput);
 	}

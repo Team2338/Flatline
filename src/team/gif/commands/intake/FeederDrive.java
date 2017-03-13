@@ -16,11 +16,11 @@ public class FeederDrive extends Command {
 	private double initTime = Timer.getFPGATimestamp();
 
 	public FeederDrive() {
-		this(false, 0.9, Globals.POLYWHISK_FRPM);
+		this(false, 1.0, Globals.POLYWHISK_FRPM);
 	}
 
 	public FeederDrive(boolean isAssisted) {
-		this(isAssisted, 0.9, SmartDashboard.getNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM));
+		this(isAssisted, 1.0, SmartDashboard.getNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM));
 	}
 
 	public FeederDrive(double feederSpeed, double polyWhiskSpeed) {
