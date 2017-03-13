@@ -22,7 +22,7 @@ public class GearShootRed extends CommandGroup {
     	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(-77.33));
     	addParallel(new CollectorIn(false));
-    	addParallel(new GearRelease(true));
+    	addParallel(new GearRelease(false));
     	addSequential(new WaitCommand(1.5));
     	addSequential(new DriveStraightEnc(12));
     	addParallel(new CameraFollow());
