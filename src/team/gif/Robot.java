@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import lib.gif.commands.Scheduler;
 import team.gif.commands.auto.AntiAuto;
+import team.gif.commands.auto.AutoTest;
 import team.gif.commands.auto.FarHopperShoot;
 import team.gif.commands.auto.GearShoot;
 import team.gif.commands.auto.SidePegShoot;
@@ -61,15 +62,11 @@ public class Robot extends IterativeRobot {
 
 		autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("AntiAuto", new AntiAuto());
+        autoChooser.addObject("AutoTest", new AutoTest());
         autoChooser.addObject("GearShoot", new GearShoot());
         autoChooser.addObject("FarHopperShoot", new FarHopperShoot());
         autoChooser.addObject("SidePegShoot", new SidePegShoot());
 		SmartDashboard.putData("AutoChooser", autoChooser);
-
-		turretPosChooser = new SendableChooser<Double>();
-		turretPosChooser.addDefault("Blue", new Double(Globals.TURRET_BLUEPOS));
-		turretPosChooser.addObject("Red", new Double(Globals.TURRET_REDPOS));
-		SmartDashboard.putData("Turret position chooser", turretPosChooser);
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
 
