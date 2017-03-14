@@ -18,10 +18,12 @@ public class AutoTest extends CommandGroup {
     	// TODO: Currently working on BLUE HOPPER SHOOT
     	// TODO: Other autos: RED HOPPER SHOOT, BLUE SIDE GEAR SHOOT, RED SIDE GEAR SHOOT
     	addParallel(new ShifterLow(true));
+    	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
     	addSequential(new ResetTurret(true));
 //    	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(48));
+    	addSequential(new GyroTurn(90));
 //    	addParallel(new CollectorIn(false));
 //    	addParallel(new GearRelease(false));
 //    	addSequential(new WaitCommand(1.2));

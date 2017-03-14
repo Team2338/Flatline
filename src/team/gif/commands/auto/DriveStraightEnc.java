@@ -29,7 +29,7 @@ public class DriveStraightEnc extends Command {
 		this.speedCap = Math.abs(speedCap);
 		
 		distCalc = new PIDCalculator(Globals.DRIVETRAIN_P, Globals.DRIVETRAIN_I, Globals.DRIVETRAIN_D);
-		angleCalc = new PIDCalculator(Globals.DRIVE_ANGLE_P, Globals.DRIVE_ANGLE_I, Globals.DRIVE_ANGLE_D);
+		angleCalc = new PIDCalculator(Globals.DRIVE_STRAIGHT_ANGLE_P, 0, 0);
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
 	}
 

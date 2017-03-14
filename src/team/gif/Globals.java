@@ -8,15 +8,16 @@ public class Globals {
 	
 //	Drivetrain
 	public static final double DEAD_ZONE				= 0.1;
-	public static final double DRIVETRAIN_P				= 0.00035;
+	public static final double DRIVETRAIN_P				= 0.0003;
 	public static final double DRIVETRAIN_I				= 0;
 	public static final double DRIVETRAIN_D 			= 0;
+	public static final double DRIVE_STRAIGHT_ANGLE_P	= 0.0006;
 	public static final double DRIVE_ANGLE_P			= 0.02;
-	public static final double DRIVE_ANGLE_I			= 0;
+	public static final double DRIVE_ANGLE_I			= 0.001;
 	public static final double DRIVE_ANGLE_D			= 0;
-	public static final double DRIVE_ANGLE_IZONE		= 0;
+	public static final double DRIVE_ANGLE_IZONE		= 3.0;
 	public static final double DRIVE_DIST_TOLERANCE 	= 200; // Ticks
-	public static final double DRIVE_ANGLE_TOLERANCE	= 0.5; // Degrees
+	public static final double DRIVE_ANGLE_TOLERANCE	= 3; // Degrees
 	public static final double TICKS_PER_INCH 			= (512.0*3.0*(50.0/34.0))/(4.0*Math.PI);
 	
 //	Shooter
@@ -29,7 +30,6 @@ public class Globals {
 	public static final double FLYWHEEL_I_FH 			= 0.00001;
 	public static final double FLYWHEEL_D_FH 			= 0.2;
 	public static final double FLYWHEEL_F_FH			= 0.024;
-//	public static final int FLYWHEEL_I_ZONE 			= 1200;  //
 	public static final int FLYWHEEL_I_ABOVE 			= 2000; // 2000
 	public static final int FLYWHEEL_I_BELOW 			= 1750; // 1750
 	public static final double FLYWHEEL_RPM_SP			= 25800; // Default value: 25800 |  Straight peg: 25800 | Far hopper: 23500

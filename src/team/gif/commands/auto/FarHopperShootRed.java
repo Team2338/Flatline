@@ -12,18 +12,17 @@ import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
 
-public class FarHopperShoot extends CommandGroup {
+public class FarHopperShootRed extends CommandGroup {
 
-    public FarHopperShoot() {
-    	boolean blue = SmartDashboard.getBoolean("BlueAlliance", true);
+    public FarHopperShootRed() {
     	addParallel(new ShifterLow(true));
     	addSequential(new ResetGyro());
     	addSequential(new WaitCommand(0.4));
-    	addSequential(new ResetTurret(blue));
+    	addSequential(new ResetTurret(true));
     	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(130.625));
     	addParallel(new CollectorIn(false));
-    	addSequential(new GyroTurn(blue ? 90 : -90));
+    	addSequential(new GyroTurn(-90));
     	addSequential(new DriveStraightEnc(29.25));
     	addParallel(new CameraFollow());
     	addParallel(new FeederDrive(true));

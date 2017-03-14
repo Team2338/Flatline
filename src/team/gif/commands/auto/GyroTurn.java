@@ -2,6 +2,7 @@ package team.gif.commands.auto;
 
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.PIDCalculator;
 import lib.gif.commands.Command;
 import team.gif.Globals;
@@ -29,6 +30,7 @@ public class GyroTurn extends Command {
 		angleError = angle - Robot.drivetrain.getAngle();
 		double angleOutput = angleCalc.getOutput(angleError);
 
+		SmartDashboard.putNumber("GyroTurn Angle Error", angleError);
 		Robot.drivetrain.drive(angleOutput, -angleOutput);
 	}
 

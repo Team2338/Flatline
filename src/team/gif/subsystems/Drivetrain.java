@@ -94,8 +94,8 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public double getAngle() {
-		double [] xyz_dps = new double [3];
-		pidgey.GetRawGyro(xyz_dps);
+//		double [] xyz_dps = new double [3];
+//		pidgey.GetRawGyro(xyz_dps);
 		PigeonImu.FusionStatus fusionStatus = new PigeonImu.FusionStatus();
 		return pidgey.GetFusedHeading(fusionStatus);
 	}

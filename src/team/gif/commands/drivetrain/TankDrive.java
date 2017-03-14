@@ -73,23 +73,6 @@ public class TankDrive extends Command {
 		
 		SmartDashboard.putNumber("LeftStick", leftStick);
 		SmartDashboard.putNumber("Left", left);
-
-		// if (Robot.shifter.isHigh()) {
-		// Robot.drivetrain.compensateVoltage();
-		// }
-		// if (Math.abs(OI.leftStick.getY()) > Globals.DEAD_ZONE) {
-		// left = OI.leftStick.getY();
-		// } else {
-		// left = 0;
-		// }
-		//
-		// if(Math.abs(OI.rightStick.getY()) > Globals.DEAD_ZONE) {
-		// right = OI.rightStick.getY();
-		// } else {
-		// right = 0;
-		// }
-		//
-		// Robot.drivetrain.drive(left, right);
 	}
 
 	protected boolean isFinished() {

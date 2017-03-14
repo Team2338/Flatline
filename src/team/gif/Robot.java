@@ -9,9 +9,12 @@ import lib.gif.commands.Command;
 import lib.gif.commands.Scheduler;
 import team.gif.commands.auto.AntiAuto;
 import team.gif.commands.auto.AutoTest;
-import team.gif.commands.auto.FarHopperShoot;
-import team.gif.commands.auto.GearShoot;
-import team.gif.commands.auto.SidePegShoot;
+import team.gif.commands.auto.FarHopperShootBlue;
+import team.gif.commands.auto.FarHopperShootRed;
+import team.gif.commands.auto.GearShootBlue;
+import team.gif.commands.auto.GearShootRed;
+import team.gif.commands.auto.SideGearShootBlue;
+import team.gif.commands.auto.SideGearShootRed;
 import team.gif.commands.drivetrain.TankDrive;
 import team.gif.subsystems.*;
 
@@ -53,7 +56,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
 		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
 		SmartDashboard.putBoolean("Squared Inputs", false);
-		SmartDashboard.putBoolean("BlueAlliance", true);
 		
 		isShifted = OI.a_leftBumper.get();
 		oi = new OI(isShifted);
@@ -63,9 +65,12 @@ public class Robot extends IterativeRobot {
 		autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("AntiAuto", new AntiAuto());
         autoChooser.addObject("AutoTest", new AutoTest());
-        autoChooser.addObject("GearShoot", new GearShoot());
-        autoChooser.addObject("FarHopperShoot", new FarHopperShoot());
-        autoChooser.addObject("SidePegShoot", new SidePegShoot());
+        autoChooser.addObject("GearShootBlue", new GearShootBlue());
+        autoChooser.addObject("GearShootRed", new GearShootRed());
+        autoChooser.addObject("FarHopperShootBlue", new FarHopperShootBlue());
+        autoChooser.addObject("FarHopperShootRed", new FarHopperShootRed());
+        autoChooser.addObject("SideGearShootBlue", new SideGearShootBlue());
+        autoChooser.addObject("SideGearShootRed", new SideGearShootRed());
 		SmartDashboard.putData("AutoChooser", autoChooser);
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");

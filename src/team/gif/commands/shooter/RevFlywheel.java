@@ -27,7 +27,6 @@ public class RevFlywheel extends Command {
 	protected void initialize() {
 		Robot.flywheel.setMode(TalonControlMode.Speed);
 		setpoint = Robot.flywheel.getStandbySetpoint();
-		SmartDashboard.putNumber("Local Setpoint", setpoint); // for debugging purposes
 		
 		if (setpoint == Globals.FLYWHEEL_RPM_SP) {
 			Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
