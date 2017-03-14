@@ -47,11 +47,6 @@ public class Robot extends IterativeRobot {
 	private boolean isShifted;
 
 	public void robotInit() {
-		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
-		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
-		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
-		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
-		SmartDashboard.putNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM);
 		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
 		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
 		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
@@ -75,6 +70,11 @@ public class Robot extends IterativeRobot {
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
 
+//		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
+//		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
+//		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
+//		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
+//		SmartDashboard.putNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM);
 //		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_SP);
 //		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_SP);
 //		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_SP);

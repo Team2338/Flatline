@@ -7,6 +7,6 @@ public class Eject extends CommandGroup {
 
 	public Eject() {
 		addParallel(new CollectorDrive(-1));
-		addParallel(new FeederDrive(false, -0.4, Globals.POLYWHISK_RRPM));
+		addParallel(new FeederDrive(false, false, -0.4, Globals.POLYWHISK_RRPM));
 	}	
 }
