@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot {
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
 	public static final Vision vision = new Vision();
-	public static final RobotTracker robotTracker = new RobotTracker();
+//	public static final RobotTracker robotTracker = new RobotTracker();
 	public static OI oi;
 
 	public static NetworkTable grip;
@@ -55,8 +55,6 @@ public class Robot extends IterativeRobot {
 		isShifted = OI.a_leftBumper.get();
 		oi = new OI(isShifted);
 		
-//		TODO: Sort this section and add all autos
-
 		autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("AntiAuto", new AntiAuto());
         autoChooser.addObject("AutoTest", new AutoTest());
@@ -139,7 +137,7 @@ public class Robot extends IterativeRobot {
 		Robot.vision.update();
 		Robot.climber.update();
 		Robot.shifter.update();
-		Robot.robotTracker.update();
+//		Robot.robotTracker.update();
 
     	if (OI.a_leftBumper.get() != isShifted) {
     		isShifted = !isShifted;

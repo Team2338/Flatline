@@ -13,9 +13,8 @@ public class FeederDrive extends Command {
 	private double feederSpeed;
 	private double polyWhiskSpeed;
 	private boolean isAssisted;
-	private boolean isAuto;
+	private boolean isSpew;
 	private double flappyTime = Timer.getFPGATimestamp();
-	private double autoTime = Timer.getFPGATimestamp();
 
 	public FeederDrive() {
 		this(false, false, 1.0, Globals.POLYWHISK_FRPM);
@@ -29,9 +28,9 @@ public class FeederDrive extends Command {
 		this(false, false, feederSpeed, polyWhiskSpeed);
 	}
 
-	public FeederDrive(boolean isAuto, boolean isAssisted, double feederSpeed, double polyWhiskSpeed) {
+	public FeederDrive(boolean isSpew, boolean isAssisted, double feederSpeed, double polyWhiskSpeed) {
 		requires(Robot.feeder);
-		this.isAuto = isAuto;
+		this.isSpew = isSpew;
 		this.isAssisted = isAssisted;
 		this.feederSpeed = feederSpeed;
 		this.polyWhiskSpeed = polyWhiskSpeed;
@@ -46,21 +45,12 @@ public class FeederDrive extends Command {
 	}
 
 	protected void execute() {
-		if (isAuto) {
+		if (isSpew) {
 			flapFlappy();
-			if (Timer.getFPGATimestamp() - autoTime > 0.5) {
-				if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
-					Robot.feeder.driveFeeder(feederSpeed); // 0.5
-					Robot.feeder.drivePolyWhisk(polyWhiskSpeed); // speed
-				}
-				autoTime = Timer.getFPGATimestamp();
-			} else {
-				Robot.feeder.driveFeeder(0); // 0.5
-				Robot.feeder.drivePolyWhisk(0); // speed
-			}
+			Robot.feeder.driveFeeder(feederSpeed);
+			Robot.feeder.drivePolyWhisk(polyWhiskSpeed);
 		} else {
 			if (feederSpeed > 0) {
-				// FIXME: Make servo no longer scream for mercy
 				flapFlappy();
 
 				if (isAssisted) {
@@ -101,6 +91,7 @@ public class FeederDrive extends Command {
 	}
 
 	private void flapFlappy() {
+		// FIXME: Make servo no longer scream for mercy
 		if (Robot.feeder.getServoPosition() <= 0.08 && Timer.getFPGATimestamp() - flappyTime > 0.45) {
 			Robot.feeder.setServoPosition(0.5);
 			flappyTime = Timer.getFPGATimestamp();

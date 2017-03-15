@@ -19,15 +19,15 @@ public class DriveStraightEnc extends Command {
 	private PIDCalculator distCalc;
 	private PIDCalculator angleCalc;
 
-	public DriveStraightEnc(double inches) {
-		this(inches, 0.7);
+	public DriveStraightEnc(double inches, double timeout) {
+		this(inches, 0.7, timeout);
 	}
 	
-	public DriveStraightEnc(double inches, double speedCap) {
+	public DriveStraightEnc(double inches, double speedCap, double timeout) {
+		super(timeout);
 		requires(Robot.drivetrain);
 		setpoint = inches * Globals.TICKS_PER_INCH;
 		this.speedCap = Math.abs(speedCap);
-		
 		distCalc = new PIDCalculator(Globals.DRIVETRAIN_P, Globals.DRIVETRAIN_I, Globals.DRIVETRAIN_D);
 		angleCalc = new PIDCalculator(Globals.DRIVE_STRAIGHT_ANGLE_P, 0, 0);
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
@@ -79,7 +79,7 @@ public class DriveStraightEnc extends Command {
 	}
 
 	protected boolean isFinished() {
-		return (Math.abs(distLeftError) <= Globals.DRIVE_DIST_TOLERANCE) && Math.abs(distRightError) <= Globals.DRIVE_DIST_TOLERANCE;
+		return ((Math.abs(distLeftError) <= Globals.DRIVE_DIST_TOLERANCE) && Math.abs(distRightError) <= Globals.DRIVE_DIST_TOLERANCE) || isTimedOut();
 //		return (Math.abs(distError) <= Globals.DRIVE_DIST_TOLERANCE);
 	}
 

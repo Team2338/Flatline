@@ -21,13 +21,13 @@ public class SideGearShootBlue extends CommandGroup {
     	addSequential(new WaitCommand(0.4));
     	addSequential(new ResetTurret(true));
     	addParallel(new RevFlywheel());
-        addSequential(new DriveStraightEnc(-72.477));
+        addSequential(new DriveStraightEnc(-72.477, 7));
         addSequential(new GyroTurn(-60));
-        addSequential(new DriveStraightEnc(-69));
+        addSequential(new DriveStraightEnc(-69, 7));
         addParallel(new CollectorIn(false));
     	addParallel(new GearRelease(false));
     	addSequential(new WaitCommand(1.2));
-    	addSequential(new DriveStraightEnc(12));
+    	addSequential(new DriveStraightEnc(12, 3));
     	addParallel(new CameraFollow());
     	addParallel(new FeederDrive(true));
     }

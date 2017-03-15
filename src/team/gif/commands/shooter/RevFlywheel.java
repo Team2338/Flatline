@@ -10,6 +10,7 @@ import team.gif.Robot;
 public class RevFlywheel extends Command {
 
 	private double setpoint;
+	private boolean isSpew;
 //	private double assistedRPM;
 	// private boolean isAssisted;
 //	private boolean isStable = false;
@@ -17,23 +18,34 @@ public class RevFlywheel extends Command {
 	// public RevFlywheel() {
 	// this(false);
 	// }
-
+	
 	public RevFlywheel() {
+		this(false);
+	}
+
+	public RevFlywheel(boolean isSpew) {
 		requires(Robot.flywheel);
+		this.isSpew = isSpew;
 //		setpoint = SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM);
 		// this.isAssisted = isAssisted;
 	}
 
 	protected void initialize() {
 		Robot.flywheel.setMode(TalonControlMode.Speed);
-		setpoint = Robot.flywheel.getStandbySetpoint();
 		
-		if (setpoint == Globals.FLYWHEEL_RPM_SP) {
-			Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
-					Globals.FLYWHEEL_F_SP);
-		} else if (setpoint == Globals.FLYWHEEL_RPM_FH) {
-			Robot.flywheel.setPID(Globals.FLYWHEEL_P_FH, Globals.FLYWHEEL_I_FH, Globals.FLYWHEEL_D_FH,
-					Globals.FLYWHEEL_F_FH);
+		if (isSpew) {
+			setpoint = Globals.FLYWHEEL_RPM_EJECT;
+			// PID doesn't matter in this case since we're just spewing balls out
+		} else {
+			setpoint = Robot.flywheel.getStandbySetpoint();
+			
+			if (setpoint == Globals.FLYWHEEL_RPM_SP) {
+				Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
+						Globals.FLYWHEEL_F_SP);
+			} else if (setpoint == Globals.FLYWHEEL_RPM_FH) {
+				Robot.flywheel.setPID(Globals.FLYWHEEL_P_FH, Globals.FLYWHEEL_I_FH, Globals.FLYWHEEL_D_FH,
+						Globals.FLYWHEEL_F_FH);
+			}
 		}
 		
 //		 Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",

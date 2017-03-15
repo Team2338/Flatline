@@ -21,6 +21,7 @@ import team.gif.commands.shooter.ChangeRevSetpoint;
 import team.gif.commands.shooter.ManualShoot;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
+import team.gif.commands.shooter.SpewOut;
 import team.gif.commands.shooter.TurretManual;
 import team.gif.commands.shooter.TurretTurn;
 
@@ -93,7 +94,7 @@ public class OI {
 			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH));
 			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP));
 //			a_B.whenPressed(new TurretTurn(Globals.TURRET_BLUEPOS));
-			a_Y.whileHeld(new CameraFollow());
+			a_Y.whileHeld(new SpewOut());
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new RetractCollector());
 			a_start.whenPressed(new CollectorIn(false));
