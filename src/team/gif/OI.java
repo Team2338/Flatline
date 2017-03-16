@@ -91,8 +91,8 @@ public class OI {
 		} else {
 			a_A.whileHeld(new GearRelease(false));
 			a_A.whenReleased(new GearRelease(true));
-			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH));
-			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP));
+			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_CENTER_X_FH));
+			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_CENTER_X_SP));
 //			a_B.whenPressed(new TurretTurn(Globals.TURRET_BLUEPOS));
 			a_Y.whileHeld(new SpewOut());
 			a_rightBumper.whileHeld(new CollectorDrive());

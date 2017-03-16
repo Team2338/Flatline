@@ -25,7 +25,7 @@ public class GearShootBlue extends CommandGroup {
     	addParallel(new CollectorIn(false));
     	addParallel(new GearRelease(false));
     	addSequential(new WaitCommand(1.5));
-    	addSequential(new DriveStraightEnc(12, 3));
+    	addSequential(new DriveStraightEnc(12, 2));
     	addParallel(new CameraFollow());
     	addParallel(new FeederDrive(true));
     }

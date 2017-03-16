@@ -18,18 +18,29 @@ public class Vision extends Subsystem {
 	private double xDegreeConstant;
 	private double yDegreeConstant;
 	private double halfVertFOV;
+	private static double cameraCenterX;
 
 	public Vision() {
 		super();
-		xDegreeConstant = Globals.CAMERA_CENTER_X / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2));
+		cameraCenterX = Globals.CAMERA_CENTER_X_SP;
+		xDegreeConstant = cameraCenterX / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2));
 		yDegreeConstant = Globals.CAMERA_CENTER_Y / Math.tan(Math.toRadians(Globals.CAMERA_VFOV / 2));
 		halfVertFOV = Globals.CAMERA_VFOV / 2;
+	}
+	
+	public void setCenterX(double cameraCenterX) {
+		this.cameraCenterX = cameraCenterX;
+		xDegreeConstant = cameraCenterX / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2));
+	}
+	
+	public double getCenterX() {
+		return cameraCenterX;
 	}
 
 	public double getXPixelError() {
 		try {
 			if (centerX.length > 0)
-				xPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
+				xPixelError = cameraCenterX - centerX[centerX.length - 1];
 		} catch (ArrayIndexOutOfBoundsException e) {
 		}
 		return xPixelError;
@@ -76,6 +87,7 @@ public class Vision extends Subsystem {
 		} catch (NullPointerException e) {
 		}
 
+		SmartDashboard.putNumber("CenterX", getCenterX());
 		SmartDashboard.putNumber("X Degree Error", getXDegreeError());
 		SmartDashboard.putNumber("X Pixel Error", getXPixelError());
 		SmartDashboard.putNumber("Y Pixel Error", getYPixelError());

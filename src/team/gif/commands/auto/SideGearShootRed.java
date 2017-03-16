@@ -22,6 +22,7 @@ public class SideGearShootRed extends CommandGroup {
     	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
         addSequential(new DriveStraightEnc(-72.477, 7));
+    	addParallel(new ResetTurret(true, 2.5));
         addSequential(new GyroTurn(60));
         addSequential(new DriveStraightEnc(-69, 7));
         addParallel(new CollectorIn(false));

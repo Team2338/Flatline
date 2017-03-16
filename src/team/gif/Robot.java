@@ -57,7 +57,7 @@ public class Robot extends IterativeRobot {
 		
 		autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("AntiAuto", new AntiAuto());
-        autoChooser.addObject("AutoTest", new AutoTest());
+//        autoChooser.addObject("AutoTest", new AutoTest());
         autoChooser.addObject("GearShootBlue", new GearShootBlue());
         autoChooser.addObject("GearShootRed", new GearShootRed());
         autoChooser.addObject("FarHopperShootBlue", new FarHopperShootBlue());

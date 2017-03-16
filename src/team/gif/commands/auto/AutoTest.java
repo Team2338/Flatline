@@ -15,8 +15,7 @@ import team.gif.commands.shooter.RevFlywheel;
 public class AutoTest extends CommandGroup {
 
     public AutoTest() {
-    	// TODO: Currently working on BLUE HOPPER SHOOT
-    	// TODO: Other autos: RED HOPPER SHOOT, BLUE SIDE GEAR SHOOT, RED SIDE GEAR SHOOT
+    	// This class is ONLY used for TESTING autonomous code, not for competition use.
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
