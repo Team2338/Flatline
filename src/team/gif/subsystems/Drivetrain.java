@@ -69,7 +69,7 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public double getLeftDist() {
-		return -frontLeft.getPosition(); // P: -frontLeft C: frontLeft
+		return frontLeft.getPosition(); // P: -frontLeft C: frontLeft
 	}
 
 	public double getRightDist() {

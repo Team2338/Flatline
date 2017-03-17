@@ -12,16 +12,16 @@ public class Globals {
 	public static final double DRIVETRAIN_I				= 0;
 	public static final double DRIVETRAIN_D 			= 0;
 	public static final double DRIVE_STRAIGHT_ANGLE_P	= 0.0006;
-	public static final double DRIVE_ANGLE_P			= 0.02;
+	public static final double DRIVE_ANGLE_P			= 0.018;
 	public static final double DRIVE_ANGLE_I			= 0.001;
 	public static final double DRIVE_ANGLE_D			= 0;
 	public static final double DRIVE_ANGLE_IZONE		= 3.0;
-	public static final double DRIVE_DIST_TOLERANCE 	= 200; // Ticks
+	public static final double DRIVE_DIST_TOLERANCE 	= 1000; // Ticks
 	public static final double DRIVE_ANGLE_TOLERANCE	= 3; // Degrees
 	public static final double TICKS_PER_INCH 			= (512.0*3.0*(50.0/34.0))/(4.0*Math.PI);
 	
 //	Shooter
-	// SP: Straight Peg | FH: Far Hopper
+	// SP: Straight Peg | FH: Far Hopper | SIP = Side Peg
 	public static final double FLYWHEEL_P_SP			= 0.04;
 	public static final double FLYWHEEL_I_SP 			= 0.0001;
 	public static final double FLYWHEEL_D_SP 			= 0.6;
@@ -30,10 +30,15 @@ public class Globals {
 	public static final double FLYWHEEL_I_FH 			= 0.00001;
 	public static final double FLYWHEEL_D_FH 			= 0.2;
 	public static final double FLYWHEEL_F_FH			= 0.024;
+//	public static final double FLYWHEEL_P_SIP			= 0;
+//	public static final double FLYWHEEL_I_SIP			= 0;
+//	public static final double FLYWHEEL_D_SIP			= 0;
+//	public static final double FLYWHEEL_F_SIP			= 0;
 	public static final int FLYWHEEL_I_ABOVE 			= 2000; // 2000
 	public static final int FLYWHEEL_I_BELOW 			= 1750; // 1750
 	public static final double FLYWHEEL_RPM_SP			= 25900; // Default value: 25800 |  Straight peg: 25800 | Far hopper: 23500
 	public static final double FLYWHEEL_RPM_FH			= 24100;
+	public static final double FLYWHEEL_RPM_SIP			= 0;
 	public static final double FLYWHEEL_RPM_EJECT		= 12000; // for spewing balls out
 	public static final double RPM_PER_INCH				= 42; // based on empirical data
 	public static final double RPM_MULTIPLIER 			= 4096d/600d; // QuadEncoder Ticks Per Rev / Milliseconds

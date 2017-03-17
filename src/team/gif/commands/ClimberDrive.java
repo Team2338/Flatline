@@ -19,8 +19,7 @@ public class ClimberDrive extends Command {
 	}
 
 	protected void execute() {
-		// TODO: ClimberJoy only works when going UP on joystick (is up pos/neg?)
-		SmartDashboard.putNumber("ClimberJoy", OI.auxController.getRawAxis(5)); // for debugging purposes
+		// FIXME: Make going down on joystick NOT work
 		if (Math.abs(OI.auxController.getRawAxis(5)) > Globals.DEAD_ZONE) {
 			Robot.climber.drive(-OI.auxController.getRawAxis(5));
 		} else {

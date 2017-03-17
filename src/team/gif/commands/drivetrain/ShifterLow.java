@@ -21,7 +21,7 @@ public class ShifterLow extends Command {
 //		initTime = Timer.getFPGATimestamp();
 //		isShifted = false;
 		
-		Robot.shifter.shift(!isLow);
+		Robot.shifter.shift(isLow);
 	}
 
 	protected void execute() {

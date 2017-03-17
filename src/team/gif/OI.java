@@ -84,6 +84,7 @@ public class OI {
 		d_rightTrigger.whenReleased(new ShifterLow(false));
 		
 		if (isShifted) { // Shift to second set of commands
+//		 a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SIP, Globals.CAMERA_CENTER_X));
 		 a_rightBumper.whileHeld(new Eject());
 		 a_select.whenPressed(new CollectorHoodIn(false));
 		 a_start.whenPressed(new CollectorHoodIn(true));

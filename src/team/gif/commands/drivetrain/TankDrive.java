@@ -42,7 +42,7 @@ public class TankDrive extends Command {
 			right = right * Math.abs(right);
 		}
 
-		if (Robot.shifter.isHigh()) {
+		if (!Robot.shifter.isHigh()) {
 			if (left > 0 && leftLast < 0 || left < 0 && leftLast > 0) {
 				left = 0;
 			} else if (left > 0) { //Forward Left
@@ -70,9 +70,6 @@ public class TankDrive extends Command {
 
 		leftLast = left;
 		rightLast = right;
-		
-		SmartDashboard.putNumber("LeftStick", leftStick);
-		SmartDashboard.putNumber("Left", left);
 	}
 
 	protected boolean isFinished() {

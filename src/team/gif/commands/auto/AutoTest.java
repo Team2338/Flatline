@@ -21,8 +21,8 @@ public class AutoTest extends CommandGroup {
     	addSequential(new ResetGyro());
     	addSequential(new ResetTurret(true));
 //    	addParallel(new RevFlywheel());
-    	addSequential(new DriveStraightEnc(48, 6));
-    	addSequential(new GyroTurn(90));
+    	addSequential(new DriveStraightEnc(-48, 5));
+//    	addSequential(new GyroTurn(90));
 //    	addParallel(new CollectorIn(false));
 //    	addParallel(new GearRelease(false));
 //    	addSequential(new WaitCommand(1.2));
