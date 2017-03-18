@@ -13,7 +13,7 @@ public class ResetTurret extends Command {
 	private boolean blue;
 	
 	public ResetTurret(boolean blue) {
-		this(blue, 0);
+		this(blue, 60);
 	}
 
 	public ResetTurret(boolean blue, double timeout) {

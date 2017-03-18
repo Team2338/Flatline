@@ -20,7 +20,7 @@ public class DriveStraightEnc extends Command {
 	private PIDCalculator angleCalc;
 
 	public DriveStraightEnc(double inches, double timeout) {
-		this(inches, 0.7, timeout);
+		this(inches, 0.45, timeout);
 	}
 	
 	public DriveStraightEnc(double inches, double speedCap, double timeout) {

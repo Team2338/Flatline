@@ -12,16 +12,17 @@ import team.gif.commands.shooter.CameraFollow;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
 
+// This class is ONLY used for TESTING autonomous code, not for competition use.
+
 public class AutoTest extends CommandGroup {
 
     public AutoTest() {
-    	// This class is ONLY used for TESTING autonomous code, not for competition use.
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
     	addSequential(new ResetTurret(true));
 //    	addParallel(new RevFlywheel());
-    	addSequential(new DriveStraightEnc(-48, 5));
+    	addSequential(new DriveStraightEnc(-130.5, 6.5));
 //    	addSequential(new GyroTurn(90));
 //    	addParallel(new CollectorIn(false));
 //    	addParallel(new GearRelease(false));

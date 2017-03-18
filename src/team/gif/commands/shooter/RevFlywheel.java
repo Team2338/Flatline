@@ -47,11 +47,10 @@ public class RevFlywheel extends Command {
 			} else if (setpoint == Globals.FLYWHEEL_RPM_FH) {
 				Robot.flywheel.setPID(Globals.FLYWHEEL_P_FH, Globals.FLYWHEEL_I_FH, Globals.FLYWHEEL_D_FH,
 						Globals.FLYWHEEL_F_FH);
+			} else if (setpoint == Globals.FLYWHEEL_RPM_SIP) {
+				Robot.flywheel.setPID(Globals.FLYWHEEL_P_SIP, Globals.FLYWHEEL_I_SIP, Globals.FLYWHEEL_D_SIP,
+						Globals.FLYWHEEL_F_SIP);
 			}
-//			else if (setpoint == Globals.FLYWHEEL_RPM_SIP) {
-//				Robot.flywheel.setPID(Globals.FLYWHEEL_P_SIP, Globals.FLYWHEEL_I_SIP, Globals.FLYWHEEL_D_SIP,
-//						Globals.FLYWHEEL_F_SIP);
-//			}
 		}
 
 		// Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",

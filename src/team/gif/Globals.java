@@ -30,15 +30,15 @@ public class Globals {
 	public static final double FLYWHEEL_I_FH 			= 0.00001;
 	public static final double FLYWHEEL_D_FH 			= 0.2;
 	public static final double FLYWHEEL_F_FH			= 0.024;
-//	public static final double FLYWHEEL_P_SIP			= 0;
-//	public static final double FLYWHEEL_I_SIP			= 0;
-//	public static final double FLYWHEEL_D_SIP			= 0;
-//	public static final double FLYWHEEL_F_SIP			= 0;
+	public static final double FLYWHEEL_P_SIP			= 0.04;
+	public static final double FLYWHEEL_I_SIP			= 0.0001;
+	public static final double FLYWHEEL_D_SIP			= 0.6;
+	public static final double FLYWHEEL_F_SIP			= 0.025;
 	public static final int FLYWHEEL_I_ABOVE 			= 2000; // 2000
 	public static final int FLYWHEEL_I_BELOW 			= 1750; // 1750
-	public static final double FLYWHEEL_RPM_SP			= 25900; // Default value: 25800 |  Straight peg: 25800 | Far hopper: 23500
+	public static final double FLYWHEEL_RPM_SP			= 25600; // Default value: 25800 |  Straight peg: 25800 | Far hopper: 23500
 	public static final double FLYWHEEL_RPM_FH			= 24100;
-	public static final double FLYWHEEL_RPM_SIP			= 0;
+	public static final double FLYWHEEL_RPM_SIP			= 25500;
 	public static final double FLYWHEEL_RPM_EJECT		= 12000; // for spewing balls out
 	public static final double RPM_PER_INCH				= 42; // based on empirical data
 	public static final double RPM_MULTIPLIER 			= 4096d/600d; // QuadEncoder Ticks Per Rev / Milliseconds
@@ -67,7 +67,7 @@ public class Globals {
 // 	Vision
 	public static final double VISION_TOLERANCE 		= 1.5; // degrees
 	public static final double CAMERA_CENTER_X			= 270; // Far hopper: 240, Straight peg: 270 (Camera center: 240) 480 (length of frame) / 2 FIXME: Look at GRIP
-	public static final double CAMERA_CENTER_X_SP		= 270;
+	public static final double CAMERA_CENTER_X_SP		= 240;
 	public static final double CAMERA_CENTER_X_FH		= 240;
 	public static final double CAMERA_CENTER_Y 			= 180;
 	public static final double CAMERA_HFOV				= 51.229919; // degrees as seen on GRIP
