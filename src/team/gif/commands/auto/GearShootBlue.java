@@ -24,11 +24,11 @@ public class GearShootBlue extends CommandGroup {
     	addSequential(new WaitCommand(0.4));
     	addSequential(new ResetTurret(true));
     	addParallel(new RevFlywheel());
-    	addSequential(new DriveStraightEnc(-74.75, 4.5));
+    	addSequential(new DriveStraightEnc(-74.75, 4.5)); // Perhaps use DriveStraightEnc2 instead
     	addParallel(new CollectorIn(false));
     	addParallel(new GearRelease(false));
     	addSequential(new WaitCommand(1.5));
-    	addSequential(new DriveStraightEnc(12, 2));
+    	addSequential(new DriveStraightEnc(12, 2)); // Perhaps use DriveStraightEnc2 instead
     	addParallel(new CameraFollow());
     	addParallel(new FeederDrive(true));
     }
