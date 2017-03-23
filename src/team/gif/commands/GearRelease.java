@@ -14,6 +14,12 @@ public class GearRelease extends Command {
     }
 
     protected void initialize() {
+//    	if (Robot.gearHanger.getSense()) {
+//        	Robot.gearHanger.release(release);
+//    	} else {
+//    		Robot.gearHanger.release(true);
+//    	}
+    	
     	Robot.gearHanger.release(release);
     }
 

@@ -26,7 +26,7 @@ public class TankDrive extends Command {
 
 	protected void initialize() {
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
-		this.squaredInputs = SmartDashboard.getBoolean("Squared Inputs", false);
+		this.squaredInputs = false;
 	}
 
 	protected void execute() {

@@ -34,16 +34,8 @@ public class Climber extends Subsystem {
 		climber1.changeControlMode(mode);
 	}
 	
-	public double getPosition() {
-		return climber1.getPosition();
-	}
-	
 	public static CANTalon getTalon() {
 		return climber1;
-	}
-	
-	public void update() {
-		SmartDashboard.putNumber("Climber Position", getPosition());
 	}
 
 	public void initDefaultCommand() {

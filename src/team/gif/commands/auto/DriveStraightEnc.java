@@ -8,6 +8,7 @@ import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.Robot;
 
+// Check right encoder tolerance only, but use both encoders
 public class DriveStraightEnc extends Command {
 
 	private double setpoint;
@@ -80,7 +81,7 @@ public class DriveStraightEnc extends Command {
 	}
 
 	protected boolean isFinished() {
-		return ((Math.abs(distLeftError) <= Globals.DRIVE_DIST_TOLERANCE) && Math.abs(distRightError) <= Globals.DRIVE_DIST_TOLERANCE) || isTimedOut();
+		return (Math.abs(distRightError) <= Globals.DRIVE_DIST_TOLERANCE) || isTimedOut();
 //		return (Math.abs(distError) <= Globals.DRIVE_DIST_TOLERANCE);
 	}
 

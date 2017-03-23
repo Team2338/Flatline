@@ -105,20 +105,10 @@ public class Drivetrain extends Subsystem {
 		frontRight.changeControlMode(mode);
 	}
 
-	public double getLeftVoltage() {
-		return frontLeft.getOutputVoltage();
-	}
-
-	public double getRightVoltage() {
-		return frontRight.getOutputVoltage();
-	}
-
 	public void update() {
 		SmartDashboard.putNumber("Left Encoder", getLeftDist());
 		SmartDashboard.putNumber("Right Encoder", getRightDist());
 		SmartDashboard.putNumber("Gyro Angle", getAngle());
-		SmartDashboard.putNumber("FrontLeftVoltage", getLeftVoltage());
-		SmartDashboard.putNumber("FrontRightVoltage", getRightVoltage());
 		SmartDashboard.putNumber("Drivetrain Left Error", getLeftError());
 		SmartDashboard.putNumber("Drivetrain Right Error", getRightError());
 	}

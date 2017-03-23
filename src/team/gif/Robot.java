@@ -1,6 +1,7 @@
 package team.gif;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -40,12 +41,12 @@ public class Robot extends IterativeRobot {
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
 	public static final Vision vision = new Vision();
-//	public static final RobotTracker robotTracker = new RobotTracker();
 	public static OI oi;
 
 	public static NetworkTable grip;
 	public static SendableChooser<Double> turretPosChooser;
 	private SendableChooser<Command> autoChooser;
+    private SendableChooser<Double> delayChooser;
 	private Command autonomousCommand;
 	private boolean isShifted;
 
@@ -71,6 +72,11 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("SideGearShootBlue", new SideGearShootBlue());
         autoChooser.addObject("SideGearShootRed", new SideGearShootRed());
 		SmartDashboard.putData("AutoChooser", autoChooser);
+		
+		delayChooser = new SendableChooser<Double>();
+        delayChooser.addDefault("No delay", new Double(0));
+        delayChooser.addObject("5 sec", new Double(5));
+        SmartDashboard.putData("Delay chooser", delayChooser);
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
 
@@ -79,11 +85,11 @@ public class Robot extends IterativeRobot {
 //		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
 //		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
 //		SmartDashboard.putNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM);
-//		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_SP);
-//		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_SP);
-//		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_SP);
-//		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F_SP);
-//		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM_SP);
+		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_CP);
+		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_CP);
+		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_CP);
+		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F_CP);
+		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM_CP);
 	}
 
 	public void disabledInit() {
@@ -96,6 +102,10 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = (Command) autoChooser.getSelected();
 
+    	if (delayChooser.getSelected() != null) {
+    		Timer.delay((Double) delayChooser.getSelected());
+    	}
+    	
 		if (autonomousCommand != null) {
 			autonomousCommand.start();
 		}
@@ -140,10 +150,8 @@ public class Robot extends IterativeRobot {
 		Robot.flywheel.update();
 		Robot.turret.update();
 		Robot.feeder.update();
+		Robot.gearHanger.update();
 		Robot.vision.update();
-		Robot.climber.update();
-		Robot.shifter.update();
-//		Robot.robotTracker.update();
 
     	if (OI.a_leftBumper.get() != isShifted) {
     		isShifted = !isShifted;

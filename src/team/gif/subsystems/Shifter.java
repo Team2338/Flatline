@@ -23,10 +23,6 @@ public class Shifter extends Subsystem {
 	public boolean isHigh() {
 		return shifter.get();
 	}
-	
-	public void update() {
-		SmartDashboard.putBoolean("Shifter Mode", isHigh());
-	}
 
     public void initDefaultCommand() {
 //    	setDefaultCommand(new ShifterHigh(false));

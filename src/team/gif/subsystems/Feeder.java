@@ -104,12 +104,10 @@ public class Feeder extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Servo CurrPos", getServoPosition());
 		SmartDashboard.putNumber("Servo Angle", getServoAngle());
-		SmartDashboard.putNumber("Feeder Motor Output", getFeederMotorOutput());
 		SmartDashboard.putNumber("PolyWhisk CurrPos" , getPolyWhiskPosition());
 		SmartDashboard.putNumber("PolyWhiskVelocity", getPolyWhiskVelocity());
 		SmartDashboard.putNumber("PolyWhiskError", getPolyWhiskError());
 		SmartDashboard.putNumber("PolyWhiskSetpoint", getPolyWhiskSetpoint());
-		SmartDashboard.putNumber("PolyWhisk Motor Output", getPolyWhiskMotorOutput());
 	}
 
 }

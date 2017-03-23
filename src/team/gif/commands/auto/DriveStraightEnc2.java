@@ -8,7 +8,7 @@ import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.Robot;
 
-// Left Encoder Slaved
+// Left encoder slaved
 public class DriveStraightEnc2 extends Command {
 
 	private double setpoint;
@@ -40,42 +40,37 @@ public class DriveStraightEnc2 extends Command {
 	}
 
 	protected void execute() {
-		distLeftError = setpoint - Robot.drivetrain.getLeftDist();
-		distRightError = setpoint - Robot.drivetrain.getRightDist();
+//		distLeftError = setpoint - Robot.drivetrain.getLeftDist();
+		distError = setpoint - Robot.drivetrain.getRightDist();
 //		distError = setpoint - Robot.drivetrain.getRightDist();
 		double angleError = angle - Robot.drivetrain.getAngle();
 
-		double distLeftOutput = distCalc.getOutput(distLeftError);
-		double distRightOutput = distCalc.getOutput(distRightError);
+//		double distLeftOutput = distCalc.getOutput(distLeftError);
+		double distOutput = distCalc.getOutput(distRightError);
 //		double distOutput = distCalc.getOutput(distError);
 		double angleOutput = angleCalc.getOutput(angleError);
 		
 		double left;
 		double right;
-
-    	if (distLeftOutput > speedCap) {
-    		left = -speedCap + angleOutput;
-    	} else if (distLeftOutput < -speedCap) {
-    		left = speedCap + angleOutput;
-    	} else {
-    		left = -distLeftOutput + angleOutput;
-    	}
     	
-    	if (distRightOutput > speedCap) {
+    	if (distOutput > speedCap) {
+    		left = -speedCap + angleOutput;
     		right = -speedCap - angleOutput;
-    	} else if (distRightOutput < -speedCap) {
+    	} else if (distOutput < -speedCap) {
+    		left = speedCap + angleOutput;
     		right = speedCap - angleOutput;
     	} else {
-    		right = -distRightOutput - angleOutput;
+    		left = -distOutput + angleOutput;
+    		right = -distOutput - angleOutput;
     	}
     	
     	Robot.drivetrain.drive(left, right);
 		
     	//FIXME: Tune angle PID
-		SmartDashboard.putNumber("DriveStraight Angle Error", angleError);
-		
-		SmartDashboard.putNumber("distLeftError", distLeftError);
-		SmartDashboard.putNumber("distRightError", distRightError);
+//		SmartDashboard.putNumber("DriveStraight Angle Error", angleError);
+//		
+//		SmartDashboard.putNumber("distLeftError", distLeftError);
+//		SmartDashboard.putNumber("distRightError", distRightError);
 		
 //		Robot.drivetrain.drive(-distLeftOutput + angleOutput, -distRightOutput - angleOutput);
 	}

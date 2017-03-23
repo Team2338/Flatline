@@ -26,11 +26,11 @@ public class FarHopperShootRed extends CommandGroup {
     	addSequential(new ResetTurret(true));
     	addParallel(new RevFlywheel());
     	addParallel(new CollectorIn(false));
-    	addSequential(new DriveStraightEnc2(118.5, 0.65, 6));
+    	addSequential(new DriveStraightEnc(118.5, 0.65, 6));
     	addSequential(new GyroTurn(-88));
-    	addSequential(new DriveStraightEnc2(40.75, 0.35, 3));
-    	addParallel(new DriveStraightEnc2(50, 0.1, 5));
     	addParallel(new CameraFollow());
+    	addSequential(new DriveStraightEnc(40.75, 0.35, 3));
+    	addParallel(new DriveStraightEnc(50, 0.1, 5));
     	addParallel(new FeederDrive(true));
     }
     

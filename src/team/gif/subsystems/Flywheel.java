@@ -27,8 +27,8 @@ public class Flywheel extends Subsystem {
 		flywheel.enableBrakeMode(false);
 		flywheel2.enableBrakeMode(false);
 		flywheel.changeControlMode(TalonControlMode.Speed);
-		flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP);
-		flywheel.setF(Globals.FLYWHEEL_F_SP);
+		flywheel.setPID(Globals.FLYWHEEL_P_CP, Globals.FLYWHEEL_I_CP, Globals.FLYWHEEL_D_CP);
+		flywheel.setF(Globals.FLYWHEEL_F_CP);
 		flywheel.setIZone(Globals.FLYWHEEL_I_BELOW);
 		flywheel.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		flywheel.configNominalOutputVoltage(0, -0);
@@ -40,7 +40,7 @@ public class Flywheel extends Subsystem {
 		
 		flywheel2.changeControlMode(TalonControlMode.Follower);
 		flywheel2.set(RobotMap.FLYWHEEL_2);
-		setpoint = Globals.FLYWHEEL_RPM_SP;
+		setpoint = Globals.FLYWHEEL_RPM_CP;
 	}
 	
 	public void setPID(double p, double i, double d, double f) {
@@ -133,8 +133,6 @@ public class Flywheel extends Subsystem {
 		SmartDashboard.putNumber("Shooter CurrPos" , getPosition());
 		SmartDashboard.putNumber("ShooterVelocity", getVelocity());
 		SmartDashboard.putNumber("ShooterError", getError());
-		SmartDashboard.putNumber("Shooter Motor Output", getMotorOutput());
-		SmartDashboard.putNumber("Shooter Motor Output 2", getMotorOutput2());
 		SmartDashboard.putNumber("P Gain", getPGain());
     	SmartDashboard.putNumber("I Gain", getIGain());
     	SmartDashboard.putNumber("D Gain", getDGain());
