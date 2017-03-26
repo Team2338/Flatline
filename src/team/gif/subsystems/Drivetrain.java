@@ -20,8 +20,6 @@ public class Drivetrain extends Subsystem {
 	private static final CANTalon rearRight = new CANTalon(RobotMap.REAR_RIGHT_DRIVE);
 	
 	private static final PigeonImu pidgey = new PigeonImu(Climber.getTalon());
-	
-//	private static final ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 
 	public Drivetrain() {
 		super();
@@ -55,9 +53,9 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public void drive(double leftSpeed, double rightSpeed) {
-		frontLeft.set(leftSpeed); // P: -leftSpeed
+		frontLeft.set(leftSpeed);
 		frontRight.set(-rightSpeed);
-		// midRight.set(-rightSpeed); // P: rightSpeed
+		// midRight.set(-rightSpeed);
 		// rearLeft.set(leftSpeed);
 		// midLeft.set(leftSpeed);
 		// rearRight.set(-rightSpeed);
@@ -94,8 +92,6 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public double getAngle() {
-//		double [] xyz_dps = new double [3];
-//		pidgey.GetRawGyro(xyz_dps);
 		PigeonImu.FusionStatus fusionStatus = new PigeonImu.FusionStatus();
 		return pidgey.GetFusedHeading(fusionStatus);
 	}

@@ -8,8 +8,6 @@ import team.gif.commands.intake.FeederDrive;
 public class ManualShoot extends CommandGroup {
 
 	public ManualShoot() {
-		// TODO: Use IR sensor to determine when shooting finishes
-		// ALTERNATIVE: Use velocity data to count shots
 		addParallel(new RevFlywheel());
 		addParallel(new FeederDrive(false, false, 1.0, SmartDashboard.getNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM)));
 	}

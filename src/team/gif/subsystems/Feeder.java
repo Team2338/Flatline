@@ -34,12 +34,9 @@ public class Feeder extends Subsystem {
 		
 		polyWhisk.reverseOutput(false);
 		polyWhisk.reverseSensor(true);
-		
-		// FIXME: Competition bot has different servo angles
 	}
 	
 	public void setMode(TalonControlMode mode) {
-//		feeder.changeControlMode(mode);
 		polyWhisk.changeControlMode(mode);
 	}
 	

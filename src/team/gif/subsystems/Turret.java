@@ -76,7 +76,7 @@ public class Turret extends Subsystem {
 	}
 
 	public double getError() {
-		return turret.getError();
+		return Math.abs(turret.getError());
 	}
 
 	public double getPosition() {

@@ -84,17 +84,16 @@ public class OI {
 		d_rightTrigger.whenReleased(new ShifterLow(false));
 		
 		if (isShifted) { // Shift to second set of commands
-//		 a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SIP, Globals.CAMERA_CENTER_X));
+		 a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_CENTER_X_FH));
 		 a_rightBumper.whileHeld(new Eject());
 		 a_select.whenPressed(new CollectorHoodIn(false));
 		 a_start.whenPressed(new CollectorHoodIn(true));
 		 a_rightTrigger.whileHeld(new ManualShoot());
 		} else {
-			a_A.whileHeld(new GearRelease(false));
-			a_A.whenReleased(new GearRelease(true));
-			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_CENTER_X_FH));
+			a_A.whileHeld(new GearRelease(false, false));
+			a_A.whenReleased(new GearRelease(false, true));
+			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_CENTER_X_CP));
 			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_CENTER_X_SP));
-//			a_B.whenPressed(new TurretTurn(Globals.TURRET_BLUEPOS));
 			a_Y.whileHeld(new SpewOut());
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new RetractCollector());

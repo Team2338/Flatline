@@ -21,16 +21,14 @@ public class MobilityShootBlue extends CommandGroup {
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
-    	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_CENTER_X_FH));
+    	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_CENTER_X_MS));
     	addSequential(new WaitCommand(0.4));
     	addSequential(new ResetTurret(true));
     	addParallel(new RevFlywheel());
-    	addSequential(new DriveStraightEnc(-125, 7.5));
+    	addSequential(new DriveStraightEnc(-75, 0.75, 7.5));
     	addParallel(new CollectorIn(false));
-    	addSequential(new GyroTurn(90));
     	addParallel(new CameraFollow());
     	addParallel(new FeederDrive(true));
-    	// Might not be able to shoot since it hits limit switch
     }
     
 }

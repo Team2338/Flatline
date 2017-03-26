@@ -17,15 +17,13 @@ public class Vision extends Subsystem {
 	private double yPixelError;
 	private double xDegreeConstant;
 	private double yDegreeConstant;
-	private double halfVertFOV;
 	private static double cameraCenterX;
 
 	public Vision() {
 		super();
-		cameraCenterX = Globals.CAMERA_CENTER_X_SP;
+		cameraCenterX = Globals.CAMERA_CENTER_X_CP;
 		xDegreeConstant = cameraCenterX / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2));
 		yDegreeConstant = Globals.CAMERA_CENTER_Y / Math.tan(Math.toRadians(Globals.CAMERA_VFOV / 2));
-		halfVertFOV = Globals.CAMERA_VFOV / 2;
 	}
 	
 	public void setCenterX(double cameraCenterX) {

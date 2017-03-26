@@ -54,7 +54,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
 		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
 		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
-		SmartDashboard.putBoolean("Squared Inputs", false);
 		
 		isShifted = OI.a_leftBumper.get();
 		oi = new OI(isShifted);
@@ -69,8 +68,8 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("GearShootRed", new GearShootRed());
         autoChooser.addObject("FarHopperShootBlue", new FarHopperShootBlue());
         autoChooser.addObject("FarHopperShootRed", new FarHopperShootRed());
-        autoChooser.addObject("SideGearShootBlue", new SideGearShootBlue());
-        autoChooser.addObject("SideGearShootRed", new SideGearShootRed());
+//        autoChooser.addObject("SideGearShootBlue", new SideGearShootBlue());
+//        autoChooser.addObject("SideGearShootRed", new SideGearShootRed());
 		SmartDashboard.putData("AutoChooser", autoChooser);
 		
 		delayChooser = new SendableChooser<Double>();
@@ -85,11 +84,11 @@ public class Robot extends IterativeRobot {
 //		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
 //		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
 //		SmartDashboard.putNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM);
-		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_CP);
-		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_CP);
-		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_CP);
-		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F_CP);
-		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM_CP);
+//		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_SP);
+//		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_SP);
+//		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_SP);
+//		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F_SP);
+//		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM_SP);
 	}
 
 	public void disabledInit() {
@@ -118,24 +117,10 @@ public class Robot extends IterativeRobot {
 	public void teleopInit() {
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		new TankDrive(0.05).start(); // Does this have to be here?
+		new TankDrive(0.05).start();
 	}
 
 	public void teleopPeriodic() {
-//		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
-//			new TurretTurn((Double) turretPosChooser.getSelected()).start();
-//		} else {
-//			new TurretManual().start();
-//		}
-		
-//		if (OI.auxController.getPOV() == 225 || OI.auxController.getPOV() == 270 || OI.auxController.getPOV() == 315) {
-//			new TurretTurn(Globals.TURRET_BLUEPOS).start();
-//		} else if (OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 90 || OI.auxController.getPOV() == 135) {
-//			new TurretTurn(Globals.TURRET_REDPOS).start();
-//		} else {
-//			new TurretManual().start();
-//		}
-		
 		update();
 	}
 

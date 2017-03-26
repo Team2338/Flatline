@@ -17,7 +17,6 @@ public class TankDrive extends Command {
 	private double leftStick;
 	private double rightStick;
 	private double maxAccel;
-	private boolean squaredInputs;
 
 	public TankDrive(double maxAccel) {
 		requires(Robot.drivetrain);
@@ -26,7 +25,6 @@ public class TankDrive extends Command {
 
 	protected void initialize() {
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
-		this.squaredInputs = false;
 	}
 
 	protected void execute() {
@@ -36,13 +34,8 @@ public class TankDrive extends Command {
 		left = -(Math.abs(leftStick) > Globals.DEAD_ZONE ? leftStick : 0);
 
 		right = -(Math.abs(rightStick) > Globals.DEAD_ZONE ? rightStick : 0);
-		
-		if (squaredInputs) {
-			left = left * Math.abs(left);
-			right = right * Math.abs(right);
-		}
 
-		if (!Robot.shifter.isHigh()) {
+		if (Robot.shifter.isHigh()) { // P: Robot.shifter.isHigh() C: !Robot.shifter.isHigh()
 			if (left > 0 && leftLast < 0 || left < 0 && leftLast > 0) {
 				left = 0;
 			} else if (left > 0) { //Forward Left
@@ -55,10 +48,10 @@ public class TankDrive extends Command {
 			
 			if (right > 0 && rightLast < 0 || right < 0 && rightLast > 0) {
 				right = 0;
-			} else if (right > 0) { //Forward Right
+			} else if (right > 0) { // Forward right
 				if (right - rightLast > maxAccel)
 					right = rightLast + maxAccel;
-			} else if (right < 0 ){ //Reverse Right
+			} else if (right < 0 ){ // Reverse right
 				if (right - rightLast < -maxAccel)
 					right = rightLast - maxAccel;
 			}

@@ -2,6 +2,7 @@ package team.gif.commands.auto;
 
 import lib.gif.commands.CommandGroup;
 import team.gif.Globals;
+import team.gif.commands.CollectorHoodIn;
 import team.gif.commands.CollectorIn;
 import team.gif.commands.WaitCommand;
 import team.gif.commands.drivetrain.ResetGyro;
@@ -24,12 +25,12 @@ public class FarHopperShootBlue extends CommandGroup {
     	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
     	addParallel(new CollectorIn(false));
-    	addSequential(new DriveStraightEnc(118.5, 0.65, 6));
+    	addSequential(new DriveStraightEnc(113.5, 0.85, 6));
     	addSequential(new GyroTurn(88));
+    	addParallel(new CollectorHoodIn(false));
     	addParallel(new CameraFollow());
-    	addSequential(new DriveStraightEnc(40.75, 0.35, 3));
+    	addSequential(new DriveStraightEnc(30.75, 0.85, 3));
     	addParallel(new DriveStraightEnc(50, 0.1, 5));
-    	addParallel(new CameraFollow());
     	addParallel(new FeederDrive(true));
     }
     

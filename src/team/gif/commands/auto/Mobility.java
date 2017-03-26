@@ -20,7 +20,7 @@ public class Mobility extends CommandGroup {
     	addSequential(new ResetGyro());
     	addSequential(new WaitCommand(0.4));
     	addSequential(new ResetTurret(true));
-    	addSequential(new DriveStraightEnc(-120, 9));
+    	addSequential(new DriveStraightEnc(-120, 0.75, 9));
     	addParallel(new CollectorIn(false));
     }
 }

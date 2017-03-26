@@ -14,8 +14,8 @@ import team.gif.commands.shooter.ShooterStandby;
 
 public class Flywheel extends Subsystem {
 	
-	private final CANTalon flywheel2 = new CANTalon(RobotMap.FLYWHEEL_1); // TODO: Switch flywheels back to original config
-	private final CANTalon flywheel = new CANTalon(RobotMap.FLYWHEEL_2);
+	private final CANTalon flywheel = new CANTalon(RobotMap.FLYWHEEL_1);
+	private final CANTalon flywheel2 = new CANTalon(RobotMap.FLYWHEEL_2);
 	private static final Compressor compressor = new Compressor();
 	private static double setpoint;
 	
@@ -39,7 +39,7 @@ public class Flywheel extends Subsystem {
 		flywheel.reverseSensor(true);
 		
 		flywheel2.changeControlMode(TalonControlMode.Follower);
-		flywheel2.set(RobotMap.FLYWHEEL_2);
+		flywheel2.set(RobotMap.FLYWHEEL_1);
 		setpoint = Globals.FLYWHEEL_RPM_CP;
 	}
 	
@@ -139,6 +139,7 @@ public class Flywheel extends Subsystem {
     	SmartDashboard.putNumber("F Gain", getFGain());
     	SmartDashboard.putNumber("IZone", getIZone());
     	SmartDashboard.putNumber("Rev Standby Setpoint", getStandbySetpoint());
+    	SmartDashboard.putNumber("Shooter Motor Output", getMotorOutput());
 	}
 
     public void initDefaultCommand() {

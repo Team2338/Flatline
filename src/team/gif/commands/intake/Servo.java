@@ -3,6 +3,7 @@ package team.gif.commands.intake;
 import lib.gif.commands.Command;
 import team.gif.Robot;
 
+//Note that this command is not being called/used anywhere.
 public class Servo extends Command {
 	
 	private double position;
@@ -17,7 +18,6 @@ public class Servo extends Command {
 	}
 
 	protected void execute() {
-
 	}
 
 	protected boolean isFinished() {

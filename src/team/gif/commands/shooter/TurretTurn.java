@@ -6,6 +6,7 @@ import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.Robot; 
 
+// Note that this command is not being called/used anywhere.
 public class TurretTurn extends Command {
 
 	private final double setpoint;

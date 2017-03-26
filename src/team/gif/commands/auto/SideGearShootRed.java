@@ -17,20 +17,20 @@ import team.gif.commands.shooter.RevFlywheel;
 public class SideGearShootRed extends CommandGroup {
 
     public SideGearShootRed() {
-    	// Not tuned
+    	// Not tuned, DO NOT TUNE FOR MIDWEST!
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
-    	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SIP, Globals.CAMERA_CENTER_X_SP));
+    	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_CENTER_X_SP));
     	addSequential(new WaitCommand(0.4));
     	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
-        addSequential(new DriveStraightEnc(-72.477, 7));
-    	addParallel(new ResetTurret(true, 2.5));
-        addSequential(new GyroTurn(60));
-        addSequential(new DriveStraightEnc(-69, 7));
+        addSequential(new DriveStraightEnc(-60.477, 0.75, 7));
         addParallel(new CollectorIn(false));
-    	addParallel(new GearRelease(false));
+    	addParallel(new ResetTurret(true, 2));
+        addSequential(new GyroTurn(60));
+        addSequential(new DriveStraightEnc(-82, 7));
+    	addParallel(new GearRelease(true, false));
     	addSequential(new WaitCommand(1.2));
     	addSequential(new DriveStraightEnc(12, 7));
     	addParallel(new CameraFollow());

@@ -17,7 +17,6 @@ public class Collector extends Subsystem {
 	
 	public Collector() {
 		super();
-//		retractCollector(false);
 		retractHood(false);
 	}
 

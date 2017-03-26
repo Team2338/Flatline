@@ -11,13 +11,6 @@ public class RevFlywheel extends Command {
 
 	private double setpoint;
 	private boolean isSpew;
-	// private double assistedRPM;
-	// private boolean isAssisted;
-	// private boolean isStable = false;
-
-	// public RevFlywheel() {
-	// this(false);
-	// }
 
 	public RevFlywheel() {
 		this(false);
@@ -26,8 +19,7 @@ public class RevFlywheel extends Command {
 	public RevFlywheel(boolean isSpew) {
 		requires(Robot.flywheel);
 		this.isSpew = isSpew;
-		 setpoint = SmartDashboard.getNumber("Flywheel RPM",
-		 Globals.FLYWHEEL_RPM_CP);
+		setpoint = SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM_SP);
 		// this.isAssisted = isAssisted;
 	}
 
@@ -39,24 +31,24 @@ public class RevFlywheel extends Command {
 			// PID doesn't matter in this case since we're just spewing balls
 			// out
 		} else {
-//			setpoint = Robot.flywheel.getStandbySetpoint();
+			setpoint = Robot.flywheel.getStandbySetpoint();
 
-//			if (setpoint == Globals.FLYWHEEL_RPM_CP) {
-//				Robot.flywheel.setPID(Globals.FLYWHEEL_P_CP, Globals.FLYWHEEL_I_CP, Globals.FLYWHEEL_D_CP,
-//						Globals.FLYWHEEL_F_CP);
-//			} else if (setpoint == Globals.FLYWHEEL_RPM_FH) {
-//				Robot.flywheel.setPID(Globals.FLYWHEEL_P_FH, Globals.FLYWHEEL_I_FH, Globals.FLYWHEEL_D_FH,
-//						Globals.FLYWHEEL_F_FH);
-//			} else if (setpoint == Globals.FLYWHEEL_RPM_SP) {
-//				Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
-//						Globals.FLYWHEEL_F_SP);
-//			}
-			
-			Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",
-			 Globals.FLYWHEEL_P_CP),
-			SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I_CP),
-			SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D_CP),
-			SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F_CP));
+			if (setpoint == Globals.FLYWHEEL_RPM_CP) {
+				Robot.flywheel.setPID(Globals.FLYWHEEL_P_CP, Globals.FLYWHEEL_I_CP, Globals.FLYWHEEL_D_CP,
+						Globals.FLYWHEEL_F_CP);
+			} else if (setpoint == Globals.FLYWHEEL_RPM_FH) {
+				Robot.flywheel.setPID(Globals.FLYWHEEL_P_FH, Globals.FLYWHEEL_I_FH, Globals.FLYWHEEL_D_FH,
+						Globals.FLYWHEEL_F_FH);
+			} else if (setpoint == Globals.FLYWHEEL_RPM_SP) {
+				Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
+						Globals.FLYWHEEL_F_SP);
+			}
+
+			// Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",
+			// Globals.FLYWHEEL_P_SP),
+			// SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I_SP),
+			// SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D_SP),
+			// SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F_SP));
 		}
 	}
 
@@ -66,20 +58,6 @@ public class RevFlywheel extends Command {
 		} else {
 			Robot.flywheel.setIZone(Globals.FLYWHEEL_I_ABOVE);
 		}
-
-		// if (isAssisted) {
-		// if (Robot.vision.isAligned()) {
-		// assistedRPM = (Robot.vision.getDistance() * Globals.RPM_PER_INCH) +
-		// 17600;
-		// Robot.flywheel.driveFlywheel(assistedRPM);
-		// isStable = true;
-		// } else {
-		// Robot.flywheel.driveFlywheel(0);
-		// }
-		// } else {
-		// Robot.flywheel.driveFlywheel(Globals.FLYWHEEL_RPM); // TODO: Should
-		// be defaulted to straight peg RPM
-		// }
 
 		// Robot.flywheel.driveFlywheel(SmartDashboard.getNumber("Flywheel RPM",
 		// Globals.FLYWHEEL_RPM_CP));
@@ -96,19 +74,11 @@ public class RevFlywheel extends Command {
 	}
 
 	protected void end() {
-		// TODO: The if statement is likely not necessary
-		// if (isAssisted) {
-		// RPM won't change after we detect the target so if robots move in
-		// front of us, we can still shoot
-		// TODO: What if we get pushed?
-		// Robot.flywheel.driveFlywheel(assistedRPM);
 		Robot.flywheel.enableCompressor(true);
 	}
 
 	protected void interrupted() {
 		end();
-		// Robot.flywheel.driveFlywheel(SmartDashboard.getNumber("Flywheel RPM",
-		// Globals.FLYWHEEL_RPM));
 	}
 
 }

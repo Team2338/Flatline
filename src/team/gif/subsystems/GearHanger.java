@@ -1,6 +1,7 @@
 package team.gif.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
@@ -9,21 +10,34 @@ import team.gif.commands.GearRelease;
 
 public class GearHanger extends Subsystem {
 	
-//	private static final DigitalInput pegSensor = new DigitalInput(RobotMap.PEGSENSOR);
+	private static final DigitalInput pegSensor = new DigitalInput(RobotMap.PEGSENSOR); // Off is on, on is off
+	private static final DigitalOutput led = new DigitalOutput(RobotMap.LED);
 	private static final Solenoid gearHanger1 = new Solenoid(RobotMap.GEAR_HANGER1);
-//	private static final Solenoid gearHanger2 = new Solenoid(RobotMap.GEAR_HANGER2);
+	private static final Solenoid lightSensorPower = new Solenoid(RobotMap.LIGHTSENSORPOWER);
+	
+	public GearHanger() {
+		lightSensorPower.set(true);
+	}
 	
 	public void release(boolean isReleased) {
 		gearHanger1.set(isReleased);
-//		gearHanger2.set(isReleased);
 	}
 	
-//	public boolean getSense() {
-//		return pegSensor.get();
-//	}
+	public void toggleLight() {
+		led.set(!getSense());
+	}
+	
+	public boolean getLight() {
+		return led.get();
+	}
+	
+	public boolean getSense() {
+		return pegSensor.get();
+	}
 	
 	public void update() {
-//		SmartDashboard.putBoolean("PegSensor", getSense());
+		SmartDashboard.putBoolean("LED Trigger", getLight());
+		SmartDashboard.putBoolean("PegSensor", getSense());
 	}
 	
     public void initDefaultCommand() {
