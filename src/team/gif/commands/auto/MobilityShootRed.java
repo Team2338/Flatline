@@ -23,7 +23,7 @@ public class MobilityShootRed extends CommandGroup {
     	addSequential(new ResetGyro());
     	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_CENTER_X_MS));
     	addSequential(new WaitCommand(0.4));
-    	addSequential(new ResetTurret(false));
+//    	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(-75, 0.75, 7.5));
     	addParallel(new CollectorIn(false));

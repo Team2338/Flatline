@@ -29,7 +29,7 @@ public class Globals {
 	public static final double FLYWHEEL_P_FH			= 0.02;
 	public static final double FLYWHEEL_I_FH 			= 0.00001;
 	public static final double FLYWHEEL_D_FH 			= 0.8;
-	public static final double FLYWHEEL_F_FH			= 0.0233;
+	public static final double FLYWHEEL_F_FH			= 0.0237;
 	public static final double FLYWHEEL_P_SP			= 0.04;
 	public static final double FLYWHEEL_I_SP			= 0.0002;
 	public static final double FLYWHEEL_D_SP			= 1.0;
