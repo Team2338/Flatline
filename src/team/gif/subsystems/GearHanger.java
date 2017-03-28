@@ -13,14 +13,22 @@ public class GearHanger extends Subsystem {
 	private static final DigitalInput pegSensor = new DigitalInput(RobotMap.PEGSENSOR); // Off is on, on is off
 	private static final DigitalOutput led = new DigitalOutput(RobotMap.LED);
 	private static final Solenoid gearHanger1 = new Solenoid(RobotMap.GEAR_HANGER1);
-	private static final Solenoid lightSensorPower = new Solenoid(RobotMap.LIGHTSENSORPOWER);
+	private static final Solenoid gearHanger2 = new Solenoid(RobotMap.GEAR_HANGER2);
+//	private static final Solenoid lightSensorPower = new Solenoid(RobotMap.LIGHTSENSORPOWER);
 	
 	public GearHanger() {
-		lightSensorPower.set(true);
+		super();
+//		lightSensorPower.set(true);
 	}
 	
 	public void release(boolean isReleased) {
-		gearHanger1.set(isReleased);
+		if(isReleased) {
+			gearHanger1.set(true);
+			gearHanger2.set(false);
+		} else {
+			gearHanger1.set(false);
+			gearHanger2.set(true);
+		}
 	}
 	
 	public void toggleLight() {

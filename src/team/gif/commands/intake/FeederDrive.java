@@ -30,6 +30,7 @@ public class FeederDrive extends Command {
 
 	public FeederDrive(boolean isSpew, boolean isAssisted, double feederSpeed, double polyWhiskSpeed) {
 		requires(Robot.feeder);
+		requires(Robot.climber);
 		this.isSpew = isSpew;
 		this.isAssisted = isAssisted;
 		this.feederSpeed = feederSpeed;
@@ -99,6 +100,7 @@ public class FeederDrive extends Command {
 			Robot.feeder.setServoPosition(0.07);
 			flappyTime = Timer.getFPGATimestamp();
 		}
+//		Robot.climber.drive(1);
 	}
 
 }

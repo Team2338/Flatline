@@ -24,13 +24,14 @@ public class RobotMap {
 //	public static final int CLIMBER_2			= 11; //P: 0 // C: 12
 	
 	// Relay Ports
-	public static final int GEAR_HANGER1 		= 6;//P: 6 // C: 4
+	public static final int GEAR_HANGER1 		= 2;//P: 6 // C: 4
+	public static final int GEAR_HANGER2		= 3;
 	public static final int VERSA__DROP			= 4;//P: 4 // C: 5
 	public static final int SHIFTER				= 5;//P: 5 // C: 7
 	public static final int COLLECTORSOLA		= 0;//P: 0 // C: 0
 	public static final int COLLECTORSOLB		= 1;//P: 1 // C: 1
 	public static final int COLLECTORHOODSOL	= 7;//P: 7 // C: 6
-	public static final int LIGHTSENSORPOWER	= 2;//P: 2 // C:
+//	public static final int LIGHTSENSORPOWER	= 2;//P: 2 // C:
 	
 	// DIO Ports
 	public static final int PEGSENSOR			= 0;
