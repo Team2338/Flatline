@@ -32,7 +32,7 @@ public class GearHanger extends Subsystem {
 	}
 	
 	public boolean getSense() {
-		return pegSensor.get();
+		return !pegSensor.get();
 	}
 	
 	public void update() {

@@ -63,7 +63,7 @@ public class Globals {
 // 	Vision
 	// CP: Center Peg | FH: Far Hopper | SP = Side Peg | MS = Auto mobility and shoot
 	public static final double VISION_TOLERANCE 		= 1.7; // degrees
-	public static final double CAMERA_CENTER_X_CP		= 270; // 270
+	public static final double CAMERA_CENTER_X_CP		= 275; // 270
 	public static final double CAMERA_CENTER_X_FH		= 260; // 260
 	public static final double CAMERA_CENTER_X_SP		= 270; // TODO: need to tune
 	public static final double CAMERA_CENTER_X_MS		= 260; // TODO: need to tune
