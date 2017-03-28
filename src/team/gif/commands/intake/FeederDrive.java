@@ -30,7 +30,6 @@ public class FeederDrive extends Command {
 
 	public FeederDrive(boolean isSpew, boolean isAssisted, double feederSpeed, double polyWhiskSpeed) {
 		requires(Robot.feeder);
-		requires(Robot.climber);
 		this.isSpew = isSpew;
 		this.isAssisted = isAssisted;
 		this.feederSpeed = feederSpeed;

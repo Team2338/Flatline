@@ -15,10 +15,6 @@ public class Climber extends Subsystem {
 //	private static final CANTalon climber2 = new CANTalon(RobotMap.CLIMBER_2);
 
 	public Climber() {
-		climber1.changeControlMode(TalonControlMode.Position);
-		climber1.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-		climber1.setPosition(0);
-		
 		climber1.reverseOutput(false);
 		climber1.reverseSensor(false);
 		
