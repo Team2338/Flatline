@@ -19,7 +19,7 @@ public class RevFlywheel extends Command {
 	public RevFlywheel(boolean isSpew) {
 		requires(Robot.flywheel);
 		this.isSpew = isSpew;
-		setpoint = SmartDashboard.getNumber("Flywheel RPM", Globals.FLYWHEEL_RPM_SP);
+		setpoint = Globals.FLYWHEEL_RPM_CP;
 		// this.isAssisted = isAssisted;
 	}
 
@@ -27,9 +27,8 @@ public class RevFlywheel extends Command {
 		Robot.flywheel.setMode(TalonControlMode.Speed);
 
 		if (isSpew) {
+			// PID doesn't matter in this case since we're just spewing balls out
 			setpoint = Globals.FLYWHEEL_RPM_EJECT;
-			// PID doesn't matter in this case since we're just spewing balls
-			// out
 		} else {
 			setpoint = Robot.flywheel.getStandbySetpoint();
 
@@ -44,11 +43,11 @@ public class RevFlywheel extends Command {
 						Globals.FLYWHEEL_F_SP);
 			}
 
-			// Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",
-			// Globals.FLYWHEEL_P_SP),
-			// SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I_SP),
-			// SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D_SP),
-			// SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F_SP));
+//			 Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",
+//			 Globals.FLYWHEEL_P_SP),
+//			 SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I_SP),
+//			 SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D_SP),
+//			 SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F_SP));
 		}
 	}
 

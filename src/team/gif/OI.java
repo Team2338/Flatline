@@ -83,6 +83,9 @@ public class OI {
 		d_rightTrigger.whileHeld(new ShifterLow(true));
 		d_rightTrigger.whenReleased(new ShifterLow(false));
 		
+		a_A.whileHeld(new GearRelease(false, false));
+		a_A.whenReleased(new GearRelease(false, true));
+		
 		if (isShifted) { // Shift to second set of commands
 		 a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_CENTER_X_FH));
 		 a_rightBumper.whileHeld(new Eject());
@@ -90,8 +93,6 @@ public class OI {
 		 a_start.whenPressed(new CollectorHoodIn(true));
 		 a_rightTrigger.whileHeld(new ManualShoot());
 		} else {
-			a_A.whileHeld(new GearRelease(false, false));
-			a_A.whenReleased(new GearRelease(false, true));
 			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_CENTER_X_CP));
 			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_CENTER_X_SP));
 			a_Y.whileHeld(new SpewOut());
@@ -103,12 +104,5 @@ public class OI {
 			a_rightTrigger.whileHeld(new FeederDrive(true));
 			a_leftStickX.whileHeld(new TurretManual());
 		}
-				
-		// TODO: Change rev setpoint map to d-pad, needs fixing (maybe put in teleopperiodic)
-//		if (OI.auxController.getPOV() == 0 || OI.auxController.getPOV() == 45 || OI.auxController.getPOV() == 315) {
-//			new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP);
-//		} else if (OI.auxController.getPOV() == 180 || OI.auxController.getPOV() == 225 || OI.auxController.getPOV() == 135) {
-//			new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH);
-//		}
 	}
 }

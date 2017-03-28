@@ -9,7 +9,7 @@ public class ManualShoot extends CommandGroup {
 
 	public ManualShoot() {
 		addParallel(new RevFlywheel());
-		addParallel(new FeederDrive(false, false, 1.0, SmartDashboard.getNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM)));
+		addParallel(new FeederDrive(false, false, 1.0, Globals.POLYWHISK_FRPM));
 	}
 
 }

@@ -11,7 +11,7 @@ import team.gif.Robot;
 public class ResetTurret extends Command {
 
 	private boolean blue;
-	
+
 	public ResetTurret(boolean blue) {
 		this(blue, 60);
 	}
@@ -35,6 +35,10 @@ public class ResetTurret extends Command {
 	}
 
 	protected boolean isFinished() {
+		if (Robot.turret.isForwardLimitClosed()) {
+			return true;
+		}
+		
 		if (blue) {
 			return Robot.turret.isReverseLimitClosed() || isTimedOut();
 		} else {

@@ -33,6 +33,7 @@ public class GearRelease extends Command {
 
     protected void execute() {
     	Robot.gearHanger.toggleLight();
+    	
     	if (isAuto) {
     		if (Robot.gearHanger.getSense()) {
     			Robot.gearHanger.release(release);

@@ -12,7 +12,7 @@ public class Globals {
 	public static final double DRIVETRAIN_I				= 0;
 	public static final double DRIVETRAIN_D 			= 0;
 	public static final double DRIVE_STRAIGHT_ANGLE_P	= 0.04; //  Peoria: 0.0012
-	public static final double DRIVE_ANGLE_P			= 0.018;
+	public static final double DRIVE_ANGLE_P			= 0.022;
 	public static final double DRIVE_ANGLE_I			= 0.001;
 	public static final double DRIVE_ANGLE_D			= 0;
 	public static final double DRIVE_ANGLE_IZONE		= 3.0;
@@ -30,15 +30,15 @@ public class Globals {
 	public static final double FLYWHEEL_I_FH 			= 0.00001;
 	public static final double FLYWHEEL_D_FH 			= 0.8;
 	public static final double FLYWHEEL_F_FH			= 0.0237;
-	public static final double FLYWHEEL_P_SP			= 0.04;
-	public static final double FLYWHEEL_I_SP			= 0.0002;
+	public static final double FLYWHEEL_P_SP			= 0.006;
+	public static final double FLYWHEEL_I_SP			= 0.00002;
 	public static final double FLYWHEEL_D_SP			= 1.0;
-	public static final double FLYWHEEL_F_SP			= 0.0232;
+	public static final double FLYWHEEL_F_SP			= 0.02323;
 	public static final int FLYWHEEL_I_ABOVE 			= 2750; // 2750
 	public static final int FLYWHEEL_I_BELOW 			= 1750; // 1750
 	public static final double FLYWHEEL_RPM_CP			= 25850; // 25850
 	public static final double FLYWHEEL_RPM_FH			= 23950; // 23950
-	public static final double FLYWHEEL_RPM_SP			= 24750; // 24750
+	public static final double FLYWHEEL_RPM_SP			= 24760; // 24750
 	public static final double FLYWHEEL_RPM_EJECT		= 12000; // 12000 (for spewing balls out)
 	public static final double SHOOTER_TOLERANCE 		= 2000; // ticks
 	
@@ -65,8 +65,8 @@ public class Globals {
 	public static final double VISION_TOLERANCE 		= 1.7; // degrees
 	public static final double CAMERA_CENTER_X_CP		= 275; // 270
 	public static final double CAMERA_CENTER_X_FH		= 260; // 260
-	public static final double CAMERA_CENTER_X_SP		= 270; // TODO: need to tune
-	public static final double CAMERA_CENTER_X_MS		= 260; // TODO: need to tune
+	public static final double CAMERA_CENTER_X_SP		= 270;
+	public static final double CAMERA_CENTER_X_MS		= 260;
 	public static final double CAMERA_CENTER_Y 			= 180;
 	public static final double CAMERA_HFOV				= 51.229919; // degrees as seen on GRIP
 	public static final double CAMERA_VFOV				= 39.55520044; // degrees as seen on GRIP

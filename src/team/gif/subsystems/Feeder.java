@@ -95,7 +95,7 @@ public class Feeder extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
-		setDefaultCommand(new FeederDrive(false, false, 0, 0));
+//		setDefaultCommand(new FeederDrive(false, false, 0, 0));
 	}
 
 	public void update() {

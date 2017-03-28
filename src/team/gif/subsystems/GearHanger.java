@@ -14,11 +14,9 @@ public class GearHanger extends Subsystem {
 	private static final DigitalOutput led = new DigitalOutput(RobotMap.LED);
 	private static final Solenoid gearHanger1 = new Solenoid(RobotMap.GEAR_HANGER1);
 	private static final Solenoid gearHanger2 = new Solenoid(RobotMap.GEAR_HANGER2);
-//	private static final Solenoid lightSensorPower = new Solenoid(RobotMap.LIGHTSENSORPOWER);
 	
 	public GearHanger() {
 		super();
-//		lightSensorPower.set(true);
 	}
 	
 	public void release(boolean isReleased) {
