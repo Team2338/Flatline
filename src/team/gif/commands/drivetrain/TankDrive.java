@@ -35,7 +35,7 @@ public class TankDrive extends Command {
 
 		right = -(Math.abs(rightStick) > Globals.DEAD_ZONE ? rightStick : 0);
 
-		if (Robot.shifter.isHigh()) { // P: Robot.shifter.isHigh() C: !Robot.shifter.isHigh()
+		if (!Robot.shifter.isHigh()) { // P: Robot.shifter.isHigh() C: !Robot.shifter.isHigh()
 			if (left > 0 && leftLast < 0 || left < 0 && leftLast > 0) {
 				left = 0;
 			} else if (left > 0) { //Forward Left
