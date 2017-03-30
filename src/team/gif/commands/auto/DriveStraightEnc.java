@@ -74,8 +74,8 @@ public class DriveStraightEnc extends Command {
     	//FIXME: Tune angle PID
 		SmartDashboard.putNumber("DriveStraight Angle Error", angleError);
 		
-		SmartDashboard.putNumber("distLeftError", distLeftError);
-		SmartDashboard.putNumber("distRightError", distRightError);
+		SmartDashboard.putNumber("DriveStraight LeftError", distLeftError);
+		SmartDashboard.putNumber("DriveStraight RightError", distRightError);
 		
 //		Robot.drivetrain.drive(-distLeftOutput + angleOutput, -distRightOutput - angleOutput);
 	}
