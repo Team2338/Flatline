@@ -17,6 +17,7 @@ public class WaitCommand extends Command {
 	
   public WaitCommand(double timeout) {
     super(timeout);
+    this.isAuto = false;
   }
   
   public WaitCommand(double timeout, boolean isAuto) {
@@ -29,7 +30,7 @@ public class WaitCommand extends Command {
   }
 
   protected void initialize() {
-	withGear = Robot.gearChooser.getSelected();
+	withGear = Robot.gearChooser.getSelected() != null ? Robot.gearChooser.getSelected() : true;
   }
 
   protected void execute() {}
