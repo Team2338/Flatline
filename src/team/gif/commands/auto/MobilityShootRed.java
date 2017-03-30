@@ -1,10 +1,8 @@
 package team.gif.commands.auto;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.CommandGroup;
 import team.gif.Globals;
 import team.gif.commands.CollectorIn;
-import team.gif.commands.GearRelease;
 import team.gif.commands.WaitCommand;
 import team.gif.commands.drivetrain.ResetGyro;
 import team.gif.commands.drivetrain.ShiftOmni;
@@ -22,7 +20,7 @@ public class MobilityShootRed extends CommandGroup {
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
     	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_CENTER_X_MS));
-    	addSequential(new WaitCommand(0.4));
+    	addSequential(new WaitCommand(0.4, true));
 //    	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(-75, 0.75, 7.5));

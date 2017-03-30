@@ -21,7 +21,7 @@ public class GearShootRed extends CommandGroup {
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
     	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_CENTER_X_CP));
-    	addSequential(new WaitCommand(0.4));
+    	addSequential(new WaitCommand(0.4, true));
     	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(-82, 4.5));

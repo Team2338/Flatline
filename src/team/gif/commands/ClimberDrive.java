@@ -1,8 +1,6 @@
 package team.gif.commands;
 
 import com.ctre.CANTalon.TalonControlMode;
-
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.OI;

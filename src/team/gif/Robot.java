@@ -46,6 +46,7 @@ public class Robot extends IterativeRobot {
 	public static NetworkTable grip;
 	private SendableChooser<Command> autoChooser;
     private SendableChooser<Double> delayChooser;
+    public static SendableChooser<Boolean> gearChooser;
 	private Command autonomousCommand;
 	private boolean isShifted;
 
@@ -75,6 +76,11 @@ public class Robot extends IterativeRobot {
         delayChooser.addDefault("No delay", new Double(0));
         delayChooser.addObject("5 sec", new Double(5));
         SmartDashboard.putData("Delay chooser", delayChooser);
+        
+        gearChooser = new SendableChooser<Boolean>();
+        gearChooser.addDefault("With Gear", true);
+        gearChooser.addObject("Without Gear", false);
+        SmartDashboard.putData("Gear Chooser", gearChooser);
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
 

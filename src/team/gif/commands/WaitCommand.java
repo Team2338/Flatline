@@ -8,24 +8,38 @@
 package team.gif.commands;
 
 import lib.gif.commands.Command;
+import team.gif.Robot;
 
 public class WaitCommand extends Command {
 
-
+    private boolean isAuto;
+	private boolean withGear;
+	
   public WaitCommand(double timeout) {
     super(timeout);
+  }
+  
+  public WaitCommand(double timeout, boolean isAuto) {
+    super(timeout);
+    this.isAuto = isAuto;
   }
 
   public WaitCommand(String name, double timeout) {
     super(name, timeout);
   }
 
-  protected void initialize() {}
+  protected void initialize() {
+	withGear = Robot.gearChooser.getSelected();
+  }
 
   protected void execute() {}
 
   protected boolean isFinished() {
-    return isTimedOut();
+	if (isAuto) {
+	  return withGear ? isTimedOut() : true;
+	} else {
+	  return isTimedOut();
+	}
   }
 
   protected void end() {}

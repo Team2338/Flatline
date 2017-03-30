@@ -21,7 +21,7 @@ public class FarHopperShootBlue extends CommandGroup {
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
     	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_CENTER_X_FH));
-    	addSequential(new WaitCommand(0.4));
+    	addSequential(new WaitCommand(0.4, true));
 //    	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
     	addParallel(new CollectorIn(false));
