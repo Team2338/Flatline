@@ -26,11 +26,11 @@ public class Collector extends Subsystem {
 	
 	public void retractCollector(boolean isRetract) {
 		if (isRetract) {
-			collectorSolA.set(true);
-			collectorSolB.set(false);
+			collectorSolA.set(false); // P: true // C: false
+			collectorSolB.set(true); // P: false // C: true
 		} else {
-			collectorSolA.set(false);
-			collectorSolB.set(true);
+			collectorSolA.set(true); // P: false // C: true
+			collectorSolB.set(false); // P: true // C: false
 		}
 	}
 	

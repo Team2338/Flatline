@@ -26,6 +26,7 @@ public class MobilityShootRed extends CommandGroup {
     	addSequential(new DriveStraightEnc(-75, 0.75, 7.5));
     	addParallel(new CollectorIn(false));
     	addParallel(new CameraFollow());
+    	addSequential(new WaitCommand(2.5));
     	addParallel(new FeederDrive(true));
     }
     

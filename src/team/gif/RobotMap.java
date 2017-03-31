@@ -23,7 +23,7 @@ public class RobotMap {
 	public static final int CLIMBER_1			= 12; //P: 12 // C: 12
 	
 	// Relay Ports
-	public static final int GEAR_HANGER1 		= 4;//P: 6 // C: 4
+	public static final int GEAR_HANGER1 		= 2;//P: 6 // C: 4
 	public static final int GEAR_HANGER2		= 3;
 	public static final int VERSA__DROP			= 5;//P: 4 // C: 5
 	public static final int SHIFTER				= 7;//P: 5 // C: 7
@@ -33,7 +33,7 @@ public class RobotMap {
 	
 	// DIO Ports
 	public static final int PEGSENSOR			= 0;
-	public static final int LED					= 1;
+	public static final int LED					= 3;
 	
 	// PWM Ports
 	public static final int FLAPPY				= 9; //P: 9 // C: 9

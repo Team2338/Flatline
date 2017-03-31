@@ -2,6 +2,8 @@ package team.gif.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
@@ -11,7 +13,7 @@ import team.gif.commands.GearRelease;
 public class GearHanger extends Subsystem {
 	
 	private static final DigitalInput pegSensor = new DigitalInput(RobotMap.PEGSENSOR); // Off is on, on is off
-	private static final DigitalOutput led = new DigitalOutput(RobotMap.LED);
+	private static final Relay led = new Relay(RobotMap.LED);
 	private static final Solenoid gearHanger1 = new Solenoid(RobotMap.GEAR_HANGER1);
 	private static final Solenoid gearHanger2 = new Solenoid(RobotMap.GEAR_HANGER2);
 	
@@ -30,11 +32,11 @@ public class GearHanger extends Subsystem {
 	}
 	
 	public void toggleLight() {
-		led.set(!getSense());
+		led.set(!getSense() ? Relay.Value.kReverse : Relay.Value.kForward);
 	}
 	
 	public boolean getLight() {
-		return led.get();
+		return led.isAlive();
 	}
 	
 	public boolean getSense() {

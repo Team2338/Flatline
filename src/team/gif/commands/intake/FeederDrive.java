@@ -17,11 +17,11 @@ public class FeederDrive extends Command {
 	private double flappyTime = Timer.getFPGATimestamp();
 
 	public FeederDrive() {
-		this(false, false, 1.0, Globals.POLYWHISK_FRPM);
+		this(false, false, 1.00, Globals.POLYWHISK_FRPM);
 	}
 
 	public FeederDrive(boolean isAssisted) {
-		this(false, isAssisted, 1.0, Globals.POLYWHISK_FRPM);
+		this(false, isAssisted, 1.00, Globals.POLYWHISK_FRPM);
 	}
 
 	public FeederDrive(double feederSpeed, double polyWhiskSpeed) {
@@ -29,7 +29,7 @@ public class FeederDrive extends Command {
 	}
 
 	public FeederDrive(boolean isSpew, boolean isAssisted, double feederSpeed, double polyWhiskSpeed) {
-		requires(Robot.climber);
+//		requires(Robot.climber);
 		requires(Robot.feeder);
 		this.isSpew = isSpew;
 		this.isAssisted = isAssisted;
@@ -93,7 +93,7 @@ public class FeederDrive extends Command {
 
 	private void flapFlappy() {
 		// FIXME: Make servo no longer scream for mercy
-		Robot.climber.drive(1);
+//		Robot.climber.drive(1);
 		if (Robot.feeder.getServoPosition() <= 0.08 && Timer.getFPGATimestamp() - flappyTime > 0.45) {
 			Robot.feeder.setServoPosition(0.5);
 			flappyTime = Timer.getFPGATimestamp();
