@@ -25,7 +25,7 @@ public class Globals {
 	public static final double FLYWHEEL_P_CP			= 0.04;
 	public static final double FLYWHEEL_I_CP 			= 0.0004;
 	public static final double FLYWHEEL_D_CP 			= 1.4;
-	public static final double FLYWHEEL_F_CP			= 0.025;
+	public static final double FLYWHEEL_F_CP			= 0.0255;
 	public static final double FLYWHEEL_P_FH			= 0.02;
 	public static final double FLYWHEEL_I_FH 			= 0.00001;
 	public static final double FLYWHEEL_D_FH 			= 0.8;
@@ -36,7 +36,7 @@ public class Globals {
 	public static final double FLYWHEEL_F_SP			= 0.02323;
 	public static final int FLYWHEEL_I_ABOVE 			= 2750; // 2750
 	public static final int FLYWHEEL_I_BELOW 			= 1750; // 1750
-	public static final double FLYWHEEL_RPM_CP			= 25850; // 25850
+	public static final double FLYWHEEL_RPM_CP			= 25950; // 25850
 	public static final double FLYWHEEL_RPM_FH			= 23950; // 23950
 	public static final double FLYWHEEL_RPM_SP			= 24760; // 24750
 	public static final double FLYWHEEL_RPM_EJECT		= 12000; // 12000 (for spewing balls out)
@@ -53,7 +53,7 @@ public class Globals {
 	
 //	Turret
 	public static final double TURRET_P 				= 0.38;
-	public static final double TURRET_I 				= 0.0002;
+	public static final double TURRET_I 				= 0.0004;
 	public static final double TURRET_D 				= 3.8;
 	public static final int TURRET_I_ZONE 				= 150;
 	public static final double TURRET_POS	 			= 35d/8d; // 140/32 Encoder Counts per Rev
@@ -64,7 +64,7 @@ public class Globals {
 	// CP: Center Peg | FH: Far Hopper | SP = Side Peg | MS = Auto mobility and shoot
 	public static final double VISION_TOLERANCE 		= 1.7; // degrees
 	public static final double CAMERA_CENTER_X_CP		= 260; // 275
-	public static final double CAMERA_CENTER_X_FH		= 265; // 260
+	public static final double CAMERA_CENTER_X_FH		= 272; // 260
 	public static final double CAMERA_CENTER_X_SP		= 270;
 	public static final double CAMERA_CENTER_X_MS		= 265;
 	public static final double CAMERA_CENTER_Y 			= 180;

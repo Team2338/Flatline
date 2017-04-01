@@ -110,6 +110,7 @@ public class Turret extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Turret MotorOutput", getMotorOutput());
 		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
+		SmartDashboard.putNumber("Turret Angle", getPosition() / Globals.TURRET_ANGLE_TO_TICK);
 		SmartDashboard.putBoolean("Turret FwdClosed", isForwardLimitClosed());
 		SmartDashboard.putBoolean("Turret RevClosed", isReverseLimitClosed());
 		SmartDashboard.putNumber("Turret Error", getError());
