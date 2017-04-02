@@ -22,10 +22,10 @@ public class Globals {
 	
 //	Shooter
 	// CP: Center Peg | FH: Far Hopper | SP = Side Peg
-	public static final double FLYWHEEL_P_CP			= 0.04;
-	public static final double FLYWHEEL_I_CP 			= 0.0004;
-	public static final double FLYWHEEL_D_CP 			= 1.4;
-	public static final double FLYWHEEL_F_CP			= 0.0255;
+	public static final double FLYWHEEL_P_CP			= 0.04; //0.04
+	public static final double FLYWHEEL_I_CP 			= 0.0004; //0.0004
+	public static final double FLYWHEEL_D_CP 			= 1.4; //1.4
+	public static final double FLYWHEEL_F_CP			= 0.025; //0.0255
 	public static final double FLYWHEEL_P_FH			= 0.02;
 	public static final double FLYWHEEL_I_FH 			= 0.00001;
 	public static final double FLYWHEEL_D_FH 			= 0.8;
@@ -36,7 +36,7 @@ public class Globals {
 	public static final double FLYWHEEL_F_SP			= 0.02323;
 	public static final int FLYWHEEL_I_ABOVE 			= 2750; // 2750
 	public static final int FLYWHEEL_I_BELOW 			= 1750; // 1750
-	public static final double FLYWHEEL_RPM_CP			= 25950; // 25850
+	public static final double FLYWHEEL_RPM_CP			= 25950; // 25950
 	public static final double FLYWHEEL_RPM_FH			= 23950; // 23950
 	public static final double FLYWHEEL_RPM_SP			= 24760; // 24750
 	public static final double FLYWHEEL_RPM_EJECT		= 12000; // 12000 (for spewing balls out)

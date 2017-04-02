@@ -21,7 +21,7 @@ public class GearRelease extends Command {
 
     protected void initialize() {
     	if (isAuto) {
-    		if (Robot.gearHanger.getSense()) {
+    		if (Robot.gearHanger.getFirstSense() || Robot.gearHanger.getSecondSense()) {
     			Robot.gearHanger.release(release);
     		} else {
     			Robot.gearHanger.release(true);
@@ -35,7 +35,7 @@ public class GearRelease extends Command {
     	Robot.gearHanger.toggleLight();
     	
     	if (isAuto) {
-    		if (Robot.gearHanger.getSense()) {
+    		if (Robot.gearHanger.getFirstSense() || Robot.gearHanger.getSecondSense()) {
     			Robot.gearHanger.release(release);
     		}
     	}

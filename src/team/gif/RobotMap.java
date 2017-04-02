@@ -33,6 +33,7 @@ public class RobotMap {
 	
 	// DIO Ports
 	public static final int PEGSENSOR			= 0;
+	public static final int PEGSENSOR2			= 1;
 	public static final int LED					= 3;
 	
 	// PWM Ports

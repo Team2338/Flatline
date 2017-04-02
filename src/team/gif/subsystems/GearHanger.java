@@ -13,6 +13,7 @@ import team.gif.commands.GearRelease;
 public class GearHanger extends Subsystem {
 	
 	private static final DigitalInput pegSensor = new DigitalInput(RobotMap.PEGSENSOR); // Off is on, on is off
+	private static final DigitalInput pegSensor2 = new DigitalInput(RobotMap.PEGSENSOR2);
 	private static final Relay led = new Relay(RobotMap.LED);
 	private static final Solenoid gearHanger1 = new Solenoid(RobotMap.GEAR_HANGER1);
 	private static final Solenoid gearHanger2 = new Solenoid(RobotMap.GEAR_HANGER2);
@@ -32,20 +33,29 @@ public class GearHanger extends Subsystem {
 	}
 	
 	public void toggleLight() {
-		led.set(!getSense() ? Relay.Value.kReverse : Relay.Value.kForward);
+		if (getFirstSense() || getSecondSense()) {
+			led.set(Relay.Value.kForward);
+		} else {
+			led.set(Relay.Value.kReverse);
+		}
 	}
 	
 	public boolean getLight() {
 		return led.isAlive();
 	}
 	
-	public boolean getSense() {
+	public boolean getFirstSense() {
 		return !pegSensor.get();
+	}
+	
+	public boolean getSecondSense() {
+		return !pegSensor2.get();
 	}
 	
 	public void update() {
 		SmartDashboard.putBoolean("LED Trigger", getLight());
-		SmartDashboard.putBoolean("PegSensor", getSense());
+		SmartDashboard.putBoolean("PegSensor", getFirstSense());
+		SmartDashboard.putBoolean("PegSensor2", getSecondSense());
 	}
 	
     public void initDefaultCommand() {
