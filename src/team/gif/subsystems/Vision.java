@@ -17,7 +17,7 @@ public class Vision extends Subsystem {
 	private double yPixelError;
 	private double xDegreeConstant;
 	private double yDegreeConstant;
-	private static double cameraCenterX;
+	private double cameraCenterX;
 
 	public Vision() {
 		super();

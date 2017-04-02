@@ -16,7 +16,7 @@ import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.intake.CollectorDrive;
 import team.gif.commands.intake.Eject;
 import team.gif.commands.intake.FeederDrive;
-import team.gif.commands.shooter.CameraFollow;
+import team.gif.commands.shooter.CameraAim;
 import team.gif.commands.shooter.ChangeRevSetpoint;
 import team.gif.commands.shooter.ManualShoot;
 import team.gif.commands.shooter.ResetTurret;
@@ -99,7 +99,7 @@ public class OI {
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new RetractCollector());
 			a_start.whenPressed(new CollectorIn(false));
-			a_leftTrigger.whileHeld(new CameraFollow());
+			a_leftTrigger.whileHeld(new CameraAim());
 			a_leftTrigger.whileHeld(new RevFlywheel());
 			a_rightTrigger.whileHeld(new FeederDrive(true));
 			a_leftStickX.whileHeld(new TurretManual());

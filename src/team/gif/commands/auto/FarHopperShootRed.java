@@ -9,7 +9,7 @@ import team.gif.commands.drivetrain.ResetGyro;
 import team.gif.commands.drivetrain.ShiftOmni;
 import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.intake.FeederDrive;
-import team.gif.commands.shooter.CameraFollow;
+import team.gif.commands.shooter.CameraAim;
 import team.gif.commands.shooter.ChangeRevSetpoint;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
@@ -29,7 +29,7 @@ public class FarHopperShootRed extends CommandGroup {
     	addSequential(new GyroTurn(-92, 2));
     	addParallel(new CollectorHoodIn(false));
        	addSequential(new DriveStraightEnc(30.75, 0.85, 3));
-    	addParallel(new CameraFollow());
+    	addParallel(new CameraAim());
     	addParallel(new DriveStraightEnc(50, 0.1, 5));
     	addParallel(new FeederDrive(false));
     }
