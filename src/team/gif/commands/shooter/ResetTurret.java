@@ -1,7 +1,5 @@
 package team.gif.commands.shooter;
 
-import com.ctre.CANTalon.TalonControlMode;
-
 import lib.gif.commands.Command;
 import team.gif.Robot;
 
@@ -23,14 +21,13 @@ public class ResetTurret extends Command {
 	}
 
 	protected void initialize() {
-		Robot.turret.setMode(TalonControlMode.PercentVbus);
 	}
 
 	protected void execute() {
 		if (blue) {
-			Robot.turret.setPosition(-0.3);
+			Robot.turret.set(-0.3);
 		} else {
-			Robot.turret.setPosition(0.3);
+			Robot.turret.set(0.3);
 		}
 	}
 
@@ -47,8 +44,7 @@ public class ResetTurret extends Command {
 	}
 
 	protected void end() {
-		Robot.turret.setMode(TalonControlMode.Position);
-		Robot.turret.resetEncoderPosition();
+		Robot.turret.resetEncoder();
 	}
 
 	protected void interrupted() {

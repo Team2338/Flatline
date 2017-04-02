@@ -4,22 +4,21 @@ import edu.wpi.first.wpilibj.Timer;
 import lib.gif.PIDCalculator;
 import lib.gif.commands.Command;
 import team.gif.Globals;
-import team.gif.Robot; 
+import team.gif.Robot;
 
-// Note that this command is not being called/used anywhere.
-public class TurretTurn extends Command {
-
+public class CameraAim extends Command {
+	
 	private double setpoint;
 	private double error;
 	private PIDCalculator turretPID;
 
-	public TurretTurn(double setpoint) {
+	public CameraAim() {
 		requires(Robot.turret);
-		this.setpoint = setpoint;
 	}
 
 	protected void initialize() {
 		turretPID = new PIDCalculator(Globals.TURRET_P, Globals.TURRET_I, Globals.TURRET_D, Globals.TURRET_I_ZONE);
+		setpoint = Robot.vision.getXDegreeError() * Globals.TURRET_ANGLE_TO_TICK - Robot.turret.getPosition();
 	}
 
 	protected void execute() {
@@ -29,7 +28,7 @@ public class TurretTurn extends Command {
 	}
 
 	protected boolean isFinished() {
-		return Math.abs(error) < Globals.TURRET_TOLERANCE;
+		return false;
 	}
 
 	protected void end() {

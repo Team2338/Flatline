@@ -9,7 +9,7 @@ import team.gif.commands.drivetrain.ResetGyro;
 import team.gif.commands.drivetrain.ShiftOmni;
 import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.intake.FeederDrive;
-import team.gif.commands.shooter.CameraFollow;
+import team.gif.commands.shooter.CameraAim;
 import team.gif.commands.shooter.ChangeRevSetpoint;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
@@ -33,7 +33,7 @@ public class SideGearShootBlue extends CommandGroup {
     	addParallel(new GearRelease(true, false));
     	addSequential(new WaitCommand(1.2));
     	addSequential(new DriveStraightEnc(12, 3));
-    	addParallel(new CameraFollow());
+    	addParallel(new CameraAim());
     	addParallel(new FeederDrive(true));
     }
     

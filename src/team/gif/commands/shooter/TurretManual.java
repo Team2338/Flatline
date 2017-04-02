@@ -1,7 +1,5 @@
 package team.gif.commands.shooter;
 
-import com.ctre.CANTalon.TalonControlMode;
-
 import lib.gif.commands.Command;
 import team.gif.Globals;
 import team.gif.OI;
@@ -14,14 +12,13 @@ public class TurretManual extends Command {
 	}
 
 	protected void initialize() {
-		Robot.turret.setMode(TalonControlMode.PercentVbus);
 	}
 
 	protected void execute() {
 		if (Math.abs(OI.auxController.getRawAxis(0)) > Globals.DEAD_ZONE) {
-			Robot.turret.setPosition(0.4 * -OI.auxController.getRawAxis(0));
+			Robot.turret.set(0.4 * -OI.auxController.getRawAxis(0));
 		} else {
-			Robot.turret.setPosition(0);
+			Robot.turret.set(0);
 		}
 	}
 
@@ -30,7 +27,7 @@ public class TurretManual extends Command {
 	}
 
 	protected void end() {
-		Robot.turret.setPosition(0);
+		Robot.turret.set(0);
 	}
 
 	protected void interrupted() {

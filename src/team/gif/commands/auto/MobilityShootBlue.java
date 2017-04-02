@@ -8,7 +8,7 @@ import team.gif.commands.drivetrain.ResetGyro;
 import team.gif.commands.drivetrain.ShiftOmni;
 import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.intake.FeederDrive;
-import team.gif.commands.shooter.CameraFollow;
+import team.gif.commands.shooter.CameraAim;
 import team.gif.commands.shooter.ChangeRevSetpoint;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
@@ -25,7 +25,7 @@ public class MobilityShootBlue extends CommandGroup {
     	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(-75, 0.75, 7.5));
     	addParallel(new CollectorIn(false));
-    	addParallel(new CameraFollow());
+    	addParallel(new CameraAim());
     	addSequential(new WaitCommand(2.5));
     	addParallel(new FeederDrive(true));
     }
