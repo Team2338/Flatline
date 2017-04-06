@@ -43,6 +43,7 @@ public class OI {
 	private static Button d_rightTrigger;
 	private static Button d_leftStick;
 	private static Button d_rightStick;
+	public static Button d_leftBumper;
 
 	private static Button a_A;
 	private static Button a_B;
@@ -63,6 +64,7 @@ public class OI {
 		d_Y = new JoystickButton(driverController, 4);
 		d_leftTrigger = new JoystickAnalogButton(driverController, 2, 0.5);
 		d_rightTrigger = new JoystickAnalogButton(driverController, 3, 0.5);
+		d_leftBumper = new JoystickButton(driverController, 5);
 
 		a_A = new JoystickButton(auxController, 1);
 		a_B = new JoystickButton(auxController, 2);

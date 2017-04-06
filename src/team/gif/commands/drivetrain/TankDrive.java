@@ -17,6 +17,7 @@ public class TankDrive extends Command {
 	private double leftStick;
 	private double rightStick;
 	private double maxAccel;
+	private boolean squaredInputs;
 
 	public TankDrive(double maxAccel) {
 		requires(Robot.drivetrain);
@@ -24,6 +25,7 @@ public class TankDrive extends Command {
 	}
 
 	protected void initialize() {
+		this.squaredInputs = SmartDashboard.getBoolean("Squared Inputs", true);
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
 	}
 
@@ -32,8 +34,13 @@ public class TankDrive extends Command {
 		rightStick = OI.driverController.getRawAxis(5);
 
 		left = -(Math.abs(leftStick) > Globals.DEAD_ZONE ? leftStick : 0);
-
 		right = -(Math.abs(rightStick) > Globals.DEAD_ZONE ? rightStick : 0);
+		
+		left = squaredInputs ? Math.pow(left, 3) : left;
+		right = squaredInputs ? Math.pow(right, 3) : right;
+		
+		left = OI.d_leftBumper.get() ? (left + right) / 2 : left;
+		right = OI.d_leftBumper.get() ? (left + right) / 2 : right;
 
 		if (!Robot.shifter.isHigh()) { // P: Robot.shifter.isHigh() C: !Robot.shifter.isHigh()
 			if (left > 0 && leftLast < 0 || left < 0 && leftLast > 0) {
