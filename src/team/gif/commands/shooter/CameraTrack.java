@@ -11,8 +11,6 @@ import team.gif.Robot;
  */
 public class CameraTrack extends Command {
 	
-	private double setpoint;
-	private double error;
 	private PIDCalculator turretPID;
 
 	public CameraTrack() {
@@ -21,14 +19,10 @@ public class CameraTrack extends Command {
 
 	protected void initialize() {
 		turretPID = new PIDCalculator(Globals.TURRET_P, Globals.TURRET_I, Globals.TURRET_D, Globals.TURRET_I_ZONE);
-		setpoint = Robot.vision.getXDegreeError() * Globals.TURRET_ANGLE_TO_TICK - Robot.turret.getPosition();
 	}
 
 	protected void execute() {
-		setpoint = Robot.turret.getPosition() - Robot.vision.getXDegreeError() * Globals.TURRET_ANGLE_TO_TICK;
-		error = setpoint - Robot.turret.getPosition();
-		Robot.turret.set(turretPID.getOutput(error));  
-		Timer.delay(.02);
+		Robot.turret.set(turretPID.getOutput(Globals.TURRET_ANGLE_TO_TICK * Robot.vision.getXDegreeError()));  
 	}
 
 	protected boolean isFinished() {

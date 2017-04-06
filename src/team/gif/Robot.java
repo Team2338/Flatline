@@ -83,7 +83,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Gear Chooser", gearChooser);
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
-
+		
+		SmartDashboard.putBoolean("Squared Inputs", true);
 //		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
 //		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
 //		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
