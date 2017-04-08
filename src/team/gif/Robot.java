@@ -90,10 +90,10 @@ public class Robot extends IterativeRobot {
 //		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
 //		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
 //		SmartDashboard.putNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM);
-//		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_SP);
-//		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_SP);
-//		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_SP);
-//		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F_SP);
+		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_CP);
+		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_CP);
+		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_CP);
+		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F_CP);
 //		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM_SP);
 	}
 
