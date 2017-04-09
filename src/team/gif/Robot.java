@@ -51,9 +51,9 @@ public class Robot extends IterativeRobot {
 	private boolean isShifted;
 
 	public void robotInit() {
-//		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
-//		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
-//		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
+		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
+		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
+		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
 		
 		isShifted = OI.a_leftBumper.get();
 		oi = new OI(isShifted);

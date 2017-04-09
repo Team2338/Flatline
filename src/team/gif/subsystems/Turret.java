@@ -8,7 +8,9 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
 import team.gif.Globals;
+import team.gif.Robot;
 import team.gif.RobotMap;
+import team.gif.commands.shooter.CameraAim;
 import team.gif.commands.shooter.TurretManual;
 
 public class Turret extends Subsystem {
@@ -33,9 +35,17 @@ public class Turret extends Subsystem {
 	public void resetEncoder() {
 		turret.setPosition(0);
 	}
+	
+	public double getSpeed() {
+		return turret.getSpeed();
+	}
 
 	public double getPosition() {
 		return turret.getPosition();
+	}
+	
+	public double getIGain() {
+		return turret.GetIaccum() / 1023;
 	}
 
 	public boolean isForwardLimitClosed() {
@@ -48,6 +58,8 @@ public class Turret extends Subsystem {
 	
 	public void update() {
 		SmartDashboard.putNumber("Turret CurrentPos", getPosition());
+		SmartDashboard.putNumber("Turret Speed", getSpeed());
+		SmartDashboard.putNumber("Turret IGain", getIGain());
 		SmartDashboard.putNumber("Turret Angle", getPosition() / Globals.TURRET_ANGLE_TO_TICK);
 		SmartDashboard.putBoolean("Turret FwdClosed", isForwardLimitClosed());
 		SmartDashboard.putBoolean("Turret RevClosed", isReverseLimitClosed());

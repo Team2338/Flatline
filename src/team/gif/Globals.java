@@ -52,10 +52,10 @@ public class Globals {
 	public static final double POLYWHISK_RRPM			= -600; // reverse5
 	
 //	Turret
-	public static final double TURRET_P 				= 0.38;
-	public static final double TURRET_I 				= 0.0004;
-	public static final double TURRET_D 				= 3.8;
-	public static final int TURRET_I_ZONE 				= 150;
+	public static final double TURRET_P 				= 0.9; // (1.3) 0.38
+	public static final double TURRET_I 				= 0.001; // 0.0004
+	public static final double TURRET_D 				= 2.6; // 3.8
+	public static final double TURRET_I_ZONE 			= 0.032;
 	public static final double TURRET_POS	 			= 35d/8d; // 140/32 Encoder Counts per Rev
 	public static final double TURRET_ANGLE_TO_TICK		= 7d/576d; // 140/32/360
 	public static final double TURRET_TOLERANCE			= 0.0001; // ticks
@@ -63,10 +63,14 @@ public class Globals {
 // 	Vision
 	// CP: Center Peg | FH: Far Hopper | SP = Side Peg | MS = Auto mobility and shoot
 	public static final double VISION_TOLERANCE 		= 1.7; // degrees
-	public static final double CAMERA_CENTER_X_CP		= 260; // 275
+	public static final double CAMERA_CENTER_X_CP		= 240; // 260
 	public static final double CAMERA_CENTER_X_FH		= 272; // 260
 	public static final double CAMERA_CENTER_X_SP		= 270;
 	public static final double CAMERA_CENTER_X_MS		= 265;
+	public static final double CAMERA_OFFSET_CP			= 0; // degrees
+	public static final double CAMERA_OFFSET_FH			= 0; // degrees
+	public static final double CAMERA_OFFSET_SP			= 0; // degrees
+	public static final double CAMERA_OFFSET_MS			= 0; // degrees
 	public static final double CAMERA_CENTER_Y 			= 180;
 	public static final double CAMERA_HFOV				= 51.229919; // degrees as seen on GRIP
 	public static final double CAMERA_VFOV				= 39.55520044; // degrees as seen on GRIP

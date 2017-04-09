@@ -26,6 +26,10 @@ public class Climber extends Subsystem {
 		climber1.changeControlMode(mode);
 	}
 	
+	public double getCurrent() {
+		return climber1.getOutputCurrent();
+	}
+	
 	public static CANTalon getTalon() {
 		return climber1;
 	}
