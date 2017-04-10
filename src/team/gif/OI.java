@@ -17,6 +17,7 @@ import team.gif.commands.intake.CollectorDrive;
 import team.gif.commands.intake.Eject;
 import team.gif.commands.intake.FeederDrive;
 import team.gif.commands.shooter.CameraAim;
+import team.gif.commands.shooter.CameraTrack;
 import team.gif.commands.shooter.ChangeRevSetpoint;
 import team.gif.commands.shooter.ManualShoot;
 import team.gif.commands.shooter.ResetTurret;
@@ -91,20 +92,20 @@ public class OI {
 		a_A.whenReleased(new GearRelease(false, true));
 		
 		if (isShifted) { // Shift to second set of commands
-		 a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_CENTER_X_FH));
+		 a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_OFFSET_FH));
 		 a_rightBumper.whileHeld(new Eject());
 		 a_select.whenPressed(new CollectorHoodIn(false));
 		 a_start.whenPressed(new CollectorHoodIn(true));
 		 a_rightTrigger.whileHeld(new ManualShoot());
 		} else {
-			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_CENTER_X_CP));
-//			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_CENTER_X_SP));
-//			a_Y.whileHeld(new SpewOut());
+			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_OFFSET_CP));
+			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_OFFSET_SP));
+			a_Y.whileHeld(new SpewOut());
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new RetractCollector());
 			a_start.whenPressed(new CollectorIn(false));
-			a_leftTrigger.whileHeld(new CameraAim());
-			a_leftTrigger.whileHeld(new RevFlywheel());
+			a_leftTrigger.whileHeld(new CameraTrack());
+//			a_leftTrigger.whileHeld(new RevFlywheel());
 			a_rightTrigger.whileHeld(new FeederDrive(true));
 			a_leftStickX.whileHeld(new TurretManual());
 		}

@@ -56,9 +56,9 @@ public class Robot extends IterativeRobot {
 	private DigitalOutput do4 = new DigitalOutput(4);
 
 	public void robotInit() {
-//		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
-//		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
-//		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
+		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
+		SmartDashboard.putNumber("Turret I", Globals.TURRET_I);
+		SmartDashboard.putNumber("Turret D", Globals.TURRET_D);
 		
 		isShifted = OI.a_leftBumper.get();
 		oi = new OI(isShifted);
@@ -97,10 +97,10 @@ public class Robot extends IterativeRobot {
 //		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
 //		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
 //		SmartDashboard.putNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM);
-//		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_SP);
-//		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_SP);
-//		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_SP);
-//		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F_SP);
+		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_CP);
+		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_CP);
+		SmartDashboard.putNumber("Flywheel D", Globals.FLYWHEEL_D_CP);
+		SmartDashboard.putNumber("Flywheel F", Globals.FLYWHEEL_F_CP);
 //		SmartDashboard.putNumber("Flywheel RPM", Globals.FLYWHEEL_RPM_SP);
 	}
 

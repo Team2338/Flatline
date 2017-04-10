@@ -6,18 +6,18 @@ import team.gif.Robot;
 public class ChangeRevSetpoint extends Command {
 
 	private double setpoint;
-	private double centerX;
+	private double offset;
 
-	public ChangeRevSetpoint(double setpoint, double centerX) {
+	public ChangeRevSetpoint(double setpoint, double offset) {
 		requires(Robot.flywheel);
 		requires(Robot.vision);
 		this.setpoint = setpoint;
-		this.centerX = centerX;
+		this.offset = offset;
 	}
 
 	protected void initialize() {
 		Robot.flywheel.setStandbySetpoint(setpoint);
-		Robot.vision.setCenterX(centerX);
+		Robot.vision.setAngleOffset(offset);
 	}
 
 	protected void execute() {

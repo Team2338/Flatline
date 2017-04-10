@@ -18,21 +18,22 @@ public class Vision extends Subsystem {
 	private double xDegreeConstant;
 	private double yDegreeConstant;
 	private double cameraCenterX;
+	private double cameraOffset;
 
 	public Vision() {
 		super();
 		cameraCenterX = Globals.CAMERA_CENTER_X_CP;
+		cameraOffset = Globals.CAMERA_OFFSET_CP;
 		xDegreeConstant = cameraCenterX / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2));
 		yDegreeConstant = Globals.CAMERA_CENTER_Y / Math.tan(Math.toRadians(Globals.CAMERA_VFOV / 2));
 	}
 	
-	public void setCenterX(double cameraCenterX) {
-		this.cameraCenterX = cameraCenterX;
-		xDegreeConstant = cameraCenterX / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2));
+	public void setAngleOffset(double cameraOffset) {
+		this.cameraOffset = cameraOffset;
 	}
 	
-	public double getCenterX() {
-		return cameraCenterX;
+	public double getCameraOffset() {
+		return cameraOffset;
 	}
 
 	public double getXPixelError() {
@@ -85,7 +86,7 @@ public class Vision extends Subsystem {
 		} catch (NullPointerException e) {
 		}
 
-		SmartDashboard.putNumber("CenterX", getCenterX());
+		SmartDashboard.putNumber("Camera Offset", getCameraOffset());
 		SmartDashboard.putNumber("X Degree Error", getXDegreeError());
 		SmartDashboard.putNumber("X Pixel Error", getXPixelError());
 		SmartDashboard.putNumber("Y Pixel Error", getYPixelError());

@@ -32,22 +32,22 @@ public class RevFlywheel extends Command {
 		} else {
 			setpoint = Robot.flywheel.getStandbySetpoint();
 
-			if (setpoint == Globals.FLYWHEEL_RPM_CP) {
-				Robot.flywheel.setPID(Globals.FLYWHEEL_P_CP, Globals.FLYWHEEL_I_CP, Globals.FLYWHEEL_D_CP,
-						Globals.FLYWHEEL_F_CP);
-			} else if (setpoint == Globals.FLYWHEEL_RPM_FH) {
-				Robot.flywheel.setPID(Globals.FLYWHEEL_P_FH, Globals.FLYWHEEL_I_FH, Globals.FLYWHEEL_D_FH,
-						Globals.FLYWHEEL_F_FH);
-			} else if (setpoint == Globals.FLYWHEEL_RPM_SP) {
-				Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
-						Globals.FLYWHEEL_F_SP);
-			}
+//			if (setpoint == Globals.FLYWHEEL_RPM_CP) {
+//				Robot.flywheel.setPID(Globals.FLYWHEEL_P_CP, Globals.FLYWHEEL_I_CP, Globals.FLYWHEEL_D_CP,
+//						Globals.FLYWHEEL_F_CP);
+//			} else if (setpoint == Globals.FLYWHEEL_RPM_FH) {
+//				Robot.flywheel.setPID(Globals.FLYWHEEL_P_FH, Globals.FLYWHEEL_I_FH, Globals.FLYWHEEL_D_FH,
+//						Globals.FLYWHEEL_F_FH);
+//			} else if (setpoint == Globals.FLYWHEEL_RPM_SP) {
+//				Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
+//						Globals.FLYWHEEL_F_SP);
+//			}
 
-//			 Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",
-//			 Globals.FLYWHEEL_P_SP),
-//			 SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I_SP),
-//			 SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D_SP),
-//			 SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F_SP));
+			 Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",
+			 Globals.FLYWHEEL_P_CP),
+			 SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I_CP),
+			 SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D_CP),
+			 SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F_CP));
 		}
 	}
 

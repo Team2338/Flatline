@@ -7,6 +7,7 @@ import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.gif.MotorLogger;
 import lib.gif.commands.Subsystem;
 import team.gif.Globals;
 import team.gif.RobotMap;
@@ -41,6 +42,8 @@ public class Flywheel extends Subsystem {
 		flywheel2.changeControlMode(TalonControlMode.Follower);
 		flywheel2.set(RobotMap.FLYWHEEL_1);
 		setpoint = Globals.FLYWHEEL_RPM_CP;
+		
+		MotorLogger.addMotor(flywheel);
 	}
 	
 	public void setPID(double p, double i, double d, double f) {

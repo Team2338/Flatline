@@ -22,23 +22,23 @@ public class Globals {
 	
 //	Shooter
 	// CP: Center Peg | FH: Far Hopper | SP = Side Peg
-	public static final double FLYWHEEL_P_CP			= 0.04; //0.04
+	public static final double FLYWHEEL_P_CP			= 0.12; //0.04
 	public static final double FLYWHEEL_I_CP 			= 0.0004; //0.0004
-	public static final double FLYWHEEL_D_CP 			= 1.4; //1.4
-	public static final double FLYWHEEL_F_CP			= 0.025; //0.0255
+	public static final double FLYWHEEL_D_CP 			= 2.4; //1.4
+	public static final double FLYWHEEL_F_CP			= 0.02389; //0.025
 	public static final double FLYWHEEL_P_FH			= 0.02;
 	public static final double FLYWHEEL_I_FH 			= 0.00001;
 	public static final double FLYWHEEL_D_FH 			= 0.8;
 	public static final double FLYWHEEL_F_FH			= 0.0237;
-	public static final double FLYWHEEL_P_SP			= 0.006;
-	public static final double FLYWHEEL_I_SP			= 0.00002;
-	public static final double FLYWHEEL_D_SP			= 1.0;
-	public static final double FLYWHEEL_F_SP			= 0.02323;
-	public static final int FLYWHEEL_I_ABOVE 			= 2750; // 2750
-	public static final int FLYWHEEL_I_BELOW 			= 1750; // 1750
+	public static final double FLYWHEEL_P_SP			= 0.012;
+	public static final double FLYWHEEL_I_SP			= 0.00004;
+	public static final double FLYWHEEL_D_SP			= 0.2;
+	public static final double FLYWHEEL_F_SP			= 0.02384;
+	public static final int FLYWHEEL_I_ABOVE 			= 250; // 2750
+	public static final int FLYWHEEL_I_BELOW 			= 250; // 1750
 	public static final double FLYWHEEL_RPM_CP			= 25950; // 25950
 	public static final double FLYWHEEL_RPM_FH			= 23950; // 23950
-	public static final double FLYWHEEL_RPM_SP			= 24760; // 24750
+	public static final double FLYWHEEL_RPM_SP			= 24790; // 24750
 	public static final double FLYWHEEL_RPM_EJECT		= 12000; // 12000 (for spewing balls out)
 	public static final double SHOOTER_TOLERANCE 		= 2000; // ticks
 	
@@ -49,13 +49,13 @@ public class Globals {
 	public static final double POLYWHISK_F				= 0.079;
 	public static final int POLYWHISK_IZONE				= 100;
 	public static final double POLYWHISK_FRPM			= 900; // forward
-	public static final double POLYWHISK_RRPM			= -600; // reverse
+	public static final double POLYWHISK_RRPM			= -600; // reverse5
 	
 //	Turret
-	public static final double TURRET_P 				= 0.38;
-	public static final double TURRET_I 				= 0.0004;
-	public static final double TURRET_D 				= 3.8;
-	public static final int TURRET_I_ZONE 				= 150;
+	public static final double TURRET_P 				= 0.9; // (1.3) 0.38
+	public static final double TURRET_I 				= 0.001; // 0.0004
+	public static final double TURRET_D 				= 2.6; // 3.8
+	public static final double TURRET_I_ZONE 			= 0.032;
 	public static final double TURRET_POS	 			= 35d/8d; // 140/32 Encoder Counts per Rev
 	public static final double TURRET_ANGLE_TO_TICK		= 7d/576d; // 140/32/360
 	public static final double TURRET_TOLERANCE			= 0.0001; // ticks
@@ -63,10 +63,14 @@ public class Globals {
 // 	Vision
 	// CP: Center Peg | FH: Far Hopper | SP = Side Peg | MS = Auto mobility and shoot
 	public static final double VISION_TOLERANCE 		= 1.7; // degrees
-	public static final double CAMERA_CENTER_X_CP		= 260; // 275
+	public static final double CAMERA_CENTER_X_CP		= 240; // 260
 	public static final double CAMERA_CENTER_X_FH		= 272; // 260
 	public static final double CAMERA_CENTER_X_SP		= 270;
 	public static final double CAMERA_CENTER_X_MS		= 265;
+	public static final double CAMERA_OFFSET_CP			= 0; // degrees
+	public static final double CAMERA_OFFSET_FH			= 0; // degrees
+	public static final double CAMERA_OFFSET_SP			= 0; // degrees
+	public static final double CAMERA_OFFSET_MS			= 0; // degrees
 	public static final double CAMERA_CENTER_Y 			= 180;
 	public static final double CAMERA_HFOV				= 51.229919; // degrees as seen on GRIP
 	public static final double CAMERA_VFOV				= 39.55520044; // degrees as seen on GRIP
