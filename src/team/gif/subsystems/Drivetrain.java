@@ -12,8 +12,8 @@ import team.gif.commands.drivetrain.TankDrive;
 
 public class Drivetrain extends Subsystem {
 
-	private static final CANTalon frontLeft = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
-	private static final CANTalon frontRight = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);
+	public static final CANTalon frontLeft = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
+	public static final CANTalon frontRight = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);
 	private static final CANTalon midLeft = new CANTalon(RobotMap.MID_LEFT_DRIVE);
 	private static final CANTalon midRight = new CANTalon(RobotMap.MID_RIGHT_DRIVE);
 	private static final CANTalon rearLeft = new CANTalon(RobotMap.REAR_LEFT_DRIVE);
@@ -110,7 +110,7 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
-		setDefaultCommand(new TankDrive(0.8));
+		setDefaultCommand(new TankDrive(1));
 	}
 
 }

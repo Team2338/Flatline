@@ -22,7 +22,7 @@ public class CollectorIn extends Command {
     		Robot.collector.retractCollector(!retract);
     		Robot.collector.retractHood(!retract);
     	} else {
-        	Robot.collector.retractCollector(!retract); // P: retract // C: !retract
+        	Robot.collector.retractCollector(retract); // P: retract // C: !retract
     	}
     }
 

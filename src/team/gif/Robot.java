@@ -1,5 +1,6 @@
 package team.gif;
 
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -17,6 +18,7 @@ import team.gif.commands.auto.GearShootRed;
 import team.gif.commands.auto.Mobility;
 import team.gif.commands.auto.MobilityShootBlue;
 import team.gif.commands.auto.MobilityShootRed;
+import team.gif.commands.auto.SideGearFarRed;
 import team.gif.commands.auto.SideGearShootBlue;
 import team.gif.commands.auto.SideGearShootRed;
 import team.gif.commands.drivetrain.TankDrive;
@@ -49,6 +51,9 @@ public class Robot extends IterativeRobot {
     public static SendableChooser<Boolean> gearChooser;
 	private Command autonomousCommand;
 	private boolean isShifted;
+	
+	private DigitalOutput do3 = new DigitalOutput(3);
+	private DigitalOutput do4 = new DigitalOutput(4);
 
 	public void robotInit() {
 //		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
@@ -59,7 +64,8 @@ public class Robot extends IterativeRobot {
 		oi = new OI(isShifted);
 		
 		autoChooser = new SendableChooser<Command>();
-        autoChooser.addDefault("AntiAuto", new AntiAuto());
+        autoChooser.addDefault("SideGearFarRed", new SideGearFarRed());
+        autoChooser.addObject("AntiAuto", new AntiAuto());
         autoChooser.addObject("AutoTest", new AutoTest());
         autoChooser.addObject("Mobility", new Mobility());
         autoChooser.addObject("MobilityShootRed", new MobilityShootRed());
@@ -85,6 +91,7 @@ public class Robot extends IterativeRobot {
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
 		
 		SmartDashboard.putBoolean("Squared Inputs", true);
+		SmartDashboard.putBoolean("AsiagoDrive", true);
 //		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
 //		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
 //		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
@@ -105,7 +112,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void autonomousInit() {
-		autonomousCommand = (Command) autoChooser.getSelected();
+		autonomousCommand = new SideGearFarRed();
 
     	if (delayChooser.getSelected() != null) {
     		Timer.delay((Double) delayChooser.getSelected());
@@ -128,6 +135,8 @@ public class Robot extends IterativeRobot {
 
 	public void teleopPeriodic() {
 		update();
+		do3.set(OI.a_B.get());
+		do4.set(OI.a_Y.get());
 	}
 
 	public void testPeriodic() {
@@ -143,6 +152,7 @@ public class Robot extends IterativeRobot {
 		Robot.feeder.update();
 		Robot.gearHanger.update();
 		Robot.vision.update();
+		Robot.climber.update();
 
     	if (OI.a_leftBumper.get() != isShifted) {
     		isShifted = !isShifted;

@@ -44,11 +44,12 @@ public class OI {
 	private static Button d_leftStick;
 	private static Button d_rightStick;
 	public static Button d_leftBumper;
+	private static Button d_rightBumper;
 
 	private static Button a_A;
-	private static Button a_B;
+	public static Button a_B;
 	private static Button a_X;
-	private static Button a_Y;
+	public static Button a_Y;
 	public static Button a_leftBumper = new JoystickButton(auxController, 5);
 	private static Button a_rightBumper;
 	private static Button a_select;
@@ -65,6 +66,7 @@ public class OI {
 		d_leftTrigger = new JoystickAnalogButton(driverController, 2, 0.5);
 		d_rightTrigger = new JoystickAnalogButton(driverController, 3, 0.5);
 		d_leftBumper = new JoystickButton(driverController, 5);
+		d_rightBumper = new JoystickButton(driverController, 6);
 
 		a_A = new JoystickButton(auxController, 1);
 		a_B = new JoystickButton(auxController, 2);
@@ -96,8 +98,8 @@ public class OI {
 		 a_rightTrigger.whileHeld(new ManualShoot());
 		} else {
 			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_CENTER_X_CP));
-			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_CENTER_X_SP));
-			a_Y.whileHeld(new SpewOut());
+//			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_CENTER_X_SP));
+//			a_Y.whileHeld(new SpewOut());
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new RetractCollector());
 			a_start.whenPressed(new CollectorIn(false));

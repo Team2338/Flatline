@@ -13,11 +13,11 @@ public class Shifter extends Subsystem {
 	public Shifter() {
 		super();
 		
-		shifter.set(true); // P: false C: true
+		shifter.set(false); // P: false C: true
 	}
 	
 	public void shift(boolean isLow) {
-		shifter.set(isLow); // P: !isLow C: isLow
+		shifter.set(!isLow); // P: !isLow C: isLow
 	}
 	
 	public boolean isHigh() {
