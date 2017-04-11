@@ -32,11 +32,11 @@ public class CameraTrack extends Command {
 		
 		error = setpoint - Robot.turret.getPosition();
 		
-		if (Math.abs(error) <= 0.032) { // for tuning: pixel at 220
-			turretActualP = 5.0;
+		if (Math.abs(error) <= 0.0378) { // for tuning: pixel at 220
+			turretActualP = 4.9;
 		} else if (Math.abs(error) <= 0.07) { // for tuning: pixel at 200
 			turretActualP = 2.85;
-		} else if (Math.abs(error) <= 0.11) { // for tuning: pixel at 160
+		} else if (Math.abs(error) <= 0.13) { // for tuning: pixel at 160
 			turretActualP = 1.78;
 		} else { // for tuning: pixel at 20
 			turretActualP = Globals.TURRET_P;

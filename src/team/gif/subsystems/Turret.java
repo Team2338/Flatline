@@ -10,7 +10,6 @@ import lib.gif.commands.Subsystem;
 import team.gif.Globals;
 import team.gif.Robot;
 import team.gif.RobotMap;
-import team.gif.commands.shooter.CameraAim;
 import team.gif.commands.shooter.TurretManual;
 
 public class Turret extends Subsystem {

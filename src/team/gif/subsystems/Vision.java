@@ -17,14 +17,12 @@ public class Vision extends Subsystem {
 	private double yPixelError;
 	private double xDegreeConstant;
 	private double yDegreeConstant;
-	private double cameraCenterX;
 	private double cameraOffset;
 
 	public Vision() {
 		super();
-		cameraCenterX = Globals.CAMERA_CENTER_X_CP;
 		cameraOffset = Globals.CAMERA_OFFSET_CP;
-		xDegreeConstant = cameraCenterX / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2));
+		xDegreeConstant = Globals.CAMERA_CENTER_X / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2));
 		yDegreeConstant = Globals.CAMERA_CENTER_Y / Math.tan(Math.toRadians(Globals.CAMERA_VFOV / 2));
 	}
 	
@@ -39,7 +37,7 @@ public class Vision extends Subsystem {
 	public double getXPixelError() {
 		try {
 			if (centerX.length > 0)
-				xPixelError = cameraCenterX - centerX[centerX.length - 1];
+				xPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
 		} catch (ArrayIndexOutOfBoundsException e) {
 		}
 		return xPixelError;

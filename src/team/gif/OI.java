@@ -16,7 +16,6 @@ import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.intake.CollectorDrive;
 import team.gif.commands.intake.Eject;
 import team.gif.commands.intake.FeederDrive;
-import team.gif.commands.shooter.CameraAim;
 import team.gif.commands.shooter.CameraTrack;
 import team.gif.commands.shooter.ChangeRevSetpoint;
 import team.gif.commands.shooter.ManualShoot;
