@@ -2,6 +2,7 @@ package team.gif.commands.drivetrain;
 
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Command;
 import team.gif.Globals;
@@ -10,6 +11,7 @@ import team.gif.Robot;
 
 public class TankDrive extends Command {
 
+	private RobotDrive robotDrive;
 	private double left;
 	private double right;
 	private double leftLast;
@@ -27,6 +29,11 @@ public class TankDrive extends Command {
 	protected void initialize() {
 		this.squaredInputs = SmartDashboard.getBoolean("Squared Inputs", true);
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
+		robotDrive = new RobotDrive(Robot.drivetrain.frontLeft, Robot.drivetrain.frontRight);
+		robotDrive.setSafetyEnabled(true);
+        robotDrive.setExpiration(0.1);
+        robotDrive.setSensitivity(0.5);
+        robotDrive.setMaxOutput(1.0);
 	}
 
 	protected void execute() {
@@ -39,10 +46,10 @@ public class TankDrive extends Command {
 		left = squaredInputs ? Math.pow(left, 3) : left;
 		right = squaredInputs ? Math.pow(right, 3) : right;
 		
-		left = OI.d_leftBumper.get() ? (left + right) / 2 : left;
-		right = OI.d_leftBumper.get() ? (left + right) / 2 : right;
+//		left = OI.d_leftBumper.get() ? (left + right) : left;
+//		right = OI.d_leftBumper.get() ? (left + right) : right;
 
-		if (!Robot.shifter.isHigh()) { // P: Robot.shifter.isHigh() C: !Robot.shifter.isHigh()
+		if (Robot.shifter.isHigh()) { // P: Robot.shifter.isHigh() C: !Robot.shifter.isHigh()
 			if (left > 0 && leftLast < 0 || left < 0 && leftLast > 0) {
 				left = 0;
 			} else if (left > 0) { //Forward Left
@@ -65,8 +72,11 @@ public class TankDrive extends Command {
 		}
 
 		// TODO: Use velocity in place of left - leftLast
-		
-		Robot.drivetrain.drive(-left, -right);
+		if (Robot.shifter.isHigh() && SmartDashboard.getBoolean("AsiagoDrive", true)) {
+			robotDrive.arcadeDrive(leftStick, OI.driverController.getRawAxis(4));
+		} else {
+			Robot.drivetrain.drive(-left, -right);
+		}
 
 		leftLast = left;
 		rightLast = right;
