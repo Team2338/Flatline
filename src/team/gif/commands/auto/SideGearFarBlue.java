@@ -22,7 +22,7 @@ public class SideGearFarBlue extends CommandGroup {
         addSequential(new DriveStraightEnc(-60.477, 0.75, 7));
         addSequential(new GyroTurn(60, 1.5));
         addSequential(new DriveStraightEnc(-82, 0.75, 7));
-    	addParallel(new GearRelease(true, false));
+    	addParallel(new GearRelease(true, true, false));
     	addSequential(new WaitCommand(1.2));
     	addSequential(new DriveStraightEnc(12, 0.75, 7));
     }

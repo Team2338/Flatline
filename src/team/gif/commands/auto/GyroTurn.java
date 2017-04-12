@@ -36,7 +36,7 @@ public class GyroTurn extends Command {
 	}
 
 	protected boolean isFinished() {
-		return Math.abs(angleError) <= Globals.DRIVE_ANGLE_TOLERANCE && isTimedOut();
+		return Math.abs(angleError) <= Globals.DRIVE_ANGLE_TOLERANCE || isTimedOut();
 	}
 
 	protected void end() {

@@ -17,7 +17,7 @@ import team.gif.commands.shooter.RevFlywheel;
 public class SideGearShootRed extends CommandGroup {
 
     public SideGearShootRed() {
-    	// Not tuned, DO NOT TUNE FOR MIDWEST!
+    	// Not fully tuned
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());

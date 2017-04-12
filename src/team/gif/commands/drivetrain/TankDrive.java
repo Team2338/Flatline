@@ -29,11 +29,11 @@ public class TankDrive extends Command {
 	protected void initialize() {
 		this.squaredInputs = SmartDashboard.getBoolean("Squared Inputs", true);
 		Robot.drivetrain.setMode(TalonControlMode.PercentVbus);
-		robotDrive = new RobotDrive(Robot.drivetrain.frontLeft, Robot.drivetrain.frontRight);
-		robotDrive.setSafetyEnabled(true);
-        robotDrive.setExpiration(0.1);
-        robotDrive.setSensitivity(0.5);
-        robotDrive.setMaxOutput(1.0);
+//		robotDrive = new RobotDrive(Robot.drivetrain.frontLeft, Robot.drivetrain.frontRight);
+//		robotDrive.setSafetyEnabled(true);
+//        robotDrive.setExpiration(0.1);
+//        robotDrive.setSensitivity(0.5);
+//        robotDrive.setMaxOutput(1.0);
 	}
 
 	protected void execute() {
@@ -72,11 +72,11 @@ public class TankDrive extends Command {
 		}
 
 		// TODO: Use velocity in place of left - leftLast
-		if (Robot.shifter.isHigh() && SmartDashboard.getBoolean("AsiagoDrive", true)) {
-			robotDrive.arcadeDrive(leftStick, OI.driverController.getRawAxis(4));
-		} else {
+//		if (Robot.shifter.isHigh() && SmartDashboard.getBoolean("AsiagoDrive", true)) {
+//			robotDrive.arcadeDrive(leftStick, OI.driverController.getRawAxis(4));
+//		} else {
 			Robot.drivetrain.drive(-left, -right);
-		}
+//		}
 
 		leftLast = left;
 		rightLast = right;

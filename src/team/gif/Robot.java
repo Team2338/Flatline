@@ -51,9 +51,6 @@ public class Robot extends IterativeRobot {
     public static SendableChooser<Boolean> gearChooser;
 	private Command autonomousCommand;
 	private boolean isShifted;
-	
-	private DigitalOutput do3 = new DigitalOutput(3);
-	private DigitalOutput do4 = new DigitalOutput(4);
 
 	public void robotInit() {
 		SmartDashboard.putNumber("Turret P", Globals.TURRET_P);
@@ -135,8 +132,6 @@ public class Robot extends IterativeRobot {
 
 	public void teleopPeriodic() {
 		update();
-		do3.set(OI.a_B.get());
-		do4.set(OI.a_Y.get());
 	}
 
 	public void testPeriodic() {
