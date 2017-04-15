@@ -54,8 +54,8 @@ public class Globals {
 	
 //	Turret
 	public static final double TURRET_P 				= 4.9; // (1.3) 0.38
-	public static final double TURRET_I 				= 0.008; // 0.0004
-	public static final double TURRET_D 				= 2.6; // 3.8
+	public static final double TURRET_I 				= 0.0008; // 0.0004
+	public static final double TURRET_D 				= 40.9; // 3.8
 	public static final double TURRET_I_ZONE 			= 0.05; // 0.0378
 	public static final double TURRET_POS	 			= 35d/8d; // 140/32 Encoder Counts per Rev
 	public static final double TURRET_ANGLE_TO_TICK		= 7d/576d; // 140/32/360
