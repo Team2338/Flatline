@@ -32,24 +32,37 @@ public class CameraTrack extends Command {
 		
 		error = setpoint - Robot.turret.getPosition();
 		
-		if (Math.abs(error) <= 0.0378) { // for tuning: pixel at 220
-			turretActualP = 4.9;
-		} else if (Math.abs(error) <= 0.07) { // for tuning: pixel at 200
-			turretActualP = 2.85;
-		} else if (Math.abs(error) <= 0.13) { // for tuning: pixel at 160
-			turretActualP = 1.78;
-		} else { // for tuning: pixel at 20
-			turretActualP = Globals.TURRET_P;
-		}
+//		if (Math.abs(error) <= 0.0378) { // for tuning: pixel at 220
+//			turretActualP = 4.9;
+//		} else if (Math.abs(error) <= 0.07) { // for tuning: pixel at 200
+//			turretActualP = 2.85;
+//		} else if (Math.abs(error) <= 0.13) { // for tuning: pixel at 160
+//			turretActualP = 1.78;
+//		} else { // for tuning: pixel at 20
+//			turretActualP = Globals.TURRET_P;
+//		}
 		
 		SmartDashboard.putNumber("Turret Error", error);
 		SmartDashboard.putNumber("Turret Actual P", turretActualP);
 		
-		turretPID = new PIDCalculator(turretActualP,
+		turretPID = new PIDCalculator(SmartDashboard.getNumber("Turret P", Globals.TURRET_P),
 				 SmartDashboard.getNumber("Turret I", Globals.TURRET_I),
-				 SmartDashboard.getNumber("Turret D", Globals.TURRET_D), Globals.TURRET_I_ZONE);
+				 SmartDashboard.getNumber("Turret D", Globals.TURRET_D));
 		
-		Robot.turret.set(turretPID.getOutput(error));  
+		SmartDashboard.putNumber("Turret Motor Output", turretPID.getOutput(error));
+		
+//		Robot.turret.set(turretPID.getOutput(error));
+		if (turretPID.getOutput(error) > 0.025 && turretPID.getOutput(error) < 0.05) {
+			Robot.turret.set(turretPID.getOutput(error) + 0.04);
+		} else if (turretPID.getOutput(error) < -0.025 && turretPID.getOutput(error) > -0.05) {
+			Robot.turret.set(turretPID.getOutput(error) - 0.04);
+		} else if (turretPID.getOutput(error) > 0.165) {
+			Robot.turret.set(0.165);
+		} else if (turretPID.getOutput(error) < -0.165) {
+			Robot.turret.set(-0.165);
+		} else {
+			Robot.turret.set(turretPID.getOutput(error));
+		}
 	}
 
 	protected boolean isFinished() {

@@ -39,6 +39,7 @@ public class Globals {
 	public static final double FLYWHEEL_RPM_CP			= 25950; // 25950
 	public static final double FLYWHEEL_RPM_FH			= 23950; // 23950
 	public static final double FLYWHEEL_RPM_SP			= 24790; // 24750
+	public static final double FLYWHEEL_RPM_FSP			= 32000; // 32000 TODO: Tune
 	public static final double FLYWHEEL_RPM_EJECT		= 12000; // 12000 (for spewing balls out)
 	public static final double SHOOTER_TOLERANCE 		= 2000; // ticks
 	
@@ -49,13 +50,13 @@ public class Globals {
 	public static final double POLYWHISK_F				= 0.079;
 	public static final int POLYWHISK_IZONE				= 100;
 	public static final double POLYWHISK_FRPM			= 900; // forward
-	public static final double POLYWHISK_RRPM			= -600; // reverse5
+	public static final double POLYWHISK_RRPM			= -600; // reverse
 	
 //	Turret
-	public static final double TURRET_P 				= 0.9; // (1.3) 0.38
-	public static final double TURRET_I 				= 0.005; // 0.0004
+	public static final double TURRET_P 				= 4.9; // (1.3) 0.38
+	public static final double TURRET_I 				= 0.008; // 0.0004
 	public static final double TURRET_D 				= 2.6; // 3.8
-	public static final double TURRET_I_ZONE 			= 0.0378;
+	public static final double TURRET_I_ZONE 			= 0.05; // 0.0378
 	public static final double TURRET_POS	 			= 35d/8d; // 140/32 Encoder Counts per Rev
 	public static final double TURRET_ANGLE_TO_TICK		= 7d/576d; // 140/32/360
 	public static final double TURRET_TOLERANCE			= 0.0001; // ticks
@@ -69,7 +70,7 @@ public class Globals {
 //	public static final double CAMERA_CENTER_X_SP		= 270;
 //	public static final double CAMERA_CENTER_X_MS		= 265;
 	public static final double CAMERA_OFFSET_CP			= 2.2879442689; // degrees
-	public static final double CAMERA_OFFSET_FH			= 3.6576809278; // degrees
+	public static final double CAMERA_OFFSET_FH			= 3.6576809278; // degrees (FH and FSP)
 	public static final double CAMERA_OFFSET_SP			= 3.4296396612; // degrees
 	public static final double CAMERA_OFFSET_MS			= 2.8590759970; // degrees
 	public static final double CAMERA_CENTER_Y 			= 180;

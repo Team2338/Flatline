@@ -23,6 +23,7 @@ import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
 import team.gif.commands.shooter.SpewOut;
 import team.gif.commands.shooter.TurretManual;
+import team.gif.commands.shooter.TurretRamp;
 import team.gif.commands.shooter.TurretTurn;
 
 /**
@@ -99,12 +100,13 @@ public class OI {
 		} else {
 			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_OFFSET_CP));
 			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_OFFSET_SP));
-			a_Y.whileHeld(new SpewOut());
+//			a_Y.whileHeld(new SpewOut());
+			a_Y.whileHeld(new TurretRamp());
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new RetractCollector());
 			a_start.whenPressed(new CollectorIn(false));
 			a_leftTrigger.whileHeld(new CameraTrack());
-//			a_leftTrigger.whileHeld(new RevFlywheel());
+			a_leftTrigger.whileHeld(new RevFlywheel());
 			a_rightTrigger.whileHeld(new FeederDrive(true));
 			a_leftStickX.whileHeld(new TurretManual());
 		}

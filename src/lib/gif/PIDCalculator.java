@@ -11,6 +11,7 @@ public class PIDCalculator {
 	private final double iZone;
 	private double lastError;
 	private double lastTime;
+	private double motorOutput;
 	private boolean isFirstTime = false;
 	
 	public PIDCalculator(double kP, double kI, double kD) {
@@ -52,7 +53,8 @@ public class PIDCalculator {
 		lastError = error;
 		lastTime = Timer.getFPGATimestamp();
 		
-		return p_Out + i_Out + d_Out;
+		motorOutput = p_Out + i_Out + d_Out;
+		return motorOutput;
 	}
 
 }

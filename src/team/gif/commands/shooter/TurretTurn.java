@@ -25,7 +25,6 @@ public class TurretTurn extends Command {
 	protected void execute() {
 		error = setpoint - Robot.turret.getPosition();
 		Robot.turret.set(turretPID.getOutput(error));
-		Timer.delay(.02);
 	}
 
 	protected boolean isFinished() {
