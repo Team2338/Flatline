@@ -30,8 +30,7 @@ public class RevFlywheel extends Command {
 			// PID doesn't matter in this case since we're just spewing balls out
 			setpoint = Globals.FLYWHEEL_RPM_EJECT;
 		} else {
-//			setpoint = Robot.flywheel.getStandbySetpoint();
-			setpoint = 32000;
+			setpoint = Robot.flywheel.getStandbySetpoint();
 
 //			if (setpoint == Globals.FLYWHEEL_RPM_CP) {
 //				Robot.flywheel.setPID(Globals.FLYWHEEL_P_CP, Globals.FLYWHEEL_I_CP, Globals.FLYWHEEL_D_CP,

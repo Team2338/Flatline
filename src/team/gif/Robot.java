@@ -61,7 +61,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI(isShifted);
 		
 		autoChooser = new SendableChooser<Command>();
-        autoChooser.addDefault("SideGearFarRed", new SideGearFarRed());
+        autoChooser.addObject("SideGearFarRed", new SideGearFarRed());
         autoChooser.addObject("AntiAuto", new AntiAuto());
         autoChooser.addObject("AutoTest", new AutoTest());
         autoChooser.addObject("Mobility", new Mobility());

@@ -40,6 +40,7 @@ public class DriveStraightEnc extends Command {
 	}
 
 	protected void execute() {
+		System.out.println("DriveStraight");
 		distLeftError = setpoint - Robot.drivetrain.getLeftDist();
 		distRightError = setpoint - Robot.drivetrain.getRightDist();
 //		distError = setpoint - Robot.drivetrain.getRightDist();
@@ -91,7 +92,6 @@ public class DriveStraightEnc extends Command {
 	}
 
 	protected void interrupted() {
-		Robot.drivetrain.drive(0, 0);
 	}
 	
 }

@@ -17,14 +17,18 @@ public class SideGearFarRed extends CommandGroup {
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
-    	addSequential(new WaitCommand(0.4));
-//    	addSequential(new ResetTurret(false));
-        addSequential(new DriveStraightEnc(-95, 0.9, 7));
-        addSequential(new GyroTurn(-61, 1.5));
-        addSequential(new DriveStraightEnc(-4, 0.75, 7));
+//    	addSequential(new WaitCommand(0.4));
+////    	addSequential(new ResetTurret(false));
+//        addSequential(new DriveStraightEnc(-97, 0.9, 7)); // Close: -97 Far: -98
+//        addSequential(new GyroTurn(62, 1.5));
+//        addSequential(new DriveStraightEnc(-18, 0.75, 7)); // Close: -18 Far: -11
+//        addParallel(new ShiftOmni(false));
 //    	addParallel(new GearRelease(true, true, false));
-//    	addParallel(new DriveStraightEnc(-10, 0.2));
-//    	addSequential(new GyroTurn(20, 0.2));
-//    	addSequential(new GyroTurn(-20, 0.2));
+    	addParallel(new DriveStraightEnc(-30, 0.4, 6));
+    	addSequential(new GyroTurn(10, 0.4));
+    	addSequential(new GyroTurn(-10, 0.4));
+    	addSequential(new GyroTurn(10, 0.4));
+    	addSequential(new GyroTurn(-10, 0.4));
     }
+    
 }

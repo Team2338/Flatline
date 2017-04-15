@@ -30,7 +30,7 @@ public class GyroTurn extends Command {
 	protected void execute() {
 		angleError = angle - Robot.drivetrain.getAngle();
 		double angleOutput = angleCalc.getOutput(angleError);
-
+		System.out.println("GyroTurn");
 		SmartDashboard.putNumber("GyroTurn Angle Error", angleError);
 		Robot.drivetrain.drive(angleOutput, -angleOutput);
 	}
@@ -44,7 +44,6 @@ public class GyroTurn extends Command {
 	}
 
 	protected void interrupted() {
-		Robot.drivetrain.drive(0, 0);
 	}
 
 }
