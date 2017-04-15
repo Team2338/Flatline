@@ -14,9 +14,9 @@ import team.gif.commands.shooter.ChangeRevSetpoint;
 import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
 
-public class SideGearShootRed extends CommandGroup {
+public class SideGearCloseBlue extends CommandGroup {
 
-    public SideGearShootRed() {
+    public SideGearCloseBlue() {
     	// Not fully tuned
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
@@ -25,16 +25,16 @@ public class SideGearShootRed extends CommandGroup {
     	addSequential(new WaitCommand(0.4));
     	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
-        addSequential(new DriveStraightEnc(-60.477, 0.75, 7));
+        addSequential(new DriveStraightEnc(-97, 0.9, 7));
         addParallel(new CollectorIn(false));
     	addParallel(new ResetTurret(true, 2));
-        addSequential(new GyroTurn(60, 1.5));
-        addSequential(new DriveStraightEnc(-82, 7));
-    	addParallel(new GearRelease(true, false));
-    	addSequential(new WaitCommand(1.2));
-    	addSequential(new DriveStraightEnc(12, 7));
-    	addParallel(new CameraTrack());
-    	addParallel(new FeederDrive(true));
+        addSequential(new GyroTurn(-62, 1.5));
+        addSequential(new DriveStraightEnc(-9, 0.75, 7));
+//    	addParallel(new GearRelease(true, false));
+//    	addSequential(new WaitCommand(1.2));
+//    	addSequential(new DriveStraightEnc(12, 7));
+//    	addParallel(new CameraTrack());
+//    	addParallel(new FeederDrive(true)); 
     }
     
 }

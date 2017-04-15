@@ -100,8 +100,7 @@ public class OI {
 		} else {
 			a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_OFFSET_CP));
 			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_OFFSET_SP));
-//			a_Y.whileHeld(new SpewOut());
-			a_Y.whileHeld(new TurretRamp());
+			a_Y.whileHeld(new SpewOut());
 			a_rightBumper.whileHeld(new CollectorDrive());
 			a_select.whenPressed(new RetractCollector());
 			a_start.whenPressed(new CollectorIn(false));

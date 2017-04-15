@@ -19,9 +19,11 @@ import team.gif.commands.auto.Mobility;
 import team.gif.commands.auto.MobilityShootBlue;
 import team.gif.commands.auto.MobilityShootRed;
 import team.gif.commands.auto.SideGearFarRed;
-import team.gif.commands.auto.SideGearShootBlue;
-import team.gif.commands.auto.SideGearShootRed;
+import team.gif.commands.auto.SideGearCloseBlue;
+import team.gif.commands.auto.SideGearCloseRed;
+import team.gif.commands.auto.SideGearFarBlue;
 import team.gif.commands.drivetrain.TankDrive;
+import team.gif.commands.drivetrain.WiggleDrive;
 import team.gif.subsystems.*;
 
 /**
@@ -62,6 +64,7 @@ public class Robot extends IterativeRobot {
 		
 		autoChooser = new SendableChooser<Command>();
         autoChooser.addObject("SideGearFarRed", new SideGearFarRed());
+        autoChooser.addObject("SideGearFarBlue", new SideGearFarBlue());
         autoChooser.addObject("AntiAuto", new AntiAuto());
         autoChooser.addObject("AutoTest", new AutoTest());
         autoChooser.addObject("Mobility", new Mobility());
@@ -71,8 +74,8 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("GearShootRed", new GearShootRed());
         autoChooser.addObject("FarHopperShootBlue", new FarHopperShootBlue());
         autoChooser.addObject("FarHopperShootRed", new FarHopperShootRed());
-//        autoChooser.addObject("SideGearShootBlue", new SideGearShootBlue());
-//        autoChooser.addObject("SideGearShootRed", new SideGearShootRed());
+        autoChooser.addObject("SideGearCloseRed", new SideGearCloseRed());
+        autoChooser.addObject("SideGearCloseBlue", new SideGearCloseBlue());
 		SmartDashboard.putData("AutoChooser", autoChooser);
 		
 		delayChooser = new SendableChooser<Double>();
@@ -86,6 +89,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Gear Chooser", gearChooser);
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
+		
+		SmartDashboard.putData(new WiggleDrive());
 		
 		SmartDashboard.putBoolean("Squared Inputs", true);
 		SmartDashboard.putBoolean("AsiagoDrive", true);

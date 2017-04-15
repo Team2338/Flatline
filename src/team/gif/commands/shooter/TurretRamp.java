@@ -6,6 +6,7 @@ import team.gif.Globals;
 import team.gif.OI;
 import team.gif.Robot;
 
+// Command is for debugging purposes only
 public class TurretRamp extends Command {
 	
 	private double interval;

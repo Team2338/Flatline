@@ -9,7 +9,7 @@ public class SpewOut extends CommandGroup {
 
     public SpewOut() {
     	addParallel(new RevFlywheel(true));
-    	addParallel(new FeederDrive(true, false, 1.0, Globals.POLYWHISK_FRPM));
+    	addParallel(new FeederDrive(true, false, 1.0, Globals.POLYWHISK_FRPM, 115));
     }
     
 }

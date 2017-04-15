@@ -68,7 +68,7 @@ public class TankDrive extends Command {
 		// TODO: Use velocity in place of left - leftLast
 
 		if (Robot.shifter.isHigh()) {
-			Robot.drivetrain.drive(left + OI.driverController.getRawAxis(4), left - OI.driverController.getRawAxis(4));
+			Robot.drivetrain.drive(-left - 0.5 * OI.driverController.getRawAxis(4), -left + 0.5 * OI.driverController.getRawAxis(4));
 		} else {
 			Robot.drivetrain.drive(-left, -right);
 		}
