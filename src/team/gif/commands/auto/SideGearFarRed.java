@@ -2,6 +2,7 @@ package team.gif.commands.auto;
 
 import lib.gif.commands.CommandGroup;
 import team.gif.Globals;
+import team.gif.commands.CollectorIn;
 import team.gif.commands.GearRelease;
 import team.gif.commands.WaitCommand;
 import team.gif.commands.drivetrain.ResetGyro;
@@ -24,10 +25,13 @@ public class SideGearFarRed extends CommandGroup {
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
     	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FSP, Globals.CAMERA_OFFSET_SP));
+    	addSequential(new WaitCommand(0.4, true));
+        addSequential(new DriveStraightEnc(-12, 0.75, 3));
+    	addParallel(new CollectorIn(false));
     	addParallel(new RevFlywheel()); // TODO: Maybe put a timeout for auto?
     	addParallel(new CameraTrack()); // TODO: Maybe put a timeout for auto?
     	addSequential(new FeederDrive(false, false, 1.00, Globals.POLYWHISK_FRPM, 5));
-        addSequential(new DriveStraightEnc(-98, 0.9, 7));
+        addSequential(new DriveStraightEnc(-88, 0.9, 7));
         addSequential(new GyroTurn(-62, 1.5));
         addSequential(new WiggleDrive());
 //    	addParallel(new GearRelease(true, true, false));

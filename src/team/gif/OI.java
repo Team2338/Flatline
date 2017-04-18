@@ -102,7 +102,7 @@ public class OI {
 			a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_OFFSET_SP));
 			a_Y.whileHeld(new SpewOut());
 			a_rightBumper.whileHeld(new CollectorDrive());
-			a_select.whenPressed(new RetractCollector());
+			a_select.whenPressed(new CollectorIn(true));
 			a_start.whenPressed(new CollectorIn(false));
 			a_leftTrigger.whileHeld(new CameraTrack());
 			a_leftTrigger.whileHeld(new RevFlywheel());

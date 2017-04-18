@@ -63,15 +63,13 @@ public class TankDrive extends Command {
 				if (right - rightLast < -maxAccel)
 					right = rightLast - maxAccel;
 			}
-		}
-
-		// TODO: Use velocity in place of left - leftLast
-
-		if (Robot.shifter.isHigh()) {
-			Robot.drivetrain.drive(-left - 0.5 * OI.driverController.getRawAxis(4), -left + 0.5 * OI.driverController.getRawAxis(4));
+			
+			Robot.drivetrain.drive(-left - 0.45 * OI.driverController.getRawAxis(4), -left + 0.45 * OI.driverController.getRawAxis(4));
 		} else {
 			Robot.drivetrain.drive(-left, -right);
 		}
+
+		// TODO: Use velocity in place of left - leftLast
 
 		leftLast = left;
 		rightLast = right;

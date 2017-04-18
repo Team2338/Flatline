@@ -11,8 +11,8 @@ import team.gif.commands.intake.CollectorDrive;
 public class Collector extends Subsystem {
 
 	private static final CANTalon collector = new CANTalon(RobotMap.COLLECTOR);
-	private static final Solenoid collectorSolA = new Solenoid(0, RobotMap.COLLECTORSOLA);
-	private static final Solenoid collectorSolB = new Solenoid(0, RobotMap.COLLECTORSOLB);
+	private static final Solenoid collectorSolA = new Solenoid(RobotMap.COLLECTORSOLA);
+	private static final Solenoid collectorSolB = new Solenoid(RobotMap.COLLECTORSOLB);
 	private static final Solenoid collectorHoodSol = new Solenoid(RobotMap.COLLECTORHOODSOL);
 	
 	public Collector() {
@@ -26,11 +26,11 @@ public class Collector extends Subsystem {
 	
 	public void retractCollector(boolean isRetract) {
 		if (isRetract) {
-			collectorSolA.set(true); // P: true // C: false
-			collectorSolB.set(false); // P: false // C: true
+			collectorSolA.set(false); // P: false // C: false
+			collectorSolB.set(true); // P: true // C: true
 		} else {
-			collectorSolA.set(false); // P: false // C: true
-			collectorSolB.set(true); // P: true // C: false
+			collectorSolA.set(true); // P: true // C: true
+			collectorSolB.set(false); // P: false // C: false
 		}
 	}
 	

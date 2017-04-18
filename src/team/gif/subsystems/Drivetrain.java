@@ -110,7 +110,7 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
-		setDefaultCommand(new TankDrive(1));
+		setDefaultCommand(new TankDrive(0.4));
 	}
 
 }
