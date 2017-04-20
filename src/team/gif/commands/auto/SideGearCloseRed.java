@@ -31,11 +31,11 @@ public class SideGearCloseRed extends CommandGroup {
     	addParallel(new ResetTurret(true, 2));
         addSequential(new GyroTurn(62, 1.5));
         addSequential(new DriveStraightEnc(-9, 0.75, 7));
-//    	addParallel(new GearRelease(true, false));
-//    	addSequential(new WaitCommand(1.2));
-//    	addSequential(new DriveStraightEnc(12, 7));
-//    	addParallel(new CameraTrack());
-//    	addParallel(new FeederDrive(true)); 
+    	addParallel(new GearRelease(true, false));
+    	addSequential(new WaitCommand(0.75));
+    	addSequential(new DriveStraightEnc(12, 7));
+    	addParallel(new CameraTrack());
+    	addParallel(new FeederDrive(true)); 
     }
     
 }

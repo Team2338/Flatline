@@ -63,6 +63,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI(isShifted);
 		
 		autoChooser = new SendableChooser<Command>();
+		autoChooser.addDefault("AntiAuto", new AntiAuto());
         autoChooser.addObject("SideGearFarRed", new SideGearFarRed());
         autoChooser.addObject("SideGearFarBlue", new SideGearFarBlue());
         autoChooser.addObject("AntiAuto", new AntiAuto());
@@ -114,7 +115,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void autonomousInit() {
-		autonomousCommand = new SideGearFarRed();
+		autonomousCommand = (Command) autoChooser.getSelected();
 
     	if (delayChooser.getSelected() != null) {
     		Timer.delay((Double) delayChooser.getSelected());

@@ -10,7 +10,7 @@ public class GearRelease extends Command {
 	private boolean release;
 	private boolean isAuto;
 	private boolean isFarSideAuto;
-	private boolean autoFinish = false;
+	private boolean autoFinish;
 	
 	public GearRelease(boolean release){
 		this(false, false, release);
@@ -28,6 +28,8 @@ public class GearRelease extends Command {
     }
 
     protected void initialize() {
+    	autoFinish = false;
+    	
     	if (isAuto) {
     		if (Robot.gearHanger.getFirstSense() || Robot.gearHanger.getSecondSense()) {
     			Robot.gearHanger.release(release);
