@@ -94,14 +94,14 @@ public final class MotorLogger extends Thread {
 					fw.append(",");
 					fw.append(df.format(motor.getOutputVoltage()));
 					fw.append(",");
-//					fw.append(df.format(motor.getOutputCurrent()));
-//					fw.append(",");
-//					fw.append(df.format(motor.getSetpoint()));
-//					fw.append(",");
-//					fw.append(df.format(motor.getError()));
-//					fw.append(",");
-//					fw.append(df.format(motor.getTemperature()));
-//					fw.append(",");
+					fw.append(df.format(motor.getOutputCurrent()));
+					fw.append(",");
+					fw.append(df.format(motor.getSetpoint()));
+					fw.append(",");
+					fw.append(df.format(motor.getError()));
+					fw.append(",");
+					fw.append(df.format(motor.getTemperature()));
+					fw.append(",");
 					fw.append(Long.toString(System.nanoTime() - initTime));
 					fw.append('\n');
 					

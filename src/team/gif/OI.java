@@ -23,7 +23,6 @@ import team.gif.commands.shooter.ResetTurret;
 import team.gif.commands.shooter.RevFlywheel;
 import team.gif.commands.shooter.SpewOut;
 import team.gif.commands.shooter.TurretManual;
-import team.gif.commands.shooter.TurretRamp;
 import team.gif.commands.shooter.TurretTurn;
 
 /**
