@@ -16,7 +16,7 @@ public class AutoTest extends CommandGroup {
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
-        addParallel(new WiggleDrive());
+        addParallel(new WiggleDrive(true, 10));
     	addParallel(new GearRelease(true, true, false));
 //    	addSequential(new GyroTurn(90));
 //    	addParallel(new CollectorIn(false));

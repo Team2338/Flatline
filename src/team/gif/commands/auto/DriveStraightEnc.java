@@ -24,7 +24,7 @@ public class DriveStraightEnc extends Command {
 		this(inches, 0.45, timeout);
 	}
 	
-	public DriveStraightEnc(double inches, double speedCap, double timeout, boolean ) {
+	public DriveStraightEnc(double inches, double speedCap, double timeout) {
 		super(timeout);
 		requires(Robot.drivetrain);
 		setpoint = inches * Globals.TICKS_PER_INCH;

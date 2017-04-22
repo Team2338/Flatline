@@ -8,6 +8,7 @@ import team.gif.commands.WaitCommand;
 import team.gif.commands.drivetrain.ResetGyro;
 import team.gif.commands.drivetrain.ShiftOmni;
 import team.gif.commands.drivetrain.ShifterLow;
+import team.gif.commands.drivetrain.WiggleDrive;
 import team.gif.commands.intake.FeederDrive;
 import team.gif.commands.shooter.CameraTrack;
 import team.gif.commands.shooter.ChangeRevSetpoint;
@@ -22,14 +23,12 @@ public class GearShootRed extends CommandGroup {
     	addSequential(new ResetGyro());
     	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_OFFSET_CP));
     	addSequential(new WaitCommand(0.4, true));
-    	addSequential(new ResetTurret(false));
+//    	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
-    	addSequential(new DriveStraightEnc(-84, 0.4, 4.5));
+    	addSequential(new DriveStraightEnc(-72, 0.5, 4.5)); // Midwest: -84, 0.5, 4.5
     	addParallel(new CollectorIn(false));
+        addParallel(new WiggleDrive(true, 5));
     	addParallel(new GearRelease(true, false));
-//    	addParallel(new DriveStraightEnc(-10, 0.2));
-//    	addSequential(new GyroTurn(20, 0.2));
-//    	addSequential(new GyroTurn(-20, 0.2));
     	addSequential(new WaitCommand(.75));
     	addSequential(new DriveStraightEnc(18, 2));
     	addParallel(new CameraTrack());

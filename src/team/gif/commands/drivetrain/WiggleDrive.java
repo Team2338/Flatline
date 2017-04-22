@@ -7,35 +7,42 @@ import team.gif.Robot;
  *
  */
 public class WiggleDrive extends Command {
-	
-	double i;
 
-    public WiggleDrive() {
-        requires(Robot.drivetrain);
-    }
+	private boolean isAuto; // With the exception of far side gear auto, that is
+							// why this is here
+	private boolean autoFinish;
+	private double i;
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    	i = 0;
-    }
+	public WiggleDrive(boolean isAuto, double timeout) {
+		super(timeout);
+		this.isAuto = isAuto;
+		requires(Robot.drivetrain);
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	Robot.drivetrain.drive(0.15 + (0.3 * Math.sin(i)), 0.15 - (0.3 * Math.sin(i)));
-    	i += 3.14159 / 8;
-    }
+	protected void initialize() {
+		i = 0;
+		isAuto = false;
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
+	protected void execute() {
+		Robot.drivetrain.drive(0.15 + (0.3 * Math.sin(i)), 0.15 - (0.3 * Math.sin(i)));
+		i += 3.14159 / 8;
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
+		if (isAuto) {
+			if (Robot.gearHanger.getFirstSense() || Robot.gearHanger.getSecondSense()) {
+				autoFinish = true;
+			}
+		}
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	protected boolean isFinished() {
+		return autoFinish || isTimedOut();
+	}
+
+	protected void end() {
+
+	}
+
+	protected void interrupted() {
+	}
 }

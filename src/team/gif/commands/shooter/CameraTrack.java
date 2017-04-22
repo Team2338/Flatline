@@ -56,10 +56,10 @@ public class CameraTrack extends Command {
 			Robot.turret.set(turretPID.getOutput(error) + 0.04);
 		} else if (turretPID.getOutput(error) < -0.025 && turretPID.getOutput(error) > -0.05) {
 			Robot.turret.set(turretPID.getOutput(error) - 0.04);
-		} else if (turretPID.getOutput(error) > 0.165) {
-			Robot.turret.set(0.165);
-		} else if (turretPID.getOutput(error) < -0.165) {
-			Robot.turret.set(-0.165);
+		} else if (turretPID.getOutput(error) > 0.21) {
+			Robot.turret.set(0.21);
+		} else if (turretPID.getOutput(error) < -0.21) {
+			Robot.turret.set(-0.21);
 		} else {
 			Robot.turret.set(turretPID.getOutput(error));
 		}

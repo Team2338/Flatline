@@ -18,7 +18,7 @@ public final class MotorLogger extends Thread {
 	
 	private static AtomicBoolean keepRunning = new AtomicBoolean(true);
 	private static final int delayTime = 20; // Milliseconds. This may be too fast for proper time-clocking
-	private static final String filepath = "MotorLogfile.csv"; // FIXME: Change to actual path
+	private static final String filepath = "/home/admin/LogFiles/"; // FIXME: Change to actual path
 	private static final DecimalFormat df = new DecimalFormat("####0.000");
 	private static final LinkedList<CANTalon> queue = new LinkedList<>();
 	
@@ -30,6 +30,10 @@ public final class MotorLogger extends Thread {
 		keepRunning.set(false);
 	}
 	
+//	public boolean isRunning() {
+//		return keepRunning.get();
+//	}
+	
 	@Override
 	public void run() {
 		
@@ -37,6 +41,8 @@ public final class MotorLogger extends Thread {
 		
 		ListIterator<CANTalon> iterator = queue.listIterator();
 		keepRunning.set(true); // In case this thread is killed and restarted
+		
+		File file = new File(filepath + "motorLogs.csv");
 		
 		
 		/* Synchronizes the CAN update frequency with this thread's logging frequency
@@ -47,7 +53,7 @@ public final class MotorLogger extends Thread {
 		*
 		*	Remember, the framerate should never be slower than what YOU need to control the robot (hence, the 'if')
 		*/
-		if (delayTime > 20) {
+//		if (delayTime < 20) {
 			while(iterator.hasNext()) {
 				CANTalon motor = iterator.next();
 				
@@ -57,7 +63,7 @@ public final class MotorLogger extends Thread {
 	//			motor.setStatusFrameRateMs(CANTalon.StatusFrameRate.PulseWidth, delayTime);
 	//			motor.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, delayTime);
 			}
-		}
+//		}
 		
 		
 		while (keepRunning.get()) {
@@ -66,12 +72,15 @@ public final class MotorLogger extends Thread {
 			
 			while (iterator.hasNext()) {
 				CANTalon motor = iterator.next();
+				System.out.println(motor.getDeviceID());
 				
 				// Separating into individual files might take longer
-				try (FileWriter fw = new FileWriter(new File(filepath + motor.getDescription()), true)) {
+//				try (FileWriter fw = new FileWriter(new File(filepath + motor.getDescription()), true)) {
+				try (FileWriter fw = new FileWriter(file, true)) {
 					
 					// FIXME: Adjust what you want to log. You don't have a lot of file space.
-					fw.append(Long.toString(System.nanoTime()));
+					long initTime = System.nanoTime();
+					fw.append(Long.toString(initTime));
 					fw.append(","); // DO NOT MESS WITH THE COMMA LINES. Separately appending them is actually faster.
 					fw.append(Integer.toString(motor.getDeviceID()));
 					fw.append(",");
@@ -85,14 +94,15 @@ public final class MotorLogger extends Thread {
 					fw.append(",");
 					fw.append(df.format(motor.getOutputVoltage()));
 					fw.append(",");
-					fw.append(df.format(motor.getOutputCurrent()));
-					fw.append(",");
-					fw.append(df.format(motor.getSetpoint()));
-					fw.append(",");
-					fw.append(df.format(motor.getError()));
-					fw.append(",");
-					fw.append(df.format(motor.getTemperature()));
-					fw.append(Long.toString(System.nanoTime()));
+//					fw.append(df.format(motor.getOutputCurrent()));
+//					fw.append(",");
+//					fw.append(df.format(motor.getSetpoint()));
+//					fw.append(",");
+//					fw.append(df.format(motor.getError()));
+//					fw.append(",");
+//					fw.append(df.format(motor.getTemperature()));
+//					fw.append(",");
+					fw.append(Long.toString(System.nanoTime() - initTime));
 					fw.append('\n');
 					
 				} catch (IOException e) {

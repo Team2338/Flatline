@@ -22,20 +22,21 @@ public class Globals {
 	
 //	Shooter
 	// CP: Center Peg | FH: Far Hopper | SP = Side Peg
-	public static final double FLYWHEEL_P_CP			= 0.12; //0.04
-	public static final double FLYWHEEL_I_CP 			= 0.0004; //0.0004
-	public static final double FLYWHEEL_D_CP 			= 2.4; //1.4
-	public static final double FLYWHEEL_F_CP			= 0.02389; //0.025
+	// TODO: Tune all new PIDF values with sidewheels
+	public static final double FLYWHEEL_P_CP			= 0.04; // New: 0.12 | Midwest: 0.04
+	public static final double FLYWHEEL_I_CP 			= 0.0004; // New: 0.0004 | Midwest: 0.0004
+	public static final double FLYWHEEL_D_CP 			= 1.4; // New: 2.4 | Midwest: 1.4
+	public static final double FLYWHEEL_F_CP			= 0.025; // New: 0.02389 | Midwest: 0.025
 	public static final double FLYWHEEL_P_FH			= 0.02;
 	public static final double FLYWHEEL_I_FH 			= 0.00001;
 	public static final double FLYWHEEL_D_FH 			= 0.8;
 	public static final double FLYWHEEL_F_FH			= 0.0237;
-	public static final double FLYWHEEL_P_SP			= 0.012;
-	public static final double FLYWHEEL_I_SP			= 0.00004;
-	public static final double FLYWHEEL_D_SP			= 0.2;
-	public static final double FLYWHEEL_F_SP			= 0.02384;
-	public static final int FLYWHEEL_I_ABOVE 			= 250; // 2750
-	public static final int FLYWHEEL_I_BELOW 			= 250; // 1750
+	public static final double FLYWHEEL_P_SP			= 0.006; // New: 0.012 | Midwest: 0.006
+	public static final double FLYWHEEL_I_SP			= 0.0002; // New: 0.00004 | Midwest: 0.0002
+	public static final double FLYWHEEL_D_SP			= 1.0; // New: 0.2 | Midwest: 1.0
+	public static final double FLYWHEEL_F_SP			= 0.02323; // New: 0.02384 | Midwest: 0.02323
+	public static final int FLYWHEEL_I_ABOVE 			= 2750; // New: 250 | Midwest: 2750
+	public static final int FLYWHEEL_I_BELOW 			= 1750; // New: 250 | Midwest: 1750
 	public static final double FLYWHEEL_RPM_CP			= 25950; // 25950
 	public static final double FLYWHEEL_RPM_FH			= 23950; // 23950
 	public static final double FLYWHEEL_RPM_SP			= 24790; // 24750
@@ -53,8 +54,8 @@ public class Globals {
 	public static final double POLYWHISK_RRPM			= -600; // reverse
 	
 //	Turret
-	public static final double TURRET_P 				= 4.9; // (1.3) 0.38
-	public static final double TURRET_I 				= 0.0008; // 0.0004
+	public static final double TURRET_P 				= 4.9; // 4.9 (1.3) 0.38
+	public static final double TURRET_I 				= 0.0009; // 0.0004
 	public static final double TURRET_D 				= 40.9; // 3.8
 	public static final double TURRET_I_ZONE 			= 0.05; // 0.0378
 	public static final double TURRET_POS	 			= 35d/8d; // 140/32 Encoder Counts per Rev
@@ -69,10 +70,10 @@ public class Globals {
 //	public static final double CAMERA_CENTER_X_FH		= 272;
 //	public static final double CAMERA_CENTER_X_SP		= 270;
 //	public static final double CAMERA_CENTER_X_MS		= 265;
-	public static final double CAMERA_OFFSET_CP			= 2.2879442689; // degrees
-	public static final double CAMERA_OFFSET_FH			= 3.6576809278; // degrees (FH and FSP)
-	public static final double CAMERA_OFFSET_SP			= 3.4296396612; // degrees
-	public static final double CAMERA_OFFSET_MS			= 2.8590759970; // degrees
+	public static final double CAMERA_OFFSET_CP			= 2.2879442689; // degrees (Pixel conversion: 260)
+	public static final double CAMERA_OFFSET_FH			= 3.6576809278; // degrees (FH and FSP) (Pixel conversion: 272)
+	public static final double CAMERA_OFFSET_SP			= 3.4296396612; // degrees (Pixel conversion: 270)
+	public static final double CAMERA_OFFSET_MS			= 2.8590759970; // degrees (Pixel conversion: 265)
 	public static final double CAMERA_CENTER_Y 			= 180;
 	public static final double CAMERA_HFOV				= 51.229919; // degrees as seen on GRIP
 	public static final double CAMERA_VFOV				= 39.55520044; // degrees as seen on GRIP

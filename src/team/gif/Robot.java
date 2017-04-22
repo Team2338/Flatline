@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.gif.MotorLogger;
 import lib.gif.commands.Command;
 import lib.gif.commands.Scheduler;
 import team.gif.commands.auto.AntiAuto;
@@ -45,6 +46,7 @@ public class Robot extends IterativeRobot {
 	public static final Shifter shifter = new Shifter();
 	public static final Versadrop versadrop = new Versadrop();
 	public static final Vision vision = new Vision();
+	public static MotorLogger logger = new MotorLogger();
 	public static OI oi;
 
 	public static NetworkTable grip;
@@ -91,7 +93,7 @@ public class Robot extends IterativeRobot {
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
 		
-		SmartDashboard.putData(new WiggleDrive());
+		SmartDashboard.putData(new WiggleDrive(false, 60));
 		
 		SmartDashboard.putBoolean("Squared Inputs", true);
 		SmartDashboard.putBoolean("AsiagoDrive", true);
@@ -108,6 +110,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void disabledInit() {
+//		logger.end();
 	}
 
 	public void disabledPeriodic() {
@@ -134,6 +137,11 @@ public class Robot extends IterativeRobot {
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 		new TankDrive(0.05).start();
+		
+//		if (!logger.isAlive()) {
+//			logger = new MotorLogger();
+//			logger.start();
+//		}
 	}
 
 	public void teleopPeriodic() {
