@@ -19,7 +19,7 @@ public class RevFlywheel extends Command {
 	public RevFlywheel(boolean isSpew) {
 		requires(Robot.flywheel);
 		this.isSpew = isSpew;
-		setpoint = Globals.FLYWHEEL_RPM_CP;
+		setpoint = Globals.FLYWHEEL_RPM_SP;
 		// this.isAssisted = isAssisted;
 	}
 
@@ -44,10 +44,10 @@ public class RevFlywheel extends Command {
 //			}
 
 			 Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",
-			 Globals.FLYWHEEL_P_CP),
-			 SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I_CP),
-			 SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D_CP),
-			 SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F_CP));
+			 Globals.FLYWHEEL_P_FSP),
+			 SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I_FSP),
+			 SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D_FSP),
+			 SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F_FSP));
 		}
 	}
 

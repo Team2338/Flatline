@@ -31,6 +31,6 @@ public class FarHopperShootRed extends CommandGroup {
        	addSequential(new DriveStraightEnc(30.75, 0.85, 3));
     	addParallel(new CameraTrack());
     	addParallel(new DriveStraightEnc(50, 0.1, 5));
-    	addParallel(new FeederDrive(false));
+    	addParallel(new FeederDrive(false, false, 1.0, Globals.POLYWHISK_FHRPM, 115));
     }
 }

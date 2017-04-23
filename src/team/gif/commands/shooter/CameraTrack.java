@@ -27,7 +27,7 @@ public class CameraTrack extends Command {
 
 	protected void execute() {
 		if (Math.abs(Robot.turret.getSpeed()) < 5) {
-			setpoint = Robot.turret.getPosition() + Globals.TURRET_ANGLE_TO_TICK * (Robot.vision.getXDegreeError() + Robot.vision.getCameraOffset());
+			setpoint = Robot.turret.getPosition() + Globals.TURRET_ANGLE_TO_TICK * (Robot.vision.getXDegreeError());
 		}
 		
 		error = setpoint - Robot.turret.getPosition();

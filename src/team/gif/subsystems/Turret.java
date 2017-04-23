@@ -60,8 +60,8 @@ public class Turret extends Subsystem {
 		SmartDashboard.putNumber("Turret Speed", getSpeed());
 		SmartDashboard.putNumber("Turret IGain", getIGain());
 		SmartDashboard.putNumber("Turret Angle", getPosition() / Globals.TURRET_ANGLE_TO_TICK);
-		SmartDashboard.putBoolean("Turret FwdClosed", isForwardLimitClosed());
-		SmartDashboard.putBoolean("Turret RevClosed", isReverseLimitClosed());
+		SmartDashboard.putBoolean("Turret (Left) FwdClosed", isForwardLimitClosed());
+		SmartDashboard.putBoolean("Turret (Right) RevClosed", isReverseLimitClosed());
 	}
 
 	public void initDefaultCommand() {

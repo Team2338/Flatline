@@ -5,8 +5,11 @@ import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 import com.ctre.PigeonImu;
 import com.ctre.PigeonImu.CalibrationMode;
+
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.gif.commands.Subsystem;
+import team.gif.Globals;
 import team.gif.RobotMap;
 import team.gif.commands.drivetrain.TankDrive;
 
@@ -81,6 +84,10 @@ public class Drivetrain extends Subsystem {
 	public double getRightError() {
 		return frontRight.getError() - frontRight.getPosition();
 	}
+	
+	public double getSpeed() {
+		return frontLeft.getSpeed();
+	}
 
 	public void resetEncoders() {
 		frontLeft.setPosition(0);
@@ -107,6 +114,7 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("Gyro Angle", getAngle());
 		SmartDashboard.putNumber("Drivetrain Left Error", getLeftError());
 		SmartDashboard.putNumber("Drivetrain Right Error", getRightError());
+		SmartDashboard.putNumber("Speed", getSpeed());
 	}
 
 	public void initDefaultCommand() {

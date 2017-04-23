@@ -91,7 +91,7 @@ public class OI {
 		a_A.whenReleased(new GearRelease(false, true));
 		
 		if (isShifted) { // Shift to second set of commands	
-		 a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FSP, Globals.CAMERA_OFFSET_FH));
+		 a_X.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FSP, Globals.CAMERA_OFFSET_FSP));
 		 a_B.whenPressed(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_OFFSET_FH));
 		 a_rightBumper.whileHeld(new Eject());
 		 a_select.whenPressed(new CollectorHoodIn(false));

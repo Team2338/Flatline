@@ -17,12 +17,14 @@ public class Climber extends Subsystem {
 //		climber1.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		climber1.reverseOutput(false);
 		climber1.reverseSensor(false);
-		climber1.EnableCurrentLimit(false);
-		climber1.setCurrentLimit(38);
 	}
 
 	public void drive(double speed) {
-		climber1.set(speed);
+		if (speed > 0) {
+			climber1.set(speed);
+		} else {
+			climber1.set(0);
+		}
 	}
 	
 	public void setMode(TalonControlMode mode) {

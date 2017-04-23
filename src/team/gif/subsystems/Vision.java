@@ -37,7 +37,7 @@ public class Vision extends Subsystem {
 	public double getXPixelError() {
 		try {
 			if (centerX.length > 0)
-				xPixelError = Globals.CAMERA_CENTER_X - centerX[centerX.length - 1];
+				xPixelError = (Globals.CAMERA_CENTER_X) - centerX[centerX.length - 1];
 		} catch (ArrayIndexOutOfBoundsException e) {
 		}
 		return xPixelError;
@@ -53,7 +53,7 @@ public class Vision extends Subsystem {
 	}
 
 	public double getXDegreeError() {
-		return Math.toDegrees(Math.atan(getXPixelError() / xDegreeConstant));
+		return Math.toDegrees(Math.atan((getXPixelError()) / xDegreeConstant)) + getCameraOffset();
 	}
 
 	public double getYDegreeError() {

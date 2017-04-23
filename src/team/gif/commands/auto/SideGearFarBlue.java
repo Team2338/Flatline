@@ -26,6 +26,7 @@ public class SideGearFarBlue extends CommandGroup {
     	addSequential(new ResetGyro());
     	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FSP, Globals.CAMERA_OFFSET_FH));
     	addParallel(new CollectorIn(false));
+        addParallel(new DriveStraightEnc(10, 0.1, 5));
     	addParallel(new RevFlywheel()); // TODO: Maybe put a timeout for auto?
     	addParallel(new CameraTrack()); // TODO: Maybe put a timeout for auto?
     	addSequential(new FeederDrive(false, false, 1.00, Globals.POLYWHISK_FRPM, 5));

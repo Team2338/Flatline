@@ -17,11 +17,11 @@ public class FeederDrive extends Command {
 	private double flappyTime = Timer.getFPGATimestamp();
 
 	public FeederDrive() {
-		this(false, false, 1.00, Globals.POLYWHISK_FRPM, 115);
+		this(false, false, 0.7, Globals.POLYWHISK_FRPM, 115);
 	}
 
 	public FeederDrive(boolean isAssisted) {
-		this(false, isAssisted, 1.00, Globals.POLYWHISK_FRPM, 115);
+		this(false, isAssisted, 0.7, Globals.POLYWHISK_FRPM, 115);
 	}
 
 	public FeederDrive(double feederSpeed, double polyWhiskSpeed) {
@@ -39,10 +39,11 @@ public class FeederDrive extends Command {
 
 	protected void initialize() {
 		Robot.feeder.setMode(TalonControlMode.Speed);
-		Robot.feeder.setPolyWhiskPID(SmartDashboard.getNumber("PolyWhisk P", Globals.POLYWHISK_P),
-				SmartDashboard.getNumber("PolyWhisk I", Globals.POLYWHISK_I),
-				SmartDashboard.getNumber("PolyWhisk D", Globals.POLYWHISK_D),
-				SmartDashboard.getNumber("PolyWhisk F", Globals.POLYWHISK_F));
+		if (polyWhiskSpeed == Globals.POLYWHISK_FHRPM) {
+			Robot.feeder.setPolyWhiskPID(Globals.POLYWHISK_P, Globals.POLYWHISK_I, Globals.POLYWHISK_D, Globals.POLYWHISK_F_FH);
+		} else {
+			Robot.feeder.setPolyWhiskPID(Globals.POLYWHISK_P, Globals.POLYWHISK_I, Globals.POLYWHISK_D, Globals.POLYWHISK_F);
+		}
 	}
 
 	protected void execute() {

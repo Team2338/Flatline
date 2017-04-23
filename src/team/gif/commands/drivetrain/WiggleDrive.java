@@ -21,13 +21,13 @@ public class WiggleDrive extends Command {
 
 	protected void initialize() {
 		i = 0;
-		isAuto = false;
+		autoFinish = false;
 	}
 
 	protected void execute() {
 		Robot.drivetrain.drive(0.15 + (0.3 * Math.sin(i)), 0.15 - (0.3 * Math.sin(i)));
 		i += 3.14159 / 8;
-
+		
 		if (isAuto) {
 			if (Robot.gearHanger.getFirstSense() || Robot.gearHanger.getSecondSense()) {
 				autoFinish = true;
@@ -40,7 +40,6 @@ public class WiggleDrive extends Command {
 	}
 
 	protected void end() {
-
 	}
 
 	protected void interrupted() {
