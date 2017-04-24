@@ -18,22 +18,22 @@ import team.gif.commands.shooter.RevFlywheel;
 public class SideGearCloseRed extends CommandGroup {
 
     public SideGearCloseRed() {
-    	// Not fully tuned
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
     	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_OFFSET_SP));
     	addSequential(new WaitCommand(0.4));
-    	addSequential(new ResetTurret(false));
+//    	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
-        addSequential(new DriveStraightEnc(-97, 0.9, 7));
+        addSequential(new DriveStraightEnc(-94, 0.9, 7));
         addParallel(new CollectorIn(false));
     	addParallel(new ResetTurret(true, 2));
-        addSequential(new GyroTurn(62, 1.5));
+        addSequential(new GyroTurn(57, 1.5));
         addSequential(new DriveStraightEnc(-9, 0.75, 7));
     	addParallel(new GearRelease(true, false));
-    	addSequential(new WaitCommand(0.75));
-    	addSequential(new DriveStraightEnc(12, 7));
+        addSequential(new WiggleDrive(true, 5));
+    	addSequential(new ResetTurret(true, 0.2));
+    	addSequential(new DriveStraightEnc(18, 7));
     	addParallel(new CameraTrack());
     	addParallel(new FeederDrive(true)); 
     }

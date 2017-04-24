@@ -11,20 +11,32 @@ public class RevFlywheel extends Command {
 
 	private double setpoint;
 	private boolean isSpew;
+	private boolean isHopperAuto;
 
 	public RevFlywheel() {
-		this(false);
+		this(false, false);
+	}
+	
+	public RevFlywheel(boolean isSpew) {
+		this(isSpew, false);
 	}
 
-	public RevFlywheel(boolean isSpew) {
+	public RevFlywheel(boolean isSpew, boolean isHopperAuto) {
 		requires(Robot.flywheel);
 		this.isSpew = isSpew;
+		this.isHopperAuto = isHopperAuto;
 		setpoint = Globals.FLYWHEEL_RPM_SP;
 		// this.isAssisted = isAssisted;
 	}
 
 	protected void initialize() {
 		Robot.flywheel.setMode(TalonControlMode.Speed);
+		
+		if (isHopperAuto) {
+			Robot.flywheel.setMeasurementPeriod(32);
+		} else {
+			Robot.flywheel.setMeasurementPeriod(64);
+		}
 
 		if (isSpew) {
 			// PID doesn't matter in this case since we're just spewing balls out
@@ -32,22 +44,22 @@ public class RevFlywheel extends Command {
 		} else {
 			setpoint = Robot.flywheel.getStandbySetpoint();
 
-//			if (setpoint == Globals.FLYWHEEL_RPM_CP) {
-//				Robot.flywheel.setPID(Globals.FLYWHEEL_P_CP, Globals.FLYWHEEL_I_CP, Globals.FLYWHEEL_D_CP,
-//						Globals.FLYWHEEL_F_CP);
-//			} else if (setpoint == Globals.FLYWHEEL_RPM_FH) {
-//				Robot.flywheel.setPID(Globals.FLYWHEEL_P_FH, Globals.FLYWHEEL_I_FH, Globals.FLYWHEEL_D_FH,
-//						Globals.FLYWHEEL_F_FH);
-//			} else if (setpoint == Globals.FLYWHEEL_RPM_SP) {
-//				Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
-//						Globals.FLYWHEEL_F_SP);
-//			}
+			if (setpoint == Globals.FLYWHEEL_RPM_CP) {
+				Robot.flywheel.setPID(Globals.FLYWHEEL_P_CP, Globals.FLYWHEEL_I_CP, Globals.FLYWHEEL_D_CP,
+						Globals.FLYWHEEL_F_CP);
+			} else if (setpoint == Globals.FLYWHEEL_RPM_FH) {
+				Robot.flywheel.setPID(Globals.FLYWHEEL_P_FH, Globals.FLYWHEEL_I_FH, Globals.FLYWHEEL_D_FH,
+						Globals.FLYWHEEL_F_FH);
+			} else if (setpoint == Globals.FLYWHEEL_RPM_SP) {
+				Robot.flywheel.setPID(Globals.FLYWHEEL_P_SP, Globals.FLYWHEEL_I_SP, Globals.FLYWHEEL_D_SP,
+						Globals.FLYWHEEL_F_SP);
+			}
 
-			 Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",
-			 Globals.FLYWHEEL_P_FSP),
-			 SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I_FSP),
-			 SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D_FSP),
-			 SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F_FSP));
+//			 Robot.flywheel.setPID(SmartDashboard.getNumber("Flywheel P",
+//			 Globals.FLYWHEEL_P_FSP),
+//			 SmartDashboard.getNumber("Flywheel I", Globals.FLYWHEEL_I_FSP),
+//			 SmartDashboard.getNumber("Flywheel D", Globals.FLYWHEEL_D_FSP),
+//			 SmartDashboard.getNumber("Flywheel F", Globals.FLYWHEEL_F_FSP));
 		}
 	}
 

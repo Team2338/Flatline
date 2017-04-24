@@ -4,6 +4,7 @@ import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.StatusFrameRate;
 import com.ctre.CANTalon.TalonControlMode;
+import com.ctre.CANTalon.VelocityMeasurementPeriod;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -24,6 +25,8 @@ public class Flywheel extends Subsystem {
 		super();
 		
 		flywheel.setStatusFrameRateMs(StatusFrameRate.Feedback, 10);
+//		flywheel.SetVelocityMeasurementPeriod(VelocityMeasurementPeriod.Period_100Ms);
+//		flywheel.SetVelocityMeasurementWindow(32);
 		
 		flywheel.enableBrakeMode(false);
 		flywheel2.enableBrakeMode(false);
@@ -57,6 +60,11 @@ public class Flywheel extends Subsystem {
 	
 	public void setMode(TalonControlMode mode) {
 		flywheel.changeControlMode(mode);
+	}
+	
+	public void setMeasurementPeriod(int windowSize) {
+		flywheel.SetVelocityMeasurementPeriod(VelocityMeasurementPeriod.Period_100Ms);
+		flywheel.SetVelocityMeasurementWindow(windowSize);
 	}
 	
 	public void enableCompressor(boolean isOn) {

@@ -24,13 +24,9 @@ public class SideGearFarRed extends CommandGroup {
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
-    	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FSP, Globals.CAMERA_OFFSET_FH));
+    	addSequential(new WaitCommand(0.4));
+        addSequential(new DriveStraightEnc(-99, 0.9, 7)); // Original: -99
     	addParallel(new CollectorIn(false));
-        addParallel(new DriveStraightEnc(10, 0.1, 5));
-    	addParallel(new RevFlywheel()); // TODO: Maybe put a timeout for auto?
-    	addParallel(new CameraTrack()); // TODO: Maybe put a timeout for auto?
-    	addSequential(new FeederDrive(false, false, 1.00, Globals.POLYWHISK_FRPM, 5));
-        addSequential(new DriveStraightEnc(-99, 0.9, 7));
         addSequential(new GyroTurn(-62, 1.5));
         addParallel(new WiggleDrive(false, 10));
     	addParallel(new GearRelease(true, true, false));
