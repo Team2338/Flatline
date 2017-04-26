@@ -18,7 +18,7 @@ public final class MotorLogger extends Thread {
 	
 	private static AtomicBoolean keepRunning = new AtomicBoolean(true);
 	private static final int delayTime = 20; // Milliseconds. This may be too fast for proper time-clocking
-	private static final String filepath = "/home/admin/LogFiles/"; // FIXME: Change to actual path
+	private static final String filepath = "/home/lvuser/LogFiles/"; // FIXME: Change to actual path
 	private static final DecimalFormat df = new DecimalFormat("####0.000");
 	private static final LinkedList<CANTalon> queue = new LinkedList<>();
 	
@@ -84,23 +84,32 @@ public final class MotorLogger extends Thread {
 					fw.append(","); // DO NOT MESS WITH THE COMMA LINES. Separately appending them is actually faster.
 					fw.append(Integer.toString(motor.getDeviceID()));
 					fw.append(",");
-					fw.append(Integer.toString(motor.getControlMode().value));
-					fw.append(",");
-					fw.append(df.format(motor.getPosition()));
-					fw.append(",");
+//					fw.append(Integer.toString(motor.getControlMode().value));
+//					fw.append(",");
+//					fw.append(df.format(motor.getPosition()));
+//					fw.append(",");
 					fw.append(df.format(motor.getSpeed()));
 					fw.append(",");
 					fw.append(df.format(motor.getBusVoltage()));
 					fw.append(",");
 					fw.append(df.format(motor.getOutputVoltage()));
 					fw.append(",");
-					fw.append(df.format(motor.getOutputCurrent()));
-					fw.append(",");
-					fw.append(df.format(motor.getSetpoint()));
-					fw.append(",");
+//					fw.append(df.format(motor.getOutputCurrent()));
+//					fw.append(",");
+//					fw.append(df.format(motor.getSetpoint()));
+//					fw.append(",");
 					fw.append(df.format(motor.getError()));
 					fw.append(",");
-					fw.append(df.format(motor.getTemperature()));
+//					fw.append(df.format(motor.getTemperature()));
+//					fw.append(",");
+					fw.append(df.format(motor.getP() * motor.getError() / 1023));
+					fw.append(",");
+					fw.append(df.format(motor.GetIaccum() / 1023));
+					fw.append(",");
+					fw.append(df.format(motor.getD() * motor.getSpeed() * (motor.getError() / 
+							Math.abs(motor.getError())) / 1023));
+					fw.append(",");
+					fw.append(df.format(motor.getF() * motor.getSetpoint() / 1023));
 					fw.append(",");
 					fw.append(Long.toString(System.nanoTime() - initTime));
 					fw.append('\n');

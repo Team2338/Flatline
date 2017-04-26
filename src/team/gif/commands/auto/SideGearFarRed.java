@@ -28,8 +28,7 @@ public class SideGearFarRed extends CommandGroup {
         addSequential(new DriveStraightEnc(-99, 0.9, 7)); // Original: -99
     	addParallel(new CollectorIn(false));
         addSequential(new GyroTurn(-62, 1.5));
-        addParallel(new WiggleDrive(false, 10));
+        addParallel(new WiggleDrive(false, 8));
     	addParallel(new GearRelease(true, true, false));
     }
-    
 }

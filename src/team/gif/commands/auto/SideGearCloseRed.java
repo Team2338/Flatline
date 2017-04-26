@@ -23,7 +23,7 @@ public class SideGearCloseRed extends CommandGroup {
     	addSequential(new ResetGyro());
     	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_SP, Globals.CAMERA_OFFSET_SP));
     	addSequential(new WaitCommand(0.4));
-//    	addSequential(new ResetTurret(false));
+    	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
         addSequential(new DriveStraightEnc(-94, 0.9, 7));
         addParallel(new CollectorIn(false));

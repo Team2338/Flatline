@@ -1,6 +1,5 @@
 package team.gif;
 
-import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -93,8 +92,6 @@ public class Robot extends IterativeRobot {
 
 		grip = NetworkTable.getTable("GRIP/myContoursReport");
 		
-		SmartDashboard.putData(new WiggleDrive(false, 60));
-		
 		SmartDashboard.putBoolean("Squared Inputs", true);
 		SmartDashboard.putBoolean("ArcadeDrive", true);
 		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
@@ -110,7 +107,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void disabledInit() {
-//		logger.end();
+		logger.end();
 	}
 
 	public void disabledPeriodic() {
@@ -138,10 +135,10 @@ public class Robot extends IterativeRobot {
 			autonomousCommand.cancel();
 		new TankDrive(0.05).start();
 		
-//		if (!logger.isAlive()) {
-//			logger = new MotorLogger();
-//			logger.start();
-//		}
+		if (!logger.isAlive()) {
+			logger = new MotorLogger();
+			logger.start();
+		}
 	}
 
 	public void teleopPeriodic() {

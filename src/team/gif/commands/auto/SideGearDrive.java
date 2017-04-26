@@ -20,7 +20,9 @@ public class SideGearDrive extends CommandGroup {
     	addSequential(new WaitCommand(.25));
     	addSequential(new DriveStraightEnc(28, 0.9, 3));
     	addSequential(new ResetGyro());
-    	addSequential(new GyroTurn(70, 1.5)); // Make sure to change this to correspond to alliance color! R: 60 | B: -60
-    	addSequential(new DriveStraightEnc(-100, 0.9, 10));
+    	addSequential(new GyroTurn(70, 1.5)); // Make sure to change this to correspond to alliance color! R: 70 | B: -70
+    	addParallel(new ShifterLow(false));
+    	addSequential(new WaitCommand(0.4));
+    	addSequential(new DriveStraightEnc(-125, 0.8, 10));
     }
 }

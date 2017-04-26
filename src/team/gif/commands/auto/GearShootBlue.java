@@ -23,7 +23,7 @@ public class GearShootBlue extends CommandGroup {
     	addSequential(new ResetGyro());
     	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_OFFSET_CP));
     	addSequential(new WaitCommand(0.4, true));
-//    	addSequential(new ResetTurret(true));
+    	addSequential(new ResetTurret(true));
     	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(-74, 0.5, 6)); // Midwest: -84, 0.5, 4.5
     	addParallel(new CollectorIn(false));

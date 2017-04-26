@@ -14,12 +14,14 @@ public class GearHanger extends Subsystem {
 	
 	private static final DigitalInput pegSensor = new DigitalInput(RobotMap.PEGSENSOR); // Off is on, on is off
 	private static final DigitalInput pegSensor2 = new DigitalInput(RobotMap.PEGSENSOR2);
-	private static final Relay led = new Relay(RobotMap.LED);
+	private static final DigitalOutput redStrip = new DigitalOutput(RobotMap.REDSTRIP);
+	private static final DigitalOutput blueStrip = new DigitalOutput(RobotMap.BLUESTRIP);
 	private static final Solenoid gearHanger1 = new Solenoid(RobotMap.GEAR_HANGER1);
 	private static final Solenoid gearHanger2 = new Solenoid(RobotMap.GEAR_HANGER2);
 	
 	public GearHanger() {
 		super();
+		release(true);
 	}
 	
 	public void release(boolean isReleased) {
@@ -32,16 +34,25 @@ public class GearHanger extends Subsystem {
 		}
 	}
 	
+	public void turnOnLed(boolean on) {
+		redStrip.set(on);
+		blueStrip.set(on);
+	}
+	
 	public void toggleLight() {
 		if (getFirstSense() || getSecondSense()) {
-			led.set(Relay.Value.kForward);
+			blueStrip.set(true);
 		} else {
-			led.set(Relay.Value.kReverse);
+			blueStrip.set(false);
 		}
 	}
 	
-	public boolean getLight() {
-		return led.isAlive();
+	public boolean getBlue() {
+		return blueStrip.get();
+	}
+	
+	public boolean getRed() {
+		return redStrip.get();
 	}
 	
 	public boolean getFirstSense() {
@@ -53,13 +64,14 @@ public class GearHanger extends Subsystem {
 	}
 	
 	public void update() {
-		SmartDashboard.putBoolean("LED Trigger", getLight());
+		SmartDashboard.putBoolean("Blue On", getBlue());
+		SmartDashboard.putBoolean("Red On", getRed());
 		SmartDashboard.putBoolean("PegSensor", getFirstSense());
 		SmartDashboard.putBoolean("PegSensor2", getSecondSense());
 	}
 	
     public void initDefaultCommand() {
-    	setDefaultCommand(new GearRelease(true));
+//    	setDefaultCommand(new GearRelease(true));
     }
     
 }

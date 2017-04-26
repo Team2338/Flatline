@@ -11,6 +11,7 @@ import team.gif.commands.CollectorHoodIn;
 import team.gif.commands.CollectorIn;
 import team.gif.commands.GearRelease;
 import team.gif.commands.RetractCollector;
+import team.gif.commands.ToggleLed;
 import team.gif.commands.drivetrain.ShiftOmni;
 import team.gif.commands.drivetrain.ShifterLow;
 import team.gif.commands.intake.CollectorDrive;
@@ -86,6 +87,8 @@ public class OI {
 		d_leftTrigger.whenReleased(new ShiftOmni(false));
 		d_rightTrigger.whileHeld(new ShifterLow(true));
 		d_rightTrigger.whenReleased(new ShifterLow(false));
+		d_rightBumper.whileHeld(new ToggleLed(true));
+		d_rightBumper.whenReleased(new ToggleLed(false));
 		
 		a_A.whileHeld(new GearRelease(false, false));
 		a_A.whenReleased(new GearRelease(false, true));
