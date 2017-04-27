@@ -43,7 +43,7 @@ public class TankDrive extends Command {
 //		left = OI.d_leftBumper.get() ? (left + right) : left;
 //		right = OI.d_leftBumper.get() ? (left + right) : right;
 
-		if (Robot.shifter.isHigh()) { // P: Robot.shifter.isHigh() C: !Robot.shifter.isHigh()
+		if (!Robot.shifter.isHigh()) { // P: Robot.shifter.isHigh() C: !Robot.shifter.isHigh()
 			if (left > 0 && leftLast < 0 || left < 0 && leftLast > 0) {
 				left = 0;
 			} else if (left > 0) { //Forward Left

@@ -84,10 +84,6 @@ public class Drivetrain extends Subsystem {
 	public double getRightError() {
 		return frontRight.getError() - frontRight.getPosition();
 	}
-	
-	public double getSpeed() {
-		return frontLeft.getSpeed();
-	}
 
 	public void resetEncoders() {
 		frontLeft.setPosition(0);
@@ -114,7 +110,6 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("Gyro Angle", getAngle());
 		SmartDashboard.putNumber("Drivetrain Left Error", getLeftError());
 		SmartDashboard.putNumber("Drivetrain Right Error", getRightError());
-		SmartDashboard.putNumber("Speed", getSpeed());
 	}
 
 	public void initDefaultCommand() {

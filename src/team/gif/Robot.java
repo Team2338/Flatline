@@ -94,10 +94,10 @@ public class Robot extends IterativeRobot {
 		
 		SmartDashboard.putBoolean("Squared Inputs", true);
 		SmartDashboard.putBoolean("ArcadeDrive", true);
-		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
-		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
-		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
-		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
+//		SmartDashboard.putNumber("PolyWhisk P", Globals.POLYWHISK_P);
+//		SmartDashboard.putNumber("PolyWhisk I", Globals.POLYWHISK_I);
+//		SmartDashboard.putNumber("PolyWhisk D", Globals.POLYWHISK_D);
+//		SmartDashboard.putNumber("PolyWhisk F", Globals.POLYWHISK_F);
 //		SmartDashboard.putNumber("PolyWhisk RPM", Globals.POLYWHISK_FRPM);
 //		SmartDashboard.putNumber("Flywheel P", Globals.FLYWHEEL_P_FSP);
 //		SmartDashboard.putNumber("Flywheel I", Globals.FLYWHEEL_I_FSP);
@@ -107,7 +107,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void disabledInit() {
-		logger.end();
+//		logger.end();
 	}
 
 	public void disabledPeriodic() {
@@ -135,10 +135,10 @@ public class Robot extends IterativeRobot {
 			autonomousCommand.cancel();
 		new TankDrive(0.05).start();
 		
-		if (!logger.isAlive()) {
-			logger = new MotorLogger();
-			logger.start();
-		}
+//		if (!logger.isAlive()) {
+//			logger = new MotorLogger();
+//			logger.start();
+//		}
 	}
 
 	public void teleopPeriodic() {

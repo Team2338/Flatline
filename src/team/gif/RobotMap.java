@@ -20,16 +20,17 @@ public class RobotMap {
 	public static final int FLYWHEEL_2			= 13;//P: 13 // C: 13
 	public static final int FLYWHEEL_1			= 14;//P: 14 // C: 14
 	public static final int TURRET				= 7; //P: 7 // C: 7
-	public static final int CLIMBER_1			= 12; //P: 12 // C: 12
+	public static final int CLIMBER_1			= 11; //P: 12 // C: 11
+	public static final int CLIMBER_2			= 12; //P: NA // C: 12
 	
 	// Relay Ports
-	public static final int GEAR_HANGER1 		= 2;//P: 2 // C: 4
+	public static final int GEAR_HANGER1 		= 2;//P: 2 // C: 2
 	public static final int GEAR_HANGER2		= 3;
-	public static final int VERSA__DROP			= 4;//P: 4 // C: 5
-	public static final int SHIFTER				= 5;//P: 5 // C: 7
+	public static final int VERSA__DROP			= 5;//P: 4 // C: 5
+	public static final int SHIFTER				= 7;//P: 5 // C: 7
 	public static final int COLLECTORSOLA		= 0;//P: 0 // C: 0
 	public static final int COLLECTORSOLB		= 1;//P: 1 // C: 1
-	public static final int COLLECTORHOODSOL	= 7;//P: 7 // C: 6
+	public static final int COLLECTORHOODSOL	= 6;//P: 7 // C: 6
 	
 	// DIO Ports
 	public static final int PEGSENSOR			= 0;
@@ -38,7 +39,6 @@ public class RobotMap {
 	public static final int BLUESTRIP			= 3;
 	
 	// PWM Ports
-	
 	public static final int FLAPPY				= 9; //P: 9 // C: 9
 
 }
