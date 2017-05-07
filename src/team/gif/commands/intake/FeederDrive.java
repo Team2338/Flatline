@@ -14,25 +14,28 @@ public class FeederDrive extends Command {
 	private double polyWhiskSpeed;
 	private boolean isAssisted;
 	private boolean isSpew;
+	private boolean isAuto; // with the exception of hopper auto
 	private double flappyTime = Timer.getFPGATimestamp();
 
 	public FeederDrive() {
-		this(false, false, 0.7, Globals.POLYWHISK_FRPM, 115);
+		this(false, false, false, 0.7, Globals.POLYWHISK_FRPM, 115);
 	}
 
 	public FeederDrive(boolean isAssisted) {
-		this(false, isAssisted, 0.7, Globals.POLYWHISK_FRPM, 115);
+		this(false, isAssisted, false, 0.7, Globals.POLYWHISK_FRPM, 115);
 	}
 
 	public FeederDrive(double feederSpeed, double polyWhiskSpeed) {
-		this(false, false, feederSpeed, polyWhiskSpeed, 115);
+		this(false, false, false, feederSpeed, polyWhiskSpeed, 115);
 	}
 
-	public FeederDrive(boolean isSpew, boolean isAssisted, double feederSpeed, double polyWhiskSpeed, double timeout) {
+	public FeederDrive(boolean isSpew, boolean isAssisted, boolean isAuto, double feederSpeed, 
+			double polyWhiskSpeed, double timeout) {
 		super(timeout);
 		requires(Robot.feeder);
 		this.isSpew = isSpew;
 		this.isAssisted = isAssisted;
+		this.isAuto = isAuto;
 		this.feederSpeed = feederSpeed;
 		this.polyWhiskSpeed = polyWhiskSpeed;
 	}
@@ -53,8 +56,12 @@ public class FeederDrive extends Command {
 			Robot.feeder.drivePolyWhisk(polyWhiskSpeed);
 		} else {
 			if (feederSpeed > 0) {
-				flapFlappy();
-
+				if(isAuto) {
+					Robot.feeder.setServoPosition(0.2);
+				} else {
+					flapFlappy();
+				}
+				
 				if (isAssisted) {
 					if (Robot.flywheel.isInTolerance() && Robot.vision.isAligned()) {
 						Robot.feeder.driveFeeder(feederSpeed); // 0.5
@@ -94,13 +101,12 @@ public class FeederDrive extends Command {
 
 	private void flapFlappy() {
 		// FIXME: Make servo no longer scream for mercy
-		if (Robot.feeder.getServoPosition() <= 0.08 && Timer.getFPGATimestamp() - flappyTime > 0.45) {
-			Robot.feeder.setServoPosition(0.5);
-			flappyTime = Timer.getFPGATimestamp();
-		} else if (Robot.feeder.getServoPosition() >= 0.49 && Timer.getFPGATimestamp() - flappyTime > 0.45) {
-			Robot.feeder.setServoPosition(0.07);
-			flappyTime = Timer.getFPGATimestamp();
+			if (Robot.feeder.getServoPosition() <= 0.08 && Timer.getFPGATimestamp() - flappyTime > 0.45) {
+				Robot.feeder.setServoPosition(0.4);
+				flappyTime = Timer.getFPGATimestamp();
+			} else if (Robot.feeder.getServoPosition() >= 0.39 && Timer.getFPGATimestamp() - flappyTime > 0.45) {
+				Robot.feeder.setServoPosition(0.07);
+				flappyTime = Timer.getFPGATimestamp();
+			}
 		}
-	}
-
 }

@@ -16,6 +16,7 @@ import team.gif.commands.shooter.ResetTurret;
 public class SideGearDrive extends CommandGroup {
     public SideGearDrive() {
     	addParallel(new GearRelease(false, false));
+        addSequential(new DriveStraightEnc(-7, 0.5, 3));
     	addParallel(new DriveStraightEnc(0, 0.9, 0.75));
     	addSequential(new WaitCommand(.25));
     	addSequential(new DriveStraightEnc(28, 0.9, 3));
@@ -23,6 +24,6 @@ public class SideGearDrive extends CommandGroup {
     	addSequential(new GyroTurn(70, 1.5)); // Make sure to change this to correspond to alliance color! R: 70 | B: -70
     	addParallel(new ShifterLow(false));
     	addSequential(new WaitCommand(0.4));
-    	addSequential(new DriveStraightEnc(-125, 0.8, 10));
+    	addSequential(new DriveStraightEnc(-145, 0.8, 10));
     }
 }

@@ -11,7 +11,7 @@ public class ResetTurret extends Command {
 	private boolean blue;
 
 	public ResetTurret(boolean blue) {
-		this(blue, 60);
+		this(blue, 3);
 	}
 
 	public ResetTurret(boolean blue, double timeout) {
@@ -32,14 +32,10 @@ public class ResetTurret extends Command {
 	}
 
 	protected boolean isFinished() {
-		if (Robot.turret.isForwardLimitClosed()) {
-			return true;
-		}
-		
 		if (blue) {
-			return Robot.turret.isReverseLimitClosed() || isTimedOut();
+			return isTimedOut() || Robot.turret.isReverseLimitClosed();
 		} else {
-			return Robot.turret.isForwardLimitClosed() || isTimedOut();
+			return isTimedOut() || Robot.turret.isForwardLimitClosed();
 		}
 	}
 
