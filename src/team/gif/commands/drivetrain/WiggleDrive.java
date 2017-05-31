@@ -8,8 +8,7 @@ import team.gif.Robot;
  */
 public class WiggleDrive extends Command {
 
-	private boolean isAuto; // With the exception of far side gear auto, that is
-							// why this is here
+	private boolean isAuto; // With the exception of far side gear auto
 	private boolean autoFinish;
 	private double i;
 

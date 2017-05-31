@@ -11,7 +11,7 @@ public class Globals {
 	public static final double DRIVETRAIN_P				= 0.0003;
 	public static final double DRIVETRAIN_I				= 0;
 	public static final double DRIVETRAIN_D 			= 0;
-	public static final double DRIVE_STRAIGHT_ANGLE_P	= 0.04; //  Peoria: 0.0012
+	public static final double DRIVE_STRAIGHT_ANGLE_P	= 0.04;
 	public static final double DRIVE_ANGLE_P			= 0.022;
 	public static final double DRIVE_ANGLE_I			= 0.001;
 	public static final double DRIVE_ANGLE_D			= 0;
@@ -22,7 +22,6 @@ public class Globals {
 	
 //	Shooter
 	// CP: Center Peg | FH: Far Hopper | SP = Side Peg
-	// TODO: Tune all new PIDF values with sidewheels
 	public static final double FLYWHEEL_P_CP			= 0.05; // New: 0.12 | Midwest: 0.04 (0.011) (0.045) (0.05)
 	public static final double FLYWHEEL_I_CP 			= 0.0003; // New: 0.0004 | Midwest: 0.0004 (0.0001) (0.00025) (0.0035)
 	public static final double FLYWHEEL_D_CP 			= 0.5; // New: 2.4 | Midwest: 1.4 (2.0) (0.4) (0.5)

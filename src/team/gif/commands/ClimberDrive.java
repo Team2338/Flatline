@@ -17,7 +17,6 @@ public class ClimberDrive extends Command {
 	}
 
 	protected void execute() {
-		// FIXME: Make going down on joystick NOT work
 		if (Math.abs(OI.auxController.getRawAxis(5)) > Globals.DEAD_ZONE) {
 			Robot.climber.drive(-OI.auxController.getRawAxis(5));
 		} else {

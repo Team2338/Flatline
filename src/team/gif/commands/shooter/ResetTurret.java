@@ -3,9 +3,6 @@ package team.gif.commands.shooter;
 import lib.gif.commands.Command;
 import team.gif.Robot;
 
-/**
- *
- */
 public class ResetTurret extends Command {
 
 	private boolean blue;
