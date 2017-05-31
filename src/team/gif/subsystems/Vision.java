@@ -21,7 +21,7 @@ public class Vision extends Subsystem {
 
 	public Vision() {
 		super();
-		cameraOffset = Globals.CAMERA_OFFSET_CP;
+		cameraOffset = Globals.CAMERA_OFFSET_CP_RED;
 		xDegreeConstant = Globals.CAMERA_CENTER_X / Math.tan(Math.toRadians(Globals.CAMERA_HFOV / 2));
 		yDegreeConstant = Globals.CAMERA_CENTER_Y / Math.tan(Math.toRadians(Globals.CAMERA_VFOV / 2));
 	}

@@ -42,8 +42,10 @@ public class GearHanger extends Subsystem {
 	public void toggleLight() {
 		if (getFirstSense() || getSecondSense()) {
 			blueStrip.set(true);
+			redStrip.set(true);
 		} else {
 			blueStrip.set(false);
+			redStrip.set(false);
 		}
 	}
 	
@@ -71,7 +73,7 @@ public class GearHanger extends Subsystem {
 	}
 	
     public void initDefaultCommand() {
-//    	setDefaultCommand(new GearRelease(true));
+    	setDefaultCommand(new GearRelease(true));
     }
     
 }

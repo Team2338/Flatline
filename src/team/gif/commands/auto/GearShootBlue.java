@@ -21,17 +21,17 @@ public class GearShootBlue extends CommandGroup {
     	addParallel(new ShifterLow(true));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
-    	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_OFFSET_CP));
+    	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_CP, Globals.CAMERA_OFFSET_CP_BLUE));
     	addSequential(new WaitCommand(0.4, true));
-    	addSequential(new ResetTurret(true));
     	addParallel(new RevFlywheel());
     	addSequential(new DriveStraightEnc(-74, 0.5, 6)); // Midwest: -84, 0.5, 4.5
     	addParallel(new CollectorIn(false));
     	addParallel(new GearRelease(true, false));
         addSequential(new WiggleDrive(true, 5));
-    	addSequential(new DriveStraightEnc(18, 2));
+        addSequential(new DriveStraightEnc(-7, 0.5, 1.5));
+    	addSequential(new DriveStraightEnc(24, 2));
     	addParallel(new CameraTrack());
-    	addSequential(new WaitCommand(3));
-    	addParallel(new FeederDrive(true));
+    	addSequential(new WaitCommand(1.5));
+    	addParallel(new FeederDrive(false, true, true, 0.7, Globals.POLYWHISK_FRPM, 115));
     }
 }

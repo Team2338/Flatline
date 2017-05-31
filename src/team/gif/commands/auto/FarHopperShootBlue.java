@@ -21,12 +21,12 @@ public class FarHopperShootBlue extends CommandGroup {
     	addParallel(new ShifterLow(false));
     	addParallel(new ShiftOmni(true));
     	addSequential(new ResetGyro());
-    	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_OFFSET_FH));
+    	addSequential(new ChangeRevSetpoint(Globals.FLYWHEEL_RPM_FH, Globals.CAMERA_OFFSET_FH_BLUE));
     	addSequential(new WaitCommand(0.4, true));
 //    	addSequential(new ResetTurret(false));
     	addParallel(new RevFlywheel());
     	addParallel(new CollectorIn(false));
-    	addSequential(new DriveStraightEnc(101.5, 0.85, 6));
+    	addSequential(new DriveStraightEnc(99.5, 0.85, 6));
     	addParallel(new ShifterLow(true));
     	addSequential(new WaitCommand(0.5));
     	addSequential(new GyroTurn(90, 2));
@@ -34,7 +34,7 @@ public class FarHopperShootBlue extends CommandGroup {
        	addSequential(new DriveStraightEnc(30.75, 0.85, 3));
     	addParallel(new CameraTrack());
     	addParallel(new DriveStraightEnc(50, 0.1, 5));
-    	addParallel(new FeederDrive(false, false, 1.0, Globals.POLYWHISK_FHRPM, 115));
+    	addParallel(new FeederDrive(false, false, false, 1.0, Globals.POLYWHISK_FHRPM, 115));
     	addSequential(new WaitCommand(5));
     	addParallel(new CollectorDrive());
     	addSequential(new CollectorIn(true));
